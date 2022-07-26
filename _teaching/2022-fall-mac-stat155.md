@@ -1,7 +1,7 @@
 ---
-title: "Teaching experience 1"
+title: "STAT 155: Introduction to Statistical Modeling"
 collection: teaching
-type: "Undergraduate course"
+type: "Fall 2022"
 permalink: /teaching/2022-fall-mac-stat155
 venue: "Macalester College, Department of Mathematics, Statistics, and Computer Science"
 date: 2022-01-01
