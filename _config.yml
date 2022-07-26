@@ -10,10 +10,10 @@ locale                   : "en-US"
 title                    : "James Normington"
 title_separator          : "-"
 name                     : &name "James Normington"
-description              : &description "personal description"
+description              : &description "Senior Statistical Scientist at General Mills, Inc."
 url                      : https://jamesnormington.github.io # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
-repository               : "JamesNormington/jamesnormington.github.io"
+repository               : "jamesnormington.github.io"
 teaser                   :  # filename of teaser fallback teaser image placed in /images/, .e.g. "500x300.png"
 breadcrumbs              : false # true, false (default)
 words_per_minute         : 160
@@ -80,7 +80,7 @@ analytics:
 
 # Site Author
 author:
-  name             : "James Normington"
+  name             : "James Normington, Ph.D."
   avatar           : "me 2.png"
   bio              : "Senior Statistical Scientist at General Mills, Inc. // Bayesian Statistician at Slingwave, Inc."
   location         : "Saint Paul, MN"
