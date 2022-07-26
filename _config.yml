@@ -7,7 +7,7 @@
 
 # Site Settings
 locale                   : "en-US"
-title                    : "James P. Normington"
+title                    : "James Normington"
 title_separator          : "-"
 name                     : &name "James Normington"
 description              : &description "Senior Statistical Scientist at General Mills, Inc."
