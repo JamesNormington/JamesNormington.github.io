@@ -10,3 +10,4 @@ redirect_from:
 {% include base_path %}
 
 I will upload a dynamic version of my CV soon.
+[Does this work?](http://jamesnormington.github.io/files/cv.pdf)
