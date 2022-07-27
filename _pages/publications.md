@@ -7,11 +7,15 @@ author_profile: true
 
 {% include base_path %}
 
+My research interests revolve around using Bayesian hierarchical modeling to solve problems. I have applied this wide-ranging methodology to problems involving health care policy, adaptive clinical trial designs, and, more recently, media mix modeling and time series. 
+
+Interested in collaboration? Email me at j norming [at] macalester dot edu!
+
 1. Normington JP, Lock EF, Murray TA, Carlin C. Bayesian variable selection in
 hierarchical difference-in-differences models" Statistical Methods in Medical Research,
 2022; 31:1, 169-183.
 
-2. Normington JP, Zhu J, Mattiello F, Sarkar S, Carlin BP. An ecient Bayesian
+2. Normington JP, Zhu J, Mattiello F, Sarkar S, Carlin BP. An efficient Bayesian
 platform trial design for borrowing adaptively from historical control data" Contemporary
 Clinical Trials, 2020; 89:105890.
 
@@ -21,7 +25,7 @@ diabetes outcomes" Statistics & Public Policy, 2019; 6:1, 55-66.
 
 4. Smith J, Jain N, Normington JP, Holschuh N, Zhu Y. Associations of ready-
 to-eat cereal consumptions and income with dietary outcomes: results from the
-National Health and Nutrition Examination Survey 2015-2018\ Frontiers in Nutrition,
+National Health and Nutrition Examination Survey 2015-2018; Frontiers in Nutrition,
 2022; 9.
 
 5. Zhu Y, Jain N, Normington JP, Michno J, Holschuh N, Smith J. Consumption
