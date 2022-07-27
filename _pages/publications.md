@@ -1,16 +1,18 @@
 ---
 layout: archive
-title: "Publications"
+title: "Research"
 permalink: /publications/
 author_profile: true
 ---
 
 {% include base_path %}
 
-My research interests revolve around using Bayesian hierarchical modeling to solve problems. I have applied this wide-ranging methodology to problems involving health care policy, adaptive clinical trial designs, and, more recently, media mix modeling and time series. 
+My research interests revolve around using Bayesian hierarchical modeling to solve complex problems. I have applied this wide-ranging methodology to problems involving health care policy, adaptive clinical trial designs, and, more recently, media mix modeling and time series. 
 
 Interested in collaboration? Email me at j norming [at] macalester dot edu!
 
+
+Here is a complete list of my publications and ongoing work, up to date as of July 27, 2022:
 1. Normington JP, Lock EF, Murray TA, Carlin C. Bayesian variable selection in
 hierarchical difference-in-differences models" Statistical Methods in Medical Research,
 2022; 31:1, 169-183.
