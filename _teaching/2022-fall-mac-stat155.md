@@ -7,14 +7,6 @@ venue: "Macalester College, Department of Mathematics, Statistics, and Computer 
 date: 2022-01-01
 location: "Macalester College"
 ---
+[https://bcheggeseth.github.io/Stat155Notes/](Class Notes.)
 
-STAT-155: Introduction to Statistical Modeling. More to come.
 
-Heading 1
-======
-
-Heading 2
-======
-
-Heading 3
-======
