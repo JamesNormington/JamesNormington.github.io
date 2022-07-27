@@ -7,6 +7,6 @@ venue: "Macalester College, Department of Mathematics, Statistics, and Computer 
 date: 2022-01-01
 location: "Macalester College"
 ---
-[https://bcheggeseth.github.io/Stat155Notes/](Class Notes.)
+[Class Notes](https://bcheggeseth.github.io/Stat155Notes/)
 
 
