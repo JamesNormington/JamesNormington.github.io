@@ -9,7 +9,7 @@
 locale                   : "en-US"
 title                    : "James P. Normington"
 title_separator          : "-"
-name                     : &name "James Normington"
+name                     : &name ""
 description              : &description "Senior Statistical Scientist at General Mills, Inc."
 url                      : https://jamesnormington.github.io # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
@@ -82,7 +82,7 @@ analytics:
 author:
   name             : "James Normington"
   avatar           : "profile.png"
-  bio              : "Senior Statistical Scientist at General Mills, Inc. // Bayesian Statistician at Slingwave, Inc."
+  bio              : "Visiting Assistant Professor at Macalester College"
   location         : "Saint Paul, MN"
   employer         :
   pubmed           : 
