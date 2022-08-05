@@ -9,6 +9,6 @@ location: "Macalester College"
 ---
 [Class Notes](https://bcheggeseth.github.io/Stat155Notes/)
 
-[Syllabus, as of July 27, 2022](http://jamesnormington.github.io/files/STAT 155 Fall 2022 Sec 02, 03, and 04 Syllabus .pdf)
+[Syllabus, as of Aug 5, 2022](http://jamesnormington.github.io/files/STAT 155 Fall 2022 Sec 02, 03, and 04 Syllabus .pdf)
 
 
