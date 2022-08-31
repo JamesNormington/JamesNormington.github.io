@@ -8,4 +8,4 @@ redirect_from:
   - /about.html
 ---
 
-Welcome to my personal website! As of July 27, 2022, this is very much under construction.
+Welcome to my page! I am a statistician, currently serving as a Visiting Assistant Professor of Statistics at Macalester College.  
