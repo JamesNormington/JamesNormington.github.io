@@ -9,4 +9,4 @@ redirect_from:
 
 {% include base_path %}
 
-[CV as of September 17, 2022](http://jamesnormington.github.io/files/cv.pdf)
+[CV as of Dec 27, 2022](http://jamesnormington.github.io/files/cv.pdf)
