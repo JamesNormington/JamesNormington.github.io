@@ -7,4 +7,4 @@ date: 2023-01-01
 location: "Macalester College"
 ---
 
-[Course Notes](http://jamesnormington.github.io/_teaching/_2023-spring-mac-stat112)
+[Course Notes](http://jamesnormington.github.io/112_spring_2023)
