@@ -1,0 +1,48 @@
+---
+title: "Comp/Stat 112: Effective Visualizations"
+author: "INSERT STUDENT NAME HERE (COLLABORATOR NAMES HERE)"
+output:
+  bookdown::html_document2:
+    split_by: none
+    toc: yes
+    toc_depth: 3
+    toc_float:
+      toc_collapsed: true
+    number_sections: false
+---
+
+```{r 03_setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, error = TRUE)
+library(tidyverse)
+library(ggplot2)
+```
+
+# Effective Visualizations
+
+### Analysis of Graphics {-}
+
+
+```{exercise}
+For your assigned graphics or sets of graphics, identify the following:
+
+1. the story the graphic is aiming to communicate to the audience
+2. effective features of the graphic
+3. areas for improvement
+```
+
+> ANSWER: 
+
+
+## Exercises {-}
+
+
+
+```{exercise}
+Consider one of the more complicated data graphics listed for Exercise 2.5 at (http://mdsr-book.github.io/exercises.html#exercise_25):
+
+a. What story does the data graphic tell? What is the main message that you take away from it?
+b. Can the data graphic be described in terms of the Grammer of Graphics (frame, glyphs, aesthetics, facet, scale, guide)
+c. Critique and/or praise the visualization choices made by the designer. Do they work? Are they misleading? Thought-provoking? Brilliant? Are there things that you would have done differently? Justify your response.
+```
+
+> ANSWER: 

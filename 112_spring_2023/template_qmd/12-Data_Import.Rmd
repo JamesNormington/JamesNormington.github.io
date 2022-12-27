@@ -1,0 +1,234 @@
+---
+title: "Comp/Stat 112: Data Import"
+author: "INSERT STUDENT NAME HERE (COLLABORATOR NAMES HERE)"
+output:
+  bookdown::html_document2:
+    split_by: none
+    toc: yes
+    toc_depth: 3
+    toc_float:
+      toc_collapsed: true
+    number_sections: false
+---
+
+```{r 12_setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, error = TRUE)
+library(tidyverse)
+library(ggplot2)
+library(lubridate)
+```
+
+# Data Import
+
+## Learning Goals {-}
+
+- Develop comfort in finding an existing data set to import into R
+- Develop comfort in importing data of a variety of file types into R
+- Understand and implement the data cleaning process to make values consistent
+- Understand the implications of different ways of dealing with missing values with `replace_na` and `drop_na`
+
+## Finding, Importing, and Cleaning Data {-}
+
+Additional resources and readings:   
+1. [Data Import Cheat Sheet](https://github.com/rstudio/cheatsheets/raw/main/data-import.pdf)    
+2. [`readr` documentation](https://readr.tidyverse.org/)   
+3. [Data import](http://r4ds.had.co.nz/data-import.html) from Wickham and Grolemund <br/>
+4. [Missing data](http://r4ds.had.co.nz/tidy-data.html#missing-values-3) from Wickham and Grolemund <br/>
+5. [Data intake](https://mdsr-book.github.io/mdsr2e/ch-dataII.html#data-intake) from Baumer, Kaplan, and Horton   
+6. [Using the import wizard](https://www.youtube.com/watch?v=GtCsjtZBNp4) from Prof. Lendway
+
+
+
+
+
+In practice, data science is not as glamorous as building fancy classifiers and creating visualizations all the time. Data scientists spend [80% of their time acquiring and cleaning data](https://www.forbes.com/sites/gilpress/2016/03/23/data-preparation-most-time-consuming-least-enjoyable-data-science-task-survey-says/#755d4d426f63). While the skill of data acquisition is best learned through experience, this section of the course will outline the most common approaches to acquiring data.
+
+When importing and cleaning a dataset, take careful notes in your R Markdown. Explain where you found the dataset (the source). Record the steps you took to clean and import the data in case somebody else needs to replicate your analysis. You should also make sure to cite and credit the creator of the dataset.
+
+### Finding Existing Data Sets {-}
+
+The easiest way to get data is by finding an existing dataset that has been created by somebody else. Search engines such as Google can be excellent tools, especially when using file type filters. For example, if you are looking for a dataset about movie reviews, you might search for "`movie reviews filetype:csv`". You could also try searching for other common filetypes that are compatible with R, such as `.tsv`, `.xls`, `.xlsx`, or `.rds`.
+
+
+Another good resource for datasets are compendiums of datasets such as the excellent and continuously-evolving [awesome-public-datasets](https://github.com/caesar0301/awesome-public-datasets) GitHub repo, [Kaggle datasets](https://www.kaggle.com/datasets) or the [data.world website](https://data.world/) website. You can find links to other similar compendiums at the end of the awesome-public-datasets page.
+
+
+
+### Loading Datasets {-}
+
+Once you have a dataset, it's time to load it into `R`. Don't be frustrated if this step takes some time. 
+
+The table below lists some common data import functions and when you would use them.
+
+Function | Use when
+-----------|---------------
+`read_csv()`| data are saved in .csv (comma delimited or comma separated values) format - you can save Excel files and Google Sheets in this format 
+`read_delim()` | data are saved in other delimited formats (tab, space, etc.)  
+`read_sheet()` | data are in a Google Sheet  
+`st_read()` | reading in a shapefile
+
+A few tips:
+
+ * When reading in data from a file, one tip is to initially use the Import Wizard to help write the code. DO NOT use it to import the data as you will need the code to read in the data in order to knit your document. Prof. Lendway has posted a [video tutorial on the Import Wizard](https://www.youtube.com/embed/GtCsjtZBNp4)   
+ * The import functions `read_csv`, `read_csv2`, and `read_tsv` from the `readr` package are faster than their counterparts `read.csv`, `read.csv2`, and `read.tsv` from the `base` package for large files. They also have more flexible parsers (e.g., for dates, times, percentages). We recommend you use these functions instead of the `base` functions like `read.csv`. The package `fread` has other import functions and is also faster for large datasets. For smaller data sets (say 1MB or less), there won't be that much difference in time for the three different packages. 
+ * `read_csv2` is for semi-colon delimited files, whereas `read_csv` is for comma delimited files.
+ * The `readr` functions automatically guess the type of data in each column (e.g., character, double, integer). You will often see a message just after the import telling you what it chose for each column. If you think there is an issue, you can use the function `problems()` to detect problems, and/or specify how the columns should be imported. See the section on "column specification" in the [Data Import Cheat Sheet](https://github.com/rstudio/cheatsheets/raw/main/data-import.pdf) for more info.
+ * If you have trouble importing a dataset, try to first import it into a different data such as Google Sheets or Excel tool and then export it as a TSV or CSV before reading it into `R`.
+ * For really messy data, [OpenRefine](http://openrefine.org/) is complicated but powerful ([YouTube demo](https://www.youtube.com/watch?v=WCRexQXYFrI)). 
+ * When you are importing a large file, you might want to first try importing a subset of the data. For example, if you want to take the first 17 rows only, you can write `read_csv("file.csv",n_max=17)`
+ * Similarly, you might want to skip the first $n$ lines of the file when importing, select only certain columns to read in, or choose a random subset of the rows. See the cheat sheet for instructions on these tasks or just google!
+
+### Checking the Imported Datasets {-}
+
+After reading in new data, it is ALWAYS a good idea to do some quick checks of the data. Here are two first steps that are especially useful:
+
+1. Open the data in the spreadsheet-like viewer with `View(dataset_name)` and take a look at it. Sort it by different variables by clicking on the arrows next to the variable name. Make sure there isn't anything unexpected.
+
+2. Do a quick summary of the data. The code below is one way to do this. For quantitative variables, it provides summary statistics and will let you know if there are missing values. For factors (they need to be factors, not just character variables - the `mutate()` changes them to factors), it shows you counts for the top categories and tells you if there are any missing values. 
+
+```
+dataset_name %>% 
+  mutate(across(where(is.character), as.factor)) %>% 
+  summary()
+```
+
+
+### Cleaning Datasets {-}
+
+**Cleaning Categorical Variables**
+
+First we want to make sure the factors are "clean", meaning consistent values in the correct format. For example, `true` and `TRUE` and `T` will be three different factors. The easiest way to manage this is to look at the levels for the factor and replace values with a messy factor to a clean one. For example, the following code cleans up values in true/false values in column `X` in a data set called `df`:
+
+```
+levels(df$X) <- list(TRUE = c("T", "true"), FALSE = c("f", "FALSE", "N", "No"))
+```
+
+```{exercise, name="Clean up the levels on the Messy IMDB 5000 dataset"}
+We will use a slightly "messied" version of the [IMDB 5000 Dataset](https://www.kaggle.com/deepmatrix/imdb-5000-movie-dataset), collected by chuansun76 on Kaggle.^[Another option for part (e) would be to leave them as strings and then use string processing to define the levels. We'll learn this technique soon.]
+```
+
+a. Use `read_csv` to load the IMDB 5000 dataset from "https://bcheggeseth.github.io/112_fall_2022/data/imdb_5000_messy.csv", and save it as `imdbMessy`.
+
+> ANSWER:
+
+```{r}
+
+```
+
+b. Print out the variable names.
+
+> ANSWER:
+
+```{r}
+
+```
+
+c. Examine the color variable. What are the existing values? 
+
+> ANSWER:
+
+```{r}
+
+```
+
+d. How often does each color occur? *Hint: `table` or `count`*
+
+> ANSWER:
+
+```{r}
+
+```
+
+e. The `read_csv` read in the `color` values as strings. For this exercise, let's convert them to factor using the code: `imdbMessy$color <- as.factor(imdbMessy$color)`.
+
+> ANSWER:
+
+```{r}
+
+```
+
+f. Select what you think is the best value for each level and replace "messy" versions of the value with clean ones by assigning to the `levels()` function as shown above. How many entries are there for each level now?
+
+> ANSWER:
+
+```{r}
+
+```
+
+
+
+**Addressing Missing Data**
+
+Finally, you should look for and address missing data, encoded as `NA` (not available) in `R`. There is no single formula for dealing with NAs. You should first look to see how many NAs appear in each column:
+
+```{r eval=FALSE}
+colSums(is.na(imdbMessy))
+```
+
+Study the individual observations with NAs carefully. Why do you think they are missing? Are certain types of observations more likely to have NAs?
+
+You have several options for dealing with NAs (*and they have different consequences*):
+
+* You can remove observations with one or more NAs (see [`drop_na`](https://tidyr.tidyverse.org/reference/drop_na.html)).
+* You can remove columns with many NA values.
+* You can replace NAs with a reasonable value (called *imputing* values). This could be a default value (like zero), or the average for a column. (see [`replace`_na`](https://tidyr.tidyverse.org/reference/replace_na.html))
+* You can use packages such as `missForest` that fill in missing values with statistical predictions.^[This is dangerous unless you know what you are doing.]
+
+There is no perfect approach to dealing with NAs, and you must *think carefully* about how removing or replacing missing data may affect your work.
+
+```{exercise,name="Address NA values in the Messy IMDB 5000 dataset"}
+Consider `imdbMessy`.
+```
+
+a. Print out the number of NAs in each of the columns.
+
+> ANSWER:
+
+```{r}
+
+```
+
+b. Consider the `actor_1_facebook_likes` column. Take a look at a few of the records that have NA values. Why do you think there are NAs?
+
+> ANSWER:
+
+```{r}
+
+```
+
+c. Create a new dataframe that removes observations that have NAs for `actor_1_facebook_likes`.
+
+> ANSWER:
+
+```{r}
+
+```
+
+d. Create a second new dataframe that replaces NAs in `actor_1_facebook_likes` with 0.
+
+> ANSWER:
+
+```{r}
+
+```
+
+
+## Additional Practice
+
+```{exercise}
+Find a dataset that is not built into `R` and is related to one of the following topics:  
+  
+```
+
+* Macalester College
+* A personal hobby or passion
+* Your hometown, or a place you have lived
+  
+Load the data into `R`, make sure it is clean, and construct one interesting visualization of the data.
+
+
+> ANSWER:
+
+```{r}
+
+```

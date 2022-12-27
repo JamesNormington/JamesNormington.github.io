@@ -1,0 +1,155 @@
+---
+title: "Comp/Stat 112: Regular Expressions"
+author: "INSERT STUDENT NAME HERE (COLLABORATOR NAMES HERE)"
+output:
+  bookdown::html_document2:
+    split_by: none
+    toc: yes
+    toc_depth: 3
+    toc_float:
+      toc_collapsed: true
+    number_sections: false
+---
+
+```{r 14_setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, error = TRUE)
+library(tidyverse)
+library(lubridate)
+library(rvest)
+library(stringr)
+```
+
+# Regular Expressions
+
+## Practice: Fall 2021 Enrollment Exploration {-}
+
+The tibble `courses` has the Fall 2021 enrollment information from the Macalester Registrar's website, which we scraped in an earlier activity.
+
+```{r}
+courses <- read_csv('https://bcheggeseth.github.io/112_fall_2022/data/Mac2021Courses.csv')
+```
+
+
+
+
+
+
+```{exercise,name="Rearrange data table"}
+Make the following changes to the `courses` data table:
+```  
+
+
+a) Split `number` into three separate columns: `dept`, `number`, and `section`.
+
+> ANSWER:
+
+```{r}
+
+```
+
+b) Split the `avail_max` variable into two separate variables: `avail` and `max`. It might be helpful to first remove all appearances of "Closed ". 
+
+> ANSWER:
+
+```{r}
+
+```
+
+c) Use `avail` and `max` to generate a new variable called `enrollment`.
+
+> ANSWER:
+
+```{r}
+
+```
+
+d) Split the `time` variable into two separate columns: `start_time` and `end_time`. Convert all of these times into continuous 24 hour times (e.g., 2:15 pm should become 14.25). *Hint: replace TBA with TBA-TBA first and check out the function `parse_date_time`.*
+
+> ANSWER:
+
+```{r}
+
+```
+
+
+
+
+
+
+```{exercise, name="WA courses"}
+Make a bar plot showing the number of Fall 2021 sections satisfying the Writing WA requirement (a `gen_ed`), sorted by department code.^[For this exercise, you can count cross-listed courses towards both departments' WA counts.]
+
+```
+
+> ANSWER:
+
+```{r}
+
+```
+
+<br>
+
+In the next series of exercises, we are going to build up an analysis to examine the number of student enrollments for each faculty member.
+
+```{exercise, name="Filter cases"}
+For this particular analysis, we do not want to consider certain types of sections. Remove all of the following from the data table (and save as `courses2`):
+
+a) All sections in `PE` or `INTD`.
+b) All music ensembles and dance practicum sections (these are all of the MUSI and THDA classes with numbers less than 100).
+c) All lab sections. This is one is a bit tricky. You can search for "Lab" or "Laboratory", but be careful not to eliminate courses with words such as "Labor". Some of these have section numbers that end in "-L1"", for example.
+
+```
+
+> ANSWER:
+
+```{r}
+
+```
+
+
+```{exercise, label="nt",name="Handle cross-listed courses"}
+Some sections are listed under multiple different departments, and you will find the same instructor, time, enrollment data, etc. For this activity, we only want to include each actual section once and it doesn't really matter which department code we associate with this section. Eliminate all duplicates, keeping each actual section just once. Hint: look into the `R` command `distinct`, and think carefully about how to find duplicates.
+
+```
+
+> ANSWER:
+
+```{r}
+
+```
+
+
+```{exercise, name="Co-taught courses"}
+Make a table with all Fall 2021 co-taught courses (i.e., more than one instructor).
+
+```
+
+> ANSWER:
+
+```{r}
+
+```
+
+
+```{exercise, name="Faculty enrollments"}
+Make a table where each row contains a faculty, the number of sections they are teaching in Fall 2021, and the total enrollments in those section. Sort the table from highest total enrollments to lowest.^[For the purposes of this exercise, we are just going to leave co-taught courses as is so that you will have an extra row for each pair or triplet of instructors. Alternatives would be to allocate the enrollment number to each of the faculty members or to split it up between the members. The first option would usually be the most appropriate, although it might depend on the course.]
+
+```
+
+> ANSWER:
+
+```{r}
+
+```
+
+
+```{exercise, name="Evening courses"}
+Create and display a new table with all night courses (i.e., a subset of the table you wrangled by the end of the exercise 4). Also make a bar plot showing the number of these courses by day of the week.
+
+```
+
+> ANSWER:
+
+```{r}
+
+```

@@ -1,0 +1,205 @@
+```{r 12_setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, error = TRUE, tidy = FALSE, message = FALSE, cache.extra = packageVersion("tufte"))
+library(tidyverse)
+library(ggplot2)
+library(lubridate)
+library(ggmap)
+library(GGally)
+```
+
+# (PART) Data Modeling {-}
+
+# Exploratory Data Analysis
+
+## Learning Goals {-}
+
+- Understand the first steps that should be taken when you encounter a new data set
+- Develop comfort in knowing how to explore data to understand it
+- Develop comfort in formulating research questions
+
+
+You can download a template .Rmd of this activity [here](template_rmd/12-EDA_Assign.Rmd). Put it in a folder called `Day12` in your `Comp_Stat_112` folder.
+
+
+## First Steps of a Data Analysis {-}
+
+What are the first steps to take when you start a project or get a hold of a new data set?
+
+In a data science project, you will typically have a question or idea brought to you: How are people interacting with the new version of my software? How is weather in St. Paul changing in the last decade? What type of people are most likely to enroll in Obamacare?
+
+You will sometimes be given a dataset when asked one of these questions, or more often, a general description of the data you *could* get if you talked to the right people or interacted with the right software systems.
+
+In this section, we will talk about **Exploratory Data Analysis** (EDA), a name given to the process of 
+
+1. "getting to know" a dataset, and 
+2. trying to identify any meaningful insights within it. 
+
+
+[Grolemund and Wickham]("https://r4ds.had.co.nz/explore-intro.html") visualize the place of this "Understand" process with a simple diagram:
+
+```{r echo=FALSE,fig.width=5,fig.cap="The process of EDA, as described by Grolemund and Wickham."}
+knitr::include_graphics("http://r4ds.had.co.nz/diagrams/data-science.png")
+```
+
+We view the process similarly:
+
+1) **Understand** the basic data that is available to you.
+2) **Visualize and describe** the variables that seem most interesting or relevant.
+3) **Formulate** a research question.
+4) **Analyze** the data related to the research question, starting from simple analyses to more complex ones.
+5) **Interpret** your findings, **refine** your research question, and return to step 4.
+
+
+## Understand the Basic Data {-}
+
+Start by understanding the data that is available to you. If you have a codebook, you have struck gold! If not (the more common case), you'll need to do some detective work that often involves talking to people. At this stage, ask yourself:
+
+* Where does my data come from? How was it collected?^[Particularly important questions about how it was collected include WHO (whether it is a sample of a larger data set, and, if so, how the sampling was done? Randomly? All cases during a specific time frame? All data for a selected set of users?), WHEN (is this current data or historical? what events may have had an impact?), WHAT (what variables were measured? how was it measured, self-reported through a questionnaire or measured directly?), WHY (who funded the data collection? for what purposes what the data collected? to whose benefit was the data collected?) Answers to such questions strongly impact the conclusions you will be able to draw from the data.]
+* Is there a codebook? If not, how can I learn about it?
+* Are there people I can reach out to who have experience with this data?
+
+Next, you need to load the data and clean it. Once the data is loaded, ask yourself about each table:
+
+  * What is an observation? 
+  * How many observations are there? 
+  * What is the meaning of each variable? 
+  * What is the type of each variable (date, location, string, factor, number, boolean, etc.)?
+  
+Some great methods to start with are the functions 
+
+- `str()` to learn about the numbers of variables and observations as well as the classes of variables 
+- `head()` to view the top of the data table (can specify the number of rows with `n=` )
+- `tail()` to view the bottom of the data table
+
+Here is an example:
+
+```{r}
+crime <- read_csv("http://datasets.flowingdata.com/crimeRatesByState2005.csv")
+str(crime)
+head(crime)
+tail(crime)
+```
+
+Finally, ask yourself about the relationships between tables:
+
+  * What variables are keys and link the tables (i.e., which variables can you use in `join` commands)?
+  
+
+## Visualize and Describe the Data {-}
+
+Once you have the data loaded and cleaned, it is usually helpful to do some univariate visualization; e.g., plotting histograms, densities, and box plots of different variables. You might ask questions such as:
+
+* What do you see that is interesting? 
+* Which values are most common or unusual (outliers)?
+* Is there a lot of missing data?
+* What type of variation occurs within the individual variables?
+* What might be causing the interesting findings?
+* How could you figure out whether your ideas are correct?
+
+Once you have done some univariate visualization, you might examine the **covariation** between different variables. One convenient way to do this is with a `pairs` plot. 
+
+Here are three different versions of such plots based on 2005 crime data (rates per 100,000 population) from Chapter 6 of *Visualize This*, by Nathan Yau. The main point of such plots is not necessarily to draw any conclusions, but help generate more specific research questions and hypotheses.
+
+```{r fig.width=10,fig.height=8}
+crime2 <- crime %>%
+  filter(state != "District of Columbia", state != "United States")
+pairs(crime2[, 2:9], panel = panel.smooth)
+```
+```{r fig.width=10,fig.height=8}
+ggpairs(crime2[, 2:9], aes(alpha = 0.4))
+```
+
+```{r fig.width=10,fig.height=8}
+lowerFn <- function(data, mapping, method = "lm", ...) {
+  p <- ggplot(data = data, mapping = mapping) +
+    geom_point(colour = "blue") +
+    geom_smooth(method = method, color = "red", ...)
+  p
+}
+
+ggpairs(
+  crime2[, 2:9],
+  lower = list(continuous = wrap(lowerFn, method = "lm")),
+  diag = list(continuous = wrap("barDiag", colour = "blue")),
+  upper = list(continuous = wrap("cor", size = 5))
+)
+```
+
+
+## Formulate a Research Question {-}
+
+You will often end up with a lot of data, and it can be easy to be overwhelmed. How should you get started? One easy idea is to brainstorm ideas for research questions, and pick one that seems promising. This process is much easier with more than one brain! You will often be working off of a broad question posed by your business, organization, or supervisor, and be thinking about how to narrow it down. To do so, you can again revisit questions like "What patterns do you see?" or "Why might they be occurring?"
+
+## Examples  {-}
+
+Here are some exploratory data analysis examples I like:
+
+
+- [Crime mapping](https://www.kaggle.com/mircat/violent-crime-mapping)
+
+- [Changes in fine particle air pollution in the US](https://bookdown.org/rdpeng/exdata/data-analysis-case-study-changes-in-fine-particle-air-pollution-in-the-u-s-.html)
+
+- [Married people have more sex](http://flowingdata.com/2017/07/03/married-people-sex/)^[The graphics in this one are a bit more developed than you would really see in an exploratory analysis, but I think the progression of visualizations is interesting and follows an exploratory story.]
+
+- [Tropical storm analysis](https://www.r-bloggers.com/2017/09/exploratory-data-analysis-of-tropical-storms-in-r/)
+
+## Practice: Flight Data {-}
+
+Let's practice these steps using data about [flight delays from Kaggle](https://www.kaggle.com/usdot/flight-delays). You have access to the data for [airlines](data/airlines.csv), [airports](data/airports.csv), and [flights](data/flights_jan_jul_sample2.csv).
+
+There are three tables of data:
+
+```{r, cache=TRUE, echo=FALSE}
+airlines <- read_csv("data/airlines.csv")
+airports <- read_csv("data/airports.csv")
+flights <- read_csv("data/flights_jan_jul_sample2.csv")
+```
+
+```{r, cache=TRUE,eval=FALSE}
+airlines <- read_csv("https://bcheggeseth.github.io/112_fall_2022/data/airlines.csv")
+airports <- read_csv("https://bcheggeseth.github.io/112_fall_2022/data/airports.csv")
+flights <- read_csv("https://bcheggeseth.github.io/112_fall_2022/data/flights_jan_jul_sample2.csv")
+```
+
+Note that the full set of flight data has more than 5.8 million flights. To start, I have given you a subset that includes all flights in the first 15 days of January 2015 and in the first 15 days of July 2015. If at the end you wish to try your analysis on the whole data set, you can download the original .csv file from the Kaggle page and substitute a link to it in the code chunk above.
+
+
+There is a ton of data here, and it can be easy to be overwhelmed. We are going to focus our exploration a bit by considering the following broad research question: **which flights are most likely to be delayed?**
+
+```{exercise, name="Data source"}
+Where does this data come from? Who collected it?   
+```
+
+
+```{exercise, name="Explore codebook"}
+This data set comes with a codebook on the Kaggle site. Have a look at the codebook to understand which variables are contained in each of the three tables. For example, what are the levels of `CANCELLATION_REASON` and what do they mean? What is the unit of observation for each table?
+
+```
+
+```{exercise, name="Possible joins"}
+What variables link the three tables? How could you join data from one table to another?
+  
+```
+
+
+```{exercise, name="Visualize and describe the data"}
+Use some univariate and bivariate visualizations to start to explore the questions mentioned above:
+
+* What do you see that is interesting? 
+* Which values are most common or unusual (outliers)?
+* Is there a lot of missing data?
+* What type of variation occurs within the individual variables?
+* What might be causing the interesting findings?
+* How could you figure out whether your ideas are correct?
+
+```
+
+```{exercise, name="Formulate a specific research question"}
+Based on your preliminary visualizations and exploration of the date, formulate a more specific research question/hypothesis within this broad area of understanding the causes of flight delays.
+
+```
+
+```{exercise, name="Share a visualization"}
+Develop a single visualization to share with the class that tells a story about your more specific research question/hypothesis. Note: the story may very well be something along the lines of "we thought variable X would affect flight delays in way Y, but the evidence does not support that."
+
+```

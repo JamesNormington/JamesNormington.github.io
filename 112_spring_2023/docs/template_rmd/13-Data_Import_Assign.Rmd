@@ -1,0 +1,41 @@
+---
+title: "Comp/Stat 112: Data Import"
+author: "INSERT STUDENT NAME HERE (COLLABORATOR NAMES HERE)"
+output:
+  bookdown::html_document2:
+    split_by: none
+    toc: yes
+    toc_depth: 3
+    toc_float:
+      toc_collapsed: true
+    number_sections: false
+---
+
+```{r 13_setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, error = TRUE)
+library(tidyverse)
+library(ggplot2)
+library(lubridate)
+```
+
+# Data Import
+
+## Additional Practice
+
+```{exercise}
+Find a dataset that is not built into `R` and is related to one of the following topics:  
+  
+```
+
+* Macalester College
+* A personal hobby or passion
+* Your hometown, or a place you have lived
+  
+Load the data into `R`, make sure it is clean, and construct one interesting visualization of the data.
+
+
+> ANSWER:
+
+```{r}
+
+```

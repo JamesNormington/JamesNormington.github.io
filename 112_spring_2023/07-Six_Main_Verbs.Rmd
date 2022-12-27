@@ -1,0 +1,444 @@
+```{r 07_setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, error = TRUE, tidy = FALSE, message = FALSE, cache.extra = packageVersion("tufte"))
+library(tidyverse)
+library(ggplot2)
+library(mosaicData)
+library(lubridate)
+Birthdays <- Birthdays %>% select(state, date, year, births)
+```
+
+# (PART) Data Wrangling {-}
+# Six Main Verbs
+
+## Learning Goals {-}
+
+- Understand and be able to use the following verbs appropriate: `select`, `mutate`, `filter`, `arrange`, `summarize`, `group_by`
+- Develop working knowledge of working with dates and `lubridate` functions
+
+You can download a template .Rmd of this activity [here](template_rmd/07-Six_Main_Verbs_Assign.Rmd). Add it to a folder called `Day_07` in your `COMP_STAT_112` folder.
+
+
+
+
+## Data Wrangling Introduction {-}
+
+### Example: US Births {-}
+
+The number of daily births in the US varies over the year and from day to day. What's surprising to many people is that the variation from one day to the next can be huge: some days have only about 80% as many births as others. Why? In this activity we'll use basic data wrangling skills to understand some drivers of daily births.
+
+The data table `Birthdays` in the `mosaicData` package gives the number of births recorded on each day of the year in each state from 1969 to 1988.^[The `fivethirtyeight` package has more recent data.] 
+
+```{r, echo=FALSE}
+knitr::kable(
+  Birthdays[1:6, ],
+  caption = "A subset of the initial birthday data."
+)
+```
+
+### Tidy Data {-}
+
+Additional reading: 
+
+* [Wickham, Tidy Data](https://www.jstatsoft.org/article/view/v059i10)
+* [Wickham and Grolemund, Tidy Data](http://r4ds.had.co.nz/tidy-data.html)
+* [Baumer, Kaplan, and Horton, Tidy Data](https://mdsr-book.github.io/mdsr2e/ch-dataII.html#tidy-data)
+
+\medskip
+
+There are different ways to store and represent the same data. In order to be consistent and to also take advantage of the vectorized nature of `R`, the `tidyverse` packages we'll use provide a set of three interrelated rules/conventions for a dataset to be `tidy`:
+
+1. Each variable must have its own column.
+2. Each observation must have its own row.
+3. Each value must have its own cell.
+
+
+One of the first things we'll often do when acquiring new data is to "tidy it" into this form. For now, we can already start thinking of a data frame (tibble) as a table whose rows are the individual cases and whose columns are the variables on which we have information for each individual case. The first figure from the [`tidyr` cheat sheet](https://raw.githubusercontent.com/rstudio/cheatsheets/main/tidyr.pdf) summarizes this principle. 
+
+### Data Verbs {-}
+
+Additional reading:
+
+* [Wickham and Grolemund, Data Transformation](http://r4ds.had.co.nz/transform.html)
+* [Baumer, Kaplan, and Horton, A Grammar for Data Wrangling](https://mdsr-book.github.io/mdsr2e/ch-dataI.html)
+
+There are six main data transformation verbs in the `dplyr` library. Each verb takes an input data frame along with additional arguments specifying the action, and returns a new data frame. We'll examine them in three pairs. 
+
+\medskip
+
+#### Verbs that change the variables (columns) but not the cases (rows) {-}
+
+\medskip
+
+The first two verbs change which variables (columns) are included in the data frame, but preserve the same set of cases (rows).
+
+- **`select()`** chooses which columns to keep, or put another way, deletes those colummns that are not selected. To specify the columns, we can either list them out, or use functions like `starts_with()`, `ends_with()`, or `contains()` to specify the titles of the variables we wish to keep.
+
+- **`mutate()`** adds one or more columns to the data frame. Each column is a function of the other columns that is applied on a row by row basis. For example, we can use arithmetic operations like adding two other variables or logical operations like checking if two columns are equal, or equal to a target number.
+
+```{exercise,name="select and mutate"}
+Consider the `Birthdays` data
+```
+
+a. Add two new variables to the `Birthdays` data: one that has only the last two digits of the year, and one that states whether there were more than 100 births in the given state on the given date.   
+b. Then form a new table that only has three columns: the state and your two new columns.   
+c. What does the following operation return: `select(Birthdays, ends_with("te"))`?
+
+<details>
+<summary>Solution</summary>
+
+The commands for the first two parts are
+
+```{r}
+BirthdaysExtra <- mutate(Birthdays,
+  year_short = year - 1900,
+  busy_birthday = (births > 100)
+)
+
+BirthdaysExtraTable <- select(
+  BirthdaysExtra, state,
+  year_short, busy_birthday
+)
+
+select(Birthdays, ends_with("te")) %>% head()
+```
+
+The operation in (c) selects only the first two columns `state` and `date` because they end in 'te'.
+</details>
+\
+
+
+#### Verbs that change the cases (rows) but not the variables (columns) {-}
+
+
+The next two verbs change which cases (rows) are included in the data frame, but preserve the same set of variables (columns).
+
+- **`filter()`** deletes some of the rows by specifying which rows to keep.
+
+- **`arrange()`** reorders the rows according to a specified criteria. To sort in reverse order based on the variable `x`, use `arrange(desc(x))`.
+
+```{exercise, name="filter and arrange", label="ex-ma"}
+Create a table with only births in Massachusetts in 1979, and sort the days from those with the most births to those with the fewest.
+
+```
+
+<details>
+<summary>Solution</summary>
+
+
+We want to `filter` and then `arrange`:
+
+```{r}
+MABirths1979 <- filter(Birthdays, state == "MA", year == 1979)
+MABirths1979Sorted <- arrange(MABirths1979, desc(births))
+```
+
+```{r, echo=FALSE}
+knitr::kable(
+  MABirths1979Sorted[1:6, ],
+  caption = "Birthdays in Massachusetts in 1979, sorted from those dates with the most births to those dates with the fewest births."
+)
+```
+
+</details>
+\
+
+When filtering, we often use logical comparison operators like `==`, `>`, `<`, `>=` (greater than or equal to), `<=` (less than or equal to), and `%in%`, which compares the value to a list of entries.^[**Important note about `=` vs. `==`**: A single `=` is an assignment operator that assigns the value after the equal sign to the variable before the equal sign. We saw an example of this above with `year_short = year - 1900`. In order to compare whether two values are the same, we need to use the double equal `==` as in `year == 1979`.] For example, if we want all births in AK, CA, and MA, we can write
+
+```
+filter(Birthdays, state %in% c("AK","CA","MA"))
+```
+
+The `c()` here is for concatenate, which is how we form vectors in `R`.
+
+
+
+#### Grouped summaries {-}
+
+
+
+- **`summarise()`** (or equivalently **`summarize()`**) takes an entire data frame as input and outputs a single row with one or more summary statistics, such as `mean`, `sum`, `sd`, `n_distinct()`, or `n()` (which, like `tally()`, just counts the number of entries). 
+
+```{r}
+summarise(Birthdays,
+  total_births = sum(births),
+  average_births = mean(births),
+  nstates = n_distinct(state), ncases = n()
+)
+```
+
+So `summarise` changes both the cases and the variables. Alone, `summarise` is not all that useful, because we can also access individual variables directly with the dollar sign. For example, to find the total and average births, we can write
+
+```{r}
+sum(Birthdays$births)
+mean(Birthdays$births)
+```
+
+Rather, we will mostly use it to create **grouped summaries**, which brings us to the last of the six main data verbs.
+
+- **`group_by()`** groups the cases of a data frame by a specified set of variables. The size of the stored data frame does not actually change (neither the cases nor the variables change), but then other functions can be applied to the specified groups instead of the entire data set. We'll often use `group_by` in conjunction with `summarise` to get a grouped summary.
+
+```{exercise, name="grouped summary"}  
+Consider the `Birthdays` data again.
+```
+
+  (a) Find the average number of daily births (per state) in each year.
+  (b) Find the average number of daily births in each year, by state.
+
+<details>
+<summary>Solution</summary>
+
+We have to first group by the desired grouping and then perform a summarise.
+
+```{r}
+BirthdaysYear <- group_by(Birthdays, year)
+summarise(BirthdaysYear, average = mean(births))
+BirthdaysYearState <- group_by(Birthdays, year, state)
+summarise(BirthdaysYearState, average = mean(births))
+```
+</details>
+\
+
+### Piping {-}
+
+Additional reading: 
+
+* [Wickham and Grolemund, Combining Multiple Operations with the Pipe](https://r4ds.had.co.nz/transform.html#combining-multiple-operations-with-the-pipe)
+* [Wickham and Grolemund, Pipes](http://r4ds.had.co.nz/pipes.html)
+
+Pipes offer an efficient way to execute multiple operations at once. Here is a more efficient way to redo Exercise 7.2 with **the pipe**:
+
+```{r}
+QuickMABirths1979 <-
+  Birthdays %>%
+  filter(state == "MA", year == 1979) %>%
+  arrange(desc(births))
+```
+
+With the pipe notation, `x %>% f(y)` becomes `f(x,y)`, where in the first line here, `x` is `Birthdays`, the function `f` is `filter`, and `y` is `state == "MA", year == 1979`. The really nice thing about piping is that you can chain together a bunch of different operations without having to save the intermediate results. This is what we have done above by chaining together a `filter` followed by an `arrange`.
+
+### Manipulating Dates {-}
+
+Additional reading: 
+
+* [Wickham and Grolemund, Date and Times with `lubridate`](http://r4ds.had.co.nz/dates-and-times.html)
+
+The `date` variable in `Birthdays` prints out in the conventional, human-readable way.  But it is actually in a format (called `POSIX` date format) that automatically respects the order of time. The `lubridate` package contains helpful functions that will extract various information about any date. Here are some you might find useful:
+
+* `year()`
+* `month()`
+* `week()`
+* `yday()` --- gives the day of the year as a number 1-366.  This is often called the "Julian day."
+* `mday()` --- gives the day of the month as a number 1-31
+* `wday()` --- gives the weekday (e.g. Monday, Tuesday, ...).  Use the optional argument `label = TRUE` to have the weekday spelled out rather than given as a number 1-7.
+
+Using these `lubridate` functions, you can easily look at the data in more detail. For example, we can add columns to the date table for month and day of the week:^[The `label = TRUE` argument tells `month` to return a string abbreviation for the month instead of the month's number.]
+
+```{r}
+Birthdays <-
+  Birthdays %>%
+  mutate(
+    month = month(date, label = TRUE),
+    weekday = wday(date, label = TRUE)
+  )
+```
+
+Here is what the data table looks like with our new columns:
+
+```{r, echo=FALSE}
+knitr::kable(
+  Birthdays[1:6, ],
+  caption = "A subset of the birthday data with additional variables."
+)
+```
+
+
+```{exercise}
+Make a table showing the five states with the most births between September 9, 1979 and September 11, 1979, inclusive. Arrange the table in descending order of births.
+```
+
+<details>
+<summary>Solution</summary>
+
+The plan of attack is to first filter the dates, then group by state, then use a `summarise` to add up totals for each state, and finally arrange them in descending order to find the top 5.^[The verbs `head(n = 5)`, `tail(n = 3)` are often used just after an `arrange` to keep, e.g., only the first 5 entries or last 3 entries, where `n` specifies the number of entries to keep.]
+
+
+```{r}
+SepTable <-
+  Birthdays %>%
+  filter(date >= ymd("1979-09-09"), date <= ymd("1979-09-11")) %>%
+  group_by(state) %>%
+  summarise(total = sum(births)) %>%
+  arrange(desc(total)) %>%
+  head(n = 5)
+```
+
+```{r}
+knitr::kable(
+  SepTable[, ],
+  caption = "States with the
+  most births between September 9, 1979
+  and September 11, 1979, inclusive."
+)
+```
+</details>
+\
+
+## Exercises Part 1: Baby Names {-}
+
+We are going to practice the six data verbs on the `babynames` dataset:
+
+```{r, echo=FALSE}
+library(babynames)
+knitr::kable(
+  babynames[1:6, ],
+  caption = "A subset of the babynames data, which runs from 1880-2015 and is provided by the US Social Security Administration."
+)
+```
+
+```{exercise}
+Add a new boolean (true or false) variable called `has2000` that indicates whether there were more than 2000 babies of that sex assigned at birth with that name in each year. Display the first six rows of your new table.
+
+```
+
+
+```{exercise}
+Find the number of total babies per year, sorted by most babies to least babies.
+
+```
+
+```{exercise}
+Find the twelve most popular names overall (i.e., totaled over all year and sexes), ordered by popularity.
+
+```
+
+
+```{exercise}
+Find the most popular names for males, over all years and ordered by popularity.
+
+```
+
+
+```{exercise}
+Find the most popular names for females, over all years and ordered by popularity.
+
+```
+
+
+```{exercise}
+Calculate the number of babies born each decade, and arrange them in descending order. Calculating the decade may be the trickiest part of this question!   
+  
+  
+```
+   
+
+
+```{exercise}
+Calculate the most popular name for each year. Print out the answer for the years 2006-2015. This is tricky, but try Googling for hints.
+
+```
+
+
+## Exercises Part 2: US Births {-}
+
+Now we are ready to return to the `Birthdays` data set to investigate some drivers of daily births in the US.
+
+### Seasonality {-}
+
+For this activity, we need to work with data aggregated across the states.
+
+```{exercise, name="Total Across States", label="us-daily-births"}
+Create a new data table, `DailyBirths`, that adds up all the births for each day across all the states.  Plot out daily births vs date.
+
+```
+
+***For all of the remaining exercises, start with your `DailyBirths` data frame.***
+
+```{exercise, name="Examine Seasonality", label="seasonality"}
+
+To examine seasonality in birth rates, look at the number of births by
+
+a. week of the year (1-53)
+b. month of the year (January to December)
+c. Julian day (1-366)
+
+When are the most babies born? The fewest?
+
+```
+
+
+### Day of the Week {-}
+
+```{exercise, name="Examine Patterns within the Week", label="weekday"}
+To examine patterns within the week, make a box plot showing the number of births by day of the week. Interpret your results.
+
+```
+
+
+### Holidays {-}
+
+
+
+```{exercise, name="Two Year Sample", label="two-year"}
+Pick a two-year span of the `Birthdays` that falls in the 1980s, say, 1980/1981.  Extract out the data just in this interval, calling it `MyTwoYears`.  (Hint: `filter()`, `year()`).  Plot out the births in this two-year span day by day. Color each date according to its day of the week.  Make sure to choose your font size, line widths, and color scheme to make your figure legible. Explain the pattern that you see.
+
+```
+
+
+The plot you generate for Exercise \@ref(exr:two-year) should be generally consistent with the weekend effect and seasonal patterns we have already seen; however, a few days each year stand out as exceptions. We are going to examine the hypothesis that these are holidays.  You can find a data set listing US federal holidays [here](data/US-Holidays.csv).  Read it in as follows:^[The point of the `lubridate::dmy()` function is to convert the character-string date stored in the CSV to a POSIX date-number.]
+
+```{r,warning=FALSE,message=FALSE,echo=FALSE}
+Holidays <- read_csv("data/US-Holidays.csv") %>%
+  mutate(date = as.POSIXct(lubridate::dmy(date)))
+```
+
+```{r,warning=FALSE,message=FALSE,eval=FALSE}
+Holidays <- read_csv("https://bcheggeseth.github.io/112_fall_2022/data/US-Holidays.csv") %>%
+  mutate(date = as.POSIXct(lubridate::dmy(date)))
+```
+
+```{exercise, name="Holidays", label="holidays"}
+Now let's update the plot from Exercise \@ref(exr:two-year) to include the holidays.   
+
+a. Add a variable to `MyTwoYears` called `is_holiday`. It should be `TRUE` when the day is a holiday, and `FALSE` otherwise. One way to do this is with the transformation verb `%in%`, for instance, `is_holiday = date %in% Holidays$date`.   
+b. Add a `geom_point` layer to your plot that sets the color of the points based on the day of the week and the shape of the points based on whether or not the day is a holiday.   
+c. Finally, some holidays seem to have more of an effect than others. It would be helpful to label them. Use `geom_text` with the holiday data to add labels to each of the holidays. Hints: 1. Start by making a new data table called `MyHolidays` that just contains the holidays in your selected two year window. 2. Start your geometry line with `geom_text(data=MyHolidays)`. 3. You'll have to make up a y-coordinate for each label.  4. You can set the orientation of each label with the `angle` argument; e.g., `geom_text(data=MyHolidays, angle=40, ...)`.
+
+```
+
+
+### Geography {-}
+
+```{exercise, name="Examine the Effect of Geography", label="geography"}
+In any way you choose, explore the effect of geography on birth patterns. For example, do parents in Minnesota have fewer winter babies than in other states? Which states have the largest increases or decreases in their portion of US births over time? Is the weekend effect less strong for states with a higher percentage of their populations living in rural areas? Pick any issue (not all of these) that interests you, explore it, and create a graphic to illustrate your findings.
+```
+
+### Superstition {-}
+
+This [article](https://fivethirtyeight.com/features/some-people-are-too-superstitious-to-have-a-baby-on-friday-the-13th/) from FiveThirtyEight demonstrates that fewer babies are born on the 13th of each month, and the effect is even stronger when the 13th falls on a Friday. If you have extra time or want some extra practice, you can try to recreate the first graphic in the article.
+
+
+## Appendix: R Functions {.unnumbered}
+
+### Six Main Verbs {.unnumbered}
+
+| Function/Operator |                 Action                 |                       Example |
+|-------------------------|:---------------------------:|------------------:|
+| `select()`        |   Provides a subset of variables   |   `select(Birthdays, state, date, year, births)` |
+| `mutate()`        |  Creates a new variable |   `mutate(Birthdays, year_short = year - 1900)` |
+| `filter()`        |   Provides a subset of rows |   `filter(Birthdays, state %in% c("AK","CA","MA")) ` |
+| `arrange()`        |   Sorts the rows of a dataset |   `arrange(Birthdays, desc(births)) ` |
+| `summarize()`        |   Collapses rows into summaries of variables across rows |   `summarise(Birthdays,total_births = sum(births), average_births = mean(births), nstates = n_distinct(state), ncases = n()) ` |
+| `group_by()`        |   Collapses rows into summaries of variables across rows |   `group_by(Birthdays, year, state) %>% summarise(average = mean(births))` |
+
+
+### Logical/Boolean Operators {.unnumbered}
+
+| Function/Operator |                 Action                 |                       Example |
+|-------------------------|:---------------------------:|------------------:|
+| `==`        |  Checks whether two items are equal  |   `year == 2000` |
+| `>`        |  Checks whether left is greater than the right |   `year > 2000` |
+| `<`        |   Checks whether left is less than the right |   `year < 2000 ` |
+| `>=`        |   Checks whether left is greater than or equal to right  |   `year >= 2000 ` |
+| `<=`        |   Checks whether left is less than or equal to right |   `year <= 2000` |
+| `!=`        |   Checks whether left is not equal to right |   `year != 2000` |
+| `%in%`        |   Checks whether left is in vector on right |   `state %in% c("AK","CA","MA")` |

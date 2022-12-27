@@ -1,0 +1,395 @@
+---
+title: "Comp/Stat 112: Joining Data"
+author: "INSERT STUDENT NAME HERE (COLLABORATOR NAMES HERE)"
+output:
+  bookdown::html_document2:
+    split_by: none
+    toc: yes
+    toc_depth: 3
+    toc_float:
+      toc_collapsed: true
+    number_sections: false
+---
+
+```{r 08_setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, error = TRUE)
+library(tidyverse)
+library(ggplot2)
+library(lubridate)
+library(ggmap)
+```
+
+
+# Joining Two Data Frames
+
+## Learning Goals {-}
+
+- Understand the concept of keys and variables that uniquely identify rows or cases
+- Understand the different types of joins, different ways of combining two data frames together
+- Develop comfort in using mutating joins: `left_join`, `inner_join` and `full_join` in the `dplyr` package
+- Develop comfort in using filtering joins: `semi_join`, `anti_join` in the `dplyr` package
+
+
+## Joins {-}
+
+A *join* is a verb that means to combine two data tables. 
+
+- These tables are often called the *left* and the *right* tables.
+
+There are several kinds of join.
+
+* All involve establishing a correspondance --- a match --- between each case in the left table and zero or more cases in the right table.
+* The various joins differ in how they handle multiple matches or missing matches.
+
+### Establishing a match between cases {-}
+
+A match between a case in the *left* data table and a case in the *right* data table is made based on the values in **keys**, variables that uniquely define observations in a data table.
+
+As an example, we'll examine the following two tables on grades and courses. The `Grades` file has one case for each class of each student, and includes variables describing the ID of the student (`sid`), the ID of the session (section/class), and the grade received. The `Courses` table has variables for the ID of the session (section/class), the department (coded), the level, the semester, the enrollment, and the ID of the instructor (`iid`). We show a few random rows of each table below.
+
+```{r}
+Grades <- read_csv("https://bcheggeseth.github.io/112_fall_2022/data/grades.csv")
+Grades <- Grades %>%
+  select(sid, sessionID, grade) %>%
+  distinct(sid, sessionID, .keep_all = TRUE)
+```
+
+```{r, echo=FALSE}
+set.seed(101)
+knitr::kable(
+  sample_n(Grades, size = 4),
+  align = "ccc", caption = "Student grades."
+)
+```
+
+```{r, cache=TRUE}
+Courses <- read_csv("https://bcheggeseth.github.io/112_fall_2022/data/courses.csv")
+```
+
+```{r, echo=FALSE}
+set.seed(101)
+knitr::kable(
+  sample_n(Courses, size = 4),
+  align = "cccccc", caption = "Information about each course section."
+)
+```
+
+#### Keys {-}
+
+There are two types of keys:
+
+1. A **primary key** uniquely identifies an observation in its own table. 
+
+2. A **foreign key** uniquely identifies an observation in another table.
+
+
+```{example}
+What variables are the primary keys for `Grades`?
+What variables are the primary keys for `Courses`?  
+```
+
+Try yourself and then check online for solution.
+
+> ANSWER: 
+
+
+```{example}
+What variables are the foreign keys in `Grades` for `Courses`?
+What variables are the foreign keys in `Courses` for `Grades`?  
+```
+
+Try yourself and then check online for solution.
+
+> ANSWER: 
+
+
+### Matching {-}
+
+In order to establish a match between two data tables,
+
+* **You** specify which variables (or keys) to use.
+* Each variable is specify as a pair, where one variable from the left table corresponds to one variable from the right table.
+* Cases must have *exactly equal* values in the left variable and right variable for a match to be made.
+
+### Mutating joins {-}
+
+The first class of joins are mutating joins, which add new variables (columns) to the left data table from matching observations in the right table.^[There is also a `right_join()` that adds variables in the reverse direction from the left table to the right table, but we do not really need it as we can always switch the roles of the two tables.]
+
+The main difference in the three mutating join options in this class is how they answer the following questions:
+
+1. What happens when a case in the right table has no matches in the left table?
+2. What happens when a case in the left table has no matches in the right table?
+
+Three mutating join functions:
+
+- **`left_join()`**: the output has *all cases from the left*, regardless if there is a match in the right, but discards any cases in the right that do not have a match in the left.
+- **`inner_join()`**: the output has *only the cases from the left with a match in the right*.
+- **`full_join()`**: the output has *all cases from the left and the right*. This is less common than the first two join operators.
+
+When there are multiple matches in the right table for a particular case in the left table, all three of these mutating join operators produce a separate case in the new table for each of the matches from the right.
+
+
+
+```{example name="Average class size: varying viewpoints"}
+Determine the average class size from the viewpoint of a student and the viewpoint of the Provost / Admissions Office.
+
+```
+
+Try yourself and then check online for solution.
+
+> ANSWER: 
+
+
+### Filtering joins {-}
+
+The second class of joins are filtering joins, which select specific cases from the left table based on whether they match an observation in the right table.
+
+- **`semi_join()`**: discards any cases in the left table that *do not have a match* in the right table. If there are multiple matches of right cases to a left case, it keeps just one copy of the left case.
+- **`anti_join()`**: discards any cases in the left table that *have a match* in the right table.
+
+A particularly common employment of these joins is to use a filtered summary as a comparison to select a subset of the original cases, as follows.
+
+```{example, name="semi_join to compare to a filtered summary"}
+Find a subset of the `Grades` data that only contains data on the four largest sections in the `Courses` data set.
+
+```
+
+Try yourself and then check online for solution.
+
+> ANSWER: 
+
+
+```{example,name="semi_join"}
+Use `semi_join()` to create a table with a subset of the rows of `Grades` corresponding to all classes taken in department `J`.
+
+```
+
+Try yourself and then check online for solution.
+
+> ANSWER: 
+
+
+### More join practice {-}
+
+```{exercise}
+Use your wrangling skills to answer the following questions.
+``` 
+
+*Hint 1: start by thinking about what tables you might need to join (if any) and identifying the corresponding variables to match.* 
+*Hint 2: you'll need an extra table to convert grades to grade point averages. I've given you the code below.*
+
+```{r}
+(GPAConversion <- tibble(grade = c("A+", "A", "A-", "B+", "B", "B-", "C+", "C", "C-", "D+", "D", "D-", "NC"), gp = c(4.3, 4, 3.7, 3.3, 3, 2.7, 2.3, 2, 1.7, 1.3, 1, 0.7, 0)))
+```
+
+a. How many student enrollments in each department?
+
+> ANSWER: 
+
+```{r}
+
+```
+
+b. What's the grade-point average (GPA) for each student? The average student GPA? *Hint: There are some "S" and "AU" grades that we want to exclude from GPA calculations. What is the correct variant of join to accomplish this?* 
+
+> ANSWER: 
+
+```{r}
+
+```
+
+c. What fraction of grades are below B+?
+
+> ANSWER: 
+
+```{r}
+
+```
+
+d. What's the grade-point average for each instructor? 
+
+> ANSWER: 
+
+```{r}
+
+```
+
+e. We cannot actually compute the correct grade-point average for each department from the information we have. The reason why is due to cross-listed courses. Students for those courses could be enrolled under either department, and we do not know which department to assign the grade to. There are a number of possible workarounds to get an estimate. One would be to assign all grades in a section to the department of the instructor, which we'd have to infer from the data. Instead, start by creating a table with all cross-listed courses. Then use an `anti_join` to eliminate all cross-listed courses. Finally, use an `inner_join` to compute the grade-point average for each department.
+
+> ANSWER: 
+
+```{r}
+
+```
+
+
+
+## Bicycle-Use Patterns {-}
+
+In this activity, you'll examine some factors that may influence the use of bicycles in a bike-renting program.  The data come from Washington, DC and cover the last quarter of 2014.
+
+Two data tables are available:
+
+- `Trips` contains records of individual rentals
+- `Stations` gives the locations of the bike rental stations
+
+
+Here is the code to read in the data:^[**Important**: To avoid repeatedly re-reading the files, start the data import chunk with `{r cache = TRUE}` rather than the usual `{r}`.]
+
+
+```{r cache=TRUE}
+data_site <-
+  "https://bcheggeseth.github.io/112_fall_2022/data/2014-Q4-Trips-History-Data-Small.rds"
+Trips <- readRDS(gzcon(url(data_site)))
+Stations <- read_csv("https://bcheggeseth.github.io/112_fall_2022/data/DC-Stations.csv")
+```
+
+The `Trips` data table is a random subset of 10,000 trips from the full quarterly data. Start with this small data table to develop your analysis commands. When you have this working well, you can access the full data set of more than 600,000 events by removing `-Small` from the name of the `data_site`. The full data is available [here](data/2014-Q4-Trips-History-Data.rds).
+
+### Warm-up: Temporal patterns {-}
+
+It's natural to expect that bikes are rented more at some times of day, some days of the week, some months of the year than others. The variable `sdate` gives the time (including the date) that the rental started.
+
+```{exercise exr-temp, name="Warm-up: temporal patterns"}
+Make the following plots and interpret them:
+```
+
+(a) A density plot of the events versus `sdate`. Use `ggplot()` and `geom_density()`.
+
+> ANSWER: 
+
+```{r}
+
+```
+
+(b) A density plot of the events versus time of day.  You can use `mutate` with `lubridate::hour()`, and `lubridate::minute()` to extract the hour of the day and minute within the hour from `sdate`. Hint: A minute is 1/60 of an hour, so create a field where 3:30 is 3.5 and 3:45 is 3.75.
+
+> ANSWER: 
+
+```{r}
+
+```
+
+(c) A histogram of the events versus day of the week.
+
+> ANSWER: 
+
+```{r}
+
+```
+
+(d) Facet your graph from (b) by day of the week. Is there a pattern?
+
+> ANSWER: 
+
+```{r}
+
+```
+
+
+
+The variable `client` describes whether the renter is a regular user (level `Registered`) or has not joined the bike-rental organization (`Causal`). Do you think these two different categories of users show different rental behavior? How might it interact with the patterns you found in Exercise \@ref(exr:exr-temp)?
+
+```{exercise name="Customer segmentation"}
+Repeat the graphic from Exercise \@ref(exr:exr-temp) (d) with the following changes:
+```
+
+(a) Set the `fill` aesthetic for `geom_density()` to the `client` variable. You may also want to set the `alpha` for transparency and `color=NA` to suppress the outline of the density function.
+
+> ANSWER: 
+
+```{r}
+
+```
+
+(b) Now add the argument `position = position_stack()` to `geom_density()`. In your opinion, is this better or worse in terms of telling a story? What are the advantages/disadvantages of each?
+
+> ANSWER: 
+
+```{r}
+
+```
+
+(c) Rather than faceting on day of the week, create a new faceting variable like this: `mutate(wday = ifelse(lubridate::wday(sdate) %in% c(1,7), "weekend", "weekday"))`. What does the variable `wday` represent? Try to understand the code. 
+
+> ANSWER: 
+
+```{r}
+
+```
+
+(d) Is it better to facet on `wday` and fill with `client`, or vice versa?
+
+> ANSWER: 
+
+```{r}
+
+```
+
+(e) Of all of the graphics you created so far, which is most effective at telling an interesting story?
+
+> ANSWER: 
+
+```{r}
+
+```
+
+
+### Mutating join practice: Spatial patterns {-}
+
+```{exercise, name="Visualization of bicycle departures by station"}
+Use the latitude and longitude variables in `Stations` to make a visualization of the total number of departures from each station in the `Trips` data. To layer your data on top of a map, start your plotting code as follows:
+
+```
+
+> ANSWER: 
+
+```{r}
+myMap <- get_stamenmap(c(-77.1,38.87,-76.975,38.95),zoom = 14,maptype = "terrain") 
+ggmap(myMap) 
+```
+
+Note: If you want to use Google Maps instead, which do look a bit nicer, you’ll need to get a Google Maps API Key (free but requires credit card to sign up), and then you can use `get_map` instead of `get_stamenmap`.
+
+
+```{exercise}
+Only 14.4% of the trips in our data are carried out by casual users.^[We can compute this statistic via `mean(Trips$client=="Casual")`.] Create a map that shows which area(s) of the city have stations with a much higher percentage of departures by casual users. Interpret your map.
+
+```
+
+> ANSWER: 
+
+```{r}
+
+```
+
+
+### Filtering join practice: Spatiotemporal patterns {-}
+
+```{exercise, name="High traffic points"}
+Consider the following
+```
+
+(a) Make a table with the ten station-date combinations (e.g., 14th & V St., 2014-10-14) with the highest number of departures, sorted from most departures to fewest. Hint: `as_date(sdate)` converts `sdate` from date-time format to date format.
+
+> ANSWER: 
+
+```{r}
+
+```
+
+(b) Use a join operation to make a table with only those trips whose departures match those top ten station-date combinations from part (a).
+
+> ANSWER: 
+
+```{r}
+
+```
+
+(c) Group the trips you filtered out in part (b) by client type and `wday` (weekend/weekday), and count the total number of trips in each of the four groups. Interpret your results.
+
+> ANSWER: 
+
+```{r}
+
+```

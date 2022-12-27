@@ -1,0 +1,168 @@
+# Learning Goals {.unnumbered}
+
+The goal of this course is for you to gain confidence in carrying out the entire data science pipeline, 
+
+- from research question formulation, 
+- to data collection/scraping,
+- to wrangling, 
+- to modeling, 
+- to visualization, 
+- to presentation and communication
+
+
+Specific course topics and general skills are listed below.
+
+## General Skills {.unnumbered}
+
+**Data Communication**
+
+-   In written and oral formats:
+
+    -   Inform and justify data cleaning and analysis process and the resulting conclusions with clear, organized, logical, and compelling details that adapt to the background, values, and motivations of the audience and context in which communication occurs.
+
+**Collaborative Learning**
+
+-   Understand and demonstrate characteristics of effective collaboration (team roles, interpersonal communication, self-reflection, awareness of social dynamics, advocating for yourself and others).
+-   Develop a common purpose and agreement on goals.
+-   Be able to contribute questions or concerns in a respectful way.
+-   Share and contribute to the group's learning in an equitable manner.
+-   Develop a familiarity and comfort in using collaboration tools such as Git and Github. 
+
+## Course Topics {.unnumbered}
+
+Specific learning objectives for our course topics are listed below. Use these to guide your synthesis of course material for specific topics. Note that the topics are covered in the order of the **data science pipeline**, not the order in which we will cover them in class.
+
+### Foundation {.unnumbered}
+
+**Intro to R, RStudio, and R Markdown**
+
+- Download and install the necessary tools (R, RStudio)
+- Develop comfort in navigating the tools in RStudio
+- Develop comfort in writing and knitting a R Markdown file
+- Identify the characteristics of tidy data
+- Use R code: as a calculator and to explore tidy data
+
+<br>
+
+### Data Acquisition & Cleaning {.unnumbered}
+
+**Data Import and Basic Cleaning**
+
+- Be able to find an existing data set to import into R
+- Be able to import data of a variety of file types into R
+- Understand and implement the data cleaning process to make values consistent
+- Understand the implications of different ways of dealing with missing values with `replace_na` and `drop_na`
+
+<br>
+
+**Wrangling Text using Regular Expression**
+
+- Be able to work with strings of text data 
+- Use regular expressions to search and replace, detect patterns, locate patterns, extract patterns, and separate text with the `stringr` package.
+
+
+<br>
+
+### Data Wrangling {.unnumbered}
+
+**Six Main Wrangling Verbs**
+
+- Understand and be able to use the following verbs appropriate: `select`, `mutate`, `filter`, `arrange`, `summarize`, `group_by`
+- Develop working knowledge of working with dates and `lubridate` functions 
+
+<br>
+
+
+**Reshaping Data**
+
+- Understand the difference between wide and long data format and distinguish the case (unit of observation) for a given data set
+- Be able to use `pivot_wider` and `pivot_longer` in the `tidyr` package
+
+<br>
+
+**Joining Data**
+
+- Understand the concept of keys and variables that uniquely identify rows or cases
+- Understand the different types of joins, different ways of combining two data frames together
+- Be able to use mutating joins: `left_join`, `inner_join` and `full_join` in the `dplyr` package
+- Be able to use filtering joins: `semi_join`, `anti_join` in the `dplyr` package
+
+<br>
+
+**Categorical Variables as Factors**
+
+- Understand the difference between a variable stored as a `character` vs. a `factor`
+- Be able to convert a `character` variable to a `factor`
+- Be able to manipulate the order and values of a factor with the `forcats` package to improve summaries and visualizations.
+
+<br>
+
+
+**Mini-Project**
+
+- Apply data wrangling and visualization skills to a new data set
+- Be able to tell a story about data through visualization
+
+<br>
+
+
+### Data Visualization {.unnumbered}
+
+*The learning goals may be adjusted before we start the material of this section.*
+
+
+**Introduction to Data Visualization**
+
+- Understand the Grammar of Graphics
+- Use `ggplot2` functions to create basic layers of graphics
+- Understand the different basic univariate visualizations for categorical and quantiative variables
+
+<br>
+
+
+**Effective Visualization**
+
+- Understand and apply the guiding principles of effective visualizations
+
+
+<br>
+
+**Bivariate**
+
+- Identify appropriate types of bivariate visualizations, depending on the type of variables (categorical, quantitative)
+- Create basic bivariate visualizations based on real data with `ggplot2` functions
+
+<br>
+
+**Multivariate**
+
+- Understand how we can use additional aesthetics such as color and size to incorporate a third (or more variables) to a bivariate plot with `ggplot2` functions
+- Be able to with creating and interpreting heat maps and star plots, which allow you to look for patterns in variation in many variables. 
+
+<br>
+
+**Spatial**
+
+- Plot data points on top of a map using the `ggmap()` function along with `ggplot2` functions      
+- Create choropleth maps using `geom_map()`      
+- Add points and other `ggplot2` features to a map created from `geom_map()`   
+- Understand the basics of creating a map using `leaflet`, including adding points and choropleths to a base map 
+
+<br>
+
+
+
+### Data Modeling {.unnumbered}
+
+*The learning goals may be adjusted before we start the material of this section.*
+
+**EDA**
+
+- Understand the first steps that should be taken when you encounter a new data set
+- Develop comfort in knowing how to explore data to understand it
+- Develop comfort in formulating research questions
+
+<br>
+
+
+

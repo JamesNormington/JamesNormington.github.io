@@ -1,0 +1,1018 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Topic 3 Effective Visualizations | COMP/STAT 112: Introduction to Data Science</title>
+  <meta name="description" content="This is the class website for Introduction to Data Science at Macalester College for Fall 2022." />
+  <meta name="generator" content="bookdown 0.27 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Topic 3 Effective Visualizations | COMP/STAT 112: Introduction to Data Science" />
+  <meta property="og:type" content="book" />
+  <meta property="og:image" content="/images/logo.png" />
+  <meta property="og:description" content="This is the class website for Introduction to Data Science at Macalester College for Fall 2022." />
+  <meta name="github-repo" content="bcheggeseth/112_fall_2022/" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Topic 3 Effective Visualizations | COMP/STAT 112: Introduction to Data Science" />
+  
+  <meta name="twitter:description" content="This is the class website for Introduction to Data Science at Macalester College for Fall 2022." />
+  <meta name="twitter:image" content="/images/logo.png" />
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="intro-to-data-visualization.html"/>
+<link rel="next" href="bivariate-visualizations.html"/>
+<script src="libs/jquery/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections/anchor-sections.js"></script>
+<script src="libs/htmlwidgets/htmlwidgets.js"></script>
+<link href="libs/leaflet/leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet/leaflet.js"></script>
+<link href="libs/leafletfix/leafletfix.css" rel="stylesheet" />
+<script src="libs/proj4/proj4.min.js"></script>
+<script src="libs/Proj4Leaflet/proj4leaflet.js"></script>
+<link href="libs/rstudio_leaflet/rstudio_leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-binding/leaflet.js"></script>
+<script src="libs/leaflet-providers/leaflet-providers_1.9.0.js"></script>
+<script src="libs/leaflet-providers-plugin/leaflet-providers-plugin.js"></script>
+<script src="libs/kePrint/kePrint.js"></script>
+<link href="libs/lightable/lightable.css" rel="stylesheet" />
+<link href="libs/dygraphs/dygraph.css" rel="stylesheet" />
+<script src="libs/dygraphs/dygraph-combined.js"></script>
+<script src="libs/dygraphs/shapes.js"></script>
+<script src="libs/moment/moment.js"></script>
+<script src="libs/moment-timezone/moment-timezone-with-data.js"></script>
+<script src="libs/moment-fquarter/moment-fquarter.min.js"></script>
+<script src="libs/dygraphs-binding/dygraphs.js"></script>
+<script src="libs/plotly-binding/plotly.js"></script>
+<script src="libs/typedarray/typedarray.min.js"></script>
+<link href="libs/crosstalk/css/crosstalk.min.css" rel="stylesheet" />
+<script src="libs/crosstalk/js/crosstalk.min.js"></script>
+<link href="libs/plotly-htmlwidgets-css/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="libs/plotly-main/plotly-latest.min.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="custom_styles.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href = "./">COMP/STAT 112: Introduction to Data Science</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome!</a></li>
+<li class="chapter" data-level="" data-path="course-schedule.html"><a href="course-schedule.html"><i class="fa fa-check"></i>Course Schedule</a></li>
+<li class="chapter" data-level="" data-path="learning-goals.html"><a href="learning-goals.html"><i class="fa fa-check"></i>Learning Goals</a>
+<ul>
+<li class="chapter" data-level="" data-path="learning-goals.html"><a href="learning-goals.html#general-skills"><i class="fa fa-check"></i>General Skills</a></li>
+<li class="chapter" data-level="" data-path="learning-goals.html"><a href="learning-goals.html#course-topics"><i class="fa fa-check"></i>Course Topics</a>
+<ul>
+<li class="chapter" data-level="" data-path="learning-goals.html"><a href="learning-goals.html#foundation"><i class="fa fa-check"></i>Foundation</a></li>
+<li class="chapter" data-level="" data-path="learning-goals.html"><a href="learning-goals.html#data-acquisition-cleaning"><i class="fa fa-check"></i>Data Acquisition &amp; Cleaning</a></li>
+<li class="chapter" data-level="" data-path="learning-goals.html"><a href="learning-goals.html#data-wrangling"><i class="fa fa-check"></i>Data Wrangling</a></li>
+<li class="chapter" data-level="" data-path="learning-goals.html"><a href="learning-goals.html#data-visualization"><i class="fa fa-check"></i>Data Visualization</a></li>
+<li class="chapter" data-level="" data-path="learning-goals.html"><a href="learning-goals.html#data-modeling"><i class="fa fa-check"></i>Data Modeling</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>I Foundation</b></span></li>
+<li class="chapter" data-level="1" data-path="intro-to-r-rstudio-and-r-markdown.html"><a href="intro-to-r-rstudio-and-r-markdown.html"><i class="fa fa-check"></i><b>1</b> Intro to R, RStudio, and R Markdown</a>
+<ul>
+<li class="chapter" data-level="" data-path="intro-to-r-rstudio-and-r-markdown.html"><a href="intro-to-r-rstudio-and-r-markdown.html#learning-goals-1"><i class="fa fa-check"></i>Learning Goals</a></li>
+<li class="chapter" data-level="" data-path="intro-to-r-rstudio-and-r-markdown.html"><a href="intro-to-r-rstudio-and-r-markdown.html#getting-started-in-rstudio"><i class="fa fa-check"></i>Getting Started in RStudio</a>
+<ul>
+<li class="chapter" data-level="" data-path="intro-to-r-rstudio-and-r-markdown.html"><a href="intro-to-r-rstudio-and-r-markdown.html#download-r-rstudio"><i class="fa fa-check"></i>Download R &amp; RStudio</a></li>
+<li class="chapter" data-level="" data-path="intro-to-r-rstudio-and-r-markdown.html"><a href="intro-to-r-rstudio-and-r-markdown.html#a-quick-tour-of-rstudio"><i class="fa fa-check"></i>A quick tour of RStudio</a></li>
+<li class="chapter" data-level="" data-path="intro-to-r-rstudio-and-r-markdown.html"><a href="intro-to-r-rstudio-and-r-markdown.html#data"><i class="fa fa-check"></i>Data</a></li>
+<li class="chapter" data-level="" data-path="intro-to-r-rstudio-and-r-markdown.html"><a href="intro-to-r-rstudio-and-r-markdown.html#tidy-data"><i class="fa fa-check"></i>Tidy Data</a></li>
+<li class="chapter" data-level="" data-path="intro-to-r-rstudio-and-r-markdown.html"><a href="intro-to-r-rstudio-and-r-markdown.html#data-basics-in-rstudio"><i class="fa fa-check"></i>Data Basics in RStudio</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="intro-to-r-rstudio-and-r-markdown.html"><a href="intro-to-r-rstudio-and-r-markdown.html#r-markdown-and-reproducible-research"><i class="fa fa-check"></i>R Markdown and Reproducible Research</a></li>
+<li class="chapter" data-level="" data-path="intro-to-r-rstudio-and-r-markdown.html"><a href="intro-to-r-rstudio-and-r-markdown.html#practice"><i class="fa fa-check"></i>Practice</a></li>
+<li class="chapter" data-level="" data-path="intro-to-r-rstudio-and-r-markdown.html"><a href="intro-to-r-rstudio-and-r-markdown.html#appendix-r-functions"><i class="fa fa-check"></i>Appendix: R Functions</a>
+<ul>
+<li class="chapter" data-level="" data-path="intro-to-r-rstudio-and-r-markdown.html"><a href="intro-to-r-rstudio-and-r-markdown.html#r-as-a-calculator"><i class="fa fa-check"></i>R as a calculator</a></li>
+<li class="chapter" data-level="" data-path="intro-to-r-rstudio-and-r-markdown.html"><a href="intro-to-r-rstudio-and-r-markdown.html#r-basics"><i class="fa fa-check"></i>R Basics</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>II Visualization</b></span></li>
+<li class="chapter" data-level="2" data-path="intro-to-data-visualization.html"><a href="intro-to-data-visualization.html"><i class="fa fa-check"></i><b>2</b> Intro to Data Visualization</a>
+<ul>
+<li class="chapter" data-level="" data-path="intro-to-data-visualization.html"><a href="intro-to-data-visualization.html#learning-goals-2"><i class="fa fa-check"></i>Learning Goals</a></li>
+<li class="chapter" data-level="" data-path="intro-to-data-visualization.html"><a href="intro-to-data-visualization.html#benefits-of-visualizations"><i class="fa fa-check"></i>Benefits of Visualizations</a></li>
+<li class="chapter" data-level="" data-path="intro-to-data-visualization.html"><a href="intro-to-data-visualization.html#glyphs"><i class="fa fa-check"></i>Glyphs</a>
+<ul>
+<li class="chapter" data-level="" data-path="intro-to-data-visualization.html"><a href="intro-to-data-visualization.html#data-glyph"><i class="fa fa-check"></i>Data Glyph</a></li>
+<li class="chapter" data-level="" data-path="intro-to-data-visualization.html"><a href="intro-to-data-visualization.html#components-of-graphics"><i class="fa fa-check"></i>Components of Graphics</a></li>
+<li class="chapter" data-level="" data-path="intro-to-data-visualization.html"><a href="intro-to-data-visualization.html#eye-training-for-the-layered-grammar-of-graphics"><i class="fa fa-check"></i>Eye Training for the Layered Grammar of Graphics</a></li>
+<li class="chapter" data-level="" data-path="intro-to-data-visualization.html"><a href="intro-to-data-visualization.html#glyph-ready-data"><i class="fa fa-check"></i>Glyph-Ready Data</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="intro-to-data-visualization.html"><a href="intro-to-data-visualization.html#data-visualization-workflow-ggplot"><i class="fa fa-check"></i>Data Visualization Workflow + <code>ggplot</code></a>
+<ul>
+<li class="chapter" data-level="" data-path="intro-to-data-visualization.html"><a href="intro-to-data-visualization.html#layers-building-up-complex-plots"><i class="fa fa-check"></i>Layers – Building up Complex Plots</a></li>
+<li class="chapter" data-level="" data-path="intro-to-data-visualization.html"><a href="intro-to-data-visualization.html#getting-started"><i class="fa fa-check"></i>Getting Started</a></li>
+<li class="chapter" data-level="" data-path="intro-to-data-visualization.html"><a href="intro-to-data-visualization.html#an-example"><i class="fa fa-check"></i>An Example</a></li>
+<li class="chapter" data-level="" data-path="intro-to-data-visualization.html"><a href="intro-to-data-visualization.html#categorical-univariate-visualization"><i class="fa fa-check"></i>Categorical univariate visualization</a></li>
+<li class="chapter" data-level="" data-path="intro-to-data-visualization.html"><a href="intro-to-data-visualization.html#quantitative-univariate-visualization"><i class="fa fa-check"></i>Quantitative univariate visualization</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="intro-to-data-visualization.html"><a href="intro-to-data-visualization.html#additional-exercises"><i class="fa fa-check"></i>Additional exercises</a></li>
+<li class="chapter" data-level="" data-path="intro-to-data-visualization.html"><a href="intro-to-data-visualization.html#appendix-r-functions-1"><i class="fa fa-check"></i>Appendix: R Functions</a>
+<ul>
+<li class="chapter" data-level="" data-path="intro-to-data-visualization.html"><a href="intro-to-data-visualization.html#basic-r-functions"><i class="fa fa-check"></i>Basic R functions</a></li>
+<li class="chapter" data-level="" data-path="intro-to-data-visualization.html"><a href="intro-to-data-visualization.html#ggplot2-foundation-functions"><i class="fa fa-check"></i>ggplot2 foundation functions</a></li>
+<li class="chapter" data-level="" data-path="intro-to-data-visualization.html"><a href="intro-to-data-visualization.html#more-ggplot2-functions"><i class="fa fa-check"></i>more ggplot2 functions</a></li>
+<li class="chapter" data-level="" data-path="intro-to-data-visualization.html"><a href="intro-to-data-visualization.html#ggplot2-aesthetic-mapping-options"><i class="fa fa-check"></i>ggplot2 aesthetic mapping options</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="effective-visualizations.html"><a href="effective-visualizations.html"><i class="fa fa-check"></i><b>3</b> Effective Visualizations</a>
+<ul>
+<li class="chapter" data-level="" data-path="effective-visualizations.html"><a href="effective-visualizations.html#learning-goals-3"><i class="fa fa-check"></i>Learning Goals</a></li>
+<li class="chapter" data-level="" data-path="effective-visualizations.html"><a href="effective-visualizations.html#effective-visualizations-1"><i class="fa fa-check"></i>Effective Visualizations</a>
+<ul>
+<li class="chapter" data-level="" data-path="effective-visualizations.html"><a href="effective-visualizations.html#benefits-of-visualizations-1"><i class="fa fa-check"></i>Benefits of Visualizations</a></li>
+<li class="chapter" data-level="" data-path="effective-visualizations.html"><a href="effective-visualizations.html#analysis-of-graphics"><i class="fa fa-check"></i>Analysis of Graphics</a></li>
+<li class="chapter" data-level="" data-path="effective-visualizations.html"><a href="effective-visualizations.html#properties-of-effective-visualizations"><i class="fa fa-check"></i>Properties of Effective Visualizations</a></li>
+<li class="chapter" data-level="" data-path="effective-visualizations.html"><a href="effective-visualizations.html#basic-rules-for-constructing-graphics"><i class="fa fa-check"></i>Basic Rules for Constructing Graphics</a></li>
+<li class="chapter" data-level="" data-path="effective-visualizations.html"><a href="effective-visualizations.html#still-to-come"><i class="fa fa-check"></i>Still to Come</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="effective-visualizations.html"><a href="effective-visualizations.html#exercises"><i class="fa fa-check"></i>Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="bivariate-visualizations.html"><a href="bivariate-visualizations.html"><i class="fa fa-check"></i><b>4</b> Bivariate Visualizations</a>
+<ul>
+<li class="chapter" data-level="" data-path="bivariate-visualizations.html"><a href="bivariate-visualizations.html#learning-goals-4"><i class="fa fa-check"></i>Learning Goals</a></li>
+<li class="chapter" data-level="" data-path="bivariate-visualizations.html"><a href="bivariate-visualizations.html#bivariate-visualizations-1"><i class="fa fa-check"></i>Bivariate Visualizations</a>
+<ul>
+<li class="chapter" data-level="" data-path="bivariate-visualizations.html"><a href="bivariate-visualizations.html#getting-to-know-the-dataset"><i class="fa fa-check"></i>Getting to know the dataset</a></li>
+<li class="chapter" data-level="" data-path="bivariate-visualizations.html"><a href="bivariate-visualizations.html#background-on-visualizing-relationships"><i class="fa fa-check"></i>Background on visualizing relationships</a></li>
+<li class="chapter" data-level="" data-path="bivariate-visualizations.html"><a href="bivariate-visualizations.html#visualizing-quantitiative-vs-quantitative-relationships"><i class="fa fa-check"></i>Visualizing quantitiative vs quantitative relationships</a></li>
+<li class="chapter" data-level="" data-path="bivariate-visualizations.html"><a href="bivariate-visualizations.html#visualizing-quantitative-vs.-categorical-relationships"><i class="fa fa-check"></i>Visualizing quantitative vs. categorical relationships</a></li>
+<li class="chapter" data-level="" data-path="bivariate-visualizations.html"><a href="bivariate-visualizations.html#visualizing-categorical-vs-categorical-relationships"><i class="fa fa-check"></i>Visualizing categorical vs categorical relationships</a></li>
+<li class="chapter" data-level="" data-path="bivariate-visualizations.html"><a href="bivariate-visualizations.html#practice-1"><i class="fa fa-check"></i>Practice</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="bivariate-visualizations.html"><a href="bivariate-visualizations.html#appendix-r-functions-2"><i class="fa fa-check"></i>Appendix: R Functions</a>
+<ul>
+<li class="chapter" data-level="" data-path="bivariate-visualizations.html"><a href="bivariate-visualizations.html#data-wrangling-r-functions"><i class="fa fa-check"></i>Data Wrangling R functions</a></li>
+<li class="chapter" data-level="" data-path="bivariate-visualizations.html"><a href="bivariate-visualizations.html#ggplot2-foundation-functions-1"><i class="fa fa-check"></i>ggplot2 foundation functions</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="multivariate-visualizations.html"><a href="multivariate-visualizations.html"><i class="fa fa-check"></i><b>5</b> Multivariate Visualizations</a>
+<ul>
+<li class="chapter" data-level="" data-path="multivariate-visualizations.html"><a href="multivariate-visualizations.html#learning-goals-5"><i class="fa fa-check"></i>Learning Goals</a></li>
+<li class="chapter" data-level="" data-path="multivariate-visualizations.html"><a href="multivariate-visualizations.html#adding-more-aesthetic-attributes"><i class="fa fa-check"></i>Adding More Aesthetic Attributes</a>
+<ul>
+<li class="chapter" data-level="" data-path="multivariate-visualizations.html"><a href="multivariate-visualizations.html#exploring-sat-scores"><i class="fa fa-check"></i>Exploring SAT Scores</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="multivariate-visualizations.html"><a href="multivariate-visualizations.html#other-multivariate-visualization-techniques"><i class="fa fa-check"></i>Other Multivariate Visualization Techniques</a>
+<ul>
+<li class="chapter" data-level="" data-path="multivariate-visualizations.html"><a href="multivariate-visualizations.html#heat-maps"><i class="fa fa-check"></i>Heat maps</a></li>
+<li class="chapter" data-level="" data-path="multivariate-visualizations.html"><a href="multivariate-visualizations.html#star-plots"><i class="fa fa-check"></i>Star plots</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="spatial-visualization.html"><a href="spatial-visualization.html"><i class="fa fa-check"></i><b>6</b> Spatial Visualization</a>
+<ul>
+<li class="chapter" data-level="" data-path="spatial-visualization.html"><a href="spatial-visualization.html#learning-goals-6"><i class="fa fa-check"></i>Learning Goals</a></li>
+<li class="chapter" data-level="" data-path="spatial-visualization.html"><a href="spatial-visualization.html#motivation"><i class="fa fa-check"></i>Motivation</a></li>
+<li class="chapter" data-level="" data-path="spatial-visualization.html"><a href="spatial-visualization.html#plotting-points-on-a-map"><i class="fa fa-check"></i>Plotting Points on a Map</a>
+<ul>
+<li class="chapter" data-level="" data-path="spatial-visualization.html"><a href="spatial-visualization.html#starbucks-example"><i class="fa fa-check"></i>Starbucks Example</a></li>
+<li class="chapter" data-level="" data-path="spatial-visualization.html"><a href="spatial-visualization.html#resources"><i class="fa fa-check"></i>Resources</a></li>
+<li class="chapter" data-level="" data-path="spatial-visualization.html"><a href="spatial-visualization.html#exercise-more-with-starbucks"><i class="fa fa-check"></i>Exercise: More with Starbucks</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="spatial-visualization.html"><a href="spatial-visualization.html#contour-maps"><i class="fa fa-check"></i>Contour Maps</a></li>
+<li class="chapter" data-level="" data-path="spatial-visualization.html"><a href="spatial-visualization.html#choropleths"><i class="fa fa-check"></i>Choropleths</a>
+<ul>
+<li class="chapter" data-level="" data-path="spatial-visualization.html"><a href="spatial-visualization.html#choose-a-map"><i class="fa fa-check"></i>Choose a Map</a></li>
+<li class="chapter" data-level="" data-path="spatial-visualization.html"><a href="spatial-visualization.html#connect-map-idregion-variable-to-data-being-plotted"><i class="fa fa-check"></i>Connect Map ID/Region Variable to Data Being Plotted</a></li>
+<li class="chapter" data-level="" data-path="spatial-visualization.html"><a href="spatial-visualization.html#use-ggplot2-features"><i class="fa fa-check"></i>Use <code>ggplot2</code> Features</a></li>
+<li class="chapter" data-level="" data-path="spatial-visualization.html"><a href="spatial-visualization.html#expand_limits"><i class="fa fa-check"></i><code>expand_limits()</code></a></li>
+<li class="chapter" data-level="" data-path="spatial-visualization.html"><a href="spatial-visualization.html#theme_map"><i class="fa fa-check"></i><code>theme_map()</code></a></li>
+<li class="chapter" data-level="" data-path="spatial-visualization.html"><a href="spatial-visualization.html#add-ggplot2-layers"><i class="fa fa-check"></i>Add <code>ggplot2</code> Layers</a></li>
+<li class="chapter" data-level="" data-path="spatial-visualization.html"><a href="spatial-visualization.html#resources-1"><i class="fa fa-check"></i>Resources</a></li>
+<li class="chapter" data-level="" data-path="spatial-visualization.html"><a href="spatial-visualization.html#alternative-methods"><i class="fa fa-check"></i>Alternative Methods</a></li>
+<li class="chapter" data-level="" data-path="spatial-visualization.html"><a href="spatial-visualization.html#exercise-even-more-with-starbucks"><i class="fa fa-check"></i>Exercise: Even More with Starbucks</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="spatial-visualization.html"><a href="spatial-visualization.html#dynamnic-maps-with-leaflet"><i class="fa fa-check"></i>Dynamnic Maps with <code>leaflet</code></a>
+<ul>
+<li class="chapter" data-level="" data-path="spatial-visualization.html"><a href="spatial-visualization.html#steps-to-create-a-map"><i class="fa fa-check"></i>Steps to Create a Map</a></li>
+<li class="chapter" data-level="" data-path="spatial-visualization.html"><a href="spatial-visualization.html#creating-a-map-with-markerspoints"><i class="fa fa-check"></i>Creating a Map with Markers/Points</a></li>
+<li class="chapter" data-level="" data-path="spatial-visualization.html"><a href="spatial-visualization.html#choropleth-layers-with-addpolygons"><i class="fa fa-check"></i>Choropleth Layers with <code>addPolygons()</code></a></li>
+<li class="chapter" data-level="" data-path="spatial-visualization.html"><a href="spatial-visualization.html#resources-2"><i class="fa fa-check"></i>Resources</a></li>
+<li class="chapter" data-level="" data-path="spatial-visualization.html"><a href="spatial-visualization.html#exercise-favorite-places"><i class="fa fa-check"></i>Exercise: Favorite Places</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="spatial-visualization.html"><a href="spatial-visualization.html#appendix-r-functions-3"><i class="fa fa-check"></i>Appendix: R Functions</a>
+<ul>
+<li class="chapter" data-level="" data-path="spatial-visualization.html"><a href="spatial-visualization.html#mapping-points-functions"><i class="fa fa-check"></i>Mapping Points Functions</a></li>
+<li class="chapter" data-level="" data-path="spatial-visualization.html"><a href="spatial-visualization.html#contourdensity-mapping-functions"><i class="fa fa-check"></i>Contour/Density Mapping Functions</a></li>
+<li class="chapter" data-level="" data-path="spatial-visualization.html"><a href="spatial-visualization.html#choropleths-mapping-functions"><i class="fa fa-check"></i>Choropleths Mapping Functions</a></li>
+<li class="chapter" data-level="" data-path="spatial-visualization.html"><a href="spatial-visualization.html#dynamic-mapping-functions"><i class="fa fa-check"></i>Dynamic Mapping Functions</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>III Data Wrangling</b></span></li>
+<li class="chapter" data-level="7" data-path="six-main-verbs.html"><a href="six-main-verbs.html"><i class="fa fa-check"></i><b>7</b> Six Main Verbs</a>
+<ul>
+<li class="chapter" data-level="" data-path="six-main-verbs.html"><a href="six-main-verbs.html#learning-goals-7"><i class="fa fa-check"></i>Learning Goals</a></li>
+<li class="chapter" data-level="" data-path="six-main-verbs.html"><a href="six-main-verbs.html#data-wrangling-introduction"><i class="fa fa-check"></i>Data Wrangling Introduction</a>
+<ul>
+<li class="chapter" data-level="" data-path="six-main-verbs.html"><a href="six-main-verbs.html#example-us-births"><i class="fa fa-check"></i>Example: US Births</a></li>
+<li class="chapter" data-level="" data-path="six-main-verbs.html"><a href="six-main-verbs.html#tidy-data-1"><i class="fa fa-check"></i>Tidy Data</a></li>
+<li class="chapter" data-level="" data-path="six-main-verbs.html"><a href="six-main-verbs.html#data-verbs"><i class="fa fa-check"></i>Data Verbs</a></li>
+<li class="chapter" data-level="" data-path="six-main-verbs.html"><a href="six-main-verbs.html#piping"><i class="fa fa-check"></i>Piping</a></li>
+<li class="chapter" data-level="" data-path="six-main-verbs.html"><a href="six-main-verbs.html#manipulating-dates"><i class="fa fa-check"></i>Manipulating Dates</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="six-main-verbs.html"><a href="six-main-verbs.html#exercises-part-1-baby-names"><i class="fa fa-check"></i>Exercises Part 1: Baby Names</a></li>
+<li class="chapter" data-level="" data-path="six-main-verbs.html"><a href="six-main-verbs.html#exercises-part-2-us-births"><i class="fa fa-check"></i>Exercises Part 2: US Births</a>
+<ul>
+<li class="chapter" data-level="" data-path="six-main-verbs.html"><a href="six-main-verbs.html#seasonality"><i class="fa fa-check"></i>Seasonality</a></li>
+<li class="chapter" data-level="" data-path="six-main-verbs.html"><a href="six-main-verbs.html#day-of-the-week"><i class="fa fa-check"></i>Day of the Week</a></li>
+<li class="chapter" data-level="" data-path="six-main-verbs.html"><a href="six-main-verbs.html#holidays"><i class="fa fa-check"></i>Holidays</a></li>
+<li class="chapter" data-level="" data-path="six-main-verbs.html"><a href="six-main-verbs.html#geography"><i class="fa fa-check"></i>Geography</a></li>
+<li class="chapter" data-level="" data-path="six-main-verbs.html"><a href="six-main-verbs.html#superstition"><i class="fa fa-check"></i>Superstition</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="six-main-verbs.html"><a href="six-main-verbs.html#appendix-r-functions-4"><i class="fa fa-check"></i>Appendix: R Functions</a>
+<ul>
+<li class="chapter" data-level="" data-path="six-main-verbs.html"><a href="six-main-verbs.html#six-main-verbs-1"><i class="fa fa-check"></i>Six Main Verbs</a></li>
+<li class="chapter" data-level="" data-path="six-main-verbs.html"><a href="six-main-verbs.html#logicalboolean-operators"><i class="fa fa-check"></i>Logical/Boolean Operators</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="reshaping-data.html"><a href="reshaping-data.html"><i class="fa fa-check"></i><b>8</b> Reshaping Data</a>
+<ul>
+<li class="chapter" data-level="" data-path="reshaping-data.html"><a href="reshaping-data.html#learning-goals-8"><i class="fa fa-check"></i>Learning Goals</a></li>
+<li class="chapter" data-level="" data-path="reshaping-data.html"><a href="reshaping-data.html#wide-and-long-data-formats"><i class="fa fa-check"></i>Wide and Long Data Formats</a>
+<ul>
+<li class="chapter" data-level="" data-path="reshaping-data.html"><a href="reshaping-data.html#wider"><i class="fa fa-check"></i>Wider</a></li>
+<li class="chapter" data-level="" data-path="reshaping-data.html"><a href="reshaping-data.html#longer"><i class="fa fa-check"></i>Longer</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="reshaping-data.html"><a href="reshaping-data.html#example-the-daily-show-guests"><i class="fa fa-check"></i>Example: The Daily Show Guests</a>
+<ul>
+<li class="chapter" data-level="" data-path="reshaping-data.html"><a href="reshaping-data.html#popular-guests"><i class="fa fa-check"></i>Popular guests</a></li>
+<li class="chapter" data-level="" data-path="reshaping-data.html"><a href="reshaping-data.html#recreating-a-graphic"><i class="fa fa-check"></i>Recreating a graphic</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="reshaping-data.html"><a href="reshaping-data.html#more-exercises-practice-pivoting-longer"><i class="fa fa-check"></i>More Exercises: Practice Pivoting Longer</a></li>
+<li class="chapter" data-level="" data-path="reshaping-data.html"><a href="reshaping-data.html#appendix-r-functions-5"><i class="fa fa-check"></i>Appendix: R Functions</a>
+<ul>
+<li class="chapter" data-level="" data-path="reshaping-data.html"><a href="reshaping-data.html#reshaping-functions"><i class="fa fa-check"></i>Reshaping Functions</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="joining-two-data-frames.html"><a href="joining-two-data-frames.html"><i class="fa fa-check"></i><b>9</b> Joining Two Data Frames</a>
+<ul>
+<li class="chapter" data-level="" data-path="joining-two-data-frames.html"><a href="joining-two-data-frames.html#learning-goals-9"><i class="fa fa-check"></i>Learning Goals</a></li>
+<li class="chapter" data-level="" data-path="joining-two-data-frames.html"><a href="joining-two-data-frames.html#joins"><i class="fa fa-check"></i>Joins</a>
+<ul>
+<li class="chapter" data-level="" data-path="joining-two-data-frames.html"><a href="joining-two-data-frames.html#establishing-a-match-between-cases"><i class="fa fa-check"></i>Establishing a match between cases</a></li>
+<li class="chapter" data-level="" data-path="joining-two-data-frames.html"><a href="joining-two-data-frames.html#matching"><i class="fa fa-check"></i>Matching</a></li>
+<li class="chapter" data-level="" data-path="joining-two-data-frames.html"><a href="joining-two-data-frames.html#mutating-joins"><i class="fa fa-check"></i>Mutating joins</a></li>
+<li class="chapter" data-level="" data-path="joining-two-data-frames.html"><a href="joining-two-data-frames.html#filtering-joins"><i class="fa fa-check"></i>Filtering joins</a></li>
+<li class="chapter" data-level="" data-path="joining-two-data-frames.html"><a href="joining-two-data-frames.html#more-join-practice"><i class="fa fa-check"></i>More join practice</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="joining-two-data-frames.html"><a href="joining-two-data-frames.html#bicycle-use-patterns"><i class="fa fa-check"></i>Bicycle-Use Patterns</a>
+<ul>
+<li class="chapter" data-level="" data-path="joining-two-data-frames.html"><a href="joining-two-data-frames.html#warm-up-temporal-patterns"><i class="fa fa-check"></i>Warm-up: Temporal patterns</a></li>
+<li class="chapter" data-level="" data-path="joining-two-data-frames.html"><a href="joining-two-data-frames.html#mutating-join-practice-spatial-patterns"><i class="fa fa-check"></i>Mutating join practice: Spatial patterns</a></li>
+<li class="chapter" data-level="" data-path="joining-two-data-frames.html"><a href="joining-two-data-frames.html#filtering-join-practice-spatiotemporal-patterns"><i class="fa fa-check"></i>Filtering join practice: Spatiotemporal patterns</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="joining-two-data-frames.html"><a href="joining-two-data-frames.html#appendix-r-functions-6"><i class="fa fa-check"></i>Appendix: R Functions</a>
+<ul>
+<li class="chapter" data-level="" data-path="joining-two-data-frames.html"><a href="joining-two-data-frames.html#mutating-joins-1"><i class="fa fa-check"></i>Mutating Joins</a></li>
+<li class="chapter" data-level="" data-path="joining-two-data-frames.html"><a href="joining-two-data-frames.html#filtering-joins-1"><i class="fa fa-check"></i>Filtering Joins</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="categorical-variables-as-factors.html"><a href="categorical-variables-as-factors.html"><i class="fa fa-check"></i><b>10</b> Categorical Variables as Factors</a>
+<ul>
+<li class="chapter" data-level="" data-path="categorical-variables-as-factors.html"><a href="categorical-variables-as-factors.html#learning-goals-10"><i class="fa fa-check"></i>Learning Goals</a></li>
+<li class="chapter" data-level="" data-path="categorical-variables-as-factors.html"><a href="categorical-variables-as-factors.html#example-grade-distribution"><i class="fa fa-check"></i>Example: Grade Distribution</a>
+<ul>
+<li class="chapter" data-level="" data-path="categorical-variables-as-factors.html"><a href="categorical-variables-as-factors.html#converting-to-factor"><i class="fa fa-check"></i>Converting to factor</a></li>
+<li class="chapter" data-level="" data-path="categorical-variables-as-factors.html"><a href="categorical-variables-as-factors.html#changing-the-order-of-levels"><i class="fa fa-check"></i>Changing the order of levels</a></li>
+<li class="chapter" data-level="" data-path="categorical-variables-as-factors.html"><a href="categorical-variables-as-factors.html#changing-the-value-of-levels"><i class="fa fa-check"></i>Changing the value of levels</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="categorical-variables-as-factors.html"><a href="categorical-variables-as-factors.html#appendix-r-functions-7"><i class="fa fa-check"></i>Appendix: R Functions</a>
+<ul>
+<li class="chapter" data-level="" data-path="categorical-variables-as-factors.html"><a href="categorical-variables-as-factors.html#changing-the-order-of-levels-1"><i class="fa fa-check"></i>Changing the order of levels</a></li>
+<li class="chapter" data-level="" data-path="categorical-variables-as-factors.html"><a href="categorical-variables-as-factors.html#changing-the-value-of-levels-1"><i class="fa fa-check"></i>Changing the value of levels</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="mini-project.html"><a href="mini-project.html"><i class="fa fa-check"></i><b>11</b> Mini-Project</a>
+<ul>
+<li class="chapter" data-level="" data-path="mini-project.html"><a href="mini-project.html#learning-goals-11"><i class="fa fa-check"></i>Learning Goals</a></li>
+<li class="chapter" data-level="" data-path="mini-project.html"><a href="mini-project.html#data-kiva"><i class="fa fa-check"></i>Data: Kiva</a>
+<ul>
+<li class="chapter" data-level="" data-path="mini-project.html"><a href="mini-project.html#investigate-the-partners-data-table"><i class="fa fa-check"></i>Investigate the <code>partners</code> Data Table</a></li>
+<li class="chapter" data-level="" data-path="mini-project.html"><a href="mini-project.html#investigate-the-loans-data-table"><i class="fa fa-check"></i>Investigate the <code>loans</code> Data Table</a></li>
+<li class="chapter" data-level="" data-path="mini-project.html"><a href="mini-project.html#putting-them-together"><i class="fa fa-check"></i>Putting them together</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>IV Data Modeling</b></span></li>
+<li class="chapter" data-level="12" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html"><i class="fa fa-check"></i><b>12</b> Exploratory Data Analysis</a>
+<ul>
+<li class="chapter" data-level="" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#learning-goals-12"><i class="fa fa-check"></i>Learning Goals</a></li>
+<li class="chapter" data-level="" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#first-steps-of-a-data-analysis"><i class="fa fa-check"></i>First Steps of a Data Analysis</a></li>
+<li class="chapter" data-level="" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#understand-the-basic-data"><i class="fa fa-check"></i>Understand the Basic Data</a></li>
+<li class="chapter" data-level="" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#visualize-and-describe-the-data"><i class="fa fa-check"></i>Visualize and Describe the Data</a></li>
+<li class="chapter" data-level="" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#formulate-a-research-question"><i class="fa fa-check"></i>Formulate a Research Question</a></li>
+<li class="chapter" data-level="" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#examples"><i class="fa fa-check"></i>Examples</a></li>
+<li class="chapter" data-level="" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#practice-flight-data"><i class="fa fa-check"></i>Practice: Flight Data</a></li>
+</ul></li>
+<li class="part"><span><b>V Data Acquisition &amp; Cleaning</b></span></li>
+<li class="chapter" data-level="13" data-path="data-import.html"><a href="data-import.html"><i class="fa fa-check"></i><b>13</b> Data Import</a>
+<ul>
+<li class="chapter" data-level="" data-path="data-import.html"><a href="data-import.html#learning-goals-13"><i class="fa fa-check"></i>Learning Goals</a></li>
+<li class="chapter" data-level="" data-path="data-import.html"><a href="data-import.html#finding-importing-and-cleaning-data"><i class="fa fa-check"></i>Finding, Importing, and Cleaning Data</a>
+<ul>
+<li class="chapter" data-level="" data-path="data-import.html"><a href="data-import.html#finding-existing-data-sets"><i class="fa fa-check"></i>Finding Existing Data Sets</a></li>
+<li class="chapter" data-level="" data-path="data-import.html"><a href="data-import.html#loading-datasets"><i class="fa fa-check"></i>Loading Datasets</a></li>
+<li class="chapter" data-level="" data-path="data-import.html"><a href="data-import.html#checking-the-imported-datasets"><i class="fa fa-check"></i>Checking the Imported Datasets</a></li>
+<li class="chapter" data-level="" data-path="data-import.html"><a href="data-import.html#cleaning-datasets"><i class="fa fa-check"></i>Cleaning Datasets</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="data-import.html"><a href="data-import.html#additional-practice"><i class="fa fa-check"></i>Additional Practice</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="regular-expressions.html"><a href="regular-expressions.html"><i class="fa fa-check"></i><b>14</b> Regular Expressions</a>
+<ul>
+<li class="chapter" data-level="" data-path="regular-expressions.html"><a href="regular-expressions.html#learning-goals-14"><i class="fa fa-check"></i>Learning Goals</a></li>
+<li class="chapter" data-level="" data-path="regular-expressions.html"><a href="regular-expressions.html#regular-expressions-and-character-strings"><i class="fa fa-check"></i>Regular Expressions and Character Strings</a></li>
+<li class="chapter" data-level="" data-path="regular-expressions.html"><a href="regular-expressions.html#wrangling-with-regular-expressions-in-r"><i class="fa fa-check"></i>Wrangling with Regular Expressions in <code>R</code></a>
+<ul>
+<li class="chapter" data-level="" data-path="regular-expressions.html"><a href="regular-expressions.html#search-and-replace-patterns-with-str_replace-or-str_replace_all-stringr"><i class="fa fa-check"></i>Search and replace patterns with <code>str_replace</code> or <code>str_replace_all</code> (<code>stringr</code>)</a></li>
+<li class="chapter" data-level="" data-path="regular-expressions.html"><a href="regular-expressions.html#detect-patterns-with-str_detect-stringr"><i class="fa fa-check"></i>Detect patterns with <code>str_detect</code> (<code>stringr</code>)</a></li>
+<li class="chapter" data-level="" data-path="regular-expressions.html"><a href="regular-expressions.html#locate-patterns-with-str_locate"><i class="fa fa-check"></i>Locate patterns with <code>str_locate</code></a></li>
+<li class="chapter" data-level="" data-path="regular-expressions.html"><a href="regular-expressions.html#extract-patterns-with-str_extract-and-str_extract_all"><i class="fa fa-check"></i>Extract patterns with <code>str_extract</code> and <code>str_extract_all</code></a></li>
+<li class="chapter" data-level="" data-path="regular-expressions.html"><a href="regular-expressions.html#count-the-number-of-characters-with-str_length"><i class="fa fa-check"></i>Count the number of characters with <code>str_length</code></a></li>
+<li class="chapter" data-level="" data-path="regular-expressions.html"><a href="regular-expressions.html#convert-a-string-to-all-lower-case-letters-with-str_to_lower"><i class="fa fa-check"></i>Convert a string to all lower case letters with <code>str_to_lower</code></a></li>
+<li class="chapter" data-level="" data-path="regular-expressions.html"><a href="regular-expressions.html#split-strings-with-separate"><i class="fa fa-check"></i>Split strings with <code>separate</code></a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="regular-expressions.html"><a href="regular-expressions.html#practice-fall-2021-enrollment-exploration"><i class="fa fa-check"></i>Practice: Fall 2021 Enrollment Exploration</a></li>
+</ul></li>
+<li class="part"><span><b>VI Additional Topics</b></span></li>
+<li class="chapter" data-level="" data-path="data-acquisition-scraping-the-web.html"><a href="data-acquisition-scraping-the-web.html"><i class="fa fa-check"></i>Data Acquisition: Scraping the Web</a>
+<ul>
+<li class="chapter" data-level="" data-path="data-acquisition-scraping-the-web.html"><a href="data-acquisition-scraping-the-web.html#learning-goals-15"><i class="fa fa-check"></i>Learning Goals</a></li>
+<li class="chapter" data-level="" data-path="data-acquisition-scraping-the-web.html"><a href="data-acquisition-scraping-the-web.html#scraping-data"><i class="fa fa-check"></i>Scraping Data</a>
+<ul>
+<li class="chapter" data-level="" data-path="data-acquisition-scraping-the-web.html"><a href="data-acquisition-scraping-the-web.html#finding-css-selectors"><i class="fa fa-check"></i>Finding CSS Selectors</a></li>
+<li class="chapter" data-level="" data-path="data-acquisition-scraping-the-web.html"><a href="data-acquisition-scraping-the-web.html#retrieving-data-using-rvest-and-css-selector"><i class="fa fa-check"></i>Retrieving Data Using <code>rvest</code> and CSS Selector</a></li>
+<li class="chapter" data-level="" data-path="data-acquisition-scraping-the-web.html"><a href="data-acquisition-scraping-the-web.html#web-scraping-in-python"><i class="fa fa-check"></i>Web Scraping in Python</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="data-acquisition-scraping-the-web.html"><a href="data-acquisition-scraping-the-web.html#additional-practice-analyze-wnba-players"><i class="fa fa-check"></i>Additional Practice: Analyze WNBA Players</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="public-web-apis.html"><a href="public-web-apis.html"><i class="fa fa-check"></i>Public Web APIs</a>
+<ul>
+<li class="chapter" data-level="" data-path="public-web-apis.html"><a href="public-web-apis.html#learning-goals-16"><i class="fa fa-check"></i>Learning Goals</a></li>
+<li class="chapter" data-level="" data-path="public-web-apis.html"><a href="public-web-apis.html#apis"><i class="fa fa-check"></i>APIs</a></li>
+<li class="chapter" data-level="" data-path="public-web-apis.html"><a href="public-web-apis.html#wrapper-packages"><i class="fa fa-check"></i>Wrapper Packages</a></li>
+<li class="chapter" data-level="" data-path="public-web-apis.html"><a href="public-web-apis.html#accessing-web-apis"><i class="fa fa-check"></i>Accessing Web APIs</a></li>
+<li class="chapter" data-level="" data-path="public-web-apis.html"><a href="public-web-apis.html#web-api-responses"><i class="fa fa-check"></i>Web API Responses</a>
+<ul>
+<li class="chapter" data-level="" data-path="public-web-apis.html"><a href="public-web-apis.html#a-note-on-nested-data-frames"><i class="fa fa-check"></i>A Note on Nested Data Frames</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="public-web-apis.html"><a href="public-web-apis.html#additional-practice-1"><i class="fa fa-check"></i>Additional Practice</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="sql.html"><a href="sql.html"><i class="fa fa-check"></i>SQL</a>
+<ul>
+<li class="chapter" data-level="" data-path="sql.html"><a href="sql.html#learning-goals-17"><i class="fa fa-check"></i>Learning Goals</a></li>
+<li class="chapter" data-level="" data-path="sql.html"><a href="sql.html#introduction-to-sql"><i class="fa fa-check"></i>Introduction to SQL</a>
+<ul>
+<li class="chapter" data-level="" data-path="sql.html"><a href="sql.html#stack-exchange-data-explorer"><i class="fa fa-check"></i>Stack Exchange Data Explorer</a></li>
+<li class="chapter" data-level="" data-path="sql.html"><a href="sql.html#basic-select-queries"><i class="fa fa-check"></i>Basic Select Queries</a></li>
+<li class="chapter" data-level="" data-path="sql.html"><a href="sql.html#sql-summarization"><i class="fa fa-check"></i>SQL Summarization</a></li>
+<li class="chapter" data-level="" data-path="sql.html"><a href="sql.html#sql-joins"><i class="fa fa-check"></i>SQL Joins</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="sql.html"><a href="sql.html#additional-exercises-1"><i class="fa fa-check"></i>Additional Exercises</a></li>
+<li class="chapter" data-level="" data-path="sql.html"><a href="sql.html#accessing-sql-databases-from-rstudio"><i class="fa fa-check"></i>Accessing SQL Databases from RStudio</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="text-analysis.html"><a href="text-analysis.html"><i class="fa fa-check"></i>Text Analysis</a>
+<ul>
+<li class="chapter" data-level="" data-path="text-analysis.html"><a href="text-analysis.html#learning-goals-18"><i class="fa fa-check"></i>Learning Goals</a></li>
+<li class="chapter" data-level="" data-path="text-analysis.html"><a href="text-analysis.html#introduction-to-text-analysis-in-r"><i class="fa fa-check"></i>Introduction to Text Analysis in R</a>
+<ul>
+<li class="chapter" data-level="" data-path="text-analysis.html"><a href="text-analysis.html#text-acquisition"><i class="fa fa-check"></i>Text Acquisition</a></li>
+<li class="chapter" data-level="" data-path="text-analysis.html"><a href="text-analysis.html#analyzing-single-documents"><i class="fa fa-check"></i>Analyzing Single Documents</a></li>
+<li class="chapter" data-level="" data-path="text-analysis.html"><a href="text-analysis.html#comparing-the-text-in-two-or-more-documents"><i class="fa fa-check"></i>Comparing the text in two (or more) documents</a></li>
+<li class="chapter" data-level="" data-path="text-analysis.html"><a href="text-analysis.html#sentiment-analysis"><i class="fa fa-check"></i>Sentiment Analysis</a></li>
+<li class="chapter" data-level="" data-path="text-analysis.html"><a href="text-analysis.html#other-interesting-questions"><i class="fa fa-check"></i>Other Interesting Questions</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="advanced-visualization.html"><a href="advanced-visualization.html"><i class="fa fa-check"></i>Advanced Visualization</a>
+<ul>
+<li class="chapter" data-level="" data-path="advanced-visualization.html"><a href="advanced-visualization.html#network-visualization"><i class="fa fa-check"></i>Network Visualization</a></li>
+<li class="chapter" data-level="" data-path="advanced-visualization.html"><a href="advanced-visualization.html#animations-with-gganimate"><i class="fa fa-check"></i>Animations with <code>gganimate</code></a></li>
+<li class="chapter" data-level="" data-path="advanced-visualization.html"><a href="advanced-visualization.html#interactive-visualizations"><i class="fa fa-check"></i>Interactive Visualizations</a>
+<ul>
+<li class="chapter" data-level="" data-path="advanced-visualization.html"><a href="advanced-visualization.html#htmlwidgets"><i class="fa fa-check"></i>htmlwidgets</a></li>
+<li class="chapter" data-level="" data-path="advanced-visualization.html"><a href="advanced-visualization.html#dashboards"><i class="fa fa-check"></i>Dashboards</a></li>
+<li class="chapter" data-level="" data-path="advanced-visualization.html"><a href="advanced-visualization.html#shiny"><i class="fa fa-check"></i>Shiny</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="shiny-1.html"><a href="shiny-1.html"><i class="fa fa-check"></i>Shiny</a>
+<ul>
+<li class="chapter" data-level="" data-path="shiny-1.html"><a href="shiny-1.html#learning-goals-19"><i class="fa fa-check"></i>Learning Goals</a></li>
+<li class="chapter" data-level="" data-path="shiny-1.html"><a href="shiny-1.html#what-is-a-shiny-app"><i class="fa fa-check"></i>What is a Shiny App?</a>
+<ul>
+<li class="chapter" data-level="" data-path="shiny-1.html"><a href="shiny-1.html#structure-of-a-shiny-app"><i class="fa fa-check"></i>Structure of a Shiny App</a></li>
+<li class="chapter" data-level="" data-path="shiny-1.html"><a href="shiny-1.html#concept-map"><i class="fa fa-check"></i>Concept Map</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="shiny-1.html"><a href="shiny-1.html#creating-an-app"><i class="fa fa-check"></i>Creating an app</a>
+<ul>
+<li class="chapter" data-level="" data-path="shiny-1.html"><a href="shiny-1.html#details"><i class="fa fa-check"></i>Details</a></li>
+<li class="chapter" data-level="" data-path="shiny-1.html"><a href="shiny-1.html#what-is-an-app.r-file"><i class="fa fa-check"></i>What is an app.R file?</a></li>
+<li class="chapter" data-level="" data-path="shiny-1.html"><a href="shiny-1.html#input-functions"><i class="fa fa-check"></i><code>*Input()</code> functions</a></li>
+<li class="chapter" data-level="" data-path="shiny-1.html"><a href="shiny-1.html#output-functions"><i class="fa fa-check"></i><code>*Output()</code> functions</a></li>
+<li class="chapter" data-level="" data-path="shiny-1.html"><a href="shiny-1.html#using-render-functions"><i class="fa fa-check"></i>Using <code>render*()</code> functions</a></li>
+<li class="chapter" data-level="" data-path="shiny-1.html"><a href="shiny-1.html#publishing-your-app"><i class="fa fa-check"></i>Publishing your app</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="shiny-1.html"><a href="shiny-1.html#more-practice"><i class="fa fa-check"></i>More Practice</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="presentation-tools.html"><a href="presentation-tools.html"><i class="fa fa-check"></i>Presentation Tools</a>
+<ul>
+<li class="chapter" data-level="" data-path="presentation-tools.html"><a href="presentation-tools.html#output-formats"><i class="fa fa-check"></i>Output Formats</a>
+<ul>
+<li class="chapter" data-level="" data-path="presentation-tools.html"><a href="presentation-tools.html#slides"><i class="fa fa-check"></i>Slides</a></li>
+<li class="chapter" data-level="" data-path="presentation-tools.html"><a href="presentation-tools.html#reports-websites"><i class="fa fa-check"></i>Reports / Websites</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://bookdown.org" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">COMP/STAT 112: Introduction to Data Science</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="effective-visualizations" class="section level1 hasAnchor" number="3">
+<h1><span class="header-section-number">Topic 3</span> Effective Visualizations<a href="effective-visualizations.html#effective-visualizations" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="learning-goals-3" class="section level2 unnumbered hasAnchor">
+<h2>Learning Goals<a href="effective-visualizations.html#learning-goals-3" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li>Understand and apply the guiding principles of effective visualizations</li>
+</ul>
+<p>You can download a template .Rmd of this activity <a href="template_rmd/03-Effective_Viz_Assign.Rmd">here</a>. Put the file in a <code>Day_03</code> folder within your <code>COMP_STAT_112</code> folder.</p>
+</div>
+<div id="effective-visualizations-1" class="section level2 unnumbered hasAnchor">
+<h2>Effective Visualizations<a href="effective-visualizations.html#effective-visualizations-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="benefits-of-visualizations-1" class="section level3 unnumbered hasAnchor">
+<h3>Benefits of Visualizations<a href="effective-visualizations.html#benefits-of-visualizations-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Visualizations help us understand what we’re working with:</p>
+<ul>
+<li>What are the scales of our variables?<br />
+</li>
+<li>Are there any outliers, i.e. unusual cases?<br />
+</li>
+<li>What are the patterns among our variables?</li>
+</ul>
+<p>This understanding will inform our next steps:</p>
+<ul>
+<li>What method of analysis / model is appropriate?</li>
+</ul>
+<p>Once our analysis is complete, visualizations are a powerful way to communicate our findings and <strong>tell a story</strong>.</p>
+</div>
+<div id="analysis-of-graphics" class="section level3 unnumbered hasAnchor">
+<h3>Analysis of Graphics<a href="effective-visualizations.html#analysis-of-graphics" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>There is not one right way to visualize a data set.</p>
+<p>However, there are guiding principles that distinguish between “good” and “bad” graphics.</p>
+<p>One of the best ways to learn is by reading graphics and determining which ways of arranging thing are better or worse. So before jumping directly into theoretical principles, let’s try some critical analysis on specific examples.</p>
+<div class="exercise">
+<p><span id="exr:unnamed-chunk-61" class="exercise"><strong>Exercise 3.1  </strong></span>For your assigned graphics or sets of graphics, identify the following:</p>
+<ol style="list-style-type: decimal">
+<li>the story the graphic is aiming to communicate to the audience</li>
+<li>effective features of the graphic</li>
+<li>areas for improvement</li>
+</ol>
+</div>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-62"></span>
+<img src="images/badviz3.png" alt="Source: http://viz.wtf/" width="50%" />
+<p class="caption">
+Figure 3.1: Source: <a href="http://viz.wtf/" class="uri">http://viz.wtf/</a>
+</p>
+</div>
+<p><br />
+<br />
+<br />
+</p>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-63"></span>
+<img src="images/trilogies.gif" alt="Source: N. Yau, *Visualize This*, 2011, p. 223-225." width="50%" />
+<p class="caption">
+Figure 3.2: Source: N. Yau, <em>Visualize This</em>, 2011, p. 223-225.
+</p>
+</div>
+<p><br />
+<br />
+<br />
+</p>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-64"></span>
+<img src="images/chernoff.png" alt="Source: N. Yau, *Visualize This*, 2011, p. 242." width="60%" />
+<p class="caption">
+Figure 3.3: Source: N. Yau, <em>Visualize This</em>, 2011, p. 242.
+</p>
+</div>
+<p><br />
+<br />
+<br />
+</p>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-65"></span>
+<img src="images/badviz2.png" alt="Gun deaths." width="70%" />
+<p class="caption">
+Figure 3.4: Gun deaths.
+</p>
+</div>
+<p><br />
+<br />
+<br />
+</p>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-66"></span>
+<img src="images/obama1.png" alt="Source: N. Yau, *Visualize This*, 2011, p. 150." width="80%" />
+<p class="caption">
+Figure 3.5: Source: N. Yau, <em>Visualize This</em>, 2011, p. 150.
+</p>
+</div>
+<p><br />
+<br />
+<br />
+</p>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-67"></span>
+<img src="images/breakup.png" alt="Source: C. N. Knaflic, *Storytelling with Data*, 2015, p. 142." width="80%" />
+<p class="caption">
+Figure 3.6: Source: C. N. Knaflic, <em>Storytelling with Data</em>, 2015, p. 142.
+</p>
+</div>
+<p><br />
+<br />
+<br />
+</p>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-68"></span>
+<img src="images/heatmap.png" alt="Source: S. Few, *Now You See It*, 2009, p. 45." width="60%" />
+<p class="caption">
+Figure 3.7: Source: S. Few, <em>Now You See It</em>, 2009, p. 45.
+</p>
+</div>
+<p><br />
+<br />
+<br />
+</p>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-69"></span>
+<img src="images/badviz1.png" alt="Climate change." width="60%" />
+<p class="caption">
+Figure 3.8: Climate change.
+</p>
+</div>
+<p><br />
+<br />
+<br />
+</p>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-70"></span>
+<img src="images/slopegraph1.png" alt="Source: C. N. Knaflic, *Storytelling with Data*, 2015, p. 48." width="50%" />
+<p class="caption">
+Figure 3.9: Source: C. N. Knaflic, <em>Storytelling with Data</em>, 2015, p. 48.
+</p>
+</div>
+<p><br />
+<br />
+<br />
+</p>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-71"></span>
+<img src="stat112_manual_files/figure-html/unnamed-chunk-71-1.png" alt="Diamond data visualizations from [*R for Data Science*](http://r4ds.had.co.nz/data-visualisation.html#position-adjustments), 2017" width="336" /><img src="stat112_manual_files/figure-html/unnamed-chunk-71-2.png" alt="Diamond data visualizations from [*R for Data Science*](http://r4ds.had.co.nz/data-visualisation.html#position-adjustments), 2017" width="336" /><img src="stat112_manual_files/figure-html/unnamed-chunk-71-3.png" alt="Diamond data visualizations from [*R for Data Science*](http://r4ds.had.co.nz/data-visualisation.html#position-adjustments), 2017" width="336" /><img src="stat112_manual_files/figure-html/unnamed-chunk-71-4.png" alt="Diamond data visualizations from [*R for Data Science*](http://r4ds.had.co.nz/data-visualisation.html#position-adjustments), 2017" width="336" /><img src="stat112_manual_files/figure-html/unnamed-chunk-71-5.png" alt="Diamond data visualizations from [*R for Data Science*](http://r4ds.had.co.nz/data-visualisation.html#position-adjustments), 2017" width="336" />
+<p class="caption">
+Figure 3.10: Diamond data visualizations from <a href="http://r4ds.had.co.nz/data-visualisation.html#position-adjustments"><em>R for Data Science</em></a>, 2017
+</p>
+</div>
+<p><br />
+<br />
+<br />
+</p>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-72"></span>
+<img src="images/piechart.png" alt="Source: S. Few, *Now You See It*, 2009, p. 37." width="100%" />
+<p class="caption">
+Figure 3.11: Source: S. Few, <em>Now You See It</em>, 2009, p. 37.
+</p>
+</div>
+<p><br />
+<br />
+<br />
+</p>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-73"></span>
+<img src="images/Nightingale.png" alt="Source: N. Yau, *Visualize This*, 2011, p. 249." width="70%" />
+<p class="caption">
+Figure 3.12: Source: N. Yau, <em>Visualize This</em>, 2011, p. 249.
+</p>
+</div>
+<p><br />
+<br />
+<br />
+</p>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-74"></span>
+<img src="images/compensation.png" alt="Source: S. Few, *Now You See It*, 2009, p. 61." width="80%" />
+<p class="caption">
+Figure 3.13: Source: S. Few, <em>Now You See It</em>, 2009, p. 61.
+</p>
+</div>
+<p><br />
+<br />
+<br />
+</p>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-75"></span>
+<img src="images/employees.png" alt="Source: C. N. Knaflic, *Storytelling with Data*, 2015, p. 68." width="100%" />
+<p class="caption">
+Figure 3.14: Source: C. N. Knaflic, <em>Storytelling with Data</em>, 2015, p. 68.
+</p>
+</div>
+<p><br />
+<br />
+<br />
+</p>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-76"></span>
+<img src="images/clutter.png" alt="Source: C. N. Knaflic, *Storytelling with Data*, 2015, p. 81." width="70%" />
+<p class="caption">
+Figure 3.15: Source: C. N. Knaflic, <em>Storytelling with Data</em>, 2015, p. 81.
+</p>
+</div>
+<p><br />
+<br />
+<br />
+</p>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-77"></span>
+<img src="images/badviz4.png" alt="Source: http://viz.wtf/" width="60%" />
+<p class="caption">
+Figure 3.16: Source: <a href="http://viz.wtf/" class="uri">http://viz.wtf/</a>
+</p>
+</div>
+<p><br />
+<br />
+<br />
+</p>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-78"></span>
+<img src="images/plagiarism.png" alt="Source: A. Cairo, *The Functional Art*, 2013, p. 340." width="85%" />
+<p class="caption">
+Figure 3.17: Source: A. Cairo, <em>The Functional Art</em>, 2013, p. 340.
+</p>
+</div>
+<p><br />
+<br />
+<br />
+</p>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-79"></span>
+<img src="images/tv-size-by-year1.png" alt="Source: N. Yau, *Visualize This*, 2011, p. 220." width="70%" />
+<p class="caption">
+Figure 3.18: Source: N. Yau, <em>Visualize This</em>, 2011, p. 220.
+</p>
+</div>
+<p><br />
+<br />
+<br />
+</p>
+<p><strong>More examples</strong>:</p>
+<ul>
+<li>FlowingData: <a href="http://flowingdata.com/">blog</a> and <a href="https://flowingdata.com/2016/12/29/best-data-visualization-projects-of-2016/">Best visualizations of 2016</a></li>
+<li><a href="http://viz.wtf/">WTF Visualizations</a></li>
+</ul>
+</div>
+<div id="properties-of-effective-visualizations" class="section level3 unnumbered hasAnchor">
+<h3>Properties of Effective Visualizations<a href="effective-visualizations.html#properties-of-effective-visualizations" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="storytelling-context" class="section level4 unnumbered hasAnchor">
+<h4>Storytelling / Context<a href="effective-visualizations.html#storytelling-context" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Remember …</p>
+<blockquote>
+<p>Graphics are designed by the human expert (you!) in order to reveal information that’s in the data.</p>
+</blockquote>
+<p>Your choices depend on what information you want to reveal and convey. So before you complete a graphic, you should clearly identify what story you want the graphic to tell to the audience, and double check that this story is being told.<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a></p>
+<p><a href="https://fivethirtyeight.com/features/six-charts-to-help-americans-understand-the-upcoming-german-election/">Here</a> is a nice example from <code>FiveThirtyEight</code> where each chart tells a story in answer to a particular question about the [then] upcoming German election.</p>
+<p><a href="https://fivethirtyeight.com/features/gun-deaths/">Here</a> is an interactive visualization that tells a story about gun violence.</p>
+<p>Another important contextual question to ask is whether the graphic is for an explanatory (<em>explain why</em>) or exploratory (<em>discovering something new</em>) analysis.</p>
+</div>
+<div id="ethics" class="section level4 unnumbered hasAnchor">
+<h4>Ethics<a href="effective-visualizations.html#ethics" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Michael Correll of Tableau Research writes “Data visualizations have a potentially enormous influence on how
+data are used to make decisions across all areas of human
+endeavor.” in his <a href="https://arxiv.org/pdf/1811.07271.pdf">article from 2018</a>.</p>
+<p>Visualization operates at the intersection of science, communication, and data science &amp; statistics. There are professional standards of ethics in these fields of the power they hold over other people as it relates to making data-driven decisions.</p>
+<p>Correll describes three ethical challenges of visualization work:</p>
+<ol style="list-style-type: decimal">
+<li><strong>Visibility</strong> Make the invisible visible</li>
+</ol>
+<ul>
+<li>Visualize hidden labor</li>
+<li>Visualize hidden uncertainty</li>
+<li>Visualize hidden impacts</li>
+</ul>
+<p><em>Visualizations can be complex and one must consider the accessibility of the visualization to the audience. Managing complexity is, therefore, a virtue in design that can be in direct opposition with the desire to visualize the invisible.</em></p>
+<ol start="2" style="list-style-type: decimal">
+<li><strong>Privacy</strong> Collect data with empathy</li>
+</ol>
+<ul>
+<li>Encourage Small Data</li>
+<li>Anthropomorphize data</li>
+<li>Obfuscate data to protect privacy</li>
+</ul>
+<p><em>Restricting the type and amount of data that is collected has a direct impact on the quality and scope of the analyses hence obligation to provide context, and analytical power can, therefore, stand in direct opposition to the empathic collection of data.</em></p>
+<ol start="3" style="list-style-type: decimal">
+<li><strong>Power</strong> Challenge structures of power</li>
+</ol>
+<ul>
+<li>Support data due process.</li>
+<li>Act as data advocates.</li>
+<li>Pressure unethical analytical behavior.</li>
+</ul>
+<p><em>The goal of promoting truth and suppressing falsehood may require amplifying existing structures of expertise and power, and suppressing conflicts for the sake of rhetorical impact.</em></p>
+<p>At a minimum, you should always</p>
+<ol style="list-style-type: decimal">
+<li><p>Present data in a way that avoids misleading the audience.</p></li>
+<li><p>Always include your data source. Doing so attributes credit for labor, provides credibility to your work, and provides context for your graphic.</p></li>
+</ol>
+</div>
+<div id="design" class="section level4 unnumbered hasAnchor">
+<h4>Design<a href="effective-visualizations.html#design" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>A basic principle is that a graphic is about <em>comparison</em>. Good graphics make it easy for people to perceive things that are similar and things that are different. Good graphics put the things to be compared “side-by-side,” that is, in perceptual proximity to one another. The following aesthetics are listed in roughly descending order of human ability to perceive and compare nearby objects:<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a></p>
+<ol style="list-style-type: decimal">
+<li>Position</li>
+<li>Length</li>
+<li>Angle</li>
+<li>Direction</li>
+<li>Shape (but only a very few different shapes)</li>
+<li>Area</li>
+<li>Volume</li>
+<li>Shade</li>
+<li>Color</li>
+</ol>
+<p>Color is the most difficult, because it is a 3-dimensional quantity. We are pretty good at color gradients, but discrete colors must be selected carefully. We need to be particularly aware of red/green color blindness issues.</p>
+<p><strong>Visual perception and effective visualizations</strong></p>
+<p>Here are some facts to keep in mind about visual perception from <a href="https://www.amazon.com/Now-You-See-Visualization-Quantitative/dp/0970601980">Now You See It</a>:</p>
+<ol style="list-style-type: decimal">
+<li>Visual perception is selective, and our attention is often drawn to constrasts from the norm.</li>
+</ol>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-80"></span>
+<img src="images/contrast.png" alt="Our attention is drawn to contrasts to the norm. What stands out in this example image?, which is originally from C. Ware, *Information Visualization: Perception for Design*, 2004? Source: S. Few, *Now You See It*, 2009, p. 33." width="100%" />
+<p class="caption">
+Figure 3.19: Our attention is drawn to contrasts to the norm. What stands out in this example image?, which is originally from C. Ware, <em>Information Visualization: Perception for Design</em>, 2004? Source: S. Few, <em>Now You See It</em>, 2009, p. 33.
+</p>
+</div>
+<blockquote>
+<p><strong>Implication</strong>: We should design visualizations so that the features we want to highlight stand out in contrast from those that are not worth the audience’s attention.</p>
+</blockquote>
+<ol start="2" style="list-style-type: decimal">
+<li>Our eyes are drawn to familiar patterns. We see what we know and expect.</li>
+</ol>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-81"></span>
+<img src="images/rose1.png" alt="Do you see anything embedded in this rose image from coolbubble.com? Source: S. Few, *Now You See It*, 2009, p. 34." width="90%" />
+<p class="caption">
+Figure 3.20: Do you see anything embedded in this rose image from coolbubble.com? Source: S. Few, <em>Now You See It</em>, 2009, p. 34.
+</p>
+</div>
+<blockquote>
+<p><strong>Implication</strong>: Visualizations work best when they display information as patterns that familiar and easy to spot.</p>
+</blockquote>
+<ol start="3" style="list-style-type: decimal">
+<li>Memory plays an important role in human cognition, but working memory is extremely limited.</li>
+</ol>
+<blockquote>
+<p><strong>Implication</strong>: Visualizations must serve as external aids to augment working memory. If a visualization is unfamiliar, then it won’t be as effective.</p>
+</blockquote>
+<p><strong>Gestalt principles</strong></p>
+<p>The Gestalt principles (more info <a href="https://en.wikipedia.org/wiki/Principles_of_grouping">here</a> or <a href="https://www.smashingmagazine.com/2014/03/design-principles-visual-perception-and-the-principles-of-gestalt/">here</a>) were developed by psychologists including Max Wertheimer in the early 1900s to explain how humans perceive organized patterns and objects.</p>
+<p>In a design setting, they help us understand how to incorporate <strong>preattentive features</strong> into visualizations. The figure below shows some preattentive features, all of which are processed prior to conscious attention (“at a glance”) and can help the reader focus on relevant information in a visualization.</p>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-82"></span>
+<img src="images/gestalt.png" alt="Preattentive features based on the Gestalt principles. Source: I. Meirelles, *Design for Information*, 2013, p. 23." width="100%" />
+<p class="caption">
+Figure 3.21: Preattentive features based on the Gestalt principles. Source: I. Meirelles, <em>Design for Information</em>, 2013, p. 23.
+</p>
+</div>
+<p><strong>Other design tips</strong> from <a href="https://www.amazon.com/Visualize-This-FlowingData-Visualization-Statistics/dp/0470944889/">Visualize This</a> and <a href="https://www.amazon.com/Storytelling-Data-Visualization-Business-Professionals/dp/1119002257">Storytelling with Data</a>:</p>
+<ul>
+<li>Put yourself in a reader’s shoes when you design data graphics. What parts of the data need explanation? We can minimize ambiguity by providing guides, label axes, etc.</li>
+<li>Data graphics are meant to shine a light on your data. Try to remove any elements that don’t help you do that. That is, eliminate “chart junk” (distracting and unnecessary adornments).</li>
+<li>Vary color and stroke styles to emphasize the parts in your graphic that are most important to the story you’re telling</li>
+<li>It is easier to judge length than it is to judge area or angles</li>
+<li>Be thoughtful about how your categories (levels) are ordered for categorical data. There may be a natural ordering</li>
+<li>Pie charts, donut charts, and 3D are evil</li>
+</ul>
+</div>
+</div>
+<div id="basic-rules-for-constructing-graphics" class="section level3 unnumbered hasAnchor">
+<h3>Basic Rules for Constructing Graphics<a href="effective-visualizations.html#basic-rules-for-constructing-graphics" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Instead of memorizing which plot is appropriate for which situation, it’s best to simply start to recognize patterns in constructing graphics:</p>
+<ul>
+<li>Each quantitative variable requires a new axis.<br />
+</li>
+<li>Each categorical variable requires a new way to “group” the graphic (eg: using colors, shapes, separate facets, etc to capture the grouping).</li>
+<li>For visualizations in which overlap in glyphs or plots obscures the patterns, try faceting or transparency.</li>
+</ul>
+</div>
+<div id="still-to-come" class="section level3 unnumbered hasAnchor">
+<h3>Still to Come<a href="effective-visualizations.html#still-to-come" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>While we will not cover all of visualization theory – you can take a whole course on that at Macalester and it is a proper field in its own right – we will touch on the following types of visualizations in the coming weeks:</p>
+<ul>
+<li>Univariate and bivariate visualizations</li>
+<li>Visualizations of higher dimensional data</li>
+<li>Temporal structures: timelines and flows</li>
+<li>Hierarchical structures: trees</li>
+<li>Relational structures: networks</li>
+<li>Spatial structures: maps</li>
+<li>Spatio-temporal structures</li>
+<li>Textual structures</li>
+<li>Interactive graphics (e.g., <code>gganimate</code>, <code>shiny</code>)</li>
+</ul>
+</div>
+</div>
+<div id="exercises" class="section level2 unnumbered hasAnchor">
+<h2>Exercises<a href="effective-visualizations.html#exercises" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="exercise">
+<p><span id="exr:unnamed-chunk-83" class="exercise"><strong>Exercise 3.2  </strong></span>Consider one of the more complicated data graphics listed at (<a href="http://mdsr-book.github.io/exercises.html#exercise_25" class="uri">http://mdsr-book.github.io/exercises.html#exercise_25</a>):</p>
+<ol style="list-style-type: lower-alpha">
+<li>What story does the data graphic tell? What is the main message that you take away from it?</li>
+<li>Can the data graphic be described in terms of the Grammar of Graphics (frame, glyphs, aesthetics, facet, scale, guide)? If so, please describe.</li>
+<li>Critique and/or praise the visualization choices made by the designer. Do they work? Are they misleading? Thought-provoking? Brilliant? Are there things that you would have done differently? Justify your response.</li>
+</ol>
+</div>
+
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="1">
+<li id="fn1"><p>A “negative” result (e.g., there is no correlation between two variables) is a perfectly fine story to tell.<a href="effective-visualizations.html#fnref1" class="footnote-back">↩︎</a></p></li>
+<li id="fn2"><p>This list is from B. S. Baumer, D. T. Kaplan, and N. J. Horton, <em>Modern Data Science with R</em>, 2017, p. 15. For more of the theory of perception, see also
+W.S. Cleveland and R. McGill, “<a href="http://www.math.pku.edu.cn/teachers/xirb/Courses/biostatistics/Biostatistics2016/GraphicalPerception_Jasa1984.pdf">Graphical perception: Theory, experimentation, and application to the development of graphical methods</a>,” <em>Journal of the American Statistical Association</em>, 1984.<a href="effective-visualizations.html#fnref2" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="intro-to-data-visualization.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="bivariate-visualizations.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook/js/app.min.js"></script>
+<script src="libs/gitbook/js/clipboard.min.js"></script>
+<script src="libs/gitbook/js/plugin-search.js"></script>
+<script src="libs/gitbook/js/plugin-sharing.js"></script>
+<script src="libs/gitbook/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook/js/jquery.highlight.js"></script>
+<script src="libs/gitbook/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": false,
+"twitter": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

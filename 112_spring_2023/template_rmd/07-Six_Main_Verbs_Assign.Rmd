@@ -1,0 +1,305 @@
+---
+title: "Comp/Stat 112: Six Main Verbs"
+author: "INSERT STUDENT NAME HERE (COLLABORATOR NAMES HERE)"
+output:
+  bookdown::html_document2:
+    split_by: none
+    toc: yes
+    toc_depth: 3
+    toc_float:
+      toc_collapsed: true
+    number_sections: false
+---
+
+```{r 07_setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, error = TRUE)
+library(tidyverse)
+library(ggplot2)
+library(mosaicData) #install.pacakges('mosaicData')
+library(lubridate) 
+Birthdays <- Birthdays %>% select(state, date, year, births)
+```
+
+# Six Main Verbs
+
+## Data Wrangling Introduction {-}
+
+### Data Verbs {-}
+
+#### Verbs that change the variables (columns) but not the cases (rows) {-}
+
+
+```{example,name="select and mutate"}
+Consider the `Birthdays` data
+```
+
+a. Add two new variables to the `Birthdays` data: one that has only the last two digits of the year, and one that states whether there were more than 100 births in the given state on the given date.   
+b. Then form a new table that only has three columns: the state and your two new columns.   
+c. What does the following operation return: `select(Birthdays, ends_with("te"))`?
+
+Try first, then check solutions online.
+
+```{r}
+
+```
+
+
+
+#### Verbs that change the cases (rows) but not the variables (columns) {-}
+
+
+```{exercise, name="filter and arrange", label="ex-ma"}
+Create a table with only births in Massachusetts in 1979, and sort the days from those with the most births to those with the fewest.
+
+```
+
+Try first, then check solutions online.
+
+```{r}
+
+```
+
+
+#### Grouped summaries {-}
+
+
+```{exercise, name="grouped summary"}  
+Consider the `Birthdays` data again.
+```
+
+  (a) Find the average number of daily births (per state) in each year.
+  (b) Find the average number of daily births in each year, by state.
+
+Try first, then check solutions online.
+
+```{r}
+
+```
+
+### Piping {-}
+
+Pipes offer an efficient way to execute multiple operations at once. Here is a more efficient way to redo Exercise \@ref(exm:ex-ma) with **the pipe**:
+
+```{r}
+QuickMABirths1979 <-
+  Birthdays %>%
+  filter(state == "MA", year == 1979) %>%
+  arrange(desc(births))
+```
+
+### Manipulating Dates {-}
+
+
+```{r}
+Birthdays <-
+  Birthdays %>%
+  mutate(
+    month = month(date, label = TRUE),
+    weekday = wday(date, label = TRUE)
+  )
+```
+
+
+```{exercise}
+Make a table showing the five states with the most births between September 9, 1979 and September 11, 1979, inclusive. Arrange the table in descending order of births.
+```
+
+Try first, then check solutions online.
+
+```{r}
+
+```
+
+## Exercises Part 1: Baby Names {-}
+
+We are going to practice the six data verbs on the `babynames` dataset:
+
+```{r, echo=FALSE}
+library(babynames)
+```
+
+```{exercise}
+Add a new boolean (true or false) variable called `has2000` that indicates whether there were more than 2000 babies of that sex assigned at birth with that name in each year. Display the first six rows of your new table.
+
+```
+
+> ANSWER:
+
+```{r}
+
+```
+
+```{exercise}
+Find the number of total babies per year, sorted by most babies to least babies.
+
+```
+
+> ANSWER:
+
+```{r}
+
+```
+
+```{exercise}
+Find the twelve most popular names overall (i.e., totaled over all year and sexes), ordered by popularity.
+
+```
+
+> ANSWER:
+
+```{r}
+
+```
+
+```{exercise}
+Find the most popular names for males, over all years and ordered by popularity.
+
+```
+
+> ANSWER:
+
+```{r}
+
+```
+
+```{exercise}
+Find the most popular names for females, over all years and ordered by popularity.
+
+```
+
+> ANSWER:
+
+```{r}
+
+```
+
+```{exercise}
+Calculate the number of babies born each decade, and arrange them in descending order. Calculating the decade may be the trickiest part of this question!   
+  
+  
+```
+   
+> ANSWER:
+
+```{r}
+
+```
+
+```{exercise}
+Calculate the most popular name for each year. Print out the answer for the years 2006-2015. This is tricky, but try Googling for hints.
+
+```
+
+> ANSWER:
+
+```{r}
+
+```
+
+## Exercises Part 2: US Births {-}
+
+Now we are ready to return to the `Birthdays` data set to investigate some drivers of daily births in the US.
+
+### Seasonality {-}
+
+For this activity, we need to work with data aggregated across the states.
+
+```{exercise, name="Total Across States", label="us-daily-births"}
+Create a new data table, `DailyBirths`, that adds up all the births for each day across all the states.  Plot out daily births vs date.
+
+```
+
+> ANSWER:
+
+```{r}
+
+```
+
+***For all of the remaining exercises, start with your `DailyBirths` data frame.***
+
+```{exercise, name="Examine Seasonality", label="seasonality"}
+
+To examine seasonality in birth rates, look at the number of births by
+
+a. week of the year (1-53)
+b. month of the year (January to December)
+c. Julian day (1-366)
+
+When are the most babies born? The fewest?
+
+```
+
+> ANSWER:
+
+```{r}
+
+```
+
+
+### Day of the Week {-}
+
+```{exercise, name="Examine Patterns within the Week", label="weekday"}
+To examine patterns within the week, make a box plot showing the number of births by day of the week. Interpret your results.
+
+```
+
+> ANSWER:
+
+```{r}
+
+```
+
+### Holidays {-}
+
+```{exercise, name="Two Year Sample", label="two-year"}
+Pick a two-year span of the `Birthdays` that falls in the 1980s, say, 1980/1981.  Extract out the data just in this interval, calling it `MyTwoYears`.  (Hint: `filter()`, `year()`).  Plot out the births in this two-year span day by day. Color each date according to its day of the week.  Make sure to choose your font size, line widths, and color scheme to make your figure legible. Explain the pattern that you see.
+
+```
+
+> ANSWER:
+
+
+```{exercise, name="Holidays", label="holidays"}
+Now let's update the plot from Exercise \@ref(exr:two-year) to include the holidays.   
+
+a. Add a variable to `MyTwoYears` called `is_holiday`. It should be `TRUE` when the day is a holiday, and `FALSE` otherwise. One way to do this is with the transformation verb `%in%`, for instance, `is_holiday = date %in% Holidays$date`.   
+b. Add a `geom_point` layer to your plot that sets the color of the points based on the day of the week and the shape of the points based on whether or not the day is a holiday.   
+c. Finally, some holidays seem to have more of an effect than others. It would be helpful to label them. Use `geom_text` with the holiday data to add labels to each of the holidays. Hints: 1. Start by making a new data table called `MyHolidays` that just contains the holidays in your selected two year window. 2. Start your geometry line with `geom_text(data=MyHolidays)`. 3. You'll have to make up a y-coordinate for each label.  4. You can set the orientation of each label with the `angle` argument; e.g., `geom_text(data=MyHolidays, angle=40, ...)`.
+
+```
+
+> ANSWER:
+
+
+
+```{r}
+Holidays <- read_csv("https://bcheggeseth.github.io/112_fall_2022/data/US-Holidays.csv") %>%
+  mutate(date = as.POSIXct(lubridate::dmy(date)))
+
+
+
+```
+
+### Geography {-}
+
+```{exercise, name="Examine the Effect of Geography", label="geography"}
+In any way you choose, explore the effect of geography on birth patterns. For example, do parents in Minnesota have fewer winter babies than in other states? Which states have the largest increases or decreases in their portion of US births over time? Is the weekend effect less strong for states with a higher percentage of their populations living in rural areas? Pick any issue (not all of these) that interests you, explore it, and create a graphic to illustrate your findings.
+
+```
+
+> ANSWER:
+
+```{r}
+
+```
+
+
+### Superstition {-}
+
+This [article](https://fivethirtyeight.com/features/some-people-are-too-superstitious-to-have-a-baby-on-friday-the-13th/) from FiveThirtyEight demonstrates that fewer babies are born on the 13th of each month, and the effect is even stronger when the 13th falls on a Friday. If you have extra time or want some extra practice, you can try to recreate the first graphic in the article.
+
+> ANSWER:
+
+```{r}
+
+```

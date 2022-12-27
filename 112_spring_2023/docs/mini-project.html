@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Topic 11 Mini-Project | COMP/STAT 112: Introduction to Data Science</title>
+  <meta name="description" content="This is the class website for Introduction to Data Science at Macalester College for Fall 2022." />
+  <meta name="generator" content="bookdown 0.27 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Topic 11 Mini-Project | COMP/STAT 112: Introduction to Data Science" />
+  <meta property="og:type" content="book" />
+  <meta property="og:image" content="/images/logo.png" />
+  <meta property="og:description" content="This is the class website for Introduction to Data Science at Macalester College for Fall 2022." />
+  <meta name="github-repo" content="bcheggeseth/112_fall_2022/" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Topic 11 Mini-Project | COMP/STAT 112: Introduction to Data Science" />
+  
+  <meta name="twitter:description" content="This is the class website for Introduction to Data Science at Macalester College for Fall 2022." />
+  <meta name="twitter:image" content="/images/logo.png" />
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="categorical-variables-as-factors.html"/>
+<link rel="next" href="exploratory-data-analysis.html"/>
+<script src="libs/jquery/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections/anchor-sections.js"></script>
+<script src="libs/htmlwidgets/htmlwidgets.js"></script>
+<link href="libs/leaflet/leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet/leaflet.js"></script>
+<link href="libs/leafletfix/leafletfix.css" rel="stylesheet" />
+<script src="libs/proj4/proj4.min.js"></script>
+<script src="libs/Proj4Leaflet/proj4leaflet.js"></script>
+<link href="libs/rstudio_leaflet/rstudio_leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-binding/leaflet.js"></script>
+<script src="libs/leaflet-providers/leaflet-providers_1.9.0.js"></script>
+<script src="libs/leaflet-providers-plugin/leaflet-providers-plugin.js"></script>
+<script src="libs/kePrint/kePrint.js"></script>
+<link href="libs/lightable/lightable.css" rel="stylesheet" />
+<link href="libs/dygraphs/dygraph.css" rel="stylesheet" />
+<script src="libs/dygraphs/dygraph-combined.js"></script>
+<script src="libs/dygraphs/shapes.js"></script>
+<script src="libs/moment/moment.js"></script>
+<script src="libs/moment-timezone/moment-timezone-with-data.js"></script>
+<script src="libs/moment-fquarter/moment-fquarter.min.js"></script>
+<script src="libs/dygraphs-binding/dygraphs.js"></script>
+<script src="libs/plotly-binding/plotly.js"></script>
+<script src="libs/typedarray/typedarray.min.js"></script>
+<link href="libs/crosstalk/css/crosstalk.min.css" rel="stylesheet" />
+<script src="libs/crosstalk/js/crosstalk.min.js"></script>
+<link href="libs/plotly-htmlwidgets-css/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="libs/plotly-main/plotly-latest.min.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="custom_styles.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href = "./">COMP/STAT 112: Introduction to Data Science</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome!</a></li>
+<li class="chapter" data-level="" data-path="course-schedule.html"><a href="course-schedule.html"><i class="fa fa-check"></i>Course Schedule</a></li>
+<li class="chapter" data-level="" data-path="learning-goals.html"><a href="learning-goals.html"><i class="fa fa-check"></i>Learning Goals</a>
+<ul>
+<li class="chapter" data-level="" data-path="learning-goals.html"><a href="learning-goals.html#general-skills"><i class="fa fa-check"></i>General Skills</a></li>
+<li class="chapter" data-level="" data-path="learning-goals.html"><a href="learning-goals.html#course-topics"><i class="fa fa-check"></i>Course Topics</a>
+<ul>
+<li class="chapter" data-level="" data-path="learning-goals.html"><a href="learning-goals.html#foundation"><i class="fa fa-check"></i>Foundation</a></li>
+<li class="chapter" data-level="" data-path="learning-goals.html"><a href="learning-goals.html#data-acquisition-cleaning"><i class="fa fa-check"></i>Data Acquisition &amp; Cleaning</a></li>
+<li class="chapter" data-level="" data-path="learning-goals.html"><a href="learning-goals.html#data-wrangling"><i class="fa fa-check"></i>Data Wrangling</a></li>
+<li class="chapter" data-level="" data-path="learning-goals.html"><a href="learning-goals.html#data-visualization"><i class="fa fa-check"></i>Data Visualization</a></li>
+<li class="chapter" data-level="" data-path="learning-goals.html"><a href="learning-goals.html#data-modeling"><i class="fa fa-check"></i>Data Modeling</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>I Foundation</b></span></li>
+<li class="chapter" data-level="1" data-path="intro-to-r-rstudio-and-r-markdown.html"><a href="intro-to-r-rstudio-and-r-markdown.html"><i class="fa fa-check"></i><b>1</b> Intro to R, RStudio, and R Markdown</a>
+<ul>
+<li class="chapter" data-level="" data-path="intro-to-r-rstudio-and-r-markdown.html"><a href="intro-to-r-rstudio-and-r-markdown.html#learning-goals-1"><i class="fa fa-check"></i>Learning Goals</a></li>
+<li class="chapter" data-level="" data-path="intro-to-r-rstudio-and-r-markdown.html"><a href="intro-to-r-rstudio-and-r-markdown.html#getting-started-in-rstudio"><i class="fa fa-check"></i>Getting Started in RStudio</a>
+<ul>
+<li class="chapter" data-level="" data-path="intro-to-r-rstudio-and-r-markdown.html"><a href="intro-to-r-rstudio-and-r-markdown.html#download-r-rstudio"><i class="fa fa-check"></i>Download R &amp; RStudio</a></li>
+<li class="chapter" data-level="" data-path="intro-to-r-rstudio-and-r-markdown.html"><a href="intro-to-r-rstudio-and-r-markdown.html#a-quick-tour-of-rstudio"><i class="fa fa-check"></i>A quick tour of RStudio</a></li>
+<li class="chapter" data-level="" data-path="intro-to-r-rstudio-and-r-markdown.html"><a href="intro-to-r-rstudio-and-r-markdown.html#data"><i class="fa fa-check"></i>Data</a></li>
+<li class="chapter" data-level="" data-path="intro-to-r-rstudio-and-r-markdown.html"><a href="intro-to-r-rstudio-and-r-markdown.html#tidy-data"><i class="fa fa-check"></i>Tidy Data</a></li>
+<li class="chapter" data-level="" data-path="intro-to-r-rstudio-and-r-markdown.html"><a href="intro-to-r-rstudio-and-r-markdown.html#data-basics-in-rstudio"><i class="fa fa-check"></i>Data Basics in RStudio</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="intro-to-r-rstudio-and-r-markdown.html"><a href="intro-to-r-rstudio-and-r-markdown.html#r-markdown-and-reproducible-research"><i class="fa fa-check"></i>R Markdown and Reproducible Research</a></li>
+<li class="chapter" data-level="" data-path="intro-to-r-rstudio-and-r-markdown.html"><a href="intro-to-r-rstudio-and-r-markdown.html#practice"><i class="fa fa-check"></i>Practice</a></li>
+<li class="chapter" data-level="" data-path="intro-to-r-rstudio-and-r-markdown.html"><a href="intro-to-r-rstudio-and-r-markdown.html#appendix-r-functions"><i class="fa fa-check"></i>Appendix: R Functions</a>
+<ul>
+<li class="chapter" data-level="" data-path="intro-to-r-rstudio-and-r-markdown.html"><a href="intro-to-r-rstudio-and-r-markdown.html#r-as-a-calculator"><i class="fa fa-check"></i>R as a calculator</a></li>
+<li class="chapter" data-level="" data-path="intro-to-r-rstudio-and-r-markdown.html"><a href="intro-to-r-rstudio-and-r-markdown.html#r-basics"><i class="fa fa-check"></i>R Basics</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>II Visualization</b></span></li>
+<li class="chapter" data-level="2" data-path="intro-to-data-visualization.html"><a href="intro-to-data-visualization.html"><i class="fa fa-check"></i><b>2</b> Intro to Data Visualization</a>
+<ul>
+<li class="chapter" data-level="" data-path="intro-to-data-visualization.html"><a href="intro-to-data-visualization.html#learning-goals-2"><i class="fa fa-check"></i>Learning Goals</a></li>
+<li class="chapter" data-level="" data-path="intro-to-data-visualization.html"><a href="intro-to-data-visualization.html#benefits-of-visualizations"><i class="fa fa-check"></i>Benefits of Visualizations</a></li>
+<li class="chapter" data-level="" data-path="intro-to-data-visualization.html"><a href="intro-to-data-visualization.html#glyphs"><i class="fa fa-check"></i>Glyphs</a>
+<ul>
+<li class="chapter" data-level="" data-path="intro-to-data-visualization.html"><a href="intro-to-data-visualization.html#data-glyph"><i class="fa fa-check"></i>Data Glyph</a></li>
+<li class="chapter" data-level="" data-path="intro-to-data-visualization.html"><a href="intro-to-data-visualization.html#components-of-graphics"><i class="fa fa-check"></i>Components of Graphics</a></li>
+<li class="chapter" data-level="" data-path="intro-to-data-visualization.html"><a href="intro-to-data-visualization.html#eye-training-for-the-layered-grammar-of-graphics"><i class="fa fa-check"></i>Eye Training for the Layered Grammar of Graphics</a></li>
+<li class="chapter" data-level="" data-path="intro-to-data-visualization.html"><a href="intro-to-data-visualization.html#glyph-ready-data"><i class="fa fa-check"></i>Glyph-Ready Data</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="intro-to-data-visualization.html"><a href="intro-to-data-visualization.html#data-visualization-workflow-ggplot"><i class="fa fa-check"></i>Data Visualization Workflow + <code>ggplot</code></a>
+<ul>
+<li class="chapter" data-level="" data-path="intro-to-data-visualization.html"><a href="intro-to-data-visualization.html#layers-building-up-complex-plots"><i class="fa fa-check"></i>Layers – Building up Complex Plots</a></li>
+<li class="chapter" data-level="" data-path="intro-to-data-visualization.html"><a href="intro-to-data-visualization.html#getting-started"><i class="fa fa-check"></i>Getting Started</a></li>
+<li class="chapter" data-level="" data-path="intro-to-data-visualization.html"><a href="intro-to-data-visualization.html#an-example"><i class="fa fa-check"></i>An Example</a></li>
+<li class="chapter" data-level="" data-path="intro-to-data-visualization.html"><a href="intro-to-data-visualization.html#categorical-univariate-visualization"><i class="fa fa-check"></i>Categorical univariate visualization</a></li>
+<li class="chapter" data-level="" data-path="intro-to-data-visualization.html"><a href="intro-to-data-visualization.html#quantitative-univariate-visualization"><i class="fa fa-check"></i>Quantitative univariate visualization</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="intro-to-data-visualization.html"><a href="intro-to-data-visualization.html#additional-exercises"><i class="fa fa-check"></i>Additional exercises</a></li>
+<li class="chapter" data-level="" data-path="intro-to-data-visualization.html"><a href="intro-to-data-visualization.html#appendix-r-functions-1"><i class="fa fa-check"></i>Appendix: R Functions</a>
+<ul>
+<li class="chapter" data-level="" data-path="intro-to-data-visualization.html"><a href="intro-to-data-visualization.html#basic-r-functions"><i class="fa fa-check"></i>Basic R functions</a></li>
+<li class="chapter" data-level="" data-path="intro-to-data-visualization.html"><a href="intro-to-data-visualization.html#ggplot2-foundation-functions"><i class="fa fa-check"></i>ggplot2 foundation functions</a></li>
+<li class="chapter" data-level="" data-path="intro-to-data-visualization.html"><a href="intro-to-data-visualization.html#more-ggplot2-functions"><i class="fa fa-check"></i>more ggplot2 functions</a></li>
+<li class="chapter" data-level="" data-path="intro-to-data-visualization.html"><a href="intro-to-data-visualization.html#ggplot2-aesthetic-mapping-options"><i class="fa fa-check"></i>ggplot2 aesthetic mapping options</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="effective-visualizations.html"><a href="effective-visualizations.html"><i class="fa fa-check"></i><b>3</b> Effective Visualizations</a>
+<ul>
+<li class="chapter" data-level="" data-path="effective-visualizations.html"><a href="effective-visualizations.html#learning-goals-3"><i class="fa fa-check"></i>Learning Goals</a></li>
+<li class="chapter" data-level="" data-path="effective-visualizations.html"><a href="effective-visualizations.html#effective-visualizations-1"><i class="fa fa-check"></i>Effective Visualizations</a>
+<ul>
+<li class="chapter" data-level="" data-path="effective-visualizations.html"><a href="effective-visualizations.html#benefits-of-visualizations-1"><i class="fa fa-check"></i>Benefits of Visualizations</a></li>
+<li class="chapter" data-level="" data-path="effective-visualizations.html"><a href="effective-visualizations.html#analysis-of-graphics"><i class="fa fa-check"></i>Analysis of Graphics</a></li>
+<li class="chapter" data-level="" data-path="effective-visualizations.html"><a href="effective-visualizations.html#properties-of-effective-visualizations"><i class="fa fa-check"></i>Properties of Effective Visualizations</a></li>
+<li class="chapter" data-level="" data-path="effective-visualizations.html"><a href="effective-visualizations.html#basic-rules-for-constructing-graphics"><i class="fa fa-check"></i>Basic Rules for Constructing Graphics</a></li>
+<li class="chapter" data-level="" data-path="effective-visualizations.html"><a href="effective-visualizations.html#still-to-come"><i class="fa fa-check"></i>Still to Come</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="effective-visualizations.html"><a href="effective-visualizations.html#exercises"><i class="fa fa-check"></i>Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="bivariate-visualizations.html"><a href="bivariate-visualizations.html"><i class="fa fa-check"></i><b>4</b> Bivariate Visualizations</a>
+<ul>
+<li class="chapter" data-level="" data-path="bivariate-visualizations.html"><a href="bivariate-visualizations.html#learning-goals-4"><i class="fa fa-check"></i>Learning Goals</a></li>
+<li class="chapter" data-level="" data-path="bivariate-visualizations.html"><a href="bivariate-visualizations.html#bivariate-visualizations-1"><i class="fa fa-check"></i>Bivariate Visualizations</a>
+<ul>
+<li class="chapter" data-level="" data-path="bivariate-visualizations.html"><a href="bivariate-visualizations.html#getting-to-know-the-dataset"><i class="fa fa-check"></i>Getting to know the dataset</a></li>
+<li class="chapter" data-level="" data-path="bivariate-visualizations.html"><a href="bivariate-visualizations.html#background-on-visualizing-relationships"><i class="fa fa-check"></i>Background on visualizing relationships</a></li>
+<li class="chapter" data-level="" data-path="bivariate-visualizations.html"><a href="bivariate-visualizations.html#visualizing-quantitiative-vs-quantitative-relationships"><i class="fa fa-check"></i>Visualizing quantitiative vs quantitative relationships</a></li>
+<li class="chapter" data-level="" data-path="bivariate-visualizations.html"><a href="bivariate-visualizations.html#visualizing-quantitative-vs.-categorical-relationships"><i class="fa fa-check"></i>Visualizing quantitative vs. categorical relationships</a></li>
+<li class="chapter" data-level="" data-path="bivariate-visualizations.html"><a href="bivariate-visualizations.html#visualizing-categorical-vs-categorical-relationships"><i class="fa fa-check"></i>Visualizing categorical vs categorical relationships</a></li>
+<li class="chapter" data-level="" data-path="bivariate-visualizations.html"><a href="bivariate-visualizations.html#practice-1"><i class="fa fa-check"></i>Practice</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="bivariate-visualizations.html"><a href="bivariate-visualizations.html#appendix-r-functions-2"><i class="fa fa-check"></i>Appendix: R Functions</a>
+<ul>
+<li class="chapter" data-level="" data-path="bivariate-visualizations.html"><a href="bivariate-visualizations.html#data-wrangling-r-functions"><i class="fa fa-check"></i>Data Wrangling R functions</a></li>
+<li class="chapter" data-level="" data-path="bivariate-visualizations.html"><a href="bivariate-visualizations.html#ggplot2-foundation-functions-1"><i class="fa fa-check"></i>ggplot2 foundation functions</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="multivariate-visualizations.html"><a href="multivariate-visualizations.html"><i class="fa fa-check"></i><b>5</b> Multivariate Visualizations</a>
+<ul>
+<li class="chapter" data-level="" data-path="multivariate-visualizations.html"><a href="multivariate-visualizations.html#learning-goals-5"><i class="fa fa-check"></i>Learning Goals</a></li>
+<li class="chapter" data-level="" data-path="multivariate-visualizations.html"><a href="multivariate-visualizations.html#adding-more-aesthetic-attributes"><i class="fa fa-check"></i>Adding More Aesthetic Attributes</a>
+<ul>
+<li class="chapter" data-level="" data-path="multivariate-visualizations.html"><a href="multivariate-visualizations.html#exploring-sat-scores"><i class="fa fa-check"></i>Exploring SAT Scores</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="multivariate-visualizations.html"><a href="multivariate-visualizations.html#other-multivariate-visualization-techniques"><i class="fa fa-check"></i>Other Multivariate Visualization Techniques</a>
+<ul>
+<li class="chapter" data-level="" data-path="multivariate-visualizations.html"><a href="multivariate-visualizations.html#heat-maps"><i class="fa fa-check"></i>Heat maps</a></li>
+<li class="chapter" data-level="" data-path="multivariate-visualizations.html"><a href="multivariate-visualizations.html#star-plots"><i class="fa fa-check"></i>Star plots</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="spatial-visualization.html"><a href="spatial-visualization.html"><i class="fa fa-check"></i><b>6</b> Spatial Visualization</a>
+<ul>
+<li class="chapter" data-level="" data-path="spatial-visualization.html"><a href="spatial-visualization.html#learning-goals-6"><i class="fa fa-check"></i>Learning Goals</a></li>
+<li class="chapter" data-level="" data-path="spatial-visualization.html"><a href="spatial-visualization.html#motivation"><i class="fa fa-check"></i>Motivation</a></li>
+<li class="chapter" data-level="" data-path="spatial-visualization.html"><a href="spatial-visualization.html#plotting-points-on-a-map"><i class="fa fa-check"></i>Plotting Points on a Map</a>
+<ul>
+<li class="chapter" data-level="" data-path="spatial-visualization.html"><a href="spatial-visualization.html#starbucks-example"><i class="fa fa-check"></i>Starbucks Example</a></li>
+<li class="chapter" data-level="" data-path="spatial-visualization.html"><a href="spatial-visualization.html#resources"><i class="fa fa-check"></i>Resources</a></li>
+<li class="chapter" data-level="" data-path="spatial-visualization.html"><a href="spatial-visualization.html#exercise-more-with-starbucks"><i class="fa fa-check"></i>Exercise: More with Starbucks</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="spatial-visualization.html"><a href="spatial-visualization.html#contour-maps"><i class="fa fa-check"></i>Contour Maps</a></li>
+<li class="chapter" data-level="" data-path="spatial-visualization.html"><a href="spatial-visualization.html#choropleths"><i class="fa fa-check"></i>Choropleths</a>
+<ul>
+<li class="chapter" data-level="" data-path="spatial-visualization.html"><a href="spatial-visualization.html#choose-a-map"><i class="fa fa-check"></i>Choose a Map</a></li>
+<li class="chapter" data-level="" data-path="spatial-visualization.html"><a href="spatial-visualization.html#connect-map-idregion-variable-to-data-being-plotted"><i class="fa fa-check"></i>Connect Map ID/Region Variable to Data Being Plotted</a></li>
+<li class="chapter" data-level="" data-path="spatial-visualization.html"><a href="spatial-visualization.html#use-ggplot2-features"><i class="fa fa-check"></i>Use <code>ggplot2</code> Features</a></li>
+<li class="chapter" data-level="" data-path="spatial-visualization.html"><a href="spatial-visualization.html#expand_limits"><i class="fa fa-check"></i><code>expand_limits()</code></a></li>
+<li class="chapter" data-level="" data-path="spatial-visualization.html"><a href="spatial-visualization.html#theme_map"><i class="fa fa-check"></i><code>theme_map()</code></a></li>
+<li class="chapter" data-level="" data-path="spatial-visualization.html"><a href="spatial-visualization.html#add-ggplot2-layers"><i class="fa fa-check"></i>Add <code>ggplot2</code> Layers</a></li>
+<li class="chapter" data-level="" data-path="spatial-visualization.html"><a href="spatial-visualization.html#resources-1"><i class="fa fa-check"></i>Resources</a></li>
+<li class="chapter" data-level="" data-path="spatial-visualization.html"><a href="spatial-visualization.html#alternative-methods"><i class="fa fa-check"></i>Alternative Methods</a></li>
+<li class="chapter" data-level="" data-path="spatial-visualization.html"><a href="spatial-visualization.html#exercise-even-more-with-starbucks"><i class="fa fa-check"></i>Exercise: Even More with Starbucks</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="spatial-visualization.html"><a href="spatial-visualization.html#dynamnic-maps-with-leaflet"><i class="fa fa-check"></i>Dynamnic Maps with <code>leaflet</code></a>
+<ul>
+<li class="chapter" data-level="" data-path="spatial-visualization.html"><a href="spatial-visualization.html#steps-to-create-a-map"><i class="fa fa-check"></i>Steps to Create a Map</a></li>
+<li class="chapter" data-level="" data-path="spatial-visualization.html"><a href="spatial-visualization.html#creating-a-map-with-markerspoints"><i class="fa fa-check"></i>Creating a Map with Markers/Points</a></li>
+<li class="chapter" data-level="" data-path="spatial-visualization.html"><a href="spatial-visualization.html#choropleth-layers-with-addpolygons"><i class="fa fa-check"></i>Choropleth Layers with <code>addPolygons()</code></a></li>
+<li class="chapter" data-level="" data-path="spatial-visualization.html"><a href="spatial-visualization.html#resources-2"><i class="fa fa-check"></i>Resources</a></li>
+<li class="chapter" data-level="" data-path="spatial-visualization.html"><a href="spatial-visualization.html#exercise-favorite-places"><i class="fa fa-check"></i>Exercise: Favorite Places</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="spatial-visualization.html"><a href="spatial-visualization.html#appendix-r-functions-3"><i class="fa fa-check"></i>Appendix: R Functions</a>
+<ul>
+<li class="chapter" data-level="" data-path="spatial-visualization.html"><a href="spatial-visualization.html#mapping-points-functions"><i class="fa fa-check"></i>Mapping Points Functions</a></li>
+<li class="chapter" data-level="" data-path="spatial-visualization.html"><a href="spatial-visualization.html#contourdensity-mapping-functions"><i class="fa fa-check"></i>Contour/Density Mapping Functions</a></li>
+<li class="chapter" data-level="" data-path="spatial-visualization.html"><a href="spatial-visualization.html#choropleths-mapping-functions"><i class="fa fa-check"></i>Choropleths Mapping Functions</a></li>
+<li class="chapter" data-level="" data-path="spatial-visualization.html"><a href="spatial-visualization.html#dynamic-mapping-functions"><i class="fa fa-check"></i>Dynamic Mapping Functions</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>III Data Wrangling</b></span></li>
+<li class="chapter" data-level="7" data-path="six-main-verbs.html"><a href="six-main-verbs.html"><i class="fa fa-check"></i><b>7</b> Six Main Verbs</a>
+<ul>
+<li class="chapter" data-level="" data-path="six-main-verbs.html"><a href="six-main-verbs.html#learning-goals-7"><i class="fa fa-check"></i>Learning Goals</a></li>
+<li class="chapter" data-level="" data-path="six-main-verbs.html"><a href="six-main-verbs.html#data-wrangling-introduction"><i class="fa fa-check"></i>Data Wrangling Introduction</a>
+<ul>
+<li class="chapter" data-level="" data-path="six-main-verbs.html"><a href="six-main-verbs.html#example-us-births"><i class="fa fa-check"></i>Example: US Births</a></li>
+<li class="chapter" data-level="" data-path="six-main-verbs.html"><a href="six-main-verbs.html#tidy-data-1"><i class="fa fa-check"></i>Tidy Data</a></li>
+<li class="chapter" data-level="" data-path="six-main-verbs.html"><a href="six-main-verbs.html#data-verbs"><i class="fa fa-check"></i>Data Verbs</a></li>
+<li class="chapter" data-level="" data-path="six-main-verbs.html"><a href="six-main-verbs.html#piping"><i class="fa fa-check"></i>Piping</a></li>
+<li class="chapter" data-level="" data-path="six-main-verbs.html"><a href="six-main-verbs.html#manipulating-dates"><i class="fa fa-check"></i>Manipulating Dates</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="six-main-verbs.html"><a href="six-main-verbs.html#exercises-part-1-baby-names"><i class="fa fa-check"></i>Exercises Part 1: Baby Names</a></li>
+<li class="chapter" data-level="" data-path="six-main-verbs.html"><a href="six-main-verbs.html#exercises-part-2-us-births"><i class="fa fa-check"></i>Exercises Part 2: US Births</a>
+<ul>
+<li class="chapter" data-level="" data-path="six-main-verbs.html"><a href="six-main-verbs.html#seasonality"><i class="fa fa-check"></i>Seasonality</a></li>
+<li class="chapter" data-level="" data-path="six-main-verbs.html"><a href="six-main-verbs.html#day-of-the-week"><i class="fa fa-check"></i>Day of the Week</a></li>
+<li class="chapter" data-level="" data-path="six-main-verbs.html"><a href="six-main-verbs.html#holidays"><i class="fa fa-check"></i>Holidays</a></li>
+<li class="chapter" data-level="" data-path="six-main-verbs.html"><a href="six-main-verbs.html#geography"><i class="fa fa-check"></i>Geography</a></li>
+<li class="chapter" data-level="" data-path="six-main-verbs.html"><a href="six-main-verbs.html#superstition"><i class="fa fa-check"></i>Superstition</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="six-main-verbs.html"><a href="six-main-verbs.html#appendix-r-functions-4"><i class="fa fa-check"></i>Appendix: R Functions</a>
+<ul>
+<li class="chapter" data-level="" data-path="six-main-verbs.html"><a href="six-main-verbs.html#six-main-verbs-1"><i class="fa fa-check"></i>Six Main Verbs</a></li>
+<li class="chapter" data-level="" data-path="six-main-verbs.html"><a href="six-main-verbs.html#logicalboolean-operators"><i class="fa fa-check"></i>Logical/Boolean Operators</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="reshaping-data.html"><a href="reshaping-data.html"><i class="fa fa-check"></i><b>8</b> Reshaping Data</a>
+<ul>
+<li class="chapter" data-level="" data-path="reshaping-data.html"><a href="reshaping-data.html#learning-goals-8"><i class="fa fa-check"></i>Learning Goals</a></li>
+<li class="chapter" data-level="" data-path="reshaping-data.html"><a href="reshaping-data.html#wide-and-long-data-formats"><i class="fa fa-check"></i>Wide and Long Data Formats</a>
+<ul>
+<li class="chapter" data-level="" data-path="reshaping-data.html"><a href="reshaping-data.html#wider"><i class="fa fa-check"></i>Wider</a></li>
+<li class="chapter" data-level="" data-path="reshaping-data.html"><a href="reshaping-data.html#longer"><i class="fa fa-check"></i>Longer</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="reshaping-data.html"><a href="reshaping-data.html#example-the-daily-show-guests"><i class="fa fa-check"></i>Example: The Daily Show Guests</a>
+<ul>
+<li class="chapter" data-level="" data-path="reshaping-data.html"><a href="reshaping-data.html#popular-guests"><i class="fa fa-check"></i>Popular guests</a></li>
+<li class="chapter" data-level="" data-path="reshaping-data.html"><a href="reshaping-data.html#recreating-a-graphic"><i class="fa fa-check"></i>Recreating a graphic</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="reshaping-data.html"><a href="reshaping-data.html#more-exercises-practice-pivoting-longer"><i class="fa fa-check"></i>More Exercises: Practice Pivoting Longer</a></li>
+<li class="chapter" data-level="" data-path="reshaping-data.html"><a href="reshaping-data.html#appendix-r-functions-5"><i class="fa fa-check"></i>Appendix: R Functions</a>
+<ul>
+<li class="chapter" data-level="" data-path="reshaping-data.html"><a href="reshaping-data.html#reshaping-functions"><i class="fa fa-check"></i>Reshaping Functions</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="joining-two-data-frames.html"><a href="joining-two-data-frames.html"><i class="fa fa-check"></i><b>9</b> Joining Two Data Frames</a>
+<ul>
+<li class="chapter" data-level="" data-path="joining-two-data-frames.html"><a href="joining-two-data-frames.html#learning-goals-9"><i class="fa fa-check"></i>Learning Goals</a></li>
+<li class="chapter" data-level="" data-path="joining-two-data-frames.html"><a href="joining-two-data-frames.html#joins"><i class="fa fa-check"></i>Joins</a>
+<ul>
+<li class="chapter" data-level="" data-path="joining-two-data-frames.html"><a href="joining-two-data-frames.html#establishing-a-match-between-cases"><i class="fa fa-check"></i>Establishing a match between cases</a></li>
+<li class="chapter" data-level="" data-path="joining-two-data-frames.html"><a href="joining-two-data-frames.html#matching"><i class="fa fa-check"></i>Matching</a></li>
+<li class="chapter" data-level="" data-path="joining-two-data-frames.html"><a href="joining-two-data-frames.html#mutating-joins"><i class="fa fa-check"></i>Mutating joins</a></li>
+<li class="chapter" data-level="" data-path="joining-two-data-frames.html"><a href="joining-two-data-frames.html#filtering-joins"><i class="fa fa-check"></i>Filtering joins</a></li>
+<li class="chapter" data-level="" data-path="joining-two-data-frames.html"><a href="joining-two-data-frames.html#more-join-practice"><i class="fa fa-check"></i>More join practice</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="joining-two-data-frames.html"><a href="joining-two-data-frames.html#bicycle-use-patterns"><i class="fa fa-check"></i>Bicycle-Use Patterns</a>
+<ul>
+<li class="chapter" data-level="" data-path="joining-two-data-frames.html"><a href="joining-two-data-frames.html#warm-up-temporal-patterns"><i class="fa fa-check"></i>Warm-up: Temporal patterns</a></li>
+<li class="chapter" data-level="" data-path="joining-two-data-frames.html"><a href="joining-two-data-frames.html#mutating-join-practice-spatial-patterns"><i class="fa fa-check"></i>Mutating join practice: Spatial patterns</a></li>
+<li class="chapter" data-level="" data-path="joining-two-data-frames.html"><a href="joining-two-data-frames.html#filtering-join-practice-spatiotemporal-patterns"><i class="fa fa-check"></i>Filtering join practice: Spatiotemporal patterns</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="joining-two-data-frames.html"><a href="joining-two-data-frames.html#appendix-r-functions-6"><i class="fa fa-check"></i>Appendix: R Functions</a>
+<ul>
+<li class="chapter" data-level="" data-path="joining-two-data-frames.html"><a href="joining-two-data-frames.html#mutating-joins-1"><i class="fa fa-check"></i>Mutating Joins</a></li>
+<li class="chapter" data-level="" data-path="joining-two-data-frames.html"><a href="joining-two-data-frames.html#filtering-joins-1"><i class="fa fa-check"></i>Filtering Joins</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="categorical-variables-as-factors.html"><a href="categorical-variables-as-factors.html"><i class="fa fa-check"></i><b>10</b> Categorical Variables as Factors</a>
+<ul>
+<li class="chapter" data-level="" data-path="categorical-variables-as-factors.html"><a href="categorical-variables-as-factors.html#learning-goals-10"><i class="fa fa-check"></i>Learning Goals</a></li>
+<li class="chapter" data-level="" data-path="categorical-variables-as-factors.html"><a href="categorical-variables-as-factors.html#example-grade-distribution"><i class="fa fa-check"></i>Example: Grade Distribution</a>
+<ul>
+<li class="chapter" data-level="" data-path="categorical-variables-as-factors.html"><a href="categorical-variables-as-factors.html#converting-to-factor"><i class="fa fa-check"></i>Converting to factor</a></li>
+<li class="chapter" data-level="" data-path="categorical-variables-as-factors.html"><a href="categorical-variables-as-factors.html#changing-the-order-of-levels"><i class="fa fa-check"></i>Changing the order of levels</a></li>
+<li class="chapter" data-level="" data-path="categorical-variables-as-factors.html"><a href="categorical-variables-as-factors.html#changing-the-value-of-levels"><i class="fa fa-check"></i>Changing the value of levels</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="categorical-variables-as-factors.html"><a href="categorical-variables-as-factors.html#appendix-r-functions-7"><i class="fa fa-check"></i>Appendix: R Functions</a>
+<ul>
+<li class="chapter" data-level="" data-path="categorical-variables-as-factors.html"><a href="categorical-variables-as-factors.html#changing-the-order-of-levels-1"><i class="fa fa-check"></i>Changing the order of levels</a></li>
+<li class="chapter" data-level="" data-path="categorical-variables-as-factors.html"><a href="categorical-variables-as-factors.html#changing-the-value-of-levels-1"><i class="fa fa-check"></i>Changing the value of levels</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="mini-project.html"><a href="mini-project.html"><i class="fa fa-check"></i><b>11</b> Mini-Project</a>
+<ul>
+<li class="chapter" data-level="" data-path="mini-project.html"><a href="mini-project.html#learning-goals-11"><i class="fa fa-check"></i>Learning Goals</a></li>
+<li class="chapter" data-level="" data-path="mini-project.html"><a href="mini-project.html#data-kiva"><i class="fa fa-check"></i>Data: Kiva</a>
+<ul>
+<li class="chapter" data-level="" data-path="mini-project.html"><a href="mini-project.html#investigate-the-partners-data-table"><i class="fa fa-check"></i>Investigate the <code>partners</code> Data Table</a></li>
+<li class="chapter" data-level="" data-path="mini-project.html"><a href="mini-project.html#investigate-the-loans-data-table"><i class="fa fa-check"></i>Investigate the <code>loans</code> Data Table</a></li>
+<li class="chapter" data-level="" data-path="mini-project.html"><a href="mini-project.html#putting-them-together"><i class="fa fa-check"></i>Putting them together</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>IV Data Modeling</b></span></li>
+<li class="chapter" data-level="12" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html"><i class="fa fa-check"></i><b>12</b> Exploratory Data Analysis</a>
+<ul>
+<li class="chapter" data-level="" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#learning-goals-12"><i class="fa fa-check"></i>Learning Goals</a></li>
+<li class="chapter" data-level="" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#first-steps-of-a-data-analysis"><i class="fa fa-check"></i>First Steps of a Data Analysis</a></li>
+<li class="chapter" data-level="" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#understand-the-basic-data"><i class="fa fa-check"></i>Understand the Basic Data</a></li>
+<li class="chapter" data-level="" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#visualize-and-describe-the-data"><i class="fa fa-check"></i>Visualize and Describe the Data</a></li>
+<li class="chapter" data-level="" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#formulate-a-research-question"><i class="fa fa-check"></i>Formulate a Research Question</a></li>
+<li class="chapter" data-level="" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#examples"><i class="fa fa-check"></i>Examples</a></li>
+<li class="chapter" data-level="" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#practice-flight-data"><i class="fa fa-check"></i>Practice: Flight Data</a></li>
+</ul></li>
+<li class="part"><span><b>V Data Acquisition &amp; Cleaning</b></span></li>
+<li class="chapter" data-level="13" data-path="data-import.html"><a href="data-import.html"><i class="fa fa-check"></i><b>13</b> Data Import</a>
+<ul>
+<li class="chapter" data-level="" data-path="data-import.html"><a href="data-import.html#learning-goals-13"><i class="fa fa-check"></i>Learning Goals</a></li>
+<li class="chapter" data-level="" data-path="data-import.html"><a href="data-import.html#finding-importing-and-cleaning-data"><i class="fa fa-check"></i>Finding, Importing, and Cleaning Data</a>
+<ul>
+<li class="chapter" data-level="" data-path="data-import.html"><a href="data-import.html#finding-existing-data-sets"><i class="fa fa-check"></i>Finding Existing Data Sets</a></li>
+<li class="chapter" data-level="" data-path="data-import.html"><a href="data-import.html#loading-datasets"><i class="fa fa-check"></i>Loading Datasets</a></li>
+<li class="chapter" data-level="" data-path="data-import.html"><a href="data-import.html#checking-the-imported-datasets"><i class="fa fa-check"></i>Checking the Imported Datasets</a></li>
+<li class="chapter" data-level="" data-path="data-import.html"><a href="data-import.html#cleaning-datasets"><i class="fa fa-check"></i>Cleaning Datasets</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="data-import.html"><a href="data-import.html#additional-practice"><i class="fa fa-check"></i>Additional Practice</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="regular-expressions.html"><a href="regular-expressions.html"><i class="fa fa-check"></i><b>14</b> Regular Expressions</a>
+<ul>
+<li class="chapter" data-level="" data-path="regular-expressions.html"><a href="regular-expressions.html#learning-goals-14"><i class="fa fa-check"></i>Learning Goals</a></li>
+<li class="chapter" data-level="" data-path="regular-expressions.html"><a href="regular-expressions.html#regular-expressions-and-character-strings"><i class="fa fa-check"></i>Regular Expressions and Character Strings</a></li>
+<li class="chapter" data-level="" data-path="regular-expressions.html"><a href="regular-expressions.html#wrangling-with-regular-expressions-in-r"><i class="fa fa-check"></i>Wrangling with Regular Expressions in <code>R</code></a>
+<ul>
+<li class="chapter" data-level="" data-path="regular-expressions.html"><a href="regular-expressions.html#search-and-replace-patterns-with-str_replace-or-str_replace_all-stringr"><i class="fa fa-check"></i>Search and replace patterns with <code>str_replace</code> or <code>str_replace_all</code> (<code>stringr</code>)</a></li>
+<li class="chapter" data-level="" data-path="regular-expressions.html"><a href="regular-expressions.html#detect-patterns-with-str_detect-stringr"><i class="fa fa-check"></i>Detect patterns with <code>str_detect</code> (<code>stringr</code>)</a></li>
+<li class="chapter" data-level="" data-path="regular-expressions.html"><a href="regular-expressions.html#locate-patterns-with-str_locate"><i class="fa fa-check"></i>Locate patterns with <code>str_locate</code></a></li>
+<li class="chapter" data-level="" data-path="regular-expressions.html"><a href="regular-expressions.html#extract-patterns-with-str_extract-and-str_extract_all"><i class="fa fa-check"></i>Extract patterns with <code>str_extract</code> and <code>str_extract_all</code></a></li>
+<li class="chapter" data-level="" data-path="regular-expressions.html"><a href="regular-expressions.html#count-the-number-of-characters-with-str_length"><i class="fa fa-check"></i>Count the number of characters with <code>str_length</code></a></li>
+<li class="chapter" data-level="" data-path="regular-expressions.html"><a href="regular-expressions.html#convert-a-string-to-all-lower-case-letters-with-str_to_lower"><i class="fa fa-check"></i>Convert a string to all lower case letters with <code>str_to_lower</code></a></li>
+<li class="chapter" data-level="" data-path="regular-expressions.html"><a href="regular-expressions.html#split-strings-with-separate"><i class="fa fa-check"></i>Split strings with <code>separate</code></a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="regular-expressions.html"><a href="regular-expressions.html#practice-fall-2021-enrollment-exploration"><i class="fa fa-check"></i>Practice: Fall 2021 Enrollment Exploration</a></li>
+</ul></li>
+<li class="part"><span><b>VI Additional Topics</b></span></li>
+<li class="chapter" data-level="" data-path="data-acquisition-scraping-the-web.html"><a href="data-acquisition-scraping-the-web.html"><i class="fa fa-check"></i>Data Acquisition: Scraping the Web</a>
+<ul>
+<li class="chapter" data-level="" data-path="data-acquisition-scraping-the-web.html"><a href="data-acquisition-scraping-the-web.html#learning-goals-15"><i class="fa fa-check"></i>Learning Goals</a></li>
+<li class="chapter" data-level="" data-path="data-acquisition-scraping-the-web.html"><a href="data-acquisition-scraping-the-web.html#scraping-data"><i class="fa fa-check"></i>Scraping Data</a>
+<ul>
+<li class="chapter" data-level="" data-path="data-acquisition-scraping-the-web.html"><a href="data-acquisition-scraping-the-web.html#finding-css-selectors"><i class="fa fa-check"></i>Finding CSS Selectors</a></li>
+<li class="chapter" data-level="" data-path="data-acquisition-scraping-the-web.html"><a href="data-acquisition-scraping-the-web.html#retrieving-data-using-rvest-and-css-selector"><i class="fa fa-check"></i>Retrieving Data Using <code>rvest</code> and CSS Selector</a></li>
+<li class="chapter" data-level="" data-path="data-acquisition-scraping-the-web.html"><a href="data-acquisition-scraping-the-web.html#web-scraping-in-python"><i class="fa fa-check"></i>Web Scraping in Python</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="data-acquisition-scraping-the-web.html"><a href="data-acquisition-scraping-the-web.html#additional-practice-analyze-wnba-players"><i class="fa fa-check"></i>Additional Practice: Analyze WNBA Players</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="public-web-apis.html"><a href="public-web-apis.html"><i class="fa fa-check"></i>Public Web APIs</a>
+<ul>
+<li class="chapter" data-level="" data-path="public-web-apis.html"><a href="public-web-apis.html#learning-goals-16"><i class="fa fa-check"></i>Learning Goals</a></li>
+<li class="chapter" data-level="" data-path="public-web-apis.html"><a href="public-web-apis.html#apis"><i class="fa fa-check"></i>APIs</a></li>
+<li class="chapter" data-level="" data-path="public-web-apis.html"><a href="public-web-apis.html#wrapper-packages"><i class="fa fa-check"></i>Wrapper Packages</a></li>
+<li class="chapter" data-level="" data-path="public-web-apis.html"><a href="public-web-apis.html#accessing-web-apis"><i class="fa fa-check"></i>Accessing Web APIs</a></li>
+<li class="chapter" data-level="" data-path="public-web-apis.html"><a href="public-web-apis.html#web-api-responses"><i class="fa fa-check"></i>Web API Responses</a>
+<ul>
+<li class="chapter" data-level="" data-path="public-web-apis.html"><a href="public-web-apis.html#a-note-on-nested-data-frames"><i class="fa fa-check"></i>A Note on Nested Data Frames</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="public-web-apis.html"><a href="public-web-apis.html#additional-practice-1"><i class="fa fa-check"></i>Additional Practice</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="sql.html"><a href="sql.html"><i class="fa fa-check"></i>SQL</a>
+<ul>
+<li class="chapter" data-level="" data-path="sql.html"><a href="sql.html#learning-goals-17"><i class="fa fa-check"></i>Learning Goals</a></li>
+<li class="chapter" data-level="" data-path="sql.html"><a href="sql.html#introduction-to-sql"><i class="fa fa-check"></i>Introduction to SQL</a>
+<ul>
+<li class="chapter" data-level="" data-path="sql.html"><a href="sql.html#stack-exchange-data-explorer"><i class="fa fa-check"></i>Stack Exchange Data Explorer</a></li>
+<li class="chapter" data-level="" data-path="sql.html"><a href="sql.html#basic-select-queries"><i class="fa fa-check"></i>Basic Select Queries</a></li>
+<li class="chapter" data-level="" data-path="sql.html"><a href="sql.html#sql-summarization"><i class="fa fa-check"></i>SQL Summarization</a></li>
+<li class="chapter" data-level="" data-path="sql.html"><a href="sql.html#sql-joins"><i class="fa fa-check"></i>SQL Joins</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="sql.html"><a href="sql.html#additional-exercises-1"><i class="fa fa-check"></i>Additional Exercises</a></li>
+<li class="chapter" data-level="" data-path="sql.html"><a href="sql.html#accessing-sql-databases-from-rstudio"><i class="fa fa-check"></i>Accessing SQL Databases from RStudio</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="text-analysis.html"><a href="text-analysis.html"><i class="fa fa-check"></i>Text Analysis</a>
+<ul>
+<li class="chapter" data-level="" data-path="text-analysis.html"><a href="text-analysis.html#learning-goals-18"><i class="fa fa-check"></i>Learning Goals</a></li>
+<li class="chapter" data-level="" data-path="text-analysis.html"><a href="text-analysis.html#introduction-to-text-analysis-in-r"><i class="fa fa-check"></i>Introduction to Text Analysis in R</a>
+<ul>
+<li class="chapter" data-level="" data-path="text-analysis.html"><a href="text-analysis.html#text-acquisition"><i class="fa fa-check"></i>Text Acquisition</a></li>
+<li class="chapter" data-level="" data-path="text-analysis.html"><a href="text-analysis.html#analyzing-single-documents"><i class="fa fa-check"></i>Analyzing Single Documents</a></li>
+<li class="chapter" data-level="" data-path="text-analysis.html"><a href="text-analysis.html#comparing-the-text-in-two-or-more-documents"><i class="fa fa-check"></i>Comparing the text in two (or more) documents</a></li>
+<li class="chapter" data-level="" data-path="text-analysis.html"><a href="text-analysis.html#sentiment-analysis"><i class="fa fa-check"></i>Sentiment Analysis</a></li>
+<li class="chapter" data-level="" data-path="text-analysis.html"><a href="text-analysis.html#other-interesting-questions"><i class="fa fa-check"></i>Other Interesting Questions</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="advanced-visualization.html"><a href="advanced-visualization.html"><i class="fa fa-check"></i>Advanced Visualization</a>
+<ul>
+<li class="chapter" data-level="" data-path="advanced-visualization.html"><a href="advanced-visualization.html#network-visualization"><i class="fa fa-check"></i>Network Visualization</a></li>
+<li class="chapter" data-level="" data-path="advanced-visualization.html"><a href="advanced-visualization.html#animations-with-gganimate"><i class="fa fa-check"></i>Animations with <code>gganimate</code></a></li>
+<li class="chapter" data-level="" data-path="advanced-visualization.html"><a href="advanced-visualization.html#interactive-visualizations"><i class="fa fa-check"></i>Interactive Visualizations</a>
+<ul>
+<li class="chapter" data-level="" data-path="advanced-visualization.html"><a href="advanced-visualization.html#htmlwidgets"><i class="fa fa-check"></i>htmlwidgets</a></li>
+<li class="chapter" data-level="" data-path="advanced-visualization.html"><a href="advanced-visualization.html#dashboards"><i class="fa fa-check"></i>Dashboards</a></li>
+<li class="chapter" data-level="" data-path="advanced-visualization.html"><a href="advanced-visualization.html#shiny"><i class="fa fa-check"></i>Shiny</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="shiny-1.html"><a href="shiny-1.html"><i class="fa fa-check"></i>Shiny</a>
+<ul>
+<li class="chapter" data-level="" data-path="shiny-1.html"><a href="shiny-1.html#learning-goals-19"><i class="fa fa-check"></i>Learning Goals</a></li>
+<li class="chapter" data-level="" data-path="shiny-1.html"><a href="shiny-1.html#what-is-a-shiny-app"><i class="fa fa-check"></i>What is a Shiny App?</a>
+<ul>
+<li class="chapter" data-level="" data-path="shiny-1.html"><a href="shiny-1.html#structure-of-a-shiny-app"><i class="fa fa-check"></i>Structure of a Shiny App</a></li>
+<li class="chapter" data-level="" data-path="shiny-1.html"><a href="shiny-1.html#concept-map"><i class="fa fa-check"></i>Concept Map</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="shiny-1.html"><a href="shiny-1.html#creating-an-app"><i class="fa fa-check"></i>Creating an app</a>
+<ul>
+<li class="chapter" data-level="" data-path="shiny-1.html"><a href="shiny-1.html#details"><i class="fa fa-check"></i>Details</a></li>
+<li class="chapter" data-level="" data-path="shiny-1.html"><a href="shiny-1.html#what-is-an-app.r-file"><i class="fa fa-check"></i>What is an app.R file?</a></li>
+<li class="chapter" data-level="" data-path="shiny-1.html"><a href="shiny-1.html#input-functions"><i class="fa fa-check"></i><code>*Input()</code> functions</a></li>
+<li class="chapter" data-level="" data-path="shiny-1.html"><a href="shiny-1.html#output-functions"><i class="fa fa-check"></i><code>*Output()</code> functions</a></li>
+<li class="chapter" data-level="" data-path="shiny-1.html"><a href="shiny-1.html#using-render-functions"><i class="fa fa-check"></i>Using <code>render*()</code> functions</a></li>
+<li class="chapter" data-level="" data-path="shiny-1.html"><a href="shiny-1.html#publishing-your-app"><i class="fa fa-check"></i>Publishing your app</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="shiny-1.html"><a href="shiny-1.html#more-practice"><i class="fa fa-check"></i>More Practice</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="presentation-tools.html"><a href="presentation-tools.html"><i class="fa fa-check"></i>Presentation Tools</a>
+<ul>
+<li class="chapter" data-level="" data-path="presentation-tools.html"><a href="presentation-tools.html#output-formats"><i class="fa fa-check"></i>Output Formats</a>
+<ul>
+<li class="chapter" data-level="" data-path="presentation-tools.html"><a href="presentation-tools.html#slides"><i class="fa fa-check"></i>Slides</a></li>
+<li class="chapter" data-level="" data-path="presentation-tools.html"><a href="presentation-tools.html#reports-websites"><i class="fa fa-check"></i>Reports / Websites</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://bookdown.org" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">COMP/STAT 112: Introduction to Data Science</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="mini-project" class="section level1 hasAnchor" number="11">
+<h1><span class="header-section-number">Topic 11</span> Mini-Project<a href="mini-project.html#mini-project" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="learning-goals-11" class="section level2 unnumbered hasAnchor">
+<h2>Learning Goals<a href="mini-project.html#learning-goals-11" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li>Apply data wrangling and visualization skills to a new data set</li>
+</ul>
+<p>You can download a template .Rmd of this activity <a href="template_rmd/11-Mini_Project_Assign.Rmd">here</a>.</p>
+</div>
+<div id="data-kiva" class="section level2 unnumbered hasAnchor">
+<h2>Data: Kiva<a href="mini-project.html#data-kiva" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><a href="https://www.kiva.org/">Kiva</a> is a non-profit that allows people from around the world to lend small amounts to others to start or grow a business, go to school, access clean energy, etc. Since its founding in 2005, more than $1.2 billion in loans to over 3 million borrowers have been funded. In this activity, we’ll examine some lending data from 2005-2012.</p>
+<div id="investigate-the-partners-data-table" class="section level3 unnumbered hasAnchor">
+<h3>Investigate the <code>partners</code> Data Table<a href="mini-project.html#investigate-the-partners-data-table" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Kiva has field partners who generally act as intermediaries between borrowers and Kiva (lenders). They evaluate borrower risk, post loan requests on Kiva, and process payments. The following command loads a table with <a href="data/kiva_partners2.csv">data</a> on Kiva’s field partners.</p>
+<div class="sourceCode" id="cb184"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb184-1"><a href="mini-project.html#cb184-1" aria-hidden="true" tabindex="-1"></a>partners <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://bcheggeseth.github.io/112_fall_2022/data/kiva_partners2.csv&quot;</span>)</span></code></pre></div>
+<p>Examine the <a href="data/kiva_partners_vars.xlsx">codebook</a> for the <code>partners</code> table.</p>
+<div class="exercise">
+<p><span id="exr:unnamed-chunk-293" class="exercise"><strong>Exercise 11.1  (Regional distribution) </strong></span>Make a summary table with only five columns: region (<code>countries.region</code>), total number of partners, total number of loans posted, total amount raised, and average loan size per loan posted.</p>
+<p>The four columns after region should all be on a per region basis; for example, the row for Central America should include average loan size per loan posted in Central America. Sort your table by total amount raised.</p>
+</div>
+<div class="exercise">
+<p><span id="exr:unnamed-chunk-294" class="exercise"><strong>Exercise 11.2  (Partners in Africa) </strong></span>Draw a map of all of the partners in Africa, with the size of the dot corresponding to the amount raised.</p>
+</div>
+</div>
+<div id="investigate-the-loans-data-table" class="section level3 unnumbered hasAnchor">
+<h3>Investigate the <code>loans</code> Data Table<a href="mini-project.html#investigate-the-loans-data-table" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The <code>loans</code> <a href="data/kiva_loans_small.csv">table</a> below contains information about individual loans to borrowers.</p>
+<div class="sourceCode" id="cb185"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb185-1"><a href="mini-project.html#cb185-1" aria-hidden="true" tabindex="-1"></a><span class="co"># a random sample of 10,000</span></span>
+<span id="cb185-2"><a href="mini-project.html#cb185-2" aria-hidden="true" tabindex="-1"></a>loans <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://bcheggeseth.github.io/112_fall_2022/data/kiva_loans_small.csv&quot;</span>)</span></code></pre></div>
+<p>Examine the <a href="data/kiva_loans_vars.xlsx">codebook</a> for the <code>loans</code> table. View the <code>loans</code> table and browse through some of the data (e.g., different sectors, uses, countries)</p>
+<div class="exercise">
+<p><span id="exr:unnamed-chunk-296" class="exercise"><strong>Exercise 11.3  (Preprocessing) </strong></span>Consider the <code>loans</code> data and perform the following preprocessing steps and save the new data as <code>loans2</code>.</p>
+</div>
+<ol style="list-style-type: lower-alpha">
+<li>Remove all rows where the funded amount is 0.<br />
+</li>
+<li>Note that the date information about when a loan request was posted is separated out into different fields for year, month, day, hour, etc. It would be more helpful to have a single field for the exact time at which each loan was posted. We’ll do this in three steps. First, create (mutate) a new column by pasting together the year, month, and date, separated by hyphens: <code>post_dt=paste(posted_yr, posted_mo, posted_day, sep='-')</code>. Second, create a new column with the time: <code>post_time=paste(posted_hr,posted_min,posted_sec, sep=':')</code>. Third, using the <code>ymd_hms</code> command from <code>lubridate</code>, add a new column with the full date (including time of day):<br />
+<code>post_date=ymd_hms(paste(post_dt,post_time,sep=' '))</code>.<br />
+</li>
+<li>Repeat the previous part to add a column <code>funded_date</code> with the exact time at which each loan was funded.<br />
+</li>
+<li>Create a new table called <code>loans2</code> that only contains the following columns from <code>loans</code>: loan_id,status,funded_amount,paid_amount,sector,location.country,lat,lon,partner_id,post_date,funded_date</li>
+</ol>
+<div class="exercise">
+<p><span id="exr:unnamed-chunk-297" class="exercise"><strong>Exercise 11.4  (Loans by country) </strong></span>Consider the <code>loans2</code> table.</p>
+</div>
+<ol style="list-style-type: lower-alpha">
+<li>Find the top 5 countries by number of loans.<br />
+</li>
+<li>Find the top 5 countries by total funded loan amount.</li>
+</ol>
+<div class="exercise">
+<p><span id="exr:unnamed-chunk-298" class="exercise"><strong>Exercise 11.5  (Sector analysis) </strong></span>Make a scatterplot with the number of loans in each sector on the x-axis and the average loan size in each sector on the y-axis. Instead of using points, use text with each sector’s name as the glyph.</p>
+</div>
+<p><em>Hint: start by wrangling the data into glyph-ready form, with one row corresponding to one glyph.</em></p>
+</div>
+<div id="putting-them-together" class="section level3 unnumbered hasAnchor">
+<h3>Putting them together<a href="mini-project.html#putting-them-together" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="exercise">
+<p><span id="exr:unnamed-chunk-299" class="exercise"><strong>Exercise 11.6  (Join practice) </strong></span>Join the <code>countries.region</code> variable from the <code>partners</code> table onto the <code>loans2</code> table, in order to have a region associated with each loan. Save the output table as <code>loans3</code>.</p>
+</div>
+<div class="exercise">
+<p><span id="exr:unnamed-chunk-300" class="exercise"><strong>Exercise 11.7  (Defaults) </strong></span>Consider the following:</p>
+</div>
+<ol style="list-style-type: lower-alpha">
+<li>Starting with <code>loans3</code>, create a new table <code>DefaultData</code> that only includes those loans whose status is either “defaulted” or “paid”.<br />
+</li>
+<li>Make a density plot of the funded amount, split by laon status (“defaulted” or “paid”). That is, your plot should have two separate density curves on top of each other. Interpret the plot.<br />
+</li>
+<li>Make a bar chart with 10 bars, such that each bar is a $1000 range of funding amount; that is, the first bar should be for $0-$1000, the second for $1001-$2000, and so forth. The bars should all have height equal to 1, but be filled with two colors: one for the percentage of loans in that interval bin that defaulted and one for the percentage that were paid back in full. Interpret your graphic.<br />
+</li>
+<li>Starting with the data in <code>DefaultData</code> from part (a), make a table with four columns: partner_id, number of defaulted loans through that partner, number of loans completely paid back through that partner, and percentage of loans defaulted (the second column divided by the sum of the second and third columns). Sort your table from highest default percentage to lowest, and print out only those with at least a 10% default percentage. <em>Hint: start by filtering out partners that have not had any defaulted loans.</em></li>
+</ol>
+<div class="exercise">
+<p><span id="exr:unnamed-chunk-301" class="exercise"><strong>Exercise 11.8  (Funding time) </strong></span>Consider the following:</p>
+</div>
+<ol style="list-style-type: lower-alpha">
+<li>Use the command <code>days_to_fund = difftime(funded_date, post_date, units="days")</code> within <code>mutate()</code> to add a column to the <code>loans3</code> data that has the number of days between the time a loan was posted and the time it was funded. Save your new table as <code>loans4</code>.<br />
+</li>
+<li>The <code>days_to_fund</code> should always be positive, but there are some negative values, most likely due to data entry errors. Filter these out of the data table <code>loans4</code>.<br />
+</li>
+<li>Make a bar chart with days to fund by region. Reorder the x-axis so that the regions are in order of ascending days to fund.<br />
+</li>
+<li>Make a bar chart with days to fund by sector. Reorder the x-axis so that the sectors are in order of ascending days to fund.<br />
+</li>
+<li>Make a scatterplot with <code>funded_amount</code> on the x-axis and <code>days_to_fund</code> on the y-axis. Color the points by region and set the transparency to 0.2. Add linear trendlines for each region. What are the trends?</li>
+</ol>
+<div class="exercise">
+<p><span id="exr:unnamed-chunk-302" class="exercise"><strong>Exercise 11.9  (Your Own Question) </strong></span>Now that you are more familiar with the data, investigate your own research question and address it with a summary table or a data visualization.</p>
+</div>
+
+</div>
+</div>
+</div>
+
+
+
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="categorical-variables-as-factors.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="exploratory-data-analysis.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook/js/app.min.js"></script>
+<script src="libs/gitbook/js/clipboard.min.js"></script>
+<script src="libs/gitbook/js/plugin-search.js"></script>
+<script src="libs/gitbook/js/plugin-sharing.js"></script>
+<script src="libs/gitbook/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook/js/jquery.highlight.js"></script>
+<script src="libs/gitbook/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": false,
+"twitter": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

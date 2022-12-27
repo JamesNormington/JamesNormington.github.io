@@ -1,0 +1,187 @@
+---
+title: "Comp/Stat 112: Reshaping Data"
+author: "INSERT STUDENT NAME HERE (COLLABORATOR NAMES HERE)"
+output:
+  bookdown::html_document2:
+    split_by: none
+    toc: yes
+    toc_depth: 3
+    toc_float:
+      toc_collapsed: true
+    number_sections: false
+---
+
+```{r 08_setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, error = TRUE)
+library(tidyverse)
+library(ggplot2)
+library(lubridate)
+library(fivethirtyeight)
+library(babynames)
+BabyNames <- babynames
+colnames(BabyNames)[4] <- "count"
+```
+
+
+# Reshaping Data
+
+
+## Wide and Long Data Formats {-}
+
+As we are transforming data, it is important to keep in mind what constitutes each case (row) of the data. For example, in the initial `BabyNames` data below, each case is a single name-sex-year combination. So if we have the same name and sex assigned at birth but a different year, that would be a different case.
+
+It is often necessary to rearrange your data in order to create visualizations, run statistical analysis, etc. We have already seen some ways to rearrange the data to change the unit of observation (also known as case). For example, what is the case after performing the following command?
+
+```{r}
+BabyNamesTotal <- BabyNames %>%
+  group_by(name, sex) %>%
+  summarise(total = sum(count))
+```
+
+Each case now represents one name-sex combination:
+
+```{r}
+head(BabyNamesTotal)
+```
+
+
+In this activity, we are going to learn two new operations to reshape and reorganize the data: `pivot_wider()` and `pivot_longer()`.
+
+### Wider {-}
+
+```{example}
+We want to find the common names that are the most gender neutral (used roughly equally for males and females). How should we rearrange the data? 
+```
+
+Well, one nice way would be to have a single row for each name, and then have separate variables for the number of times that name is used for males and females. Using these two columns, we can then compute a third column that gives the ratio between these two columns. 
+
+That is, we'd like to transform the data into a **wide format** with each of the possible values of the `sex` variable becoming its own column. The operation we need to perform this transformation is **`pivot_wider()`**. 
+
+The inputs for this function are:
+
+-  `values_from`  (`total` in this case) representing the variable to be divided into multiple new variables, 
+- `names_from` (the original variable `sex` in this case) that identifies the variable in the initial long format data whose values should become the names of the new variables in the wide format data. 
+- `values_fill = 0` specifies that if there are, e.g., no females named Aadam, we should include a zero in the corresponding entry of the wide format table
+- `names_sort = TRUE` dictates that the variables are listed in alphabetical order; when it is FALSE, they are listed in order of first appearance.
+
+
+```{r}
+# Make sure you understand what this code means
+BabyWide <- BabyNamesTotal %>%
+  pivot_wider(names_from = sex, values_from = total, values_fill = 0, names_sort = TRUE)
+
+head(BabyWide)
+```
+
+Now we can choose common names with frequency greater than 25,000 for both males and females, and sort by the ratio to identify gender-neutral names.
+
+```{r}
+# Make sure you understand what this code means
+Neutral <- BabyWide %>%
+  filter(M > 25000, F > 25000) %>%
+  mutate(ratio = pmin(M / F, F / M)) %>%
+  arrange(desc(ratio))
+
+head(Neutral)
+```
+
+
+### Longer {-}
+
+```{example}
+We want make a graphic of the counts of the common names that are the most gender neutral (used roughly equally for males and females). How should we rearrange the data? 
+```
+
+Next, let's filter these names to keep only those with a ratio of 0.5 or greater (no more than 2 to 1), and then switch back to long format. We can do this with the following **`pivot_longer()`** operation. It gathers the columns listed c(`F`,`M`) under the `cols` argument into a single column whose name is given by the `names_to` argument ("sex"), and includes the values in a column called `total`, which is the input to the `values_to` argument.
+
+```{r}
+# Make sure you understand what this code means
+NeutralLong <- Neutral %>%
+  filter(ratio >= .5) %>%
+  pivot_longer(cols = c(`F`, `M`), names_to = "sex", values_to = "total") %>%
+  select(name, sex, total) %>%
+  arrange(name)
+
+head(NeutralLong)
+```
+
+
+
+## Example: The Daily Show Guests {-}
+
+The data associated with [this article](https://fivethirtyeight.com/datalab/every-guest-jon-stewart-ever-had-on-the-daily-show/) is available in the `fivethirtyeight` package, and is loaded into `Daily` below. It includes a list of every guest to ever appear on Jon Stewart's The Daily Show. Note that when multiple people appeared together, each person receives their own line.
+
+```{r}
+Daily <- daily_show_guests
+```
+
+
+### Popular guests {-}
+
+```{exercise}
+Create the following table containing 19 columns. The first column should have the ten guests with the highest number of total apperances on the show, listed in descending order of number of appearances. The next 17 columns should show the number of appearances of the corresponding guest in each year from 1999 to 2015 (one per column). The final column should show the total number of appearances for the corresponding guest over the entire duration of the show (these entries should be in decreasing order).
+
+Hints: Try Googling "summarize count rows dplyr". Also, the function `rowSums()` adds up all of the entries in each row of a table. Try using it in a `mutate`.
+```
+
+> ANSWER:
+
+```{r}
+
+```
+
+
+### Recreating a graphic {-}
+
+The original data has 18 different entries for the `group` variable:
+
+```{r}
+unique(Daily$group)
+```
+
+In order to help you recreate the first figure from [the article](https://fivethirtyeight.com/datalab/every-guest-jon-stewart-ever-had-on-the-daily-show/), I have added a new variable with three broader groups: (i) entertainment; (ii) politics, business, and government, and (iii) commentators. The data is available [here](data/daily-group-assignment.csv). We will learn in the next activity what the `inner_join` in this code chunk is doing.
+
+
+```{r}
+DailyGroups <- read_csv("https://bcheggeseth.github.io/112_fall_2022/data/daily-group-assignment.csv")
+Daily <- Daily %>%
+  inner_join(DailyGroups, by = c("group" = "group"))
+
+head(Daily)
+```
+
+
+
+```{exercise}
+Using the group assignments contained in the `broad_group` variable, recreate the graphic from the article, with three different lines showing the fraction of guests in each group over time. Hint: first think about what your case should be for the glyph-ready form.
+
+```
+
+> ANSWER:
+
+```{r}
+
+```
+
+
+## More Exercises: Practice Pivoting Longer {-}
+
+A typical situation that requires a `pivot_longer` command is when the columns represent the possible values of a variable. Below is an example data set from [opendataforafrica.org](http://dataportal.opendataforafrica.org/) with different years in different columns. You can find the data [here](data/Lesotho.csv).
+
+```{r, warning=FALSE,message=FALSE}
+Lesotho <- read_csv("https://bcheggeseth.github.io/112_fall_2022/data/Lesotho.csv")
+head(Lesotho)
+```
+
+
+
+```{exercise,name="Practice pivoting longer"}
+Make a side-by-side bar chart with the `year` on the horizontal axis, and three side-by-side vertical columns for average interest rate on deposits, average interest rate on loans, and inflation rate for each year. In order to get the data into glyph-ready form, you'll need to use `pivot_longer`. Hint: `pivot_longer` uses the `dplyr::select()` notation, so you can, e.g., list the columns you want to select, use colon notation, or use `starts_with(a string)`. See [Wickham and Grolemund](https://r4ds.had.co.nz/transform.html#select) for more information.
+
+```
+
+> ANSWER:
+
+```{r}
+
+```

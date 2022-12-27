@@ -1,0 +1,1012 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Presentation Tools | COMP/STAT 112: Introduction to Data Science</title>
+  <meta name="description" content="This is the class website for Introduction to Data Science at Macalester College for Fall 2022." />
+  <meta name="generator" content="bookdown 0.27 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Presentation Tools | COMP/STAT 112: Introduction to Data Science" />
+  <meta property="og:type" content="book" />
+  <meta property="og:image" content="/images/logo.png" />
+  <meta property="og:description" content="This is the class website for Introduction to Data Science at Macalester College for Fall 2022." />
+  <meta name="github-repo" content="bcheggeseth/112_fall_2022/" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Presentation Tools | COMP/STAT 112: Introduction to Data Science" />
+  
+  <meta name="twitter:description" content="This is the class website for Introduction to Data Science at Macalester College for Fall 2022." />
+  <meta name="twitter:image" content="/images/logo.png" />
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="shiny-1.html"/>
+
+<script src="libs/jquery/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections/anchor-sections.js"></script>
+<script src="libs/htmlwidgets/htmlwidgets.js"></script>
+<link href="libs/leaflet/leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet/leaflet.js"></script>
+<link href="libs/leafletfix/leafletfix.css" rel="stylesheet" />
+<script src="libs/proj4/proj4.min.js"></script>
+<script src="libs/Proj4Leaflet/proj4leaflet.js"></script>
+<link href="libs/rstudio_leaflet/rstudio_leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-binding/leaflet.js"></script>
+<script src="libs/leaflet-providers/leaflet-providers_1.9.0.js"></script>
+<script src="libs/leaflet-providers-plugin/leaflet-providers-plugin.js"></script>
+<script src="libs/kePrint/kePrint.js"></script>
+<link href="libs/lightable/lightable.css" rel="stylesheet" />
+<link href="libs/dygraphs/dygraph.css" rel="stylesheet" />
+<script src="libs/dygraphs/dygraph-combined.js"></script>
+<script src="libs/dygraphs/shapes.js"></script>
+<script src="libs/moment/moment.js"></script>
+<script src="libs/moment-timezone/moment-timezone-with-data.js"></script>
+<script src="libs/moment-fquarter/moment-fquarter.min.js"></script>
+<script src="libs/dygraphs-binding/dygraphs.js"></script>
+<script src="libs/plotly-binding/plotly.js"></script>
+<script src="libs/typedarray/typedarray.min.js"></script>
+<link href="libs/crosstalk/css/crosstalk.min.css" rel="stylesheet" />
+<script src="libs/crosstalk/js/crosstalk.min.js"></script>
+<link href="libs/plotly-htmlwidgets-css/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="libs/plotly-main/plotly-latest.min.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="custom_styles.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href = "./">COMP/STAT 112: Introduction to Data Science</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome!</a></li>
+<li class="chapter" data-level="" data-path="course-schedule.html"><a href="course-schedule.html"><i class="fa fa-check"></i>Course Schedule</a></li>
+<li class="chapter" data-level="" data-path="learning-goals.html"><a href="learning-goals.html"><i class="fa fa-check"></i>Learning Goals</a>
+<ul>
+<li class="chapter" data-level="" data-path="learning-goals.html"><a href="learning-goals.html#general-skills"><i class="fa fa-check"></i>General Skills</a></li>
+<li class="chapter" data-level="" data-path="learning-goals.html"><a href="learning-goals.html#course-topics"><i class="fa fa-check"></i>Course Topics</a>
+<ul>
+<li class="chapter" data-level="" data-path="learning-goals.html"><a href="learning-goals.html#foundation"><i class="fa fa-check"></i>Foundation</a></li>
+<li class="chapter" data-level="" data-path="learning-goals.html"><a href="learning-goals.html#data-acquisition-cleaning"><i class="fa fa-check"></i>Data Acquisition &amp; Cleaning</a></li>
+<li class="chapter" data-level="" data-path="learning-goals.html"><a href="learning-goals.html#data-wrangling"><i class="fa fa-check"></i>Data Wrangling</a></li>
+<li class="chapter" data-level="" data-path="learning-goals.html"><a href="learning-goals.html#data-visualization"><i class="fa fa-check"></i>Data Visualization</a></li>
+<li class="chapter" data-level="" data-path="learning-goals.html"><a href="learning-goals.html#data-modeling"><i class="fa fa-check"></i>Data Modeling</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>I Foundation</b></span></li>
+<li class="chapter" data-level="1" data-path="intro-to-r-rstudio-and-r-markdown.html"><a href="intro-to-r-rstudio-and-r-markdown.html"><i class="fa fa-check"></i><b>1</b> Intro to R, RStudio, and R Markdown</a>
+<ul>
+<li class="chapter" data-level="" data-path="intro-to-r-rstudio-and-r-markdown.html"><a href="intro-to-r-rstudio-and-r-markdown.html#learning-goals-1"><i class="fa fa-check"></i>Learning Goals</a></li>
+<li class="chapter" data-level="" data-path="intro-to-r-rstudio-and-r-markdown.html"><a href="intro-to-r-rstudio-and-r-markdown.html#getting-started-in-rstudio"><i class="fa fa-check"></i>Getting Started in RStudio</a>
+<ul>
+<li class="chapter" data-level="" data-path="intro-to-r-rstudio-and-r-markdown.html"><a href="intro-to-r-rstudio-and-r-markdown.html#download-r-rstudio"><i class="fa fa-check"></i>Download R &amp; RStudio</a></li>
+<li class="chapter" data-level="" data-path="intro-to-r-rstudio-and-r-markdown.html"><a href="intro-to-r-rstudio-and-r-markdown.html#a-quick-tour-of-rstudio"><i class="fa fa-check"></i>A quick tour of RStudio</a></li>
+<li class="chapter" data-level="" data-path="intro-to-r-rstudio-and-r-markdown.html"><a href="intro-to-r-rstudio-and-r-markdown.html#data"><i class="fa fa-check"></i>Data</a></li>
+<li class="chapter" data-level="" data-path="intro-to-r-rstudio-and-r-markdown.html"><a href="intro-to-r-rstudio-and-r-markdown.html#tidy-data"><i class="fa fa-check"></i>Tidy Data</a></li>
+<li class="chapter" data-level="" data-path="intro-to-r-rstudio-and-r-markdown.html"><a href="intro-to-r-rstudio-and-r-markdown.html#data-basics-in-rstudio"><i class="fa fa-check"></i>Data Basics in RStudio</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="intro-to-r-rstudio-and-r-markdown.html"><a href="intro-to-r-rstudio-and-r-markdown.html#r-markdown-and-reproducible-research"><i class="fa fa-check"></i>R Markdown and Reproducible Research</a></li>
+<li class="chapter" data-level="" data-path="intro-to-r-rstudio-and-r-markdown.html"><a href="intro-to-r-rstudio-and-r-markdown.html#practice"><i class="fa fa-check"></i>Practice</a></li>
+<li class="chapter" data-level="" data-path="intro-to-r-rstudio-and-r-markdown.html"><a href="intro-to-r-rstudio-and-r-markdown.html#appendix-r-functions"><i class="fa fa-check"></i>Appendix: R Functions</a>
+<ul>
+<li class="chapter" data-level="" data-path="intro-to-r-rstudio-and-r-markdown.html"><a href="intro-to-r-rstudio-and-r-markdown.html#r-as-a-calculator"><i class="fa fa-check"></i>R as a calculator</a></li>
+<li class="chapter" data-level="" data-path="intro-to-r-rstudio-and-r-markdown.html"><a href="intro-to-r-rstudio-and-r-markdown.html#r-basics"><i class="fa fa-check"></i>R Basics</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>II Visualization</b></span></li>
+<li class="chapter" data-level="2" data-path="intro-to-data-visualization.html"><a href="intro-to-data-visualization.html"><i class="fa fa-check"></i><b>2</b> Intro to Data Visualization</a>
+<ul>
+<li class="chapter" data-level="" data-path="intro-to-data-visualization.html"><a href="intro-to-data-visualization.html#learning-goals-2"><i class="fa fa-check"></i>Learning Goals</a></li>
+<li class="chapter" data-level="" data-path="intro-to-data-visualization.html"><a href="intro-to-data-visualization.html#benefits-of-visualizations"><i class="fa fa-check"></i>Benefits of Visualizations</a></li>
+<li class="chapter" data-level="" data-path="intro-to-data-visualization.html"><a href="intro-to-data-visualization.html#glyphs"><i class="fa fa-check"></i>Glyphs</a>
+<ul>
+<li class="chapter" data-level="" data-path="intro-to-data-visualization.html"><a href="intro-to-data-visualization.html#data-glyph"><i class="fa fa-check"></i>Data Glyph</a></li>
+<li class="chapter" data-level="" data-path="intro-to-data-visualization.html"><a href="intro-to-data-visualization.html#components-of-graphics"><i class="fa fa-check"></i>Components of Graphics</a></li>
+<li class="chapter" data-level="" data-path="intro-to-data-visualization.html"><a href="intro-to-data-visualization.html#eye-training-for-the-layered-grammar-of-graphics"><i class="fa fa-check"></i>Eye Training for the Layered Grammar of Graphics</a></li>
+<li class="chapter" data-level="" data-path="intro-to-data-visualization.html"><a href="intro-to-data-visualization.html#glyph-ready-data"><i class="fa fa-check"></i>Glyph-Ready Data</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="intro-to-data-visualization.html"><a href="intro-to-data-visualization.html#data-visualization-workflow-ggplot"><i class="fa fa-check"></i>Data Visualization Workflow + <code>ggplot</code></a>
+<ul>
+<li class="chapter" data-level="" data-path="intro-to-data-visualization.html"><a href="intro-to-data-visualization.html#layers-building-up-complex-plots"><i class="fa fa-check"></i>Layers – Building up Complex Plots</a></li>
+<li class="chapter" data-level="" data-path="intro-to-data-visualization.html"><a href="intro-to-data-visualization.html#getting-started"><i class="fa fa-check"></i>Getting Started</a></li>
+<li class="chapter" data-level="" data-path="intro-to-data-visualization.html"><a href="intro-to-data-visualization.html#an-example"><i class="fa fa-check"></i>An Example</a></li>
+<li class="chapter" data-level="" data-path="intro-to-data-visualization.html"><a href="intro-to-data-visualization.html#categorical-univariate-visualization"><i class="fa fa-check"></i>Categorical univariate visualization</a></li>
+<li class="chapter" data-level="" data-path="intro-to-data-visualization.html"><a href="intro-to-data-visualization.html#quantitative-univariate-visualization"><i class="fa fa-check"></i>Quantitative univariate visualization</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="intro-to-data-visualization.html"><a href="intro-to-data-visualization.html#additional-exercises"><i class="fa fa-check"></i>Additional exercises</a></li>
+<li class="chapter" data-level="" data-path="intro-to-data-visualization.html"><a href="intro-to-data-visualization.html#appendix-r-functions-1"><i class="fa fa-check"></i>Appendix: R Functions</a>
+<ul>
+<li class="chapter" data-level="" data-path="intro-to-data-visualization.html"><a href="intro-to-data-visualization.html#basic-r-functions"><i class="fa fa-check"></i>Basic R functions</a></li>
+<li class="chapter" data-level="" data-path="intro-to-data-visualization.html"><a href="intro-to-data-visualization.html#ggplot2-foundation-functions"><i class="fa fa-check"></i>ggplot2 foundation functions</a></li>
+<li class="chapter" data-level="" data-path="intro-to-data-visualization.html"><a href="intro-to-data-visualization.html#more-ggplot2-functions"><i class="fa fa-check"></i>more ggplot2 functions</a></li>
+<li class="chapter" data-level="" data-path="intro-to-data-visualization.html"><a href="intro-to-data-visualization.html#ggplot2-aesthetic-mapping-options"><i class="fa fa-check"></i>ggplot2 aesthetic mapping options</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="effective-visualizations.html"><a href="effective-visualizations.html"><i class="fa fa-check"></i><b>3</b> Effective Visualizations</a>
+<ul>
+<li class="chapter" data-level="" data-path="effective-visualizations.html"><a href="effective-visualizations.html#learning-goals-3"><i class="fa fa-check"></i>Learning Goals</a></li>
+<li class="chapter" data-level="" data-path="effective-visualizations.html"><a href="effective-visualizations.html#effective-visualizations-1"><i class="fa fa-check"></i>Effective Visualizations</a>
+<ul>
+<li class="chapter" data-level="" data-path="effective-visualizations.html"><a href="effective-visualizations.html#benefits-of-visualizations-1"><i class="fa fa-check"></i>Benefits of Visualizations</a></li>
+<li class="chapter" data-level="" data-path="effective-visualizations.html"><a href="effective-visualizations.html#analysis-of-graphics"><i class="fa fa-check"></i>Analysis of Graphics</a></li>
+<li class="chapter" data-level="" data-path="effective-visualizations.html"><a href="effective-visualizations.html#properties-of-effective-visualizations"><i class="fa fa-check"></i>Properties of Effective Visualizations</a></li>
+<li class="chapter" data-level="" data-path="effective-visualizations.html"><a href="effective-visualizations.html#basic-rules-for-constructing-graphics"><i class="fa fa-check"></i>Basic Rules for Constructing Graphics</a></li>
+<li class="chapter" data-level="" data-path="effective-visualizations.html"><a href="effective-visualizations.html#still-to-come"><i class="fa fa-check"></i>Still to Come</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="effective-visualizations.html"><a href="effective-visualizations.html#exercises"><i class="fa fa-check"></i>Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="bivariate-visualizations.html"><a href="bivariate-visualizations.html"><i class="fa fa-check"></i><b>4</b> Bivariate Visualizations</a>
+<ul>
+<li class="chapter" data-level="" data-path="bivariate-visualizations.html"><a href="bivariate-visualizations.html#learning-goals-4"><i class="fa fa-check"></i>Learning Goals</a></li>
+<li class="chapter" data-level="" data-path="bivariate-visualizations.html"><a href="bivariate-visualizations.html#bivariate-visualizations-1"><i class="fa fa-check"></i>Bivariate Visualizations</a>
+<ul>
+<li class="chapter" data-level="" data-path="bivariate-visualizations.html"><a href="bivariate-visualizations.html#getting-to-know-the-dataset"><i class="fa fa-check"></i>Getting to know the dataset</a></li>
+<li class="chapter" data-level="" data-path="bivariate-visualizations.html"><a href="bivariate-visualizations.html#background-on-visualizing-relationships"><i class="fa fa-check"></i>Background on visualizing relationships</a></li>
+<li class="chapter" data-level="" data-path="bivariate-visualizations.html"><a href="bivariate-visualizations.html#visualizing-quantitiative-vs-quantitative-relationships"><i class="fa fa-check"></i>Visualizing quantitiative vs quantitative relationships</a></li>
+<li class="chapter" data-level="" data-path="bivariate-visualizations.html"><a href="bivariate-visualizations.html#visualizing-quantitative-vs.-categorical-relationships"><i class="fa fa-check"></i>Visualizing quantitative vs. categorical relationships</a></li>
+<li class="chapter" data-level="" data-path="bivariate-visualizations.html"><a href="bivariate-visualizations.html#visualizing-categorical-vs-categorical-relationships"><i class="fa fa-check"></i>Visualizing categorical vs categorical relationships</a></li>
+<li class="chapter" data-level="" data-path="bivariate-visualizations.html"><a href="bivariate-visualizations.html#practice-1"><i class="fa fa-check"></i>Practice</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="bivariate-visualizations.html"><a href="bivariate-visualizations.html#appendix-r-functions-2"><i class="fa fa-check"></i>Appendix: R Functions</a>
+<ul>
+<li class="chapter" data-level="" data-path="bivariate-visualizations.html"><a href="bivariate-visualizations.html#data-wrangling-r-functions"><i class="fa fa-check"></i>Data Wrangling R functions</a></li>
+<li class="chapter" data-level="" data-path="bivariate-visualizations.html"><a href="bivariate-visualizations.html#ggplot2-foundation-functions-1"><i class="fa fa-check"></i>ggplot2 foundation functions</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="multivariate-visualizations.html"><a href="multivariate-visualizations.html"><i class="fa fa-check"></i><b>5</b> Multivariate Visualizations</a>
+<ul>
+<li class="chapter" data-level="" data-path="multivariate-visualizations.html"><a href="multivariate-visualizations.html#learning-goals-5"><i class="fa fa-check"></i>Learning Goals</a></li>
+<li class="chapter" data-level="" data-path="multivariate-visualizations.html"><a href="multivariate-visualizations.html#adding-more-aesthetic-attributes"><i class="fa fa-check"></i>Adding More Aesthetic Attributes</a>
+<ul>
+<li class="chapter" data-level="" data-path="multivariate-visualizations.html"><a href="multivariate-visualizations.html#exploring-sat-scores"><i class="fa fa-check"></i>Exploring SAT Scores</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="multivariate-visualizations.html"><a href="multivariate-visualizations.html#other-multivariate-visualization-techniques"><i class="fa fa-check"></i>Other Multivariate Visualization Techniques</a>
+<ul>
+<li class="chapter" data-level="" data-path="multivariate-visualizations.html"><a href="multivariate-visualizations.html#heat-maps"><i class="fa fa-check"></i>Heat maps</a></li>
+<li class="chapter" data-level="" data-path="multivariate-visualizations.html"><a href="multivariate-visualizations.html#star-plots"><i class="fa fa-check"></i>Star plots</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="spatial-visualization.html"><a href="spatial-visualization.html"><i class="fa fa-check"></i><b>6</b> Spatial Visualization</a>
+<ul>
+<li class="chapter" data-level="" data-path="spatial-visualization.html"><a href="spatial-visualization.html#learning-goals-6"><i class="fa fa-check"></i>Learning Goals</a></li>
+<li class="chapter" data-level="" data-path="spatial-visualization.html"><a href="spatial-visualization.html#motivation"><i class="fa fa-check"></i>Motivation</a></li>
+<li class="chapter" data-level="" data-path="spatial-visualization.html"><a href="spatial-visualization.html#plotting-points-on-a-map"><i class="fa fa-check"></i>Plotting Points on a Map</a>
+<ul>
+<li class="chapter" data-level="" data-path="spatial-visualization.html"><a href="spatial-visualization.html#starbucks-example"><i class="fa fa-check"></i>Starbucks Example</a></li>
+<li class="chapter" data-level="" data-path="spatial-visualization.html"><a href="spatial-visualization.html#resources"><i class="fa fa-check"></i>Resources</a></li>
+<li class="chapter" data-level="" data-path="spatial-visualization.html"><a href="spatial-visualization.html#exercise-more-with-starbucks"><i class="fa fa-check"></i>Exercise: More with Starbucks</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="spatial-visualization.html"><a href="spatial-visualization.html#contour-maps"><i class="fa fa-check"></i>Contour Maps</a></li>
+<li class="chapter" data-level="" data-path="spatial-visualization.html"><a href="spatial-visualization.html#choropleths"><i class="fa fa-check"></i>Choropleths</a>
+<ul>
+<li class="chapter" data-level="" data-path="spatial-visualization.html"><a href="spatial-visualization.html#choose-a-map"><i class="fa fa-check"></i>Choose a Map</a></li>
+<li class="chapter" data-level="" data-path="spatial-visualization.html"><a href="spatial-visualization.html#connect-map-idregion-variable-to-data-being-plotted"><i class="fa fa-check"></i>Connect Map ID/Region Variable to Data Being Plotted</a></li>
+<li class="chapter" data-level="" data-path="spatial-visualization.html"><a href="spatial-visualization.html#use-ggplot2-features"><i class="fa fa-check"></i>Use <code>ggplot2</code> Features</a></li>
+<li class="chapter" data-level="" data-path="spatial-visualization.html"><a href="spatial-visualization.html#expand_limits"><i class="fa fa-check"></i><code>expand_limits()</code></a></li>
+<li class="chapter" data-level="" data-path="spatial-visualization.html"><a href="spatial-visualization.html#theme_map"><i class="fa fa-check"></i><code>theme_map()</code></a></li>
+<li class="chapter" data-level="" data-path="spatial-visualization.html"><a href="spatial-visualization.html#add-ggplot2-layers"><i class="fa fa-check"></i>Add <code>ggplot2</code> Layers</a></li>
+<li class="chapter" data-level="" data-path="spatial-visualization.html"><a href="spatial-visualization.html#resources-1"><i class="fa fa-check"></i>Resources</a></li>
+<li class="chapter" data-level="" data-path="spatial-visualization.html"><a href="spatial-visualization.html#alternative-methods"><i class="fa fa-check"></i>Alternative Methods</a></li>
+<li class="chapter" data-level="" data-path="spatial-visualization.html"><a href="spatial-visualization.html#exercise-even-more-with-starbucks"><i class="fa fa-check"></i>Exercise: Even More with Starbucks</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="spatial-visualization.html"><a href="spatial-visualization.html#dynamnic-maps-with-leaflet"><i class="fa fa-check"></i>Dynamnic Maps with <code>leaflet</code></a>
+<ul>
+<li class="chapter" data-level="" data-path="spatial-visualization.html"><a href="spatial-visualization.html#steps-to-create-a-map"><i class="fa fa-check"></i>Steps to Create a Map</a></li>
+<li class="chapter" data-level="" data-path="spatial-visualization.html"><a href="spatial-visualization.html#creating-a-map-with-markerspoints"><i class="fa fa-check"></i>Creating a Map with Markers/Points</a></li>
+<li class="chapter" data-level="" data-path="spatial-visualization.html"><a href="spatial-visualization.html#choropleth-layers-with-addpolygons"><i class="fa fa-check"></i>Choropleth Layers with <code>addPolygons()</code></a></li>
+<li class="chapter" data-level="" data-path="spatial-visualization.html"><a href="spatial-visualization.html#resources-2"><i class="fa fa-check"></i>Resources</a></li>
+<li class="chapter" data-level="" data-path="spatial-visualization.html"><a href="spatial-visualization.html#exercise-favorite-places"><i class="fa fa-check"></i>Exercise: Favorite Places</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="spatial-visualization.html"><a href="spatial-visualization.html#appendix-r-functions-3"><i class="fa fa-check"></i>Appendix: R Functions</a>
+<ul>
+<li class="chapter" data-level="" data-path="spatial-visualization.html"><a href="spatial-visualization.html#mapping-points-functions"><i class="fa fa-check"></i>Mapping Points Functions</a></li>
+<li class="chapter" data-level="" data-path="spatial-visualization.html"><a href="spatial-visualization.html#contourdensity-mapping-functions"><i class="fa fa-check"></i>Contour/Density Mapping Functions</a></li>
+<li class="chapter" data-level="" data-path="spatial-visualization.html"><a href="spatial-visualization.html#choropleths-mapping-functions"><i class="fa fa-check"></i>Choropleths Mapping Functions</a></li>
+<li class="chapter" data-level="" data-path="spatial-visualization.html"><a href="spatial-visualization.html#dynamic-mapping-functions"><i class="fa fa-check"></i>Dynamic Mapping Functions</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>III Data Wrangling</b></span></li>
+<li class="chapter" data-level="7" data-path="six-main-verbs.html"><a href="six-main-verbs.html"><i class="fa fa-check"></i><b>7</b> Six Main Verbs</a>
+<ul>
+<li class="chapter" data-level="" data-path="six-main-verbs.html"><a href="six-main-verbs.html#learning-goals-7"><i class="fa fa-check"></i>Learning Goals</a></li>
+<li class="chapter" data-level="" data-path="six-main-verbs.html"><a href="six-main-verbs.html#data-wrangling-introduction"><i class="fa fa-check"></i>Data Wrangling Introduction</a>
+<ul>
+<li class="chapter" data-level="" data-path="six-main-verbs.html"><a href="six-main-verbs.html#example-us-births"><i class="fa fa-check"></i>Example: US Births</a></li>
+<li class="chapter" data-level="" data-path="six-main-verbs.html"><a href="six-main-verbs.html#tidy-data-1"><i class="fa fa-check"></i>Tidy Data</a></li>
+<li class="chapter" data-level="" data-path="six-main-verbs.html"><a href="six-main-verbs.html#data-verbs"><i class="fa fa-check"></i>Data Verbs</a></li>
+<li class="chapter" data-level="" data-path="six-main-verbs.html"><a href="six-main-verbs.html#piping"><i class="fa fa-check"></i>Piping</a></li>
+<li class="chapter" data-level="" data-path="six-main-verbs.html"><a href="six-main-verbs.html#manipulating-dates"><i class="fa fa-check"></i>Manipulating Dates</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="six-main-verbs.html"><a href="six-main-verbs.html#exercises-part-1-baby-names"><i class="fa fa-check"></i>Exercises Part 1: Baby Names</a></li>
+<li class="chapter" data-level="" data-path="six-main-verbs.html"><a href="six-main-verbs.html#exercises-part-2-us-births"><i class="fa fa-check"></i>Exercises Part 2: US Births</a>
+<ul>
+<li class="chapter" data-level="" data-path="six-main-verbs.html"><a href="six-main-verbs.html#seasonality"><i class="fa fa-check"></i>Seasonality</a></li>
+<li class="chapter" data-level="" data-path="six-main-verbs.html"><a href="six-main-verbs.html#day-of-the-week"><i class="fa fa-check"></i>Day of the Week</a></li>
+<li class="chapter" data-level="" data-path="six-main-verbs.html"><a href="six-main-verbs.html#holidays"><i class="fa fa-check"></i>Holidays</a></li>
+<li class="chapter" data-level="" data-path="six-main-verbs.html"><a href="six-main-verbs.html#geography"><i class="fa fa-check"></i>Geography</a></li>
+<li class="chapter" data-level="" data-path="six-main-verbs.html"><a href="six-main-verbs.html#superstition"><i class="fa fa-check"></i>Superstition</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="six-main-verbs.html"><a href="six-main-verbs.html#appendix-r-functions-4"><i class="fa fa-check"></i>Appendix: R Functions</a>
+<ul>
+<li class="chapter" data-level="" data-path="six-main-verbs.html"><a href="six-main-verbs.html#six-main-verbs-1"><i class="fa fa-check"></i>Six Main Verbs</a></li>
+<li class="chapter" data-level="" data-path="six-main-verbs.html"><a href="six-main-verbs.html#logicalboolean-operators"><i class="fa fa-check"></i>Logical/Boolean Operators</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="reshaping-data.html"><a href="reshaping-data.html"><i class="fa fa-check"></i><b>8</b> Reshaping Data</a>
+<ul>
+<li class="chapter" data-level="" data-path="reshaping-data.html"><a href="reshaping-data.html#learning-goals-8"><i class="fa fa-check"></i>Learning Goals</a></li>
+<li class="chapter" data-level="" data-path="reshaping-data.html"><a href="reshaping-data.html#wide-and-long-data-formats"><i class="fa fa-check"></i>Wide and Long Data Formats</a>
+<ul>
+<li class="chapter" data-level="" data-path="reshaping-data.html"><a href="reshaping-data.html#wider"><i class="fa fa-check"></i>Wider</a></li>
+<li class="chapter" data-level="" data-path="reshaping-data.html"><a href="reshaping-data.html#longer"><i class="fa fa-check"></i>Longer</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="reshaping-data.html"><a href="reshaping-data.html#example-the-daily-show-guests"><i class="fa fa-check"></i>Example: The Daily Show Guests</a>
+<ul>
+<li class="chapter" data-level="" data-path="reshaping-data.html"><a href="reshaping-data.html#popular-guests"><i class="fa fa-check"></i>Popular guests</a></li>
+<li class="chapter" data-level="" data-path="reshaping-data.html"><a href="reshaping-data.html#recreating-a-graphic"><i class="fa fa-check"></i>Recreating a graphic</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="reshaping-data.html"><a href="reshaping-data.html#more-exercises-practice-pivoting-longer"><i class="fa fa-check"></i>More Exercises: Practice Pivoting Longer</a></li>
+<li class="chapter" data-level="" data-path="reshaping-data.html"><a href="reshaping-data.html#appendix-r-functions-5"><i class="fa fa-check"></i>Appendix: R Functions</a>
+<ul>
+<li class="chapter" data-level="" data-path="reshaping-data.html"><a href="reshaping-data.html#reshaping-functions"><i class="fa fa-check"></i>Reshaping Functions</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="joining-two-data-frames.html"><a href="joining-two-data-frames.html"><i class="fa fa-check"></i><b>9</b> Joining Two Data Frames</a>
+<ul>
+<li class="chapter" data-level="" data-path="joining-two-data-frames.html"><a href="joining-two-data-frames.html#learning-goals-9"><i class="fa fa-check"></i>Learning Goals</a></li>
+<li class="chapter" data-level="" data-path="joining-two-data-frames.html"><a href="joining-two-data-frames.html#joins"><i class="fa fa-check"></i>Joins</a>
+<ul>
+<li class="chapter" data-level="" data-path="joining-two-data-frames.html"><a href="joining-two-data-frames.html#establishing-a-match-between-cases"><i class="fa fa-check"></i>Establishing a match between cases</a></li>
+<li class="chapter" data-level="" data-path="joining-two-data-frames.html"><a href="joining-two-data-frames.html#matching"><i class="fa fa-check"></i>Matching</a></li>
+<li class="chapter" data-level="" data-path="joining-two-data-frames.html"><a href="joining-two-data-frames.html#mutating-joins"><i class="fa fa-check"></i>Mutating joins</a></li>
+<li class="chapter" data-level="" data-path="joining-two-data-frames.html"><a href="joining-two-data-frames.html#filtering-joins"><i class="fa fa-check"></i>Filtering joins</a></li>
+<li class="chapter" data-level="" data-path="joining-two-data-frames.html"><a href="joining-two-data-frames.html#more-join-practice"><i class="fa fa-check"></i>More join practice</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="joining-two-data-frames.html"><a href="joining-two-data-frames.html#bicycle-use-patterns"><i class="fa fa-check"></i>Bicycle-Use Patterns</a>
+<ul>
+<li class="chapter" data-level="" data-path="joining-two-data-frames.html"><a href="joining-two-data-frames.html#warm-up-temporal-patterns"><i class="fa fa-check"></i>Warm-up: Temporal patterns</a></li>
+<li class="chapter" data-level="" data-path="joining-two-data-frames.html"><a href="joining-two-data-frames.html#mutating-join-practice-spatial-patterns"><i class="fa fa-check"></i>Mutating join practice: Spatial patterns</a></li>
+<li class="chapter" data-level="" data-path="joining-two-data-frames.html"><a href="joining-two-data-frames.html#filtering-join-practice-spatiotemporal-patterns"><i class="fa fa-check"></i>Filtering join practice: Spatiotemporal patterns</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="joining-two-data-frames.html"><a href="joining-two-data-frames.html#appendix-r-functions-6"><i class="fa fa-check"></i>Appendix: R Functions</a>
+<ul>
+<li class="chapter" data-level="" data-path="joining-two-data-frames.html"><a href="joining-two-data-frames.html#mutating-joins-1"><i class="fa fa-check"></i>Mutating Joins</a></li>
+<li class="chapter" data-level="" data-path="joining-two-data-frames.html"><a href="joining-two-data-frames.html#filtering-joins-1"><i class="fa fa-check"></i>Filtering Joins</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="categorical-variables-as-factors.html"><a href="categorical-variables-as-factors.html"><i class="fa fa-check"></i><b>10</b> Categorical Variables as Factors</a>
+<ul>
+<li class="chapter" data-level="" data-path="categorical-variables-as-factors.html"><a href="categorical-variables-as-factors.html#learning-goals-10"><i class="fa fa-check"></i>Learning Goals</a></li>
+<li class="chapter" data-level="" data-path="categorical-variables-as-factors.html"><a href="categorical-variables-as-factors.html#example-grade-distribution"><i class="fa fa-check"></i>Example: Grade Distribution</a>
+<ul>
+<li class="chapter" data-level="" data-path="categorical-variables-as-factors.html"><a href="categorical-variables-as-factors.html#converting-to-factor"><i class="fa fa-check"></i>Converting to factor</a></li>
+<li class="chapter" data-level="" data-path="categorical-variables-as-factors.html"><a href="categorical-variables-as-factors.html#changing-the-order-of-levels"><i class="fa fa-check"></i>Changing the order of levels</a></li>
+<li class="chapter" data-level="" data-path="categorical-variables-as-factors.html"><a href="categorical-variables-as-factors.html#changing-the-value-of-levels"><i class="fa fa-check"></i>Changing the value of levels</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="categorical-variables-as-factors.html"><a href="categorical-variables-as-factors.html#appendix-r-functions-7"><i class="fa fa-check"></i>Appendix: R Functions</a>
+<ul>
+<li class="chapter" data-level="" data-path="categorical-variables-as-factors.html"><a href="categorical-variables-as-factors.html#changing-the-order-of-levels-1"><i class="fa fa-check"></i>Changing the order of levels</a></li>
+<li class="chapter" data-level="" data-path="categorical-variables-as-factors.html"><a href="categorical-variables-as-factors.html#changing-the-value-of-levels-1"><i class="fa fa-check"></i>Changing the value of levels</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="mini-project.html"><a href="mini-project.html"><i class="fa fa-check"></i><b>11</b> Mini-Project</a>
+<ul>
+<li class="chapter" data-level="" data-path="mini-project.html"><a href="mini-project.html#learning-goals-11"><i class="fa fa-check"></i>Learning Goals</a></li>
+<li class="chapter" data-level="" data-path="mini-project.html"><a href="mini-project.html#data-kiva"><i class="fa fa-check"></i>Data: Kiva</a>
+<ul>
+<li class="chapter" data-level="" data-path="mini-project.html"><a href="mini-project.html#investigate-the-partners-data-table"><i class="fa fa-check"></i>Investigate the <code>partners</code> Data Table</a></li>
+<li class="chapter" data-level="" data-path="mini-project.html"><a href="mini-project.html#investigate-the-loans-data-table"><i class="fa fa-check"></i>Investigate the <code>loans</code> Data Table</a></li>
+<li class="chapter" data-level="" data-path="mini-project.html"><a href="mini-project.html#putting-them-together"><i class="fa fa-check"></i>Putting them together</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>IV Data Modeling</b></span></li>
+<li class="chapter" data-level="12" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html"><i class="fa fa-check"></i><b>12</b> Exploratory Data Analysis</a>
+<ul>
+<li class="chapter" data-level="" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#learning-goals-12"><i class="fa fa-check"></i>Learning Goals</a></li>
+<li class="chapter" data-level="" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#first-steps-of-a-data-analysis"><i class="fa fa-check"></i>First Steps of a Data Analysis</a></li>
+<li class="chapter" data-level="" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#understand-the-basic-data"><i class="fa fa-check"></i>Understand the Basic Data</a></li>
+<li class="chapter" data-level="" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#visualize-and-describe-the-data"><i class="fa fa-check"></i>Visualize and Describe the Data</a></li>
+<li class="chapter" data-level="" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#formulate-a-research-question"><i class="fa fa-check"></i>Formulate a Research Question</a></li>
+<li class="chapter" data-level="" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#examples"><i class="fa fa-check"></i>Examples</a></li>
+<li class="chapter" data-level="" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#practice-flight-data"><i class="fa fa-check"></i>Practice: Flight Data</a></li>
+</ul></li>
+<li class="part"><span><b>V Data Acquisition &amp; Cleaning</b></span></li>
+<li class="chapter" data-level="13" data-path="data-import.html"><a href="data-import.html"><i class="fa fa-check"></i><b>13</b> Data Import</a>
+<ul>
+<li class="chapter" data-level="" data-path="data-import.html"><a href="data-import.html#learning-goals-13"><i class="fa fa-check"></i>Learning Goals</a></li>
+<li class="chapter" data-level="" data-path="data-import.html"><a href="data-import.html#finding-importing-and-cleaning-data"><i class="fa fa-check"></i>Finding, Importing, and Cleaning Data</a>
+<ul>
+<li class="chapter" data-level="" data-path="data-import.html"><a href="data-import.html#finding-existing-data-sets"><i class="fa fa-check"></i>Finding Existing Data Sets</a></li>
+<li class="chapter" data-level="" data-path="data-import.html"><a href="data-import.html#loading-datasets"><i class="fa fa-check"></i>Loading Datasets</a></li>
+<li class="chapter" data-level="" data-path="data-import.html"><a href="data-import.html#checking-the-imported-datasets"><i class="fa fa-check"></i>Checking the Imported Datasets</a></li>
+<li class="chapter" data-level="" data-path="data-import.html"><a href="data-import.html#cleaning-datasets"><i class="fa fa-check"></i>Cleaning Datasets</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="data-import.html"><a href="data-import.html#additional-practice"><i class="fa fa-check"></i>Additional Practice</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="regular-expressions.html"><a href="regular-expressions.html"><i class="fa fa-check"></i><b>14</b> Regular Expressions</a>
+<ul>
+<li class="chapter" data-level="" data-path="regular-expressions.html"><a href="regular-expressions.html#learning-goals-14"><i class="fa fa-check"></i>Learning Goals</a></li>
+<li class="chapter" data-level="" data-path="regular-expressions.html"><a href="regular-expressions.html#regular-expressions-and-character-strings"><i class="fa fa-check"></i>Regular Expressions and Character Strings</a></li>
+<li class="chapter" data-level="" data-path="regular-expressions.html"><a href="regular-expressions.html#wrangling-with-regular-expressions-in-r"><i class="fa fa-check"></i>Wrangling with Regular Expressions in <code>R</code></a>
+<ul>
+<li class="chapter" data-level="" data-path="regular-expressions.html"><a href="regular-expressions.html#search-and-replace-patterns-with-str_replace-or-str_replace_all-stringr"><i class="fa fa-check"></i>Search and replace patterns with <code>str_replace</code> or <code>str_replace_all</code> (<code>stringr</code>)</a></li>
+<li class="chapter" data-level="" data-path="regular-expressions.html"><a href="regular-expressions.html#detect-patterns-with-str_detect-stringr"><i class="fa fa-check"></i>Detect patterns with <code>str_detect</code> (<code>stringr</code>)</a></li>
+<li class="chapter" data-level="" data-path="regular-expressions.html"><a href="regular-expressions.html#locate-patterns-with-str_locate"><i class="fa fa-check"></i>Locate patterns with <code>str_locate</code></a></li>
+<li class="chapter" data-level="" data-path="regular-expressions.html"><a href="regular-expressions.html#extract-patterns-with-str_extract-and-str_extract_all"><i class="fa fa-check"></i>Extract patterns with <code>str_extract</code> and <code>str_extract_all</code></a></li>
+<li class="chapter" data-level="" data-path="regular-expressions.html"><a href="regular-expressions.html#count-the-number-of-characters-with-str_length"><i class="fa fa-check"></i>Count the number of characters with <code>str_length</code></a></li>
+<li class="chapter" data-level="" data-path="regular-expressions.html"><a href="regular-expressions.html#convert-a-string-to-all-lower-case-letters-with-str_to_lower"><i class="fa fa-check"></i>Convert a string to all lower case letters with <code>str_to_lower</code></a></li>
+<li class="chapter" data-level="" data-path="regular-expressions.html"><a href="regular-expressions.html#split-strings-with-separate"><i class="fa fa-check"></i>Split strings with <code>separate</code></a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="regular-expressions.html"><a href="regular-expressions.html#practice-fall-2021-enrollment-exploration"><i class="fa fa-check"></i>Practice: Fall 2021 Enrollment Exploration</a></li>
+</ul></li>
+<li class="part"><span><b>VI Additional Topics</b></span></li>
+<li class="chapter" data-level="" data-path="data-acquisition-scraping-the-web.html"><a href="data-acquisition-scraping-the-web.html"><i class="fa fa-check"></i>Data Acquisition: Scraping the Web</a>
+<ul>
+<li class="chapter" data-level="" data-path="data-acquisition-scraping-the-web.html"><a href="data-acquisition-scraping-the-web.html#learning-goals-15"><i class="fa fa-check"></i>Learning Goals</a></li>
+<li class="chapter" data-level="" data-path="data-acquisition-scraping-the-web.html"><a href="data-acquisition-scraping-the-web.html#scraping-data"><i class="fa fa-check"></i>Scraping Data</a>
+<ul>
+<li class="chapter" data-level="" data-path="data-acquisition-scraping-the-web.html"><a href="data-acquisition-scraping-the-web.html#finding-css-selectors"><i class="fa fa-check"></i>Finding CSS Selectors</a></li>
+<li class="chapter" data-level="" data-path="data-acquisition-scraping-the-web.html"><a href="data-acquisition-scraping-the-web.html#retrieving-data-using-rvest-and-css-selector"><i class="fa fa-check"></i>Retrieving Data Using <code>rvest</code> and CSS Selector</a></li>
+<li class="chapter" data-level="" data-path="data-acquisition-scraping-the-web.html"><a href="data-acquisition-scraping-the-web.html#web-scraping-in-python"><i class="fa fa-check"></i>Web Scraping in Python</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="data-acquisition-scraping-the-web.html"><a href="data-acquisition-scraping-the-web.html#additional-practice-analyze-wnba-players"><i class="fa fa-check"></i>Additional Practice: Analyze WNBA Players</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="public-web-apis.html"><a href="public-web-apis.html"><i class="fa fa-check"></i>Public Web APIs</a>
+<ul>
+<li class="chapter" data-level="" data-path="public-web-apis.html"><a href="public-web-apis.html#learning-goals-16"><i class="fa fa-check"></i>Learning Goals</a></li>
+<li class="chapter" data-level="" data-path="public-web-apis.html"><a href="public-web-apis.html#apis"><i class="fa fa-check"></i>APIs</a></li>
+<li class="chapter" data-level="" data-path="public-web-apis.html"><a href="public-web-apis.html#wrapper-packages"><i class="fa fa-check"></i>Wrapper Packages</a></li>
+<li class="chapter" data-level="" data-path="public-web-apis.html"><a href="public-web-apis.html#accessing-web-apis"><i class="fa fa-check"></i>Accessing Web APIs</a></li>
+<li class="chapter" data-level="" data-path="public-web-apis.html"><a href="public-web-apis.html#web-api-responses"><i class="fa fa-check"></i>Web API Responses</a>
+<ul>
+<li class="chapter" data-level="" data-path="public-web-apis.html"><a href="public-web-apis.html#a-note-on-nested-data-frames"><i class="fa fa-check"></i>A Note on Nested Data Frames</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="public-web-apis.html"><a href="public-web-apis.html#additional-practice-1"><i class="fa fa-check"></i>Additional Practice</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="sql.html"><a href="sql.html"><i class="fa fa-check"></i>SQL</a>
+<ul>
+<li class="chapter" data-level="" data-path="sql.html"><a href="sql.html#learning-goals-17"><i class="fa fa-check"></i>Learning Goals</a></li>
+<li class="chapter" data-level="" data-path="sql.html"><a href="sql.html#introduction-to-sql"><i class="fa fa-check"></i>Introduction to SQL</a>
+<ul>
+<li class="chapter" data-level="" data-path="sql.html"><a href="sql.html#stack-exchange-data-explorer"><i class="fa fa-check"></i>Stack Exchange Data Explorer</a></li>
+<li class="chapter" data-level="" data-path="sql.html"><a href="sql.html#basic-select-queries"><i class="fa fa-check"></i>Basic Select Queries</a></li>
+<li class="chapter" data-level="" data-path="sql.html"><a href="sql.html#sql-summarization"><i class="fa fa-check"></i>SQL Summarization</a></li>
+<li class="chapter" data-level="" data-path="sql.html"><a href="sql.html#sql-joins"><i class="fa fa-check"></i>SQL Joins</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="sql.html"><a href="sql.html#additional-exercises-1"><i class="fa fa-check"></i>Additional Exercises</a></li>
+<li class="chapter" data-level="" data-path="sql.html"><a href="sql.html#accessing-sql-databases-from-rstudio"><i class="fa fa-check"></i>Accessing SQL Databases from RStudio</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="text-analysis.html"><a href="text-analysis.html"><i class="fa fa-check"></i>Text Analysis</a>
+<ul>
+<li class="chapter" data-level="" data-path="text-analysis.html"><a href="text-analysis.html#learning-goals-18"><i class="fa fa-check"></i>Learning Goals</a></li>
+<li class="chapter" data-level="" data-path="text-analysis.html"><a href="text-analysis.html#introduction-to-text-analysis-in-r"><i class="fa fa-check"></i>Introduction to Text Analysis in R</a>
+<ul>
+<li class="chapter" data-level="" data-path="text-analysis.html"><a href="text-analysis.html#text-acquisition"><i class="fa fa-check"></i>Text Acquisition</a></li>
+<li class="chapter" data-level="" data-path="text-analysis.html"><a href="text-analysis.html#analyzing-single-documents"><i class="fa fa-check"></i>Analyzing Single Documents</a></li>
+<li class="chapter" data-level="" data-path="text-analysis.html"><a href="text-analysis.html#comparing-the-text-in-two-or-more-documents"><i class="fa fa-check"></i>Comparing the text in two (or more) documents</a></li>
+<li class="chapter" data-level="" data-path="text-analysis.html"><a href="text-analysis.html#sentiment-analysis"><i class="fa fa-check"></i>Sentiment Analysis</a></li>
+<li class="chapter" data-level="" data-path="text-analysis.html"><a href="text-analysis.html#other-interesting-questions"><i class="fa fa-check"></i>Other Interesting Questions</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="advanced-visualization.html"><a href="advanced-visualization.html"><i class="fa fa-check"></i>Advanced Visualization</a>
+<ul>
+<li class="chapter" data-level="" data-path="advanced-visualization.html"><a href="advanced-visualization.html#network-visualization"><i class="fa fa-check"></i>Network Visualization</a></li>
+<li class="chapter" data-level="" data-path="advanced-visualization.html"><a href="advanced-visualization.html#animations-with-gganimate"><i class="fa fa-check"></i>Animations with <code>gganimate</code></a></li>
+<li class="chapter" data-level="" data-path="advanced-visualization.html"><a href="advanced-visualization.html#interactive-visualizations"><i class="fa fa-check"></i>Interactive Visualizations</a>
+<ul>
+<li class="chapter" data-level="" data-path="advanced-visualization.html"><a href="advanced-visualization.html#htmlwidgets"><i class="fa fa-check"></i>htmlwidgets</a></li>
+<li class="chapter" data-level="" data-path="advanced-visualization.html"><a href="advanced-visualization.html#dashboards"><i class="fa fa-check"></i>Dashboards</a></li>
+<li class="chapter" data-level="" data-path="advanced-visualization.html"><a href="advanced-visualization.html#shiny"><i class="fa fa-check"></i>Shiny</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="shiny-1.html"><a href="shiny-1.html"><i class="fa fa-check"></i>Shiny</a>
+<ul>
+<li class="chapter" data-level="" data-path="shiny-1.html"><a href="shiny-1.html#learning-goals-19"><i class="fa fa-check"></i>Learning Goals</a></li>
+<li class="chapter" data-level="" data-path="shiny-1.html"><a href="shiny-1.html#what-is-a-shiny-app"><i class="fa fa-check"></i>What is a Shiny App?</a>
+<ul>
+<li class="chapter" data-level="" data-path="shiny-1.html"><a href="shiny-1.html#structure-of-a-shiny-app"><i class="fa fa-check"></i>Structure of a Shiny App</a></li>
+<li class="chapter" data-level="" data-path="shiny-1.html"><a href="shiny-1.html#concept-map"><i class="fa fa-check"></i>Concept Map</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="shiny-1.html"><a href="shiny-1.html#creating-an-app"><i class="fa fa-check"></i>Creating an app</a>
+<ul>
+<li class="chapter" data-level="" data-path="shiny-1.html"><a href="shiny-1.html#details"><i class="fa fa-check"></i>Details</a></li>
+<li class="chapter" data-level="" data-path="shiny-1.html"><a href="shiny-1.html#what-is-an-app.r-file"><i class="fa fa-check"></i>What is an app.R file?</a></li>
+<li class="chapter" data-level="" data-path="shiny-1.html"><a href="shiny-1.html#input-functions"><i class="fa fa-check"></i><code>*Input()</code> functions</a></li>
+<li class="chapter" data-level="" data-path="shiny-1.html"><a href="shiny-1.html#output-functions"><i class="fa fa-check"></i><code>*Output()</code> functions</a></li>
+<li class="chapter" data-level="" data-path="shiny-1.html"><a href="shiny-1.html#using-render-functions"><i class="fa fa-check"></i>Using <code>render*()</code> functions</a></li>
+<li class="chapter" data-level="" data-path="shiny-1.html"><a href="shiny-1.html#publishing-your-app"><i class="fa fa-check"></i>Publishing your app</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="shiny-1.html"><a href="shiny-1.html#more-practice"><i class="fa fa-check"></i>More Practice</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="presentation-tools.html"><a href="presentation-tools.html"><i class="fa fa-check"></i>Presentation Tools</a>
+<ul>
+<li class="chapter" data-level="" data-path="presentation-tools.html"><a href="presentation-tools.html#output-formats"><i class="fa fa-check"></i>Output Formats</a>
+<ul>
+<li class="chapter" data-level="" data-path="presentation-tools.html"><a href="presentation-tools.html#slides"><i class="fa fa-check"></i>Slides</a></li>
+<li class="chapter" data-level="" data-path="presentation-tools.html"><a href="presentation-tools.html#reports-websites"><i class="fa fa-check"></i>Reports / Websites</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://bookdown.org" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">COMP/STAT 112: Introduction to Data Science</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="presentation-tools" class="section level1 unnumbered hasAnchor">
+<h1>Presentation Tools<a href="presentation-tools.html#presentation-tools" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="output-formats" class="section level2 unnumbered hasAnchor">
+<h2>Output Formats<a href="presentation-tools.html#output-formats" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>R Markdown can be used to output a wide range of formats. We have already seen a bunch of these including documents (html, pdf, word, handout), html files with built-in interactive widgets, Shiny apps, and dashboards. There is a nice <a href="http://rmarkdown.rstudio.com/gallery.html">gallery</a> to showcase all of these formats, as well as a <a href="http://rmarkdown.rstudio.com/formats.html">list</a>.</p>
+<p>Note: The newest presentation tool available (as of 2022) is Quarto, which is a generalization of R Markdown format. It allows you to weave R, Python, Julia, and other code and output with marked up text. This is incredibly important as most organizations use a combination of computational tools. While we will still refer to R Markdown below, many of the same formats listed below are available in Quarto, which is probably the soon-to-be future standard. See <a href="https://quarto.org/">https://quarto.org/</a> for more information.</p>
+<div id="slides" class="section level3 unnumbered hasAnchor">
+<h3>Slides<a href="presentation-tools.html#slides" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>There are many different ways to write slide packages in RStudio. Advantages of all of these methods are that (i) the output is an html or pdf, so it is easy to put on a website and access from anywhere, and (ii) you have already done all of your wrangling, graphics, etc. in R. So you do not need to cut and paste graphics or code clippings or anything else from RStudio into another software package like PowerPoint or Google Docs. The main disadvantage is that there is not a drag and drop way to arrange slides for these types of presentations. So if you want an image to be of a certain size at a certain location of the slide, you’ll have to input those specifications, as opposed to stretching and moving with a cursor.</p>
+<p>If you are interested in trying to write your presentation in R Markdown (or Quarto), my suggestion is to pick one of the formats below, download a template (I’ve linked to a bunch), make sure you can compile it from R Markdown, and then start editing.</p>
+<div id="slide-presentation-formats-built-in-to-r-markdown" class="section level4 unnumbered hasAnchor">
+<h4>Slide presentation formats built in to R Markdown<a href="presentation-tools.html#slide-presentation-formats-built-in-to-r-markdown" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<ul>
+<li>ioslides_presentation, an HTML presentation. Just need to include <code>output: ioslides_presentation</code> in the header of your Rmd file and then an option will appear to <code>Knit to HTML (ioslides)</code>. Here is the <a href="http://rmarkdown.rstudio.com/ioslides_presentation_format.html">documentation</a>, an <a href="https://www.dropbox.com/s/0qk0iy3zz8o62ug/shiny-debugging.html?dl=1">example</a>, and the <a href="https://www.dropbox.com/s/8wr4o42bcrh6ays/shiny-debugging.Rmd?dl=1">Rmd for the example</a>. These files are from one of Garret Grolemund’s repositories <a href="https://github.com/rstudio/ShinyDeveloperConference/tree/main/Debugging">here</a>.</li>
+<li>slidy_presentation, an HTML presentation. Same thing as above. Just include <code>output: slidy_presentation</code> and an option will appear to <code>Knit to HTML (Slidy)</code>. Here is the <a href="http://rmarkdown.rstudio.com/slidy_presentation_format.html">documentation</a>.</li>
+<li>beamer_presentation, a PDF presentation with LaTeX Beamer. Same as above again. Just include <code>output: beamer_presentation</code> and then you can <code>Knit to PDF (Beamer)</code>.</li>
+</ul>
+</div>
+<div id="slide-presentation-formats-available-via-other-packages" class="section level4 unnumbered hasAnchor">
+<h4>Slide presentation formats available via other packages<a href="presentation-tools.html#slide-presentation-formats-available-via-other-packages" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<ul>
+<li>revealjs::revealjs_presentation, an HTML presentation that requires the <code>revealjs</code> package. Here is the <a href="http://rmarkdown.rstudio.com/revealjs_presentation_format.html">documentation</a>, an <a href="https://www.dropbox.com/s/v7agbem213vsds1/slides.html?dl=1">example</a>, and the <a href="https://www.dropbox.com/s/phqae91hu0j4e4v/slides.Rmd?dl=1">Rmd for the example</a>. These files are from one of Garret Grolemund’s repositories <a href="https://github.com/rstudio/ShinyDeveloperConference/tree/master/Reactivity">here</a>.</li>
+<li>rmdshower, an HTML presentation that requires the <code>rmdshower</code> package. <a href="http://mangothecat.github.io/rmdshower/skeleton.html#shower-presentations-with-r-markdown">Here</a> is an example and the code to generate it can be found in this <a href="https://github.com/MangoTheCat/rmdshower">repository</a>.</li>
+<li><a href="https://slidify.github.io/">Slidify</a> is a wrapper package that enables you to use many different types of presentations. Here is a <a href="https://benjaminlmoore.wordpress.com/2014/02/24/slidify-presentations-in-r-markdown/">review</a> and a pretty good <a href="http://www.jvcasillas.com/slidify_tutorial/#1">tutorial</a>, the code for which you can find <a href="https://github.com/jvcasill/slidify_tutorial/tree/gh-pages">here</a>.</li>
+</ul>
+<p>Note: Within RStudio, you can also create a Quarto Presentation, which is very similar to Rmd revealjs slides. Brianna has been using Quarto Presentations this semester and finds that it works a bit easier than Rmd revealjs.</p>
+</div>
+</div>
+<div id="reports-websites" class="section level3 unnumbered hasAnchor">
+<h3>Reports / Websites<a href="presentation-tools.html#reports-websites" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>You have all used the standard <code>output:html_document</code> to knit your Rmd file into an html file. For your technical blog posts, you can stick to that, or try tweaking some options. Here are some examples:</p>
+<ul>
+<li>You can change the appearance and style of the output of the html_document by changing the <code>theme</code> and <code>highlight</code> options. I’ve changed these in one knitting option above with the <code>lumen</code> theme and <code>espresso</code> highlight. You can find the full list of options <a href="http://rmarkdown.rstudio.com/html_document_format.html#appearance_and_style">here</a>.</li>
+<li>You can load the <code>prettydoc</code> package, and use one of its themes. You can find the full list in the <a href="https://github.com/yixuan/prettydoc/">documentation</a> or this <a href="https://yixuan.cos.name/prettydoc/tactile.html">tutorial</a>.</li>
+<li>Some <a href="https://github.com/hrbrmstr/markdowntemplates">alternative Markdown templates</a></li>
+<li>The <code>bookdown</code> package was designed to write books in R Markdown, but you can also use it write single html files or pdf handouts. I’ve been using it all semester. Here is the <a href="https://bookdown.org/yihui/bookdown/">documentation</a>, <a href="https://www.rstudio.com/resources/webinars/introducing-bookdown/">a tutorial video</a>, and a bunch of <a href="https://bookdown.org/">books that were written with the package</a>. Check out the <a href="https://cran.rstudio.com/web/packages/bookdown/index.html">list of contributors</a>.</li>
+</ul>
+<p>Here a couple others you probably will not need for this project:</p>
+<ul>
+<li><p>The <a href="https://github.com/rstudio/blogdown">blogdown package</a> helps you set up an actual blogs with multiple posts. Here is a <a href="https://bookdown.org/yihui/blogdown/">tutorial</a> (written in <code>bookdown</code> ofcourse) and an <a href="https://rviews.rstudio.com/">example blog</a>.</p></li>
+<li><p>The <a href="https://github.com/rstudio/rticles">rticles package</a> helps you use R Markdown to write an article that conforms to a specific journal’s template.</p></li>
+</ul>
+<div id="test" class="section level4 unnumbered hasAnchor">
+<h4>Test<a href="presentation-tools.html#test" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Below is some sample content to test out some of these output options. I’ve set everything up in the header of <a href="template_rmd/21-Prez_Tools.Rmd">this Rmd</a> file. All you have to do is knit it with different options and check out the output html file.</p>
+<div id="a-sample-footnote1" class="section level5 unnumbered hasAnchor">
+<h5>A sample footnote<a href="#fn33" class="footnote-ref" id="fnref33"><sup>33</sup></a><a href="presentation-tools.html#a-sample-footnote1" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+</div>
+<div id="how-a-code-chunk-is-displayed" class="section level5 unnumbered hasAnchor">
+<h5>How a code chunk is displayed:<a href="presentation-tools.html#how-a-code-chunk-is-displayed" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<div class="sourceCode" id="cb428"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb428-1"><a href="presentation-tools.html#cb428-1" aria-hidden="true" tabindex="-1"></a>Trips <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">&quot;data/2014-Q4-Trips-History-Data.rds&quot;</span>)</span>
+<span id="cb428-2"><a href="presentation-tools.html#cb428-2" aria-hidden="true" tabindex="-1"></a>Stations <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;data/DC-Stations.csv&quot;</span>)</span></code></pre></div>
+</div>
+<div id="graphic-from-ggplot" class="section level5 unnumbered hasAnchor">
+<h5>Graphic from ggplot:<a href="presentation-tools.html#graphic-from-ggplot" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<p><img src="stat112_manual_files/figure-html/unnamed-chunk-455-1.png" width="672" /></p>
+</div>
+<div id="interactive-map-with-the-leaflet-package" class="section level5 unnumbered hasAnchor">
+<h5>Interactive map with the leaflet package:<a href="presentation-tools.html#interactive-map-with-the-leaflet-package" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<div id="htmlwidget-4f1bb9ff87b9d7dab6f7" style="width:672px;height:480px;" class="leaflet html-widget"></div>
+<script type="application/json" data-for="htmlwidget-4f1bb9ff87b9d7dab6f7">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"setView":[[38.9096,-77.0296],13,[]],"calls":[{"method":"addProviderTiles","args":["OpenStreetMap.Mapnik",null,null,{"errorTileUrl":"","noWrap":false,"detectRetina":false}]},{"method":"addCircleMarkers","args":[[38.90509,38.903732,38.903732,38.90509,38.90509,38.899972,38.899972,38.88731,38.88731,38.89696,38.89696,38.888553,38.888553,38.892275,38.892275,38.9155,38.9155,38.915417,38.915417,38.906602,38.906602,38.901539,38.901539,38.902061,38.902061,38.897222,38.897222,38.887378,38.887378,38.89696,38.89696,38.89696,38.89696,38.897195,38.897195,38.887378,38.887378,38.894573,38.894573,38.905126,38.905126,38.908905,38.908905,38.90985,38.90985,38.918809,38.918809,38.90304,38.90304,38.9268,38.9268,38.9172,38.9172,38.917761,38.917761,38.9154,38.9154,38.878433,38.878433,38.9126,38.9126,38.912719,38.894573,38.888553,38.888553,38.888251,38.888251,38.905126,38.934751,38.9101,38.9101,38.9086,38.9086,38.900358,38.900358,38.905607,38.905607,38.906602,38.906602,38.905126,38.905126,38.90276,38.90276,38.9319,38.9319,38.90276,38.90276,38.892275,38.894832,38.90093,38.90093,38.90572,38.90572,38.90706,38.90706,38.897222,38.897222,38.912659,38.912659,38.936043,38.936043,38.888553],[-76.9941,-76.987211,-76.987211,-76.9941,-76.9941,-76.998347,-76.998347,-77.01397,-77.01397,-77.00493,-77.00493,-77.032429,-77.032429,-77.013917,-77.013917,-77.0222,-77.0222,-77.012289,-77.012289,-77.038785,-77.038785,-77.046564,-77.046564,-77.038322,-77.038322,-77.019347,-77.019347,-77.001955,-77.001955,-77.00493,-77.00493,-77.00493,-77.00493,-76.983575,-76.983575,-77.001955,-77.001955,-77.01994,-77.01994,-77.056887,-77.056887,-77.04478,-77.04478,-77.034438,-77.034438,-77.041571,-77.041571,-77.019027,-77.019027,-77.0322,-77.0322,-77.0259,-77.0259,-77.04062,-77.04062,-77.0446,-77.0446,-77.03023,-77.03023,-77.0135,-77.0135,-77.022155,-77.01994,-77.032429,-77.032429,-77.049426,-77.049426,-77.056887,-77.074647,-77.0444,-77.0444,-77.0323,-77.0323,-77.012108,-77.012108,-77.027137,-77.027137,-77.038785,-77.038785,-77.056887,-77.056887,-77.03863,-77.03863,-77.0388,-77.0388,-77.03863,-77.03863,-77.013917,-76.987633,-77.018677,-77.018677,-77.022264,-77.022264,-77.015231,-77.015231,-77.019347,-77.019347,-77.017669,-77.017669,-77.024649,-77.024649,-77.032429],10,null,null,{"interactive":true,"className":"","stroke":true,"color":["#000000","#040404","#080808","#0D0D0D","#101010","#131313","#151515","#181818","#1A1A1A","#1C1C1C","#1F1F1F","#212121","#232323","#262626","#2A2A2A","#2D2D2D","#303030","#343434","#373737","#3B3B3B","#3F3F3F","#424242","#464646","#4A4A4A","#4D4D4D","#515151","#545454","#565656","#595959","#5C5C5C","#5E5E5E","#616161","#636363","#666666","#696969","#6B6B6B","#6E6E6E","#717171","#737373","#767676","#797979","#7C7C7C","#7E7E7E","#818181","#848484","#878787","#898989","#8C8C8C","#8F8F8F","#929292","#959595","#989898","#9B9B9B","#9E9E9E","#A1A1A1","#A4A4A4","#A7A7A7","#AAAAAA","#ADADAD","#B0B0B0","#B3B3B3","#B6B6B6","#B9B9B9","#BDBDBD","#BFBFBF","#C1C1C1","#C3C3C3","#C6C6C6","#C8C8C8","#CACACA","#CCCCCC","#CECECE","#D1D1D1","#D3D3D3","#D5D5D5","#D7D7D7","#D9D9D9","#DBDBDB","#DDDDDD","#DFDFDF","#E1E1E1","#E3E3E3","#E4E4E4","#E6E6E6","#E8E8E8","#EAEAEA","#ECECEC","#EDEDED","#EFEFEF","#F1F1F1","#F2F2F2","#F3F3F3","#F4F4F4","#F5F5F5","#F7F7F7","#F8F8F8","#F9F9F9","#FAFAFA","#FBFBFB","#FDFDFD","#FEFEFE","#FFFFFF"],"weight":5,"opacity":0.5,"fill":true,"fillColor":["#000000","#040404","#080808","#0D0D0D","#101010","#131313","#151515","#181818","#1A1A1A","#1C1C1C","#1F1F1F","#212121","#232323","#262626","#2A2A2A","#2D2D2D","#303030","#343434","#373737","#3B3B3B","#3F3F3F","#424242","#464646","#4A4A4A","#4D4D4D","#515151","#545454","#565656","#595959","#5C5C5C","#5E5E5E","#616161","#636363","#666666","#696969","#6B6B6B","#6E6E6E","#717171","#737373","#767676","#797979","#7C7C7C","#7E7E7E","#818181","#848484","#878787","#898989","#8C8C8C","#8F8F8F","#929292","#959595","#989898","#9B9B9B","#9E9E9E","#A1A1A1","#A4A4A4","#A7A7A7","#AAAAAA","#ADADAD","#B0B0B0","#B3B3B3","#B6B6B6","#B9B9B9","#BDBDBD","#BFBFBF","#C1C1C1","#C3C3C3","#C6C6C6","#C8C8C8","#CACACA","#CCCCCC","#CECECE","#D1D1D1","#D3D3D3","#D5D5D5","#D7D7D7","#D9D9D9","#DBDBDB","#DDDDDD","#DFDFDF","#E1E1E1","#E3E3E3","#E4E4E4","#E6E6E6","#E8E8E8","#EAEAEA","#ECECEC","#EDEDED","#EFEFEF","#F1F1F1","#F2F2F2","#F3F3F3","#F4F4F4","#F5F5F5","#F7F7F7","#F8F8F8","#F9F9F9","#FAFAFA","#FBFBFB","#FDFDFD","#FEFEFE","#FFFFFF"],"fillOpacity":0.2},null,null,["1: Gallaudet / 8th St & Florida Ave NE","2: Neal St & Trinidad Ave NE","3: Neal St & Trinidad Ave NE","4: Gallaudet / 8th St & Florida Ave NE","5: Gallaudet / 8th St & Florida Ave NE","6: 6th & H St NE","7: 6th & H St NE","8: Washington & Independence Ave SW/HHS","9: Washington & Independence Ave SW/HHS","10: Columbus Circle / Union Station","11: Columbus Circle / Union Station","12: Jefferson Dr & 14th St SW","13: Jefferson Dr & 14th St SW","14: Constitution Ave & 2nd St NW/DOL","15: Constitution Ave & 2nd St NW/DOL","16: 7th & T St NW","17: 7th & T St NW","18: 1st & Rhode Island Ave NW","19: 1st & Rhode Island Ave NW","20: 17th & Rhode Island Ave NW","21: 17th & Rhode Island Ave NW","22: 21st St & Pennsylvania Ave NW","23: 21st St & Pennsylvania Ave NW","24: 17th & K St NW / Farragut Square","25: 17th & K St NW / Farragut Square","26: 5th & F St NW","27: 5th & F St NW","28: 3rd St & Pennsylvania Ave SE","29: 3rd St & Pennsylvania Ave SE","30: Columbus Circle / Union Station","31: Columbus Circle / Union Station","32: Columbus Circle / Union Station","33: Columbus Circle / Union Station","34: 15th & F St NE","35: 15th & F St NE","36: 3rd St & Pennsylvania Ave SE","37: 3rd St & Pennsylvania Ave SE","38: 6th St & Indiana Ave NW","39: 6th St & Indiana Ave NW","40: M St & Pennsylvania Ave NW","41: M St & Pennsylvania Ave NW","42: 20th & O St NW / Dupont South","43: 20th & O St NW / Dupont South","44: 15th & P St NW","45: 15th & P St NW","46: 18th St & Wyoming Ave NW","47: 18th St & Wyoming Ave NW","48: 5th & K St NW","49: 5th & K St NW","50: 14th & Harvard St NW","51: 14th & Harvard St NW","52: 10th & U St NW","53: 10th & U St NW","54: California St & Florida Ave NW","55: California St & Florida Ave NW","56: 20th St & Florida Ave NW","57: 20th St & Florida Ave NW","58: Hains Point/Buckeye & Ohio Dr SW","59: Hains Point/Buckeye & Ohio Dr SW","60: Florida Ave & R St NW","61: Florida Ave & R St NW","62: 7th & R St NW / Shaw Library","63: 6th St & Indiana Ave NW","64: Jefferson Dr & 14th St SW","65: Jefferson Dr & 14th St SW","66: Lincoln Memorial","67: Lincoln Memorial","68: M St & Pennsylvania Ave NW","69: Idaho Ave & Newark St NW [on 2nd District patio]","70: Massachusetts Ave & Dupont Circle NW","71: Massachusetts Ave & Dupont Circle NW","72: 14th & Rhode Island Ave NW","73: 14th & Rhode Island Ave NW","74: 1st & H St NW","75: 1st & H St NW","76: 11th & M St NW","77: 11th & M St NW","78: 17th & Rhode Island Ave NW","79: 17th & Rhode Island Ave NW","80: M St & Pennsylvania Ave NW","81: M St & Pennsylvania Ave NW","82: 17th & K St NW","83: 17th & K St NW","84: Lamont & Mt Pleasant NW","85: Lamont & Mt Pleasant NW","86: 17th & K St NW","87: 17th & K St NW","88: Constitution Ave & 2nd St NW/DOL","89: 13th & D St NE","90: 5th St & Massachusetts Ave NW","91: 5th St & Massachusetts Ave NW","92: Convention Center / 7th & M St NW","93: Convention Center / 7th & M St NW","94: New Jersey Ave & N St NW/Dunbar HS","95: New Jersey Ave & N St NW/Dunbar HS","96: 5th & F St NW","97: 5th & F St NW","98: New Jersey Ave & R St NW","99: New Jersey Ave & R St NW","100: Georgia & New Hampshire Ave NW","101: Georgia & New Hampshire Ave NW","102: Jefferson Dr & 14th St SW"],null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]},{"method":"addPolylines","args":[[[[{"lng":[-76.9941,-76.987211,-76.987211,-76.9941,-76.9941,-76.998347,-76.998347,-77.01397,-77.01397,-77.00493,-77.00493,-77.032429,-77.032429,-77.013917,-77.013917,-77.0222,-77.0222,-77.012289,-77.012289,-77.038785,-77.038785,-77.046564,-77.046564,-77.038322,-77.038322,-77.019347,-77.019347,-77.001955,-77.001955,-77.00493,-77.00493,-77.00493,-77.00493,-76.983575,-76.983575,-77.001955,-77.001955,-77.01994,-77.01994,-77.056887,-77.056887,-77.04478,-77.04478,-77.034438,-77.034438,-77.041571,-77.041571,-77.019027,-77.019027,-77.0322,-77.0322,-77.0259,-77.0259,-77.04062,-77.04062,-77.0446,-77.0446,-77.03023,-77.03023,-77.0135,-77.0135,-77.022155,-77.01994,-77.032429,-77.032429,-77.049426,-77.049426,-77.056887,-77.074647,-77.0444,-77.0444,-77.0323,-77.0323,-77.012108,-77.012108,-77.027137,-77.027137,-77.038785,-77.038785,-77.056887,-77.056887,-77.03863,-77.03863,-77.0388,-77.0388,-77.03863,-77.03863,-77.013917,-76.987633,-77.018677,-77.018677,-77.022264,-77.022264,-77.015231,-77.015231,-77.019347,-77.019347,-77.017669,-77.017669,-77.024649,-77.024649,-77.032429],"lat":[38.90509,38.903732,38.903732,38.90509,38.90509,38.899972,38.899972,38.88731,38.88731,38.89696,38.89696,38.888553,38.888553,38.892275,38.892275,38.9155,38.9155,38.915417,38.915417,38.906602,38.906602,38.901539,38.901539,38.902061,38.902061,38.897222,38.897222,38.887378,38.887378,38.89696,38.89696,38.89696,38.89696,38.897195,38.897195,38.887378,38.887378,38.894573,38.894573,38.905126,38.905126,38.908905,38.908905,38.90985,38.90985,38.918809,38.918809,38.90304,38.90304,38.9268,38.9268,38.9172,38.9172,38.917761,38.917761,38.9154,38.9154,38.878433,38.878433,38.9126,38.9126,38.912719,38.894573,38.888553,38.888553,38.888251,38.888251,38.905126,38.934751,38.9101,38.9101,38.9086,38.9086,38.900358,38.900358,38.905607,38.905607,38.906602,38.906602,38.905126,38.905126,38.90276,38.90276,38.9319,38.9319,38.90276,38.90276,38.892275,38.894832,38.90093,38.90093,38.90572,38.90572,38.90706,38.90706,38.897222,38.897222,38.912659,38.912659,38.936043,38.936043,38.888553]}]]],null,null,{"interactive":true,"className":"","stroke":true,"color":"#03F","weight":5,"opacity":0.5,"fill":false,"fillColor":"#03F","fillOpacity":0.2,"smoothFactor":1,"noClip":false},null,null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]}],"limits":{"lat":[38.878433,38.936043],"lng":[-77.074647,-76.983575]}},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="number-of-daily-net-departures-for-four-different-stations" class="section level5 unnumbered hasAnchor">
+<h5>Number of daily net departures for four different stations:<a href="presentation-tools.html#number-of-daily-net-departures-for-four-different-stations" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<table>
+<caption>
+<span id="tab:unnamed-chunk-458">Table 14.4: </span>First ten rows of the NetTraffic table.
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+date
+</th>
+<th style="text-align:left;">
+wday
+</th>
+<th style="text-align:left;">
+station
+</th>
+<th style="text-align:right;">
+num_departures
+</th>
+<th style="text-align:right;">
+num_arrivals
+</th>
+<th style="text-align:right;">
+total_events
+</th>
+<th style="text-align:right;">
+net_departures
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+2014-10-01
+</td>
+<td style="text-align:left;">
+Wed
+</td>
+<td style="text-align:left;">
+10th &amp; E St NW
+</td>
+<td style="text-align:right;">
+42
+</td>
+<td style="text-align:right;">
+37
+</td>
+<td style="text-align:right;">
+79
+</td>
+<td style="text-align:right;">
+5
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2014-10-01
+</td>
+<td style="text-align:left;">
+Wed
+</td>
+<td style="text-align:left;">
+10th &amp; U St NW
+</td>
+<td style="text-align:right;">
+46
+</td>
+<td style="text-align:right;">
+27
+</td>
+<td style="text-align:right;">
+73
+</td>
+<td style="text-align:right;">
+19
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2014-10-01
+</td>
+<td style="text-align:left;">
+Wed
+</td>
+<td style="text-align:left;">
+10th St &amp; Constitution Ave NW
+</td>
+<td style="text-align:right;">
+43
+</td>
+<td style="text-align:right;">
+40
+</td>
+<td style="text-align:right;">
+83
+</td>
+<td style="text-align:right;">
+3
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2014-10-01
+</td>
+<td style="text-align:left;">
+Wed
+</td>
+<td style="text-align:left;">
+11th &amp; F St NW
+</td>
+<td style="text-align:right;">
+49
+</td>
+<td style="text-align:right;">
+42
+</td>
+<td style="text-align:right;">
+91
+</td>
+<td style="text-align:right;">
+7
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2014-10-01
+</td>
+<td style="text-align:left;">
+Wed
+</td>
+<td style="text-align:left;">
+11th &amp; K St NW
+</td>
+<td style="text-align:right;">
+72
+</td>
+<td style="text-align:right;">
+61
+</td>
+<td style="text-align:right;">
+133
+</td>
+<td style="text-align:right;">
+11
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2014-10-01
+</td>
+<td style="text-align:left;">
+Wed
+</td>
+<td style="text-align:left;">
+11th &amp; Kenyon St NW
+</td>
+<td style="text-align:right;">
+57
+</td>
+<td style="text-align:right;">
+53
+</td>
+<td style="text-align:right;">
+110
+</td>
+<td style="text-align:right;">
+4
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2014-10-01
+</td>
+<td style="text-align:left;">
+Wed
+</td>
+<td style="text-align:left;">
+11th &amp; M St NW
+</td>
+<td style="text-align:right;">
+117
+</td>
+<td style="text-align:right;">
+105
+</td>
+<td style="text-align:right;">
+222
+</td>
+<td style="text-align:right;">
+12
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2014-10-01
+</td>
+<td style="text-align:left;">
+Wed
+</td>
+<td style="text-align:left;">
+12th &amp; L St NW
+</td>
+<td style="text-align:right;">
+52
+</td>
+<td style="text-align:right;">
+54
+</td>
+<td style="text-align:right;">
+106
+</td>
+<td style="text-align:right;">
+-2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2014-10-01
+</td>
+<td style="text-align:left;">
+Wed
+</td>
+<td style="text-align:left;">
+12th &amp; U St NW
+</td>
+<td style="text-align:right;">
+84
+</td>
+<td style="text-align:right;">
+89
+</td>
+<td style="text-align:right;">
+173
+</td>
+<td style="text-align:right;">
+-5
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2014-10-01
+</td>
+<td style="text-align:left;">
+Wed
+</td>
+<td style="text-align:left;">
+13th &amp; D St NE
+</td>
+<td style="text-align:right;">
+45
+</td>
+<td style="text-align:right;">
+53
+</td>
+<td style="text-align:right;">
+98
+</td>
+<td style="text-align:right;">
+-8
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="visualization-with-dygraphs" class="section level5 unnumbered hasAnchor">
+<h5>Visualization with dygraphs:<a href="presentation-tools.html#visualization-with-dygraphs" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<div id="htmlwidget-acaace6665e8974292b7" style="width:1152px;height:480px;" class="dygraphs html-widget"></div>
+<script type="application/json" data-for="htmlwidget-acaace6665e8974292b7">{"x":{"attrs":{"title":"Daily Net Departures at Four Select Stations","labels":["day","16th & Harvard St NW","Columbus Circle / Union Station","Lincoln Memorial","Massachusetts Ave & Dupont Circle NW"],"retainDateWindow":false,"axes":{"x":{"pixelsPerLabel":60,"drawAxis":true},"y":{"drawAxis":true}},"showRangeSelector":true,"rangeSelectorHeight":40,"rangeSelectorPlotFillColor":" #A7B1C4","rangeSelectorPlotStrokeColor":"#808FAB","interactionModel":"Dygraph.Interaction.defaultModel","stackedGraph":false,"fillGraph":false,"fillAlpha":0.15,"stepPlot":false,"drawPoints":true,"pointSize":5,"drawGapEdgePoints":false,"connectSeparatedPoints":false,"strokeWidth":3,"strokeBorderColor":"white","colors":["#66C2A5","#FC8D62","#8DA0CB","#E78AC3"],"colorValue":0.5,"colorSaturation":1,"includeZero":false,"drawAxesAtZero":false,"logscale":false,"axisTickSize":3,"axisLineColor":"black","axisLineWidth":0.3,"axisLabelColor":"black","axisLabelFontSize":14,"axisLabelWidth":60,"drawGrid":true,"gridLineWidth":0.3,"rightGap":5,"digitsAfterDecimal":2,"labelsKMB":false,"labelsKMG2":false,"labelsUTC":false,"maxNumberWidth":6,"animatedZooms":false,"mobileDisableYTouch":true,"disableZoom":false,"legend":"auto","labelsDivWidth":1000,"labelsShowZeroValues":true,"labelsSeparateLines":false,"hideOverlayOnMouseOut":true},"scale":"daily","annotations":[],"shadings":[],"events":[],"format":"date","data":[["2014-10-01T00:00:00.000Z","2014-10-02T00:00:00.000Z","2014-10-03T00:00:00.000Z","2014-10-04T00:00:00.000Z","2014-10-05T00:00:00.000Z","2014-10-06T00:00:00.000Z","2014-10-07T00:00:00.000Z","2014-10-08T00:00:00.000Z","2014-10-09T00:00:00.000Z","2014-10-10T00:00:00.000Z","2014-10-11T00:00:00.000Z","2014-10-12T00:00:00.000Z","2014-10-13T00:00:00.000Z","2014-10-14T00:00:00.000Z","2014-10-15T00:00:00.000Z","2014-10-16T00:00:00.000Z","2014-10-17T00:00:00.000Z","2014-10-18T00:00:00.000Z","2014-10-19T00:00:00.000Z","2014-10-20T00:00:00.000Z","2014-10-21T00:00:00.000Z","2014-10-22T00:00:00.000Z","2014-10-23T00:00:00.000Z","2014-10-24T00:00:00.000Z","2014-10-25T00:00:00.000Z","2014-10-26T00:00:00.000Z","2014-10-27T00:00:00.000Z","2014-10-28T00:00:00.000Z","2014-10-29T00:00:00.000Z","2014-10-30T00:00:00.000Z","2014-10-31T00:00:00.000Z","2014-11-01T00:00:00.000Z","2014-11-02T00:00:00.000Z","2014-11-03T00:00:00.000Z","2014-11-04T00:00:00.000Z","2014-11-05T00:00:00.000Z","2014-11-06T00:00:00.000Z","2014-11-07T00:00:00.000Z","2014-11-08T00:00:00.000Z","2014-11-09T00:00:00.000Z","2014-11-10T00:00:00.000Z","2014-11-11T00:00:00.000Z","2014-11-12T00:00:00.000Z","2014-11-13T00:00:00.000Z","2014-11-14T00:00:00.000Z","2014-11-15T00:00:00.000Z","2014-11-16T00:00:00.000Z","2014-11-17T00:00:00.000Z","2014-11-18T00:00:00.000Z","2014-11-19T00:00:00.000Z","2014-11-20T00:00:00.000Z","2014-11-21T00:00:00.000Z","2014-11-22T00:00:00.000Z","2014-11-23T00:00:00.000Z","2014-11-24T00:00:00.000Z","2014-11-25T00:00:00.000Z","2014-11-26T00:00:00.000Z","2014-11-27T00:00:00.000Z","2014-11-28T00:00:00.000Z","2014-11-29T00:00:00.000Z","2014-11-30T00:00:00.000Z","2014-12-01T00:00:00.000Z","2014-12-02T00:00:00.000Z","2014-12-03T00:00:00.000Z","2014-12-04T00:00:00.000Z","2014-12-05T00:00:00.000Z","2014-12-06T00:00:00.000Z","2014-12-07T00:00:00.000Z","2014-12-08T00:00:00.000Z","2014-12-09T00:00:00.000Z","2014-12-10T00:00:00.000Z","2014-12-11T00:00:00.000Z","2014-12-12T00:00:00.000Z","2014-12-13T00:00:00.000Z","2014-12-14T00:00:00.000Z","2014-12-15T00:00:00.000Z","2014-12-16T00:00:00.000Z","2014-12-17T00:00:00.000Z","2014-12-18T00:00:00.000Z","2014-12-19T00:00:00.000Z","2014-12-20T00:00:00.000Z","2014-12-21T00:00:00.000Z","2014-12-22T00:00:00.000Z","2014-12-23T00:00:00.000Z","2014-12-24T00:00:00.000Z","2014-12-25T00:00:00.000Z","2014-12-26T00:00:00.000Z","2014-12-27T00:00:00.000Z","2014-12-28T00:00:00.000Z","2014-12-29T00:00:00.000Z","2014-12-30T00:00:00.000Z","2014-12-31T00:00:00.000Z"],[38,41,38,28,52,17,24,18,27,28,22,38,38,28,26,45,41,49,40,19,29,9,42,39,37,44,31,26,36,36,44,38,40,26,23,33,42,51,56,39,32,52,33,39,59,28,30,7,28,24,36,40,32,36,33,28,-1,7,7,19,24,26,9,36,38,43,18,24,23,10,41,37,32,22,37,30,18,50,32,45,27,25,17,12,3,10,13,18,21,26,24,23],[0,19,-28,-23,-38,-2,6,-8,-22,-4,-22,-8,-3,2,6,3,-16,-33,3,1,13,2,-12,-12,-7,21,33,27,14,-7,-31,-7,4,25,-11,14,-4,-25,-10,18,12,-36,-3,1,-31,3,-7,7,-20,9,-14,-9,-21,8,27,2,-10,-6,-5,0,19,15,5,20,-30,-19,-23,13,-7,20,-19,-15,-19,-13,-4,17,19,1,2,-16,-22,-9,1,-1,-8,-5,-7,-3,-7,10,-5,-28],[3,5,8,-1,4,13,4,0,7,4,-15,11,3,6,-2,6,-1,-2,-7,4,2,1,10,2,-6,-13,20,3,8,9,1,-3,-14,5,2,6,-9,3,-11,-27,13,1,3,2,-6,-5,-12,4,4,9,7,-6,0,3,0,3,-1,1,-1,-8,-6,4,1,0,8,-3,-1,7,11,-1,4,4,6,4,5,2,8,10,3,-1,10,12,-8,4,0,5,18,17,1,5,-11,-17],[-10,-1,-29,-48,-47,19,-29,0,9,-57,-50,-55,-30,-31,-18,-26,-32,-43,-76,-10,-12,-4,19,-28,-80,-41,-2,-36,3,-21,-41,-44,-42,-9,-5,2,-41,-77,-56,-26,-18,-40,9,6,-53,-60,-36,5,-11,-35,-28,-42,-35,-37,-17,-28,-6,-18,-34,-6,-29,-16,-12,-10,-16,-50,-28,-34,-17,-3,-7,-12,-45,-39,-44,-29,-9,-28,-22,-34,-45,-29,-24,-20,-5,-5,-4,-24,-7,-5,-36,-18]],"fixedtz":false,"tzone":"UTC"},"evals":["attrs.interactionModel"],"jsHooks":[]}</script>
+</div>
+<div id="alternative-visualization-with-plotly" class="section level5 unnumbered hasAnchor">
+<h5>Alternative visualization with plotly:<a href="presentation-tools.html#alternative-visualization-with-plotly" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<div id="htmlwidget-bc2318f4318d2116ff4b" style="width:1152px;height:480px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-bc2318f4318d2116ff4b">{"x":{"data":[{"orientation":"v","width":[0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545],"base":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"x":[16343.6625,16344.6625,16345.6625,16346.6625,16347.6625,16348.6625,16349.6625,16350.6625,16351.6625,16352.6625,16353.6625,16354.6625,16355.6625,16356.6625,16357.6625,16358.6625,16359.6625,16360.6625,16361.6625,16362.6625,16363.6625,16364.6625,16365.6625,16366.6625,16367.6625,16368.6625,16369.6625,16370.6625,16371.6625,16372.6625,16373.6625,16374.6625,16375.6625,16376.6625,16377.6625,16378.6625,16379.6625,16380.6625,16381.6625,16382.6625,16383.6625,16384.6625,16385.6625,16386.6625,16387.6625,16388.6625,16389.6625,16390.6625,16391.6625,16392.6625,16393.6625,16394.6625,16395.6625,16396.6625,16397.6625,16398.6625,16399.6625,16400.6625,16401.6625,16402.6625,16403.6625,16404.6625,16405.6625,16406.6625,16407.6625,16408.6625,16409.6625,16410.6625,16411.6625,16412.6625,16413.6625,16414.6625,16415.6625,16416.6625,16417.6625,16418.6625,16419.6625,16420.6625,16421.6625,16422.6625,16423.6625,16424.6625,16425.6625,16426.6625,16427.6625,16428.6625,16429.6625,16430.6625,16431.6625,16432.6625,16433.6625,16434.6625],"y":[38,41,38,28,52,17,24,18,27,28,22,38,38,28,26,45,41,49,40,19,29,9,42,39,37,44,31,26,36,36,44,38,40,26,23,33,42,51,56,39,32,52,33,39,59,28,30,7,28,24,36,40,32,36,33,28,1,7,7,19,24,26,9,36,38,43,18,24,23,10,41,37,32,22,37,30,18,50,32,45,27,25,17,12,3,10,13,18,21,26,24,23],"text":["date: 2014-10-01<br />net_departures:  38<br />station: 16th & Harvard St NW","date: 2014-10-02<br />net_departures:  41<br />station: 16th & Harvard St NW","date: 2014-10-03<br />net_departures:  38<br />station: 16th & Harvard St NW","date: 2014-10-04<br />net_departures:  28<br />station: 16th & Harvard St NW","date: 2014-10-05<br />net_departures:  52<br />station: 16th & Harvard St NW","date: 2014-10-06<br />net_departures:  17<br />station: 16th & Harvard St NW","date: 2014-10-07<br />net_departures:  24<br />station: 16th & Harvard St NW","date: 2014-10-08<br />net_departures:  18<br />station: 16th & Harvard St NW","date: 2014-10-09<br />net_departures:  27<br />station: 16th & Harvard St NW","date: 2014-10-10<br />net_departures:  28<br />station: 16th & Harvard St NW","date: 2014-10-11<br />net_departures:  22<br />station: 16th & Harvard St NW","date: 2014-10-12<br />net_departures:  38<br />station: 16th & Harvard St NW","date: 2014-10-13<br />net_departures:  38<br />station: 16th & Harvard St NW","date: 2014-10-14<br />net_departures:  28<br />station: 16th & Harvard St NW","date: 2014-10-15<br />net_departures:  26<br />station: 16th & Harvard St NW","date: 2014-10-16<br />net_departures:  45<br />station: 16th & Harvard St NW","date: 2014-10-17<br />net_departures:  41<br />station: 16th & Harvard St NW","date: 2014-10-18<br />net_departures:  49<br />station: 16th & Harvard St NW","date: 2014-10-19<br />net_departures:  40<br />station: 16th & Harvard St NW","date: 2014-10-20<br />net_departures:  19<br />station: 16th & Harvard St NW","date: 2014-10-21<br />net_departures:  29<br />station: 16th & Harvard St NW","date: 2014-10-22<br />net_departures:   9<br />station: 16th & Harvard St NW","date: 2014-10-23<br />net_departures:  42<br />station: 16th & Harvard St NW","date: 2014-10-24<br />net_departures:  39<br />station: 16th & Harvard St NW","date: 2014-10-25<br />net_departures:  37<br />station: 16th & Harvard St NW","date: 2014-10-26<br />net_departures:  44<br />station: 16th & Harvard St NW","date: 2014-10-27<br />net_departures:  31<br />station: 16th & Harvard St NW","date: 2014-10-28<br />net_departures:  26<br />station: 16th & Harvard St NW","date: 2014-10-29<br />net_departures:  36<br />station: 16th & Harvard St NW","date: 2014-10-30<br />net_departures:  36<br />station: 16th & Harvard St NW","date: 2014-10-31<br />net_departures:  44<br />station: 16th & Harvard St NW","date: 2014-11-01<br />net_departures:  38<br />station: 16th & Harvard St NW","date: 2014-11-02<br />net_departures:  40<br />station: 16th & Harvard St NW","date: 2014-11-03<br />net_departures:  26<br />station: 16th & Harvard St NW","date: 2014-11-04<br />net_departures:  23<br />station: 16th & Harvard St NW","date: 2014-11-05<br />net_departures:  33<br />station: 16th & Harvard St NW","date: 2014-11-06<br />net_departures:  42<br />station: 16th & Harvard St NW","date: 2014-11-07<br />net_departures:  51<br />station: 16th & Harvard St NW","date: 2014-11-08<br />net_departures:  56<br />station: 16th & Harvard St NW","date: 2014-11-09<br />net_departures:  39<br />station: 16th & Harvard St NW","date: 2014-11-10<br />net_departures:  32<br />station: 16th & Harvard St NW","date: 2014-11-11<br />net_departures:  52<br />station: 16th & Harvard St NW","date: 2014-11-12<br />net_departures:  33<br />station: 16th & Harvard St NW","date: 2014-11-13<br />net_departures:  39<br />station: 16th & Harvard St NW","date: 2014-11-14<br />net_departures:  59<br />station: 16th & Harvard St NW","date: 2014-11-15<br />net_departures:  28<br />station: 16th & Harvard St NW","date: 2014-11-16<br />net_departures:  30<br />station: 16th & Harvard St NW","date: 2014-11-17<br />net_departures:   7<br />station: 16th & Harvard St NW","date: 2014-11-18<br />net_departures:  28<br />station: 16th & Harvard St NW","date: 2014-11-19<br />net_departures:  24<br />station: 16th & Harvard St NW","date: 2014-11-20<br />net_departures:  36<br />station: 16th & Harvard St NW","date: 2014-11-21<br />net_departures:  40<br />station: 16th & Harvard St NW","date: 2014-11-22<br />net_departures:  32<br />station: 16th & Harvard St NW","date: 2014-11-23<br />net_departures:  36<br />station: 16th & Harvard St NW","date: 2014-11-24<br />net_departures:  33<br />station: 16th & Harvard St NW","date: 2014-11-25<br />net_departures:  28<br />station: 16th & Harvard St NW","date: 2014-11-26<br />net_departures:  -1<br />station: 16th & Harvard St NW","date: 2014-11-27<br />net_departures:   7<br />station: 16th & Harvard St NW","date: 2014-11-28<br />net_departures:   7<br />station: 16th & Harvard St NW","date: 2014-11-29<br />net_departures:  19<br />station: 16th & Harvard St NW","date: 2014-11-30<br />net_departures:  24<br />station: 16th & Harvard St NW","date: 2014-12-01<br />net_departures:  26<br />station: 16th & Harvard St NW","date: 2014-12-02<br />net_departures:   9<br />station: 16th & Harvard St NW","date: 2014-12-03<br />net_departures:  36<br />station: 16th & Harvard St NW","date: 2014-12-04<br />net_departures:  38<br />station: 16th & Harvard St NW","date: 2014-12-05<br />net_departures:  43<br />station: 16th & Harvard St NW","date: 2014-12-06<br />net_departures:  18<br />station: 16th & Harvard St NW","date: 2014-12-07<br />net_departures:  24<br />station: 16th & Harvard St NW","date: 2014-12-08<br />net_departures:  23<br />station: 16th & Harvard St NW","date: 2014-12-09<br />net_departures:  10<br />station: 16th & Harvard St NW","date: 2014-12-10<br />net_departures:  41<br />station: 16th & Harvard St NW","date: 2014-12-11<br />net_departures:  37<br />station: 16th & Harvard St NW","date: 2014-12-12<br />net_departures:  32<br />station: 16th & Harvard St NW","date: 2014-12-13<br />net_departures:  22<br />station: 16th & Harvard St NW","date: 2014-12-14<br />net_departures:  37<br />station: 16th & Harvard St NW","date: 2014-12-15<br />net_departures:  30<br />station: 16th & Harvard St NW","date: 2014-12-16<br />net_departures:  18<br />station: 16th & Harvard St NW","date: 2014-12-17<br />net_departures:  50<br />station: 16th & Harvard St NW","date: 2014-12-18<br />net_departures:  32<br />station: 16th & Harvard St NW","date: 2014-12-19<br />net_departures:  45<br />station: 16th & Harvard St NW","date: 2014-12-20<br />net_departures:  27<br />station: 16th & Harvard St NW","date: 2014-12-21<br />net_departures:  25<br />station: 16th & Harvard St NW","date: 2014-12-22<br />net_departures:  17<br />station: 16th & Harvard St NW","date: 2014-12-23<br />net_departures:  12<br />station: 16th & Harvard St NW","date: 2014-12-24<br />net_departures:   3<br />station: 16th & Harvard St NW","date: 2014-12-25<br />net_departures:  10<br />station: 16th & Harvard St NW","date: 2014-12-26<br />net_departures:  13<br />station: 16th & Harvard St NW","date: 2014-12-27<br />net_departures:  18<br />station: 16th & Harvard St NW","date: 2014-12-28<br />net_departures:  21<br />station: 16th & Harvard St NW","date: 2014-12-29<br />net_departures:  26<br />station: 16th & Harvard St NW","date: 2014-12-30<br />net_departures:  24<br />station: 16th & Harvard St NW","date: 2014-12-31<br />net_departures:  23<br />station: 16th & Harvard St NW"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(248,118,109,1)","line":{"width":1.88976377952756,"color":"transparent"}},"name":"16th & Harvard St NW","legendgroup":"16th & Harvard St NW","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"orientation":"v","width":[0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545],"base":[0,0,-28,-23,-38,-2,0,-8,-22,-4,-22,-8,-3,0,0,0,-16,-33,0,0,0,0,-12,-12,-7,0,0,0,0,-7,-31,-7,0,0,-11,0,-4,-25,-10,0,0,-36,-3,0,-31,0,-7,0,-20,0,-14,-9,-21,0,0,0,-10,-6,-5,0,0,0,0,0,-30,-19,-23,0,-7,0,-19,-15,-19,-13,-4,0,0,0,0,-16,-22,-9,0,-1,-8,-5,-7,-3,-7,0,-5,-28],"x":[16343.8875,16344.8875,16345.8875,16346.8875,16347.8875,16348.8875,16349.8875,16350.8875,16351.8875,16352.8875,16353.8875,16354.8875,16355.8875,16356.8875,16357.8875,16358.8875,16359.8875,16360.8875,16361.8875,16362.8875,16363.8875,16364.8875,16365.8875,16366.8875,16367.8875,16368.8875,16369.8875,16370.8875,16371.8875,16372.8875,16373.8875,16374.8875,16375.8875,16376.8875,16377.8875,16378.8875,16379.8875,16380.8875,16381.8875,16382.8875,16383.8875,16384.8875,16385.8875,16386.8875,16387.8875,16388.8875,16389.8875,16390.8875,16391.8875,16392.8875,16393.8875,16394.8875,16395.8875,16396.8875,16397.8875,16398.8875,16399.8875,16400.8875,16401.8875,16402.8875,16403.8875,16404.8875,16405.8875,16406.8875,16407.8875,16408.8875,16409.8875,16410.8875,16411.8875,16412.8875,16413.8875,16414.8875,16415.8875,16416.8875,16417.8875,16418.8875,16419.8875,16420.8875,16421.8875,16422.8875,16423.8875,16424.8875,16425.8875,16426.8875,16427.8875,16428.8875,16429.8875,16430.8875,16431.8875,16432.8875,16433.8875,16434.8875],"y":[0,19,28,23,38,2,6,8,22,4,22,8,3,2,6,3,16,33,3,1,13,2,12,12,7,21,33,27,14,7,31,7,4,25,11,14,4,25,10,18,12,36,3,1,31,3,7,7,20,9,14,9,21,8,27,2,10,6,5,0,19,15,5,20,30,19,23,13,7,20,19,15,19,13,4,17,19,1,2,16,22,9,1,1,8,5,7,3,7,10,5,28],"text":["date: 2014-10-01<br />net_departures:   0<br />station: Columbus Circle / Union Station","date: 2014-10-02<br />net_departures:  19<br />station: Columbus Circle / Union Station","date: 2014-10-03<br />net_departures: -28<br />station: Columbus Circle / Union Station","date: 2014-10-04<br />net_departures: -23<br />station: Columbus Circle / Union Station","date: 2014-10-05<br />net_departures: -38<br />station: Columbus Circle / Union Station","date: 2014-10-06<br />net_departures:  -2<br />station: Columbus Circle / Union Station","date: 2014-10-07<br />net_departures:   6<br />station: Columbus Circle / Union Station","date: 2014-10-08<br />net_departures:  -8<br />station: Columbus Circle / Union Station","date: 2014-10-09<br />net_departures: -22<br />station: Columbus Circle / Union Station","date: 2014-10-10<br />net_departures:  -4<br />station: Columbus Circle / Union Station","date: 2014-10-11<br />net_departures: -22<br />station: Columbus Circle / Union Station","date: 2014-10-12<br />net_departures:  -8<br />station: Columbus Circle / Union Station","date: 2014-10-13<br />net_departures:  -3<br />station: Columbus Circle / Union Station","date: 2014-10-14<br />net_departures:   2<br />station: Columbus Circle / Union Station","date: 2014-10-15<br />net_departures:   6<br />station: Columbus Circle / Union Station","date: 2014-10-16<br />net_departures:   3<br />station: Columbus Circle / Union Station","date: 2014-10-17<br />net_departures: -16<br />station: Columbus Circle / Union Station","date: 2014-10-18<br />net_departures: -33<br />station: Columbus Circle / Union Station","date: 2014-10-19<br />net_departures:   3<br />station: Columbus Circle / Union Station","date: 2014-10-20<br />net_departures:   1<br />station: Columbus Circle / Union Station","date: 2014-10-21<br />net_departures:  13<br />station: Columbus Circle / Union Station","date: 2014-10-22<br />net_departures:   2<br />station: Columbus Circle / Union Station","date: 2014-10-23<br />net_departures: -12<br />station: Columbus Circle / Union Station","date: 2014-10-24<br />net_departures: -12<br />station: Columbus Circle / Union Station","date: 2014-10-25<br />net_departures:  -7<br />station: Columbus Circle / Union Station","date: 2014-10-26<br />net_departures:  21<br />station: Columbus Circle / Union Station","date: 2014-10-27<br />net_departures:  33<br />station: Columbus Circle / Union Station","date: 2014-10-28<br />net_departures:  27<br />station: Columbus Circle / Union Station","date: 2014-10-29<br />net_departures:  14<br />station: Columbus Circle / Union Station","date: 2014-10-30<br />net_departures:  -7<br />station: Columbus Circle / Union Station","date: 2014-10-31<br />net_departures: -31<br />station: Columbus Circle / Union Station","date: 2014-11-01<br />net_departures:  -7<br />station: Columbus Circle / Union Station","date: 2014-11-02<br />net_departures:   4<br />station: Columbus Circle / Union Station","date: 2014-11-03<br />net_departures:  25<br />station: Columbus Circle / Union Station","date: 2014-11-04<br />net_departures: -11<br />station: Columbus Circle / Union Station","date: 2014-11-05<br />net_departures:  14<br />station: Columbus Circle / Union Station","date: 2014-11-06<br />net_departures:  -4<br />station: Columbus Circle / Union Station","date: 2014-11-07<br />net_departures: -25<br />station: Columbus Circle / Union Station","date: 2014-11-08<br />net_departures: -10<br />station: Columbus Circle / Union Station","date: 2014-11-09<br />net_departures:  18<br />station: Columbus Circle / Union Station","date: 2014-11-10<br />net_departures:  12<br />station: Columbus Circle / Union Station","date: 2014-11-11<br />net_departures: -36<br />station: Columbus Circle / Union Station","date: 2014-11-12<br />net_departures:  -3<br />station: Columbus Circle / Union Station","date: 2014-11-13<br />net_departures:   1<br />station: Columbus Circle / Union Station","date: 2014-11-14<br />net_departures: -31<br />station: Columbus Circle / Union Station","date: 2014-11-15<br />net_departures:   3<br />station: Columbus Circle / Union Station","date: 2014-11-16<br />net_departures:  -7<br />station: Columbus Circle / Union Station","date: 2014-11-17<br />net_departures:   7<br />station: Columbus Circle / Union Station","date: 2014-11-18<br />net_departures: -20<br />station: Columbus Circle / Union Station","date: 2014-11-19<br />net_departures:   9<br />station: Columbus Circle / Union Station","date: 2014-11-20<br />net_departures: -14<br />station: Columbus Circle / Union Station","date: 2014-11-21<br />net_departures:  -9<br />station: Columbus Circle / Union Station","date: 2014-11-22<br />net_departures: -21<br />station: Columbus Circle / Union Station","date: 2014-11-23<br />net_departures:   8<br />station: Columbus Circle / Union Station","date: 2014-11-24<br />net_departures:  27<br />station: Columbus Circle / Union Station","date: 2014-11-25<br />net_departures:   2<br />station: Columbus Circle / Union Station","date: 2014-11-26<br />net_departures: -10<br />station: Columbus Circle / Union Station","date: 2014-11-27<br />net_departures:  -6<br />station: Columbus Circle / Union Station","date: 2014-11-28<br />net_departures:  -5<br />station: Columbus Circle / Union Station","date: 2014-11-29<br />net_departures:   0<br />station: Columbus Circle / Union Station","date: 2014-11-30<br />net_departures:  19<br />station: Columbus Circle / Union Station","date: 2014-12-01<br />net_departures:  15<br />station: Columbus Circle / Union Station","date: 2014-12-02<br />net_departures:   5<br />station: Columbus Circle / Union Station","date: 2014-12-03<br />net_departures:  20<br />station: Columbus Circle / Union Station","date: 2014-12-04<br />net_departures: -30<br />station: Columbus Circle / Union Station","date: 2014-12-05<br />net_departures: -19<br />station: Columbus Circle / Union Station","date: 2014-12-06<br />net_departures: -23<br />station: Columbus Circle / Union Station","date: 2014-12-07<br />net_departures:  13<br />station: Columbus Circle / Union Station","date: 2014-12-08<br />net_departures:  -7<br />station: Columbus Circle / Union Station","date: 2014-12-09<br />net_departures:  20<br />station: Columbus Circle / Union Station","date: 2014-12-10<br />net_departures: -19<br />station: Columbus Circle / Union Station","date: 2014-12-11<br />net_departures: -15<br />station: Columbus Circle / Union Station","date: 2014-12-12<br />net_departures: -19<br />station: Columbus Circle / Union Station","date: 2014-12-13<br />net_departures: -13<br />station: Columbus Circle / Union Station","date: 2014-12-14<br />net_departures:  -4<br />station: Columbus Circle / Union Station","date: 2014-12-15<br />net_departures:  17<br />station: Columbus Circle / Union Station","date: 2014-12-16<br />net_departures:  19<br />station: Columbus Circle / Union Station","date: 2014-12-17<br />net_departures:   1<br />station: Columbus Circle / Union Station","date: 2014-12-18<br />net_departures:   2<br />station: Columbus Circle / Union Station","date: 2014-12-19<br />net_departures: -16<br />station: Columbus Circle / Union Station","date: 2014-12-20<br />net_departures: -22<br />station: Columbus Circle / Union Station","date: 2014-12-21<br />net_departures:  -9<br />station: Columbus Circle / Union Station","date: 2014-12-22<br />net_departures:   1<br />station: Columbus Circle / Union Station","date: 2014-12-23<br />net_departures:  -1<br />station: Columbus Circle / Union Station","date: 2014-12-24<br />net_departures:  -8<br />station: Columbus Circle / Union Station","date: 2014-12-25<br />net_departures:  -5<br />station: Columbus Circle / Union Station","date: 2014-12-26<br />net_departures:  -7<br />station: Columbus Circle / Union Station","date: 2014-12-27<br />net_departures:  -3<br />station: Columbus Circle / Union Station","date: 2014-12-28<br />net_departures:  -7<br />station: Columbus Circle / Union Station","date: 2014-12-29<br />net_departures:  10<br />station: Columbus Circle / Union Station","date: 2014-12-30<br />net_departures:  -5<br />station: Columbus Circle / Union Station","date: 2014-12-31<br />net_departures: -28<br />station: Columbus Circle / Union Station"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(124,174,0,1)","line":{"width":1.88976377952756,"color":"transparent"}},"name":"Columbus Circle / Union Station","legendgroup":"Columbus Circle / Union Station","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"orientation":"v","width":[0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545],"base":[0,0,0,-1,0,0,0,0,0,0,-15,0,0,0,-2,0,-1,-2,-7,0,0,0,0,0,-6,-13,0,0,0,0,0,-3,-14,0,0,0,-9,0,-11,-27,0,0,0,0,-6,-5,-12,0,0,0,0,-6,0,0,0,0,-1,0,-1,-8,-6,0,0,0,0,-3,-1,0,0,-1,0,0,0,0,0,0,0,0,0,-1,0,0,-8,0,0,0,0,0,0,0,-11,-17],"x":[16344.1125,16345.1125,16346.1125,16347.1125,16348.1125,16349.1125,16350.1125,16351.1125,16352.1125,16353.1125,16354.1125,16355.1125,16356.1125,16357.1125,16358.1125,16359.1125,16360.1125,16361.1125,16362.1125,16363.1125,16364.1125,16365.1125,16366.1125,16367.1125,16368.1125,16369.1125,16370.1125,16371.1125,16372.1125,16373.1125,16374.1125,16375.1125,16376.1125,16377.1125,16378.1125,16379.1125,16380.1125,16381.1125,16382.1125,16383.1125,16384.1125,16385.1125,16386.1125,16387.1125,16388.1125,16389.1125,16390.1125,16391.1125,16392.1125,16393.1125,16394.1125,16395.1125,16396.1125,16397.1125,16398.1125,16399.1125,16400.1125,16401.1125,16402.1125,16403.1125,16404.1125,16405.1125,16406.1125,16407.1125,16408.1125,16409.1125,16410.1125,16411.1125,16412.1125,16413.1125,16414.1125,16415.1125,16416.1125,16417.1125,16418.1125,16419.1125,16420.1125,16421.1125,16422.1125,16423.1125,16424.1125,16425.1125,16426.1125,16427.1125,16428.1125,16429.1125,16430.1125,16431.1125,16432.1125,16433.1125,16434.1125,16435.1125],"y":[3,5,8,1,4,13,4,0,7,4,15,11,3,6,2,6,1,2,7,4,2,1,10,2,6,13,20,3,8,9,1,3,14,5,2,6,9,3,11,27,13,1,3,2,6,5,12,4,4,9,7,6,0,3,0,3,1,1,1,8,6,4,1,0,8,3,1,7,11,1,4,4,6,4,5,2,8,10,3,1,10,12,8,4,0,5,18,17,1,5,11,17],"text":["date: 2014-10-01<br />net_departures:   3<br />station: Lincoln Memorial","date: 2014-10-02<br />net_departures:   5<br />station: Lincoln Memorial","date: 2014-10-03<br />net_departures:   8<br />station: Lincoln Memorial","date: 2014-10-04<br />net_departures:  -1<br />station: Lincoln Memorial","date: 2014-10-05<br />net_departures:   4<br />station: Lincoln Memorial","date: 2014-10-06<br />net_departures:  13<br />station: Lincoln Memorial","date: 2014-10-07<br />net_departures:   4<br />station: Lincoln Memorial","date: 2014-10-08<br />net_departures:   0<br />station: Lincoln Memorial","date: 2014-10-09<br />net_departures:   7<br />station: Lincoln Memorial","date: 2014-10-10<br />net_departures:   4<br />station: Lincoln Memorial","date: 2014-10-11<br />net_departures: -15<br />station: Lincoln Memorial","date: 2014-10-12<br />net_departures:  11<br />station: Lincoln Memorial","date: 2014-10-13<br />net_departures:   3<br />station: Lincoln Memorial","date: 2014-10-14<br />net_departures:   6<br />station: Lincoln Memorial","date: 2014-10-15<br />net_departures:  -2<br />station: Lincoln Memorial","date: 2014-10-16<br />net_departures:   6<br />station: Lincoln Memorial","date: 2014-10-17<br />net_departures:  -1<br />station: Lincoln Memorial","date: 2014-10-18<br />net_departures:  -2<br />station: Lincoln Memorial","date: 2014-10-19<br />net_departures:  -7<br />station: Lincoln Memorial","date: 2014-10-20<br />net_departures:   4<br />station: Lincoln Memorial","date: 2014-10-21<br />net_departures:   2<br />station: Lincoln Memorial","date: 2014-10-22<br />net_departures:   1<br />station: Lincoln Memorial","date: 2014-10-23<br />net_departures:  10<br />station: Lincoln Memorial","date: 2014-10-24<br />net_departures:   2<br />station: Lincoln Memorial","date: 2014-10-25<br />net_departures:  -6<br />station: Lincoln Memorial","date: 2014-10-26<br />net_departures: -13<br />station: Lincoln Memorial","date: 2014-10-27<br />net_departures:  20<br />station: Lincoln Memorial","date: 2014-10-28<br />net_departures:   3<br />station: Lincoln Memorial","date: 2014-10-29<br />net_departures:   8<br />station: Lincoln Memorial","date: 2014-10-30<br />net_departures:   9<br />station: Lincoln Memorial","date: 2014-10-31<br />net_departures:   1<br />station: Lincoln Memorial","date: 2014-11-01<br />net_departures:  -3<br />station: Lincoln Memorial","date: 2014-11-02<br />net_departures: -14<br />station: Lincoln Memorial","date: 2014-11-03<br />net_departures:   5<br />station: Lincoln Memorial","date: 2014-11-04<br />net_departures:   2<br />station: Lincoln Memorial","date: 2014-11-05<br />net_departures:   6<br />station: Lincoln Memorial","date: 2014-11-06<br />net_departures:  -9<br />station: Lincoln Memorial","date: 2014-11-07<br />net_departures:   3<br />station: Lincoln Memorial","date: 2014-11-08<br />net_departures: -11<br />station: Lincoln Memorial","date: 2014-11-09<br />net_departures: -27<br />station: Lincoln Memorial","date: 2014-11-10<br />net_departures:  13<br />station: Lincoln Memorial","date: 2014-11-11<br />net_departures:   1<br />station: Lincoln Memorial","date: 2014-11-12<br />net_departures:   3<br />station: Lincoln Memorial","date: 2014-11-13<br />net_departures:   2<br />station: Lincoln Memorial","date: 2014-11-14<br />net_departures:  -6<br />station: Lincoln Memorial","date: 2014-11-15<br />net_departures:  -5<br />station: Lincoln Memorial","date: 2014-11-16<br />net_departures: -12<br />station: Lincoln Memorial","date: 2014-11-17<br />net_departures:   4<br />station: Lincoln Memorial","date: 2014-11-18<br />net_departures:   4<br />station: Lincoln Memorial","date: 2014-11-19<br />net_departures:   9<br />station: Lincoln Memorial","date: 2014-11-20<br />net_departures:   7<br />station: Lincoln Memorial","date: 2014-11-21<br />net_departures:  -6<br />station: Lincoln Memorial","date: 2014-11-22<br />net_departures:   0<br />station: Lincoln Memorial","date: 2014-11-23<br />net_departures:   3<br />station: Lincoln Memorial","date: 2014-11-24<br />net_departures:   0<br />station: Lincoln Memorial","date: 2014-11-25<br />net_departures:   3<br />station: Lincoln Memorial","date: 2014-11-26<br />net_departures:  -1<br />station: Lincoln Memorial","date: 2014-11-27<br />net_departures:   1<br />station: Lincoln Memorial","date: 2014-11-28<br />net_departures:  -1<br />station: Lincoln Memorial","date: 2014-11-29<br />net_departures:  -8<br />station: Lincoln Memorial","date: 2014-11-30<br />net_departures:  -6<br />station: Lincoln Memorial","date: 2014-12-01<br />net_departures:   4<br />station: Lincoln Memorial","date: 2014-12-02<br />net_departures:   1<br />station: Lincoln Memorial","date: 2014-12-03<br />net_departures:   0<br />station: Lincoln Memorial","date: 2014-12-04<br />net_departures:   8<br />station: Lincoln Memorial","date: 2014-12-05<br />net_departures:  -3<br />station: Lincoln Memorial","date: 2014-12-06<br />net_departures:  -1<br />station: Lincoln Memorial","date: 2014-12-07<br />net_departures:   7<br />station: Lincoln Memorial","date: 2014-12-08<br />net_departures:  11<br />station: Lincoln Memorial","date: 2014-12-09<br />net_departures:  -1<br />station: Lincoln Memorial","date: 2014-12-10<br />net_departures:   4<br />station: Lincoln Memorial","date: 2014-12-11<br />net_departures:   4<br />station: Lincoln Memorial","date: 2014-12-12<br />net_departures:   6<br />station: Lincoln Memorial","date: 2014-12-13<br />net_departures:   4<br />station: Lincoln Memorial","date: 2014-12-14<br />net_departures:   5<br />station: Lincoln Memorial","date: 2014-12-15<br />net_departures:   2<br />station: Lincoln Memorial","date: 2014-12-16<br />net_departures:   8<br />station: Lincoln Memorial","date: 2014-12-17<br />net_departures:  10<br />station: Lincoln Memorial","date: 2014-12-18<br />net_departures:   3<br />station: Lincoln Memorial","date: 2014-12-19<br />net_departures:  -1<br />station: Lincoln Memorial","date: 2014-12-20<br />net_departures:  10<br />station: Lincoln Memorial","date: 2014-12-21<br />net_departures:  12<br />station: Lincoln Memorial","date: 2014-12-22<br />net_departures:  -8<br />station: Lincoln Memorial","date: 2014-12-23<br />net_departures:   4<br />station: Lincoln Memorial","date: 2014-12-24<br />net_departures:   0<br />station: Lincoln Memorial","date: 2014-12-25<br />net_departures:   5<br />station: Lincoln Memorial","date: 2014-12-26<br />net_departures:  18<br />station: Lincoln Memorial","date: 2014-12-27<br />net_departures:  17<br />station: Lincoln Memorial","date: 2014-12-28<br />net_departures:   1<br />station: Lincoln Memorial","date: 2014-12-29<br />net_departures:   5<br />station: Lincoln Memorial","date: 2014-12-30<br />net_departures: -11<br />station: Lincoln Memorial","date: 2014-12-31<br />net_departures: -17<br />station: Lincoln Memorial"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(0,191,196,1)","line":{"width":1.88976377952756,"color":"transparent"}},"name":"Lincoln Memorial","legendgroup":"Lincoln Memorial","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"orientation":"v","width":[0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545,0.224999999998545],"base":[-10,-1,-29,-48,-47,0,-29,0,0,-57,-50,-55,-30,-31,-18,-26,-32,-43,-76,-10,-12,-4,0,-28,-80,-41,-2,-36,0,-21,-41,-44,-42,-9,-5,0,-41,-77,-56,-26,-18,-40,0,0,-53,-60,-36,0,-11,-35,-28,-42,-35,-37,-17,-28,-6,-18,-34,-6,-29,-16,-12,-10,-16,-50,-28,-34,-17,-3,-7,-12,-45,-39,-44,-29,-9,-28,-22,-34,-45,-29,-24,-20,-5,-5,-4,-24,-7,-5,-36,-18],"x":[16344.3375,16345.3375,16346.3375,16347.3375,16348.3375,16349.3375,16350.3375,16351.3375,16352.3375,16353.3375,16354.3375,16355.3375,16356.3375,16357.3375,16358.3375,16359.3375,16360.3375,16361.3375,16362.3375,16363.3375,16364.3375,16365.3375,16366.3375,16367.3375,16368.3375,16369.3375,16370.3375,16371.3375,16372.3375,16373.3375,16374.3375,16375.3375,16376.3375,16377.3375,16378.3375,16379.3375,16380.3375,16381.3375,16382.3375,16383.3375,16384.3375,16385.3375,16386.3375,16387.3375,16388.3375,16389.3375,16390.3375,16391.3375,16392.3375,16393.3375,16394.3375,16395.3375,16396.3375,16397.3375,16398.3375,16399.3375,16400.3375,16401.3375,16402.3375,16403.3375,16404.3375,16405.3375,16406.3375,16407.3375,16408.3375,16409.3375,16410.3375,16411.3375,16412.3375,16413.3375,16414.3375,16415.3375,16416.3375,16417.3375,16418.3375,16419.3375,16420.3375,16421.3375,16422.3375,16423.3375,16424.3375,16425.3375,16426.3375,16427.3375,16428.3375,16429.3375,16430.3375,16431.3375,16432.3375,16433.3375,16434.3375,16435.3375],"y":[10,1,29,48,47,19,29,0,9,57,50,55,30,31,18,26,32,43,76,10,12,4,19,28,80,41,2,36,3,21,41,44,42,9,5,2,41,77,56,26,18,40,9,6,53,60,36,5,11,35,28,42,35,37,17,28,6,18,34,6,29,16,12,10,16,50,28,34,17,3,7,12,45,39,44,29,9,28,22,34,45,29,24,20,5,5,4,24,7,5,36,18],"text":["date: 2014-10-01<br />net_departures: -10<br />station: Massachusetts Ave & Dupont Circle NW","date: 2014-10-02<br />net_departures:  -1<br />station: Massachusetts Ave & Dupont Circle NW","date: 2014-10-03<br />net_departures: -29<br />station: Massachusetts Ave & Dupont Circle NW","date: 2014-10-04<br />net_departures: -48<br />station: Massachusetts Ave & Dupont Circle NW","date: 2014-10-05<br />net_departures: -47<br />station: Massachusetts Ave & Dupont Circle NW","date: 2014-10-06<br />net_departures:  19<br />station: Massachusetts Ave & Dupont Circle NW","date: 2014-10-07<br />net_departures: -29<br />station: Massachusetts Ave & Dupont Circle NW","date: 2014-10-08<br />net_departures:   0<br />station: Massachusetts Ave & Dupont Circle NW","date: 2014-10-09<br />net_departures:   9<br />station: Massachusetts Ave & Dupont Circle NW","date: 2014-10-10<br />net_departures: -57<br />station: Massachusetts Ave & Dupont Circle NW","date: 2014-10-11<br />net_departures: -50<br />station: Massachusetts Ave & Dupont Circle NW","date: 2014-10-12<br />net_departures: -55<br />station: Massachusetts Ave & Dupont Circle NW","date: 2014-10-13<br />net_departures: -30<br />station: Massachusetts Ave & Dupont Circle NW","date: 2014-10-14<br />net_departures: -31<br />station: Massachusetts Ave & Dupont Circle NW","date: 2014-10-15<br />net_departures: -18<br />station: Massachusetts Ave & Dupont Circle NW","date: 2014-10-16<br />net_departures: -26<br />station: Massachusetts Ave & Dupont Circle NW","date: 2014-10-17<br />net_departures: -32<br />station: Massachusetts Ave & Dupont Circle NW","date: 2014-10-18<br />net_departures: -43<br />station: Massachusetts Ave & Dupont Circle NW","date: 2014-10-19<br />net_departures: -76<br />station: Massachusetts Ave & Dupont Circle NW","date: 2014-10-20<br />net_departures: -10<br />station: Massachusetts Ave & Dupont Circle NW","date: 2014-10-21<br />net_departures: -12<br />station: Massachusetts Ave & Dupont Circle NW","date: 2014-10-22<br />net_departures:  -4<br />station: Massachusetts Ave & Dupont Circle NW","date: 2014-10-23<br />net_departures:  19<br />station: Massachusetts Ave & Dupont Circle NW","date: 2014-10-24<br />net_departures: -28<br />station: Massachusetts Ave & Dupont Circle NW","date: 2014-10-25<br />net_departures: -80<br />station: Massachusetts Ave & Dupont Circle NW","date: 2014-10-26<br />net_departures: -41<br />station: Massachusetts Ave & Dupont Circle NW","date: 2014-10-27<br />net_departures:  -2<br />station: Massachusetts Ave & Dupont Circle NW","date: 2014-10-28<br />net_departures: -36<br />station: Massachusetts Ave & Dupont Circle NW","date: 2014-10-29<br />net_departures:   3<br />station: Massachusetts Ave & Dupont Circle NW","date: 2014-10-30<br />net_departures: -21<br />station: Massachusetts Ave & Dupont Circle NW","date: 2014-10-31<br />net_departures: -41<br />station: Massachusetts Ave & Dupont Circle NW","date: 2014-11-01<br />net_departures: -44<br />station: Massachusetts Ave & Dupont Circle NW","date: 2014-11-02<br />net_departures: -42<br />station: Massachusetts Ave & Dupont Circle NW","date: 2014-11-03<br />net_departures:  -9<br />station: Massachusetts Ave & Dupont Circle NW","date: 2014-11-04<br />net_departures:  -5<br />station: Massachusetts Ave & Dupont Circle NW","date: 2014-11-05<br />net_departures:   2<br />station: Massachusetts Ave & Dupont Circle NW","date: 2014-11-06<br />net_departures: -41<br />station: Massachusetts Ave & Dupont Circle NW","date: 2014-11-07<br />net_departures: -77<br />station: Massachusetts Ave & Dupont Circle NW","date: 2014-11-08<br />net_departures: -56<br />station: Massachusetts Ave & Dupont Circle NW","date: 2014-11-09<br />net_departures: -26<br />station: Massachusetts Ave & Dupont Circle NW","date: 2014-11-10<br />net_departures: -18<br />station: Massachusetts Ave & Dupont Circle NW","date: 2014-11-11<br />net_departures: -40<br />station: Massachusetts Ave & Dupont Circle NW","date: 2014-11-12<br />net_departures:   9<br />station: Massachusetts Ave & Dupont Circle NW","date: 2014-11-13<br />net_departures:   6<br />station: Massachusetts Ave & Dupont Circle NW","date: 2014-11-14<br />net_departures: -53<br />station: Massachusetts Ave & Dupont Circle NW","date: 2014-11-15<br />net_departures: -60<br />station: Massachusetts Ave & Dupont Circle NW","date: 2014-11-16<br />net_departures: -36<br />station: Massachusetts Ave & Dupont Circle NW","date: 2014-11-17<br />net_departures:   5<br />station: Massachusetts Ave & Dupont Circle NW","date: 2014-11-18<br />net_departures: -11<br />station: Massachusetts Ave & Dupont Circle NW","date: 2014-11-19<br />net_departures: -35<br />station: Massachusetts Ave & Dupont Circle NW","date: 2014-11-20<br />net_departures: -28<br />station: Massachusetts Ave & Dupont Circle NW","date: 2014-11-21<br />net_departures: -42<br />station: Massachusetts Ave & Dupont Circle NW","date: 2014-11-22<br />net_departures: -35<br />station: Massachusetts Ave & Dupont Circle NW","date: 2014-11-23<br />net_departures: -37<br />station: Massachusetts Ave & Dupont Circle NW","date: 2014-11-24<br />net_departures: -17<br />station: Massachusetts Ave & Dupont Circle NW","date: 2014-11-25<br />net_departures: -28<br />station: Massachusetts Ave & Dupont Circle NW","date: 2014-11-26<br />net_departures:  -6<br />station: Massachusetts Ave & Dupont Circle NW","date: 2014-11-27<br />net_departures: -18<br />station: Massachusetts Ave & Dupont Circle NW","date: 2014-11-28<br />net_departures: -34<br />station: Massachusetts Ave & Dupont Circle NW","date: 2014-11-29<br />net_departures:  -6<br />station: Massachusetts Ave & Dupont Circle NW","date: 2014-11-30<br />net_departures: -29<br />station: Massachusetts Ave & Dupont Circle NW","date: 2014-12-01<br />net_departures: -16<br />station: Massachusetts Ave & Dupont Circle NW","date: 2014-12-02<br />net_departures: -12<br />station: Massachusetts Ave & Dupont Circle NW","date: 2014-12-03<br />net_departures: -10<br />station: Massachusetts Ave & Dupont Circle NW","date: 2014-12-04<br />net_departures: -16<br />station: Massachusetts Ave & Dupont Circle NW","date: 2014-12-05<br />net_departures: -50<br />station: Massachusetts Ave & Dupont Circle NW","date: 2014-12-06<br />net_departures: -28<br />station: Massachusetts Ave & Dupont Circle NW","date: 2014-12-07<br />net_departures: -34<br />station: Massachusetts Ave & Dupont Circle NW","date: 2014-12-08<br />net_departures: -17<br />station: Massachusetts Ave & Dupont Circle NW","date: 2014-12-09<br />net_departures:  -3<br />station: Massachusetts Ave & Dupont Circle NW","date: 2014-12-10<br />net_departures:  -7<br />station: Massachusetts Ave & Dupont Circle NW","date: 2014-12-11<br />net_departures: -12<br />station: Massachusetts Ave & Dupont Circle NW","date: 2014-12-12<br />net_departures: -45<br />station: Massachusetts Ave & Dupont Circle NW","date: 2014-12-13<br />net_departures: -39<br />station: Massachusetts Ave & Dupont Circle NW","date: 2014-12-14<br />net_departures: -44<br />station: Massachusetts Ave & Dupont Circle NW","date: 2014-12-15<br />net_departures: -29<br />station: Massachusetts Ave & Dupont Circle NW","date: 2014-12-16<br />net_departures:  -9<br />station: Massachusetts Ave & Dupont Circle NW","date: 2014-12-17<br />net_departures: -28<br />station: Massachusetts Ave & Dupont Circle NW","date: 2014-12-18<br />net_departures: -22<br />station: Massachusetts Ave & Dupont Circle NW","date: 2014-12-19<br />net_departures: -34<br />station: Massachusetts Ave & Dupont Circle NW","date: 2014-12-20<br />net_departures: -45<br />station: Massachusetts Ave & Dupont Circle NW","date: 2014-12-21<br />net_departures: -29<br />station: Massachusetts Ave & Dupont Circle NW","date: 2014-12-22<br />net_departures: -24<br />station: Massachusetts Ave & Dupont Circle NW","date: 2014-12-23<br />net_departures: -20<br />station: Massachusetts Ave & Dupont Circle NW","date: 2014-12-24<br />net_departures:  -5<br />station: Massachusetts Ave & Dupont Circle NW","date: 2014-12-25<br />net_departures:  -5<br />station: Massachusetts Ave & Dupont Circle NW","date: 2014-12-26<br />net_departures:  -4<br />station: Massachusetts Ave & Dupont Circle NW","date: 2014-12-27<br />net_departures: -24<br />station: Massachusetts Ave & Dupont Circle NW","date: 2014-12-28<br />net_departures:  -7<br />station: Massachusetts Ave & Dupont Circle NW","date: 2014-12-29<br />net_departures:  -5<br />station: Massachusetts Ave & Dupont Circle NW","date: 2014-12-30<br />net_departures: -36<br />station: Massachusetts Ave & Dupont Circle NW","date: 2014-12-31<br />net_departures: -18<br />station: Massachusetts Ave & Dupont Circle NW"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(199,124,255,1)","line":{"width":1.88976377952756,"color":"transparent"}},"name":"Massachusetts Ave & Dupont Circle NW","legendgroup":"Massachusetts Ave & Dupont Circle NW","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":33.5342465753425,"r":7.30593607305936,"b":47.4885844748859,"l":43.1050228310502},"plot_bgcolor":"rgba(235,235,235,1)","paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[16338.955,16440.045],"tickmode":"array","ticktext":["Oct","Nov","Dec","Jan"],"tickvals":[16344,16375,16405,16436],"categoryorder":"array","categoryarray":["Oct","Nov","Dec","Jan"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(255,255,255,1)","gridwidth":0.66417600664176,"zeroline":false,"anchor":"y","title":{"text":"date","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-86.95,65.95],"tickmode":"array","ticktext":["-80","-40","0","40"],"tickvals":[-80,-40,0,40],"categoryorder":"array","categoryarray":["-80","-40","0","40"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(255,255,255,1)","gridwidth":0.66417600664176,"zeroline":false,"anchor":"x","title":{"text":"net_departures","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":true,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.88976377952756,"font":{"color":"rgba(0,0,0,1)","family":"","size":11.689497716895},"title":{"text":"station","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"source":"A","attrs":{"4e9354b1b846":{"x":{},"y":{},"fill":{},"type":"bar"}},"cur_data":"4e9354b1b846","visdat":{"4e9354b1b846":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="footnotes">
+<hr />
+<ol start="33">
+<li id="fn33"><p>This is a footnote.<a href="presentation-tools.html#fnref33" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="shiny-1.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook/js/app.min.js"></script>
+<script src="libs/gitbook/js/clipboard.min.js"></script>
+<script src="libs/gitbook/js/plugin-search.js"></script>
+<script src="libs/gitbook/js/plugin-sharing.js"></script>
+<script src="libs/gitbook/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook/js/jquery.highlight.js"></script>
+<script src="libs/gitbook/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": false,
+"twitter": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
