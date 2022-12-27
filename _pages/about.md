@@ -8,10 +8,10 @@ redirect_from:
   - /about.html
 ---
 
-Welcome to my page! I am a statistician, currently serving as a Visiting Assistant Professor of Statistics at Macalester College. I use he/him/his pronouns.
+Welcome to my page! I am a statistician, currently serving as a Visiting Assistant Professor of Statistics at Macalester College. 
 
 
-I am passionate about teaching statistics. In my teaching, I follow three central principles: (i) foster active learning with real world data examples, (ii) emphasize statistical thinking over statistical procedure, and (iii) cultivate a diverse, equitable, and inclusive learning environment that is informative, engaging, and accessible for students of all backgrounds and beliefs. Currently, I apply these principles in STAT 155 (Introduction to Statistical Modeling) at Macalester.
+I am passionate about teaching statistics. In my teaching, I follow three central principles: (i) foster active learning with real world data examples, (ii) emphasize statistical thinking over statistical procedure, and (iii) cultivate a diverse, equitable, and inclusive learning environment that is informative, engaging, and accessible for students of all backgrounds and beliefs.
 
 
 My research interests revolve around using Bayesian hierarchical modeling to solve complex problems. I have applied this wide-ranging methodology to problems involving health care policy, adaptive clinical trial designs, and, more recently, media mix modeling and time series. I have several publications and am always open to collaboration -- please see the Research tab for more information!
