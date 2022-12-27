@@ -5,19 +5,19 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Topic 14 Regular Expressions | COMP/STAT 112: Introduction to Data Science</title>
-  <meta name="description" content="This is the class website for Introduction to Data Science at Macalester College for Fall 2022." />
-  <meta name="generator" content="bookdown 0.27 and GitBook 2.6.7" />
+  <meta name="description" content="This is the class website for Introduction to Data Science at Macalester College for Spring 2023." />
+  <meta name="generator" content="bookdown 0.31 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Topic 14 Regular Expressions | COMP/STAT 112: Introduction to Data Science" />
   <meta property="og:type" content="book" />
   <meta property="og:image" content="/images/logo.png" />
-  <meta property="og:description" content="This is the class website for Introduction to Data Science at Macalester College for Fall 2022." />
-  <meta name="github-repo" content="bcheggeseth/112_fall_2022/" />
+  <meta property="og:description" content="This is the class website for Introduction to Data Science at Macalester College for Spring 2023." />
+  <meta name="github-repo" content="JamesNormington/112_spring_2023/" />
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Topic 14 Regular Expressions | COMP/STAT 112: Introduction to Data Science" />
   
-  <meta name="twitter:description" content="This is the class website for Introduction to Data Science at Macalester College for Fall 2022." />
+  <meta name="twitter:description" content="This is the class website for Introduction to Data Science at Macalester College for Spring 2023." />
   <meta name="twitter:image" content="/images/logo.png" />
 
 
@@ -60,15 +60,6 @@
 <script src="libs/leaflet-binding/leaflet.js"></script>
 <script src="libs/leaflet-providers/leaflet-providers_1.9.0.js"></script>
 <script src="libs/leaflet-providers-plugin/leaflet-providers-plugin.js"></script>
-<script src="libs/kePrint/kePrint.js"></script>
-<link href="libs/lightable/lightable.css" rel="stylesheet" />
-<link href="libs/dygraphs/dygraph.css" rel="stylesheet" />
-<script src="libs/dygraphs/dygraph-combined.js"></script>
-<script src="libs/dygraphs/shapes.js"></script>
-<script src="libs/moment/moment.js"></script>
-<script src="libs/moment-timezone/moment-timezone-with-data.js"></script>
-<script src="libs/moment-fquarter/moment-fquarter.min.js"></script>
-<script src="libs/dygraphs-binding/dygraphs.js"></script>
 <script src="libs/plotly-binding/plotly.js"></script>
 <script src="libs/typedarray/typedarray.min.js"></script>
 <link href="libs/crosstalk/css/crosstalk.min.css" rel="stylesheet" />
@@ -115,7 +106,7 @@ code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
+code span.bu { color: #008000; } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -128,7 +119,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
+code span.im { color: #008000; font-weight: bold; } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -572,80 +563,80 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="wrangling-with-regular-expressions-in-r" class="section level2 unnumbered hasAnchor">
 <h2>Wrangling with Regular Expressions in <code>R</code><a href="regular-expressions.html#wrangling-with-regular-expressions-in-r" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Now that we have some idea how regular expressions work, let’s examine how to use them to achieve various tasks in <code>R</code>. It will be helpful to have your <a href="https://raw.githubusercontent.com/rstudio/cheatsheets/main/strings.pdf">cheat sheet</a> handy. Many of these tasks can either be accomplished with functions from the <code>base</code> (built-in) package in <code>R</code> or from the <code>stringr</code> package, which is part of the Tidyverse. In general, the <code>stringr</code> functions are faster, which will be noticeable when processing a large amount of text data.</p>
-<div class="sourceCode" id="cb223"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb223-1"><a href="regular-expressions.html#cb223-1" aria-hidden="true" tabindex="-1"></a>example <span class="ot">&lt;-</span> <span class="st">&quot;The quick brown fox jumps over the lazy dog.&quot;</span></span>
-<span id="cb223-2"><a href="regular-expressions.html#cb223-2" aria-hidden="true" tabindex="-1"></a>example2 <span class="ot">&lt;-</span> <span class="st">&quot;Two roads diverged in a yellow wood, / And sorry I could not travel both / And be one traveler, long I stood / And looked down one as far as I could&quot;</span></span>
-<span id="cb223-3"><a href="regular-expressions.html#cb223-3" aria-hidden="true" tabindex="-1"></a>example3 <span class="ot">&lt;-</span> <span class="st">&quot;This is a test&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb237"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb237-1"><a href="regular-expressions.html#cb237-1" aria-hidden="true" tabindex="-1"></a>example <span class="ot">&lt;-</span> <span class="st">&quot;The quick brown fox jumps over the lazy dog.&quot;</span></span>
+<span id="cb237-2"><a href="regular-expressions.html#cb237-2" aria-hidden="true" tabindex="-1"></a>example2 <span class="ot">&lt;-</span> <span class="st">&quot;Two roads diverged in a yellow wood, / And sorry I could not travel both / And be one traveler, long I stood / And looked down one as far as I could&quot;</span></span>
+<span id="cb237-3"><a href="regular-expressions.html#cb237-3" aria-hidden="true" tabindex="-1"></a>example3 <span class="ot">&lt;-</span> <span class="st">&quot;This is a test&quot;</span></span></code></pre></div>
 <div id="search-and-replace-patterns-with-str_replace-or-str_replace_all-stringr" class="section level3 unnumbered hasAnchor">
 <h3>Search and replace patterns with <code>str_replace</code> or <code>str_replace_all</code> (<code>stringr</code>)<a href="regular-expressions.html#search-and-replace-patterns-with-str_replace-or-str_replace_all-stringr" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>To search for a pattern and replace it, we can use the function <code>str_replace</code> and <code>str_replace_all</code> in the <code>stringr</code> package. Note that <code>str_replace</code> only replaces the first matched pattern, while <code>str_replace_all</code> replaces all. Here are some examples:</p>
-<div class="sourceCode" id="cb224"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb224-1"><a href="regular-expressions.html#cb224-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_replace</span>(example, <span class="st">&quot;quick&quot;</span>, <span class="st">&quot;really quick&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb238"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb238-1"><a href="regular-expressions.html#cb238-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_replace</span>(example, <span class="st">&quot;quick&quot;</span>, <span class="st">&quot;really quick&quot;</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;The really quick brown fox jumps over the lazy dog.&quot;</code></pre>
-<div class="sourceCode" id="cb226"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb226-1"><a href="regular-expressions.html#cb226-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_replace_all</span>(example, <span class="st">&quot;(fox|dog)&quot;</span>, <span class="st">&quot;****&quot;</span>) </span></code></pre></div>
+<div class="sourceCode" id="cb240"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb240-1"><a href="regular-expressions.html#cb240-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_replace_all</span>(example, <span class="st">&quot;(fox|dog)&quot;</span>, <span class="st">&quot;****&quot;</span>) </span></code></pre></div>
 <pre><code>## [1] &quot;The quick brown **** jumps over the lazy ****.&quot;</code></pre>
-<div class="sourceCode" id="cb228"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb228-1"><a href="regular-expressions.html#cb228-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_replace_all</span>(example, <span class="st">&quot;(fox|dog).&quot;</span>, <span class="st">&quot;****&quot;</span>) <span class="co"># &quot;.&quot; for any character</span></span></code></pre></div>
+<div class="sourceCode" id="cb242"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb242-1"><a href="regular-expressions.html#cb242-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_replace_all</span>(example, <span class="st">&quot;(fox|dog).&quot;</span>, <span class="st">&quot;****&quot;</span>) <span class="co"># &quot;.&quot; for any character</span></span></code></pre></div>
 <pre><code>## [1] &quot;The quick brown ****jumps over the lazy ****&quot;</code></pre>
-<div class="sourceCode" id="cb230"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb230-1"><a href="regular-expressions.html#cb230-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_replace_all</span>(example, <span class="st">&quot;(fox|dog)</span><span class="sc">\\</span><span class="st">.$&quot;</span>, <span class="st">&quot;****&quot;</span>) <span class="co"># at end of sentence only, &quot;\\.&quot; only for a period</span></span></code></pre></div>
+<div class="sourceCode" id="cb244"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb244-1"><a href="regular-expressions.html#cb244-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_replace_all</span>(example, <span class="st">&quot;(fox|dog)</span><span class="sc">\\</span><span class="st">.$&quot;</span>, <span class="st">&quot;****&quot;</span>) <span class="co"># at end of sentence only, &quot;\\.&quot; only for a period</span></span></code></pre></div>
 <pre><code>## [1] &quot;The quick brown fox jumps over the lazy ****&quot;</code></pre>
-<div class="sourceCode" id="cb232"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb232-1"><a href="regular-expressions.html#cb232-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_replace_all</span>(example, <span class="st">&quot;the&quot;</span>, <span class="st">&quot;a&quot;</span>) <span class="co"># case-sensitive only matches one</span></span></code></pre></div>
+<div class="sourceCode" id="cb246"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb246-1"><a href="regular-expressions.html#cb246-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_replace_all</span>(example, <span class="st">&quot;the&quot;</span>, <span class="st">&quot;a&quot;</span>) <span class="co"># case-sensitive only matches one</span></span></code></pre></div>
 <pre><code>## [1] &quot;The quick brown fox jumps over a lazy dog.&quot;</code></pre>
-<div class="sourceCode" id="cb234"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb234-1"><a href="regular-expressions.html#cb234-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_replace_all</span>(example, <span class="st">&quot;[Tt]he&quot;</span>, <span class="st">&quot;a&quot;</span>) <span class="co"># # will match either t or T; could also make &quot;a&quot; conditional on capitalization of t</span></span></code></pre></div>
+<div class="sourceCode" id="cb248"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb248-1"><a href="regular-expressions.html#cb248-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_replace_all</span>(example, <span class="st">&quot;[Tt]he&quot;</span>, <span class="st">&quot;a&quot;</span>) <span class="co"># # will match either t or T; could also make &quot;a&quot; conditional on capitalization of t</span></span></code></pre></div>
 <pre><code>## [1] &quot;a quick brown fox jumps over a lazy dog.&quot;</code></pre>
-<div class="sourceCode" id="cb236"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb236-1"><a href="regular-expressions.html#cb236-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_replace_all</span>(example, <span class="st">&quot;[Tt]he&quot;</span>, <span class="st">&quot;a&quot;</span>) <span class="co"># first match only</span></span></code></pre></div>
+<div class="sourceCode" id="cb250"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb250-1"><a href="regular-expressions.html#cb250-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_replace_all</span>(example, <span class="st">&quot;[Tt]he&quot;</span>, <span class="st">&quot;a&quot;</span>) <span class="co"># first match only</span></span></code></pre></div>
 <pre><code>## [1] &quot;a quick brown fox jumps over a lazy dog.&quot;</code></pre>
 </div>
 <div id="detect-patterns-with-str_detect-stringr" class="section level3 unnumbered hasAnchor">
 <h3>Detect patterns with <code>str_detect</code> (<code>stringr</code>)<a href="regular-expressions.html#detect-patterns-with-str_detect-stringr" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb238"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb238-1"><a href="regular-expressions.html#cb238-1" aria-hidden="true" tabindex="-1"></a>example2 <span class="ot">&lt;-</span> <span class="st">&quot;Two roads diverged in a yellow wood, / And sorry I could not travel both / And be one traveler, long I stood / And looked down one as far as I could&quot;</span></span>
-<span id="cb238-2"><a href="regular-expressions.html#cb238-2" aria-hidden="true" tabindex="-1"></a>example3 <span class="ot">&lt;-</span> <span class="st">&quot;This is a test&quot;</span></span>
-<span id="cb238-3"><a href="regular-expressions.html#cb238-3" aria-hidden="true" tabindex="-1"></a>examples <span class="ot">&lt;-</span> <span class="fu">c</span>(example, example2, example3)</span>
-<span id="cb238-4"><a href="regular-expressions.html#cb238-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb238-5"><a href="regular-expressions.html#cb238-5" aria-hidden="true" tabindex="-1"></a>pat <span class="ot">&lt;-</span> <span class="st">&quot;[^aeiouAEIOU ]{3}&quot;</span> <span class="co"># Regular expression for three straight consonants. Note that I&#39;ve excluded spaces as well</span></span>
-<span id="cb238-6"><a href="regular-expressions.html#cb238-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb238-7"><a href="regular-expressions.html#cb238-7" aria-hidden="true" tabindex="-1"></a><span class="fu">str_detect</span>(examples, pat) <span class="co"># TRUE/FALSE if it detects pattern</span></span></code></pre></div>
+<div class="sourceCode" id="cb252"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb252-1"><a href="regular-expressions.html#cb252-1" aria-hidden="true" tabindex="-1"></a>example2 <span class="ot">&lt;-</span> <span class="st">&quot;Two roads diverged in a yellow wood, / And sorry I could not travel both / And be one traveler, long I stood / And looked down one as far as I could&quot;</span></span>
+<span id="cb252-2"><a href="regular-expressions.html#cb252-2" aria-hidden="true" tabindex="-1"></a>example3 <span class="ot">&lt;-</span> <span class="st">&quot;This is a test&quot;</span></span>
+<span id="cb252-3"><a href="regular-expressions.html#cb252-3" aria-hidden="true" tabindex="-1"></a>examples <span class="ot">&lt;-</span> <span class="fu">c</span>(example, example2, example3)</span>
+<span id="cb252-4"><a href="regular-expressions.html#cb252-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb252-5"><a href="regular-expressions.html#cb252-5" aria-hidden="true" tabindex="-1"></a>pat <span class="ot">&lt;-</span> <span class="st">&quot;[^aeiouAEIOU ]{3}&quot;</span> <span class="co"># Regular expression for three straight consonants. Note that I&#39;ve excluded spaces as well</span></span>
+<span id="cb252-6"><a href="regular-expressions.html#cb252-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb252-7"><a href="regular-expressions.html#cb252-7" aria-hidden="true" tabindex="-1"></a><span class="fu">str_detect</span>(examples, pat) <span class="co"># TRUE/FALSE if it detects pattern</span></span></code></pre></div>
 <pre><code>## [1]  TRUE  TRUE FALSE</code></pre>
-<div class="sourceCode" id="cb240"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb240-1"><a href="regular-expressions.html#cb240-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_subset</span>(examples, pat) <span class="co"># Pulls out those that detects pattern</span></span></code></pre></div>
+<div class="sourceCode" id="cb254"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb254-1"><a href="regular-expressions.html#cb254-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_subset</span>(examples, pat) <span class="co"># Pulls out those that detects pattern</span></span></code></pre></div>
 <pre><code>## [1] &quot;The quick brown fox jumps over the lazy dog.&quot;                                                                                                        
 ## [2] &quot;Two roads diverged in a yellow wood, / And sorry I could not travel both / And be one traveler, long I stood / And looked down one as far as I could&quot;</code></pre>
 </div>
 <div id="locate-patterns-with-str_locate" class="section level3 unnumbered hasAnchor">
 <h3>Locate patterns with <code>str_locate</code><a href="regular-expressions.html#locate-patterns-with-str_locate" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb242"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb242-1"><a href="regular-expressions.html#cb242-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_locate</span>(example, pat) <span class="co"># starting position and ending position of first match</span></span></code></pre></div>
+<div class="sourceCode" id="cb256"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb256-1"><a href="regular-expressions.html#cb256-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_locate</span>(example, pat) <span class="co"># starting position and ending position of first match</span></span></code></pre></div>
 <pre><code>##      start end
 ## [1,]    23  25</code></pre>
 <p>Let’s check the answer:</p>
-<div class="sourceCode" id="cb244"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb244-1"><a href="regular-expressions.html#cb244-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_sub</span>(example, <span class="dv">23</span>, <span class="dv">25</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb258"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb258-1"><a href="regular-expressions.html#cb258-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_sub</span>(example, <span class="dv">23</span>, <span class="dv">25</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;mps&quot;</code></pre>
 </div>
 <div id="extract-patterns-with-str_extract-and-str_extract_all" class="section level3 unnumbered hasAnchor">
 <h3>Extract patterns with <code>str_extract</code> and <code>str_extract_all</code><a href="regular-expressions.html#extract-patterns-with-str_extract-and-str_extract_all" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb246"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb246-1"><a href="regular-expressions.html#cb246-1" aria-hidden="true" tabindex="-1"></a>pat2 <span class="ot">&lt;-</span> <span class="st">&quot;[^aeiouAEIOU ][aeiouAEIOU]{2}[^aeiouAEIOU ]{1}&quot;</span> <span class="co"># consonant followed by two vowels followed by a consonant</span></span>
-<span id="cb246-2"><a href="regular-expressions.html#cb246-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str_extract</span>(example2, pat2) <span class="co"># extract first match</span></span></code></pre></div>
+<div class="sourceCode" id="cb260"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb260-1"><a href="regular-expressions.html#cb260-1" aria-hidden="true" tabindex="-1"></a>pat2 <span class="ot">&lt;-</span> <span class="st">&quot;[^aeiouAEIOU ][aeiouAEIOU]{2}[^aeiouAEIOU ]{1}&quot;</span> <span class="co"># consonant followed by two vowels followed by a consonant</span></span>
+<span id="cb260-2"><a href="regular-expressions.html#cb260-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str_extract</span>(example2, pat2) <span class="co"># extract first match</span></span></code></pre></div>
 <pre><code>## [1] &quot;road&quot;</code></pre>
-<div class="sourceCode" id="cb248"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb248-1"><a href="regular-expressions.html#cb248-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_extract_all</span>(example2, pat2, <span class="at">simplify =</span> <span class="cn">TRUE</span>) <span class="co"># extract all matches</span></span></code></pre></div>
+<div class="sourceCode" id="cb262"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb262-1"><a href="regular-expressions.html#cb262-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_extract_all</span>(example2, pat2, <span class="at">simplify =</span> <span class="cn">TRUE</span>) <span class="co"># extract all matches</span></span></code></pre></div>
 <pre><code>##      [,1]   [,2]   [,3]   [,4]   [,5]   [,6]  
 ## [1,] &quot;road&quot; &quot;wood&quot; &quot;coul&quot; &quot;tood&quot; &quot;look&quot; &quot;coul&quot;</code></pre>
 </div>
 <div id="count-the-number-of-characters-with-str_length" class="section level3 unnumbered hasAnchor">
 <h3>Count the number of characters with <code>str_length</code><a href="regular-expressions.html#count-the-number-of-characters-with-str_length" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb250"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb250-1"><a href="regular-expressions.html#cb250-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_length</span>(example2)</span></code></pre></div>
+<div class="sourceCode" id="cb264"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb264-1"><a href="regular-expressions.html#cb264-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_length</span>(example2)</span></code></pre></div>
 <pre><code>## [1] 148</code></pre>
 </div>
 <div id="convert-a-string-to-all-lower-case-letters-with-str_to_lower" class="section level3 unnumbered hasAnchor">
 <h3>Convert a string to all lower case letters with <code>str_to_lower</code><a href="regular-expressions.html#convert-a-string-to-all-lower-case-letters-with-str_to_lower" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb252"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb252-1"><a href="regular-expressions.html#cb252-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_to_lower</span>(example2)</span></code></pre></div>
+<div class="sourceCode" id="cb266"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb266-1"><a href="regular-expressions.html#cb266-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_to_lower</span>(example2)</span></code></pre></div>
 <pre><code>## [1] &quot;two roads diverged in a yellow wood, / and sorry i could not travel both / and be one traveler, long i stood / and looked down one as far as i could&quot;</code></pre>
 </div>
 <div id="split-strings-with-separate" class="section level3 unnumbered hasAnchor">
 <h3>Split strings with <code>separate</code><a href="regular-expressions.html#split-strings-with-separate" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb254"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb254-1"><a href="regular-expressions.html#cb254-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">ex =</span> example2)</span>
-<span id="cb254-2"><a href="regular-expressions.html#cb254-2" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">separate</span>(df, ex, <span class="fu">c</span>(<span class="st">&quot;line1&quot;</span>, <span class="st">&quot;line2&quot;</span>, <span class="st">&quot;line3&quot;</span>, <span class="st">&quot;line4&quot;</span>), <span class="at">sep =</span> <span class="st">&quot; / &quot;</span>)</span>
-<span id="cb254-3"><a href="regular-expressions.html#cb254-3" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>line1</span></code></pre></div>
+<div class="sourceCode" id="cb268"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb268-1"><a href="regular-expressions.html#cb268-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">ex =</span> example2)</span>
+<span id="cb268-2"><a href="regular-expressions.html#cb268-2" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">separate</span>(df, ex, <span class="fu">c</span>(<span class="st">&quot;line1&quot;</span>, <span class="st">&quot;line2&quot;</span>, <span class="st">&quot;line3&quot;</span>, <span class="st">&quot;line4&quot;</span>), <span class="at">sep =</span> <span class="st">&quot; / &quot;</span>)</span>
+<span id="cb268-3"><a href="regular-expressions.html#cb268-3" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>line1</span></code></pre></div>
 <pre><code>## [1] &quot;Two roads diverged in a yellow wood,&quot;</code></pre>
-<div class="sourceCode" id="cb256"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb256-1"><a href="regular-expressions.html#cb256-1" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>line2</span></code></pre></div>
+<div class="sourceCode" id="cb270"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb270-1"><a href="regular-expressions.html#cb270-1" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>line2</span></code></pre></div>
 <pre><code>## [1] &quot;And sorry I could not travel both&quot;</code></pre>
-<div class="sourceCode" id="cb258"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb258-1"><a href="regular-expressions.html#cb258-1" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>line3</span></code></pre></div>
+<div class="sourceCode" id="cb272"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb272-1"><a href="regular-expressions.html#cb272-1" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>line3</span></code></pre></div>
 <pre><code>## [1] &quot;And be one traveler, long I stood&quot;</code></pre>
-<div class="sourceCode" id="cb260"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb260-1"><a href="regular-expressions.html#cb260-1" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>line4</span></code></pre></div>
+<div class="sourceCode" id="cb274"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb274-1"><a href="regular-expressions.html#cb274-1" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>line4</span></code></pre></div>
 <pre><code>## [1] &quot;And looked down one as far as I could&quot;</code></pre>
 <p>Note: The function <code>separate</code> is in the <code>tidyr</code> package.</p>
 </div>
@@ -653,86 +644,86 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="practice-fall-2021-enrollment-exploration" class="section level2 unnumbered hasAnchor">
 <h2>Practice: Fall 2021 Enrollment Exploration<a href="regular-expressions.html#practice-fall-2021-enrollment-exploration" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The tibble <code>courses</code> has the Fall 2021 enrollment information from the Macalester Registrar’s website, which we could gain with web scraping tools.</p>
-<div class="sourceCode" id="cb262"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb262-1"><a href="regular-expressions.html#cb262-1" aria-hidden="true" tabindex="-1"></a>fall2021 <span class="ot">&lt;-</span> <span class="fu">read_html</span>(<span class="st">&quot;https://www.macalester.edu/registrar/schedules/2021fall/class-schedule&quot;</span>)</span>
-<span id="cb262-2"><a href="regular-expressions.html#cb262-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb262-3"><a href="regular-expressions.html#cb262-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Retrieve and inspect course numbers</span></span>
-<span id="cb262-4"><a href="regular-expressions.html#cb262-4" aria-hidden="true" tabindex="-1"></a>course_nums <span class="ot">&lt;-</span></span>
-<span id="cb262-5"><a href="regular-expressions.html#cb262-5" aria-hidden="true" tabindex="-1"></a>  fall2021 <span class="sc">%&gt;%</span></span>
-<span id="cb262-6"><a href="regular-expressions.html#cb262-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">html_nodes</span>(<span class="st">&quot;.class-schedule-course-number&quot;</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb262-7"><a href="regular-expressions.html#cb262-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">html_text</span>()</span>
-<span id="cb262-8"><a href="regular-expressions.html#cb262-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb262-9"><a href="regular-expressions.html#cb262-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Retrieve and inspect course names</span></span>
-<span id="cb262-10"><a href="regular-expressions.html#cb262-10" aria-hidden="true" tabindex="-1"></a>course_names <span class="ot">&lt;-</span></span>
-<span id="cb262-11"><a href="regular-expressions.html#cb262-11" aria-hidden="true" tabindex="-1"></a>  fall2021 <span class="sc">%&gt;%</span></span>
-<span id="cb262-12"><a href="regular-expressions.html#cb262-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">html_nodes</span>(<span class="st">&quot;.class-schedule-course-title&quot;</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb262-13"><a href="regular-expressions.html#cb262-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">html_text</span>()</span>
-<span id="cb262-14"><a href="regular-expressions.html#cb262-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb262-15"><a href="regular-expressions.html#cb262-15" aria-hidden="true" tabindex="-1"></a>course_nums_clean <span class="ot">&lt;-</span> stringr<span class="sc">::</span><span class="fu">str_sub</span>(course_nums, <span class="at">end =</span> <span class="fu">nchar</span>(course_nums) <span class="sc">-</span> <span class="dv">6</span>)</span>
-<span id="cb262-16"><a href="regular-expressions.html#cb262-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb262-17"><a href="regular-expressions.html#cb262-17" aria-hidden="true" tabindex="-1"></a>crn <span class="ot">&lt;-</span> stringr<span class="sc">::</span><span class="fu">str_sub</span>(course_nums, <span class="at">start =</span> <span class="fu">nchar</span>(course_nums) <span class="sc">-</span> <span class="dv">4</span>)</span>
-<span id="cb262-18"><a href="regular-expressions.html#cb262-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb262-19"><a href="regular-expressions.html#cb262-19" aria-hidden="true" tabindex="-1"></a>course_instructors <span class="ot">&lt;-</span></span>
-<span id="cb262-20"><a href="regular-expressions.html#cb262-20" aria-hidden="true" tabindex="-1"></a>  fall2021 <span class="sc">%&gt;%</span></span>
-<span id="cb262-21"><a href="regular-expressions.html#cb262-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">html_nodes</span>(<span class="st">&quot;.class-schedule-label:nth-child(6)&quot;</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb262-22"><a href="regular-expressions.html#cb262-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">html_text</span>()</span>
-<span id="cb262-23"><a href="regular-expressions.html#cb262-23" aria-hidden="true" tabindex="-1"></a>course_instructors_short <span class="ot">&lt;-</span> stringr<span class="sc">::</span><span class="fu">str_sub</span>(<span class="fu">trimws</span>(course_instructors), <span class="at">start =</span> <span class="dv">13</span>)</span>
-<span id="cb262-24"><a href="regular-expressions.html#cb262-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb262-25"><a href="regular-expressions.html#cb262-25" aria-hidden="true" tabindex="-1"></a>course_days <span class="ot">&lt;-</span></span>
-<span id="cb262-26"><a href="regular-expressions.html#cb262-26" aria-hidden="true" tabindex="-1"></a>  fall2021 <span class="sc">%&gt;%</span></span>
-<span id="cb262-27"><a href="regular-expressions.html#cb262-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">html_nodes</span>(<span class="st">&quot;.class-schedule-label:nth-child(3)&quot;</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb262-28"><a href="regular-expressions.html#cb262-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">html_text</span>()</span>
-<span id="cb262-29"><a href="regular-expressions.html#cb262-29" aria-hidden="true" tabindex="-1"></a>course_days_short <span class="ot">&lt;-</span> stringr<span class="sc">::</span><span class="fu">str_sub</span>(<span class="fu">trimws</span>(course_days), <span class="at">start =</span> <span class="dv">7</span>)</span>
-<span id="cb262-30"><a href="regular-expressions.html#cb262-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb262-31"><a href="regular-expressions.html#cb262-31" aria-hidden="true" tabindex="-1"></a>course_times <span class="ot">&lt;-</span></span>
-<span id="cb262-32"><a href="regular-expressions.html#cb262-32" aria-hidden="true" tabindex="-1"></a>  fall2021 <span class="sc">%&gt;%</span></span>
-<span id="cb262-33"><a href="regular-expressions.html#cb262-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">html_nodes</span>(<span class="st">&quot;.class-schedule-label:nth-child(4)&quot;</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb262-34"><a href="regular-expressions.html#cb262-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">html_text</span>()</span>
-<span id="cb262-35"><a href="regular-expressions.html#cb262-35" aria-hidden="true" tabindex="-1"></a>course_times_short <span class="ot">&lt;-</span> stringr<span class="sc">::</span><span class="fu">str_sub</span>(<span class="fu">trimws</span>(course_times), <span class="at">start =</span> <span class="dv">7</span>)</span>
-<span id="cb262-36"><a href="regular-expressions.html#cb262-36" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb262-37"><a href="regular-expressions.html#cb262-37" aria-hidden="true" tabindex="-1"></a>course_rooms <span class="ot">&lt;-</span></span>
-<span id="cb262-38"><a href="regular-expressions.html#cb262-38" aria-hidden="true" tabindex="-1"></a>  fall2021 <span class="sc">%&gt;%</span></span>
-<span id="cb262-39"><a href="regular-expressions.html#cb262-39" aria-hidden="true" tabindex="-1"></a>  <span class="fu">html_nodes</span>(<span class="st">&quot;.class-schedule-label:nth-child(5)&quot;</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb262-40"><a href="regular-expressions.html#cb262-40" aria-hidden="true" tabindex="-1"></a>  <span class="fu">html_text</span>()</span>
-<span id="cb262-41"><a href="regular-expressions.html#cb262-41" aria-hidden="true" tabindex="-1"></a>course_rooms_short <span class="ot">&lt;-</span> stringr<span class="sc">::</span><span class="fu">str_sub</span>(<span class="fu">trimws</span>(course_rooms), <span class="at">start =</span> <span class="dv">7</span>)</span>
-<span id="cb262-42"><a href="regular-expressions.html#cb262-42" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb262-43"><a href="regular-expressions.html#cb262-43" aria-hidden="true" tabindex="-1"></a>course_avail <span class="ot">&lt;-</span></span>
-<span id="cb262-44"><a href="regular-expressions.html#cb262-44" aria-hidden="true" tabindex="-1"></a>  fall2021 <span class="sc">%&gt;%</span></span>
-<span id="cb262-45"><a href="regular-expressions.html#cb262-45" aria-hidden="true" tabindex="-1"></a>  <span class="fu">html_nodes</span>(<span class="st">&quot;.class-schedule-label:nth-child(7)&quot;</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb262-46"><a href="regular-expressions.html#cb262-46" aria-hidden="true" tabindex="-1"></a>  <span class="fu">html_text</span>()</span>
-<span id="cb262-47"><a href="regular-expressions.html#cb262-47" aria-hidden="true" tabindex="-1"></a>course_avail_short <span class="ot">&lt;-</span> stringr<span class="sc">::</span><span class="fu">str_sub</span>(<span class="fu">trimws</span>(course_avail), <span class="at">start =</span> <span class="dv">14</span>)</span>
-<span id="cb262-48"><a href="regular-expressions.html#cb262-48" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb262-49"><a href="regular-expressions.html#cb262-49" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb262-50"><a href="regular-expressions.html#cb262-50" aria-hidden="true" tabindex="-1"></a>SITES <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">&quot;https://webapps.macalester.edu/registrardata/classdata/Fall2021/&quot;</span>, crn) <span class="sc">%&gt;%</span></span>
-<span id="cb262-51"><a href="regular-expressions.html#cb262-51" aria-hidden="true" tabindex="-1"></a>  purrr<span class="sc">::</span><span class="fu">map</span>(<span class="sc">~</span> <span class="fu">read_html</span>(.x))</span>
-<span id="cb262-52"><a href="regular-expressions.html#cb262-52" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb262-53"><a href="regular-expressions.html#cb262-53" aria-hidden="true" tabindex="-1"></a>course_desc <span class="ot">&lt;-</span> SITES <span class="sc">%&gt;%</span></span>
-<span id="cb262-54"><a href="regular-expressions.html#cb262-54" aria-hidden="true" tabindex="-1"></a>  purrr<span class="sc">::</span><span class="fu">map_chr</span>(<span class="sc">~</span> <span class="fu">html_nodes</span>(.x, <span class="st">&quot;p:nth-child(1)&quot;</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb262-55"><a href="regular-expressions.html#cb262-55" aria-hidden="true" tabindex="-1"></a>    <span class="fu">html_text</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb262-56"><a href="regular-expressions.html#cb262-56" aria-hidden="true" tabindex="-1"></a>    <span class="fu">trimws</span>())</span>
-<span id="cb262-57"><a href="regular-expressions.html#cb262-57" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb262-58"><a href="regular-expressions.html#cb262-58" aria-hidden="true" tabindex="-1"></a>gen_ed <span class="ot">&lt;-</span> SITES <span class="sc">%&gt;%</span></span>
-<span id="cb262-59"><a href="regular-expressions.html#cb262-59" aria-hidden="true" tabindex="-1"></a>  purrr<span class="sc">::</span><span class="fu">map_chr</span>(<span class="sc">~</span> <span class="fu">html_nodes</span>(.x, <span class="st">&quot;p:nth-child(2)&quot;</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb262-60"><a href="regular-expressions.html#cb262-60" aria-hidden="true" tabindex="-1"></a>    <span class="fu">html_text</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb262-61"><a href="regular-expressions.html#cb262-61" aria-hidden="true" tabindex="-1"></a>    <span class="fu">trimws</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb262-62"><a href="regular-expressions.html#cb262-62" aria-hidden="true" tabindex="-1"></a>    stringr<span class="sc">::</span><span class="fu">str_sub</span>(<span class="at">start =</span> <span class="dv">32</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb262-63"><a href="regular-expressions.html#cb262-63" aria-hidden="true" tabindex="-1"></a>    <span class="fu">trimws</span>())</span>
-<span id="cb262-64"><a href="regular-expressions.html#cb262-64" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb262-65"><a href="regular-expressions.html#cb262-65" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb262-66"><a href="regular-expressions.html#cb262-66" aria-hidden="true" tabindex="-1"></a>courses <span class="ot">&lt;-</span></span>
-<span id="cb262-67"><a href="regular-expressions.html#cb262-67" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tibble</span>(</span>
-<span id="cb262-68"><a href="regular-expressions.html#cb262-68" aria-hidden="true" tabindex="-1"></a>    <span class="at">number =</span> course_nums_clean,</span>
-<span id="cb262-69"><a href="regular-expressions.html#cb262-69" aria-hidden="true" tabindex="-1"></a>    <span class="at">crn =</span> crn,</span>
-<span id="cb262-70"><a href="regular-expressions.html#cb262-70" aria-hidden="true" tabindex="-1"></a>    <span class="at">name =</span> course_names,</span>
-<span id="cb262-71"><a href="regular-expressions.html#cb262-71" aria-hidden="true" tabindex="-1"></a>    <span class="at">days =</span> course_days_short,</span>
-<span id="cb262-72"><a href="regular-expressions.html#cb262-72" aria-hidden="true" tabindex="-1"></a>    <span class="at">time =</span> course_times_short,</span>
-<span id="cb262-73"><a href="regular-expressions.html#cb262-73" aria-hidden="true" tabindex="-1"></a>    <span class="at">room =</span> course_rooms_short,</span>
-<span id="cb262-74"><a href="regular-expressions.html#cb262-74" aria-hidden="true" tabindex="-1"></a>    <span class="at">instructor =</span> course_instructors_short,</span>
-<span id="cb262-75"><a href="regular-expressions.html#cb262-75" aria-hidden="true" tabindex="-1"></a>    <span class="at">avail_max =</span> course_avail_short,</span>
-<span id="cb262-76"><a href="regular-expressions.html#cb262-76" aria-hidden="true" tabindex="-1"></a>    <span class="at">desc =</span> course_desc,</span>
-<span id="cb262-77"><a href="regular-expressions.html#cb262-77" aria-hidden="true" tabindex="-1"></a>    <span class="at">gen_ed =</span> gen_ed</span>
-<span id="cb262-78"><a href="regular-expressions.html#cb262-78" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb262-79"><a href="regular-expressions.html#cb262-79" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb262-80"><a href="regular-expressions.html#cb262-80" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv</span>(courses, <span class="at">file =</span> <span class="st">&#39;Mac2021Courses.csv&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb276"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb276-1"><a href="regular-expressions.html#cb276-1" aria-hidden="true" tabindex="-1"></a>fall2021 <span class="ot">&lt;-</span> <span class="fu">read_html</span>(<span class="st">&quot;https://www.macalester.edu/registrar/schedules/2021fall/class-schedule&quot;</span>)</span>
+<span id="cb276-2"><a href="regular-expressions.html#cb276-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb276-3"><a href="regular-expressions.html#cb276-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Retrieve and inspect course numbers</span></span>
+<span id="cb276-4"><a href="regular-expressions.html#cb276-4" aria-hidden="true" tabindex="-1"></a>course_nums <span class="ot">&lt;-</span></span>
+<span id="cb276-5"><a href="regular-expressions.html#cb276-5" aria-hidden="true" tabindex="-1"></a>  fall2021 <span class="sc">%&gt;%</span></span>
+<span id="cb276-6"><a href="regular-expressions.html#cb276-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">html_nodes</span>(<span class="st">&quot;.class-schedule-course-number&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb276-7"><a href="regular-expressions.html#cb276-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">html_text</span>()</span>
+<span id="cb276-8"><a href="regular-expressions.html#cb276-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb276-9"><a href="regular-expressions.html#cb276-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Retrieve and inspect course names</span></span>
+<span id="cb276-10"><a href="regular-expressions.html#cb276-10" aria-hidden="true" tabindex="-1"></a>course_names <span class="ot">&lt;-</span></span>
+<span id="cb276-11"><a href="regular-expressions.html#cb276-11" aria-hidden="true" tabindex="-1"></a>  fall2021 <span class="sc">%&gt;%</span></span>
+<span id="cb276-12"><a href="regular-expressions.html#cb276-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">html_nodes</span>(<span class="st">&quot;.class-schedule-course-title&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb276-13"><a href="regular-expressions.html#cb276-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">html_text</span>()</span>
+<span id="cb276-14"><a href="regular-expressions.html#cb276-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb276-15"><a href="regular-expressions.html#cb276-15" aria-hidden="true" tabindex="-1"></a>course_nums_clean <span class="ot">&lt;-</span> stringr<span class="sc">::</span><span class="fu">str_sub</span>(course_nums, <span class="at">end =</span> <span class="fu">nchar</span>(course_nums) <span class="sc">-</span> <span class="dv">6</span>)</span>
+<span id="cb276-16"><a href="regular-expressions.html#cb276-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb276-17"><a href="regular-expressions.html#cb276-17" aria-hidden="true" tabindex="-1"></a>crn <span class="ot">&lt;-</span> stringr<span class="sc">::</span><span class="fu">str_sub</span>(course_nums, <span class="at">start =</span> <span class="fu">nchar</span>(course_nums) <span class="sc">-</span> <span class="dv">4</span>)</span>
+<span id="cb276-18"><a href="regular-expressions.html#cb276-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb276-19"><a href="regular-expressions.html#cb276-19" aria-hidden="true" tabindex="-1"></a>course_instructors <span class="ot">&lt;-</span></span>
+<span id="cb276-20"><a href="regular-expressions.html#cb276-20" aria-hidden="true" tabindex="-1"></a>  fall2021 <span class="sc">%&gt;%</span></span>
+<span id="cb276-21"><a href="regular-expressions.html#cb276-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">html_nodes</span>(<span class="st">&quot;.class-schedule-label:nth-child(6)&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb276-22"><a href="regular-expressions.html#cb276-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">html_text</span>()</span>
+<span id="cb276-23"><a href="regular-expressions.html#cb276-23" aria-hidden="true" tabindex="-1"></a>course_instructors_short <span class="ot">&lt;-</span> stringr<span class="sc">::</span><span class="fu">str_sub</span>(<span class="fu">trimws</span>(course_instructors), <span class="at">start =</span> <span class="dv">13</span>)</span>
+<span id="cb276-24"><a href="regular-expressions.html#cb276-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb276-25"><a href="regular-expressions.html#cb276-25" aria-hidden="true" tabindex="-1"></a>course_days <span class="ot">&lt;-</span></span>
+<span id="cb276-26"><a href="regular-expressions.html#cb276-26" aria-hidden="true" tabindex="-1"></a>  fall2021 <span class="sc">%&gt;%</span></span>
+<span id="cb276-27"><a href="regular-expressions.html#cb276-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">html_nodes</span>(<span class="st">&quot;.class-schedule-label:nth-child(3)&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb276-28"><a href="regular-expressions.html#cb276-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">html_text</span>()</span>
+<span id="cb276-29"><a href="regular-expressions.html#cb276-29" aria-hidden="true" tabindex="-1"></a>course_days_short <span class="ot">&lt;-</span> stringr<span class="sc">::</span><span class="fu">str_sub</span>(<span class="fu">trimws</span>(course_days), <span class="at">start =</span> <span class="dv">7</span>)</span>
+<span id="cb276-30"><a href="regular-expressions.html#cb276-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb276-31"><a href="regular-expressions.html#cb276-31" aria-hidden="true" tabindex="-1"></a>course_times <span class="ot">&lt;-</span></span>
+<span id="cb276-32"><a href="regular-expressions.html#cb276-32" aria-hidden="true" tabindex="-1"></a>  fall2021 <span class="sc">%&gt;%</span></span>
+<span id="cb276-33"><a href="regular-expressions.html#cb276-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">html_nodes</span>(<span class="st">&quot;.class-schedule-label:nth-child(4)&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb276-34"><a href="regular-expressions.html#cb276-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">html_text</span>()</span>
+<span id="cb276-35"><a href="regular-expressions.html#cb276-35" aria-hidden="true" tabindex="-1"></a>course_times_short <span class="ot">&lt;-</span> stringr<span class="sc">::</span><span class="fu">str_sub</span>(<span class="fu">trimws</span>(course_times), <span class="at">start =</span> <span class="dv">7</span>)</span>
+<span id="cb276-36"><a href="regular-expressions.html#cb276-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb276-37"><a href="regular-expressions.html#cb276-37" aria-hidden="true" tabindex="-1"></a>course_rooms <span class="ot">&lt;-</span></span>
+<span id="cb276-38"><a href="regular-expressions.html#cb276-38" aria-hidden="true" tabindex="-1"></a>  fall2021 <span class="sc">%&gt;%</span></span>
+<span id="cb276-39"><a href="regular-expressions.html#cb276-39" aria-hidden="true" tabindex="-1"></a>  <span class="fu">html_nodes</span>(<span class="st">&quot;.class-schedule-label:nth-child(5)&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb276-40"><a href="regular-expressions.html#cb276-40" aria-hidden="true" tabindex="-1"></a>  <span class="fu">html_text</span>()</span>
+<span id="cb276-41"><a href="regular-expressions.html#cb276-41" aria-hidden="true" tabindex="-1"></a>course_rooms_short <span class="ot">&lt;-</span> stringr<span class="sc">::</span><span class="fu">str_sub</span>(<span class="fu">trimws</span>(course_rooms), <span class="at">start =</span> <span class="dv">7</span>)</span>
+<span id="cb276-42"><a href="regular-expressions.html#cb276-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb276-43"><a href="regular-expressions.html#cb276-43" aria-hidden="true" tabindex="-1"></a>course_avail <span class="ot">&lt;-</span></span>
+<span id="cb276-44"><a href="regular-expressions.html#cb276-44" aria-hidden="true" tabindex="-1"></a>  fall2021 <span class="sc">%&gt;%</span></span>
+<span id="cb276-45"><a href="regular-expressions.html#cb276-45" aria-hidden="true" tabindex="-1"></a>  <span class="fu">html_nodes</span>(<span class="st">&quot;.class-schedule-label:nth-child(7)&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb276-46"><a href="regular-expressions.html#cb276-46" aria-hidden="true" tabindex="-1"></a>  <span class="fu">html_text</span>()</span>
+<span id="cb276-47"><a href="regular-expressions.html#cb276-47" aria-hidden="true" tabindex="-1"></a>course_avail_short <span class="ot">&lt;-</span> stringr<span class="sc">::</span><span class="fu">str_sub</span>(<span class="fu">trimws</span>(course_avail), <span class="at">start =</span> <span class="dv">14</span>)</span>
+<span id="cb276-48"><a href="regular-expressions.html#cb276-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb276-49"><a href="regular-expressions.html#cb276-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb276-50"><a href="regular-expressions.html#cb276-50" aria-hidden="true" tabindex="-1"></a>SITES <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">&quot;https://webapps.macalester.edu/registrardata/classdata/Fall2021/&quot;</span>, crn) <span class="sc">%&gt;%</span></span>
+<span id="cb276-51"><a href="regular-expressions.html#cb276-51" aria-hidden="true" tabindex="-1"></a>  purrr<span class="sc">::</span><span class="fu">map</span>(<span class="sc">~</span> <span class="fu">read_html</span>(.x))</span>
+<span id="cb276-52"><a href="regular-expressions.html#cb276-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb276-53"><a href="regular-expressions.html#cb276-53" aria-hidden="true" tabindex="-1"></a>course_desc <span class="ot">&lt;-</span> SITES <span class="sc">%&gt;%</span></span>
+<span id="cb276-54"><a href="regular-expressions.html#cb276-54" aria-hidden="true" tabindex="-1"></a>  purrr<span class="sc">::</span><span class="fu">map_chr</span>(<span class="sc">~</span> <span class="fu">html_nodes</span>(.x, <span class="st">&quot;p:nth-child(1)&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb276-55"><a href="regular-expressions.html#cb276-55" aria-hidden="true" tabindex="-1"></a>    <span class="fu">html_text</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb276-56"><a href="regular-expressions.html#cb276-56" aria-hidden="true" tabindex="-1"></a>    <span class="fu">trimws</span>())</span>
+<span id="cb276-57"><a href="regular-expressions.html#cb276-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb276-58"><a href="regular-expressions.html#cb276-58" aria-hidden="true" tabindex="-1"></a>gen_ed <span class="ot">&lt;-</span> SITES <span class="sc">%&gt;%</span></span>
+<span id="cb276-59"><a href="regular-expressions.html#cb276-59" aria-hidden="true" tabindex="-1"></a>  purrr<span class="sc">::</span><span class="fu">map_chr</span>(<span class="sc">~</span> <span class="fu">html_nodes</span>(.x, <span class="st">&quot;p:nth-child(2)&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb276-60"><a href="regular-expressions.html#cb276-60" aria-hidden="true" tabindex="-1"></a>    <span class="fu">html_text</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb276-61"><a href="regular-expressions.html#cb276-61" aria-hidden="true" tabindex="-1"></a>    <span class="fu">trimws</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb276-62"><a href="regular-expressions.html#cb276-62" aria-hidden="true" tabindex="-1"></a>    stringr<span class="sc">::</span><span class="fu">str_sub</span>(<span class="at">start =</span> <span class="dv">32</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb276-63"><a href="regular-expressions.html#cb276-63" aria-hidden="true" tabindex="-1"></a>    <span class="fu">trimws</span>())</span>
+<span id="cb276-64"><a href="regular-expressions.html#cb276-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb276-65"><a href="regular-expressions.html#cb276-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb276-66"><a href="regular-expressions.html#cb276-66" aria-hidden="true" tabindex="-1"></a>courses <span class="ot">&lt;-</span></span>
+<span id="cb276-67"><a href="regular-expressions.html#cb276-67" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tibble</span>(</span>
+<span id="cb276-68"><a href="regular-expressions.html#cb276-68" aria-hidden="true" tabindex="-1"></a>    <span class="at">number =</span> course_nums_clean,</span>
+<span id="cb276-69"><a href="regular-expressions.html#cb276-69" aria-hidden="true" tabindex="-1"></a>    <span class="at">crn =</span> crn,</span>
+<span id="cb276-70"><a href="regular-expressions.html#cb276-70" aria-hidden="true" tabindex="-1"></a>    <span class="at">name =</span> course_names,</span>
+<span id="cb276-71"><a href="regular-expressions.html#cb276-71" aria-hidden="true" tabindex="-1"></a>    <span class="at">days =</span> course_days_short,</span>
+<span id="cb276-72"><a href="regular-expressions.html#cb276-72" aria-hidden="true" tabindex="-1"></a>    <span class="at">time =</span> course_times_short,</span>
+<span id="cb276-73"><a href="regular-expressions.html#cb276-73" aria-hidden="true" tabindex="-1"></a>    <span class="at">room =</span> course_rooms_short,</span>
+<span id="cb276-74"><a href="regular-expressions.html#cb276-74" aria-hidden="true" tabindex="-1"></a>    <span class="at">instructor =</span> course_instructors_short,</span>
+<span id="cb276-75"><a href="regular-expressions.html#cb276-75" aria-hidden="true" tabindex="-1"></a>    <span class="at">avail_max =</span> course_avail_short,</span>
+<span id="cb276-76"><a href="regular-expressions.html#cb276-76" aria-hidden="true" tabindex="-1"></a>    <span class="at">desc =</span> course_desc,</span>
+<span id="cb276-77"><a href="regular-expressions.html#cb276-77" aria-hidden="true" tabindex="-1"></a>    <span class="at">gen_ed =</span> gen_ed</span>
+<span id="cb276-78"><a href="regular-expressions.html#cb276-78" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb276-79"><a href="regular-expressions.html#cb276-79" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb276-80"><a href="regular-expressions.html#cb276-80" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv</span>(courses, <span class="at">file =</span> <span class="st">&#39;Mac2021Courses.csv&#39;</span>)</span></code></pre></div>
 <table style="width:100%;">
 <caption><span id="tab:unnamed-chunk-341">Table 14.1: </span>First six entries in the Fall 2021 Macalester course info data.</caption>
 <colgroup>
@@ -934,7 +925,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');

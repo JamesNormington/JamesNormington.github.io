@@ -5,19 +5,19 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Shiny | COMP/STAT 112: Introduction to Data Science</title>
-  <meta name="description" content="This is the class website for Introduction to Data Science at Macalester College for Fall 2022." />
-  <meta name="generator" content="bookdown 0.27 and GitBook 2.6.7" />
+  <meta name="description" content="This is the class website for Introduction to Data Science at Macalester College for Spring 2023." />
+  <meta name="generator" content="bookdown 0.31 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Shiny | COMP/STAT 112: Introduction to Data Science" />
   <meta property="og:type" content="book" />
   <meta property="og:image" content="/images/logo.png" />
-  <meta property="og:description" content="This is the class website for Introduction to Data Science at Macalester College for Fall 2022." />
-  <meta name="github-repo" content="bcheggeseth/112_fall_2022/" />
+  <meta property="og:description" content="This is the class website for Introduction to Data Science at Macalester College for Spring 2023." />
+  <meta name="github-repo" content="JamesNormington/112_spring_2023/" />
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Shiny | COMP/STAT 112: Introduction to Data Science" />
   
-  <meta name="twitter:description" content="This is the class website for Introduction to Data Science at Macalester College for Fall 2022." />
+  <meta name="twitter:description" content="This is the class website for Introduction to Data Science at Macalester College for Spring 2023." />
   <meta name="twitter:image" content="/images/logo.png" />
 
 
@@ -60,15 +60,6 @@
 <script src="libs/leaflet-binding/leaflet.js"></script>
 <script src="libs/leaflet-providers/leaflet-providers_1.9.0.js"></script>
 <script src="libs/leaflet-providers-plugin/leaflet-providers-plugin.js"></script>
-<script src="libs/kePrint/kePrint.js"></script>
-<link href="libs/lightable/lightable.css" rel="stylesheet" />
-<link href="libs/dygraphs/dygraph.css" rel="stylesheet" />
-<script src="libs/dygraphs/dygraph-combined.js"></script>
-<script src="libs/dygraphs/shapes.js"></script>
-<script src="libs/moment/moment.js"></script>
-<script src="libs/moment-timezone/moment-timezone-with-data.js"></script>
-<script src="libs/moment-fquarter/moment-fquarter.min.js"></script>
-<script src="libs/dygraphs-binding/dygraphs.js"></script>
 <script src="libs/plotly-binding/plotly.js"></script>
 <script src="libs/typedarray/typedarray.min.js"></script>
 <link href="libs/crosstalk/css/crosstalk.min.css" rel="stylesheet" />
@@ -115,7 +106,7 @@ code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
+code span.bu { color: #008000; } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -128,7 +119,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
+code span.im { color: #008000; font-weight: bold; } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -650,15 +641,15 @@ Figure 14.6: Concept Map of Shiny by Lisa Lendway
 <h3>Using <code>render*()</code> functions<a href="shiny-1.html#using-render-functions" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>In the server portion of the code, we will use <code>render*()</code> functions with R code to communicate how to use the input pieces along with the R code to create the desired output. The <code>render*()</code> function you use will depend on the desired output. The bottom center of the cheatsheet shows how <code>*Output()</code> and <code>render*()</code> functions connect.</p>
 <p>In general, the <code>server</code> section of code will look something like this:</p>
-<div class="sourceCode" id="cb427"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb427-1"><a href="shiny-1.html#cb427-1" aria-hidden="true" tabindex="-1"></a>server <span class="ot">&lt;-</span> <span class="cf">function</span>(input, output) {</span>
-<span id="cb427-2"><a href="shiny-1.html#cb427-2" aria-hidden="true" tabindex="-1"></a>  output<span class="sc">$</span>outputId_of_interest <span class="ot">&lt;-</span> render<span class="sc">*</span>({</span>
-<span id="cb427-3"><a href="shiny-1.html#cb427-3" aria-hidden="true" tabindex="-1"></a>R code that creates the output and calls various input<span class="sc">$</span>InputId<span class="st">&#39;s</span></span>
-<span id="cb427-4"><a href="shiny-1.html#cb427-4" aria-hidden="true" tabindex="-1"></a><span class="st">  })</span></span>
-<span id="cb427-5"><a href="shiny-1.html#cb427-5" aria-hidden="true" tabindex="-1"></a><span class="st">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb484"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb484-1"><a href="shiny-1.html#cb484-1" aria-hidden="true" tabindex="-1"></a>server <span class="ot">&lt;-</span> <span class="cf">function</span>(input, output) {</span>
+<span id="cb484-2"><a href="shiny-1.html#cb484-2" aria-hidden="true" tabindex="-1"></a>  output<span class="sc">$</span>outputId_of_interest <span class="ot">&lt;-</span> render<span class="sc">*</span>({</span>
+<span id="cb484-3"><a href="shiny-1.html#cb484-3" aria-hidden="true" tabindex="-1"></a>R code that creates the output and calls various input<span class="sc">$</span>InputId<span class="st">&#39;s</span></span>
+<span id="cb484-4"><a href="shiny-1.html#cb484-4" aria-hidden="true" tabindex="-1"></a><span class="st">  })</span></span>
+<span id="cb484-5"><a href="shiny-1.html#cb484-5" aria-hidden="true" tabindex="-1"></a><span class="st">}</span></span></code></pre></div>
 <p>So, if inside the <code>ui</code> part, we did <code>plotOutput(outputId = "timeplot")</code>, then in the <code>server</code> part, we would use <code>output$timeplot &lt;- renderPlot({...})</code> and put in detailed R code in place of the <code>...</code>. To reference the inputs we create in the <code>ui</code>, we use <code>input$inputID_name</code>. So, for example, if we had an <code>*Input()</code> with <code>inputId = "years"</code>, we would use <code>input$years</code> in the <code>server</code> portion.</p>
 <p>Since we are interested in creating a plot, add the <code>renderPlot()</code> function inside the <code>server</code> portion of the code. Reference the inputs you’ve already created in previous parts and use <code>filter()</code> and <code>ggplot()</code> to render the desired interactive plot. Run the app and check your work by looking at the code chunk below (so don’t look ahead, if you want to try it out on your own!). I also added a submit button to the UI so everything is updated at the same time, only when the button is clicked. You should try adding that, too.</p>
 <p>Below, I have also included all the R code used to create the app. I have highlighted the <code>inputId</code> and <code>outputId</code> similarly in the <code>ui</code> and <code>server</code> portions to draw attention to where they are referenced.</p>
-<pre><code class='language-r'><code>library(shiny)<br>library(tidyverse)<br>library(babynames)<br><br>ui <- fluidPage(<br>&nbsp;&nbsp;sliderInput(inputId = <span style='background-color:#ffff7f'>"years"</span>, <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;label = "Year Range",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;min = 1880, <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;max = 2017, <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;value = c(1880,2017),<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sep = ""),<br>&nbsp;&nbsp;textInput(<span style='background-color:orange'>"name"</span>, <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Baby Name", <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;value = "", <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;placeholder = "Brianna"),<br>&nbsp;&nbsp;selectInput(<span style='background-color:lightgreen'>"sex"</span>, <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Sex Assigned at Birth", <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;choices = list(Female = "F", Male = "M")),<br>&nbsp;&nbsp;submitButton(text = "Update Plot"),<br>&nbsp;&nbsp;plotOutput(outputId = <span style='background-color:lightblue'>"timeplot"</span>)<br>)<br><br>server <- function(input, output) {<br>&nbsp;&nbsp;<span style='background-color:lightblue'>output$timeplot</span> <- renderPlot({<br>&nbsp;&nbsp;&nbsp;&nbsp;babynames %>% <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;filter(name == <span style='background-color:orange'>input$name</span>, <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sex == <span style='background-color:lightgreen'>input$sex</span>) %>% <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ggplot() +<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;geom_line(aes(x = year, y = n)) +<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;scale_x_continuous(limits = <span style='background-color:#ffff7f'>input$years</span>) +<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;labs(x = 'Year', y = 'Count', title = paste0('Count of Baby Names in the U.S. from ',<span style='background-color:#ffff7f'>input$years</span>[1],' to ',<span style='background-color:#ffff7f'>input$years</span>[2])) + <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;theme_classic()<br>&nbsp;&nbsp;})<br>}<br><br>shinyApp(ui = ui, server = server)</code></code></pre>
+<pre><code>## Error in knit_print.with_flair(.): could not find function &quot;knit_print.with_flair&quot;</code></pre>
 </div>
 <div id="publishing-your-app" class="section level3 unnumbered hasAnchor">
 <h3>Publishing your app<a href="shiny-1.html#publishing-your-app" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -767,7 +758,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');

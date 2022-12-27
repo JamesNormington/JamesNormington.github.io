@@ -195,7 +195,6 @@ exr:unnamed-chunk-402
 exr:unnamed-chunk-403
 exr:unnamed-chunk-404
 exr:unnamed-chunk-419
-tab:unnamed-chunk-421
 tab:unnamed-chunk-445
 fig:unnamed-chunk-450
 tab:unnamed-chunk-458

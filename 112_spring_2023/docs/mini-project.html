@@ -5,19 +5,19 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Topic 11 Mini-Project | COMP/STAT 112: Introduction to Data Science</title>
-  <meta name="description" content="This is the class website for Introduction to Data Science at Macalester College for Fall 2022." />
-  <meta name="generator" content="bookdown 0.27 and GitBook 2.6.7" />
+  <meta name="description" content="This is the class website for Introduction to Data Science at Macalester College for Spring 2023." />
+  <meta name="generator" content="bookdown 0.31 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Topic 11 Mini-Project | COMP/STAT 112: Introduction to Data Science" />
   <meta property="og:type" content="book" />
   <meta property="og:image" content="/images/logo.png" />
-  <meta property="og:description" content="This is the class website for Introduction to Data Science at Macalester College for Fall 2022." />
-  <meta name="github-repo" content="bcheggeseth/112_fall_2022/" />
+  <meta property="og:description" content="This is the class website for Introduction to Data Science at Macalester College for Spring 2023." />
+  <meta name="github-repo" content="JamesNormington/112_spring_2023/" />
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Topic 11 Mini-Project | COMP/STAT 112: Introduction to Data Science" />
   
-  <meta name="twitter:description" content="This is the class website for Introduction to Data Science at Macalester College for Fall 2022." />
+  <meta name="twitter:description" content="This is the class website for Introduction to Data Science at Macalester College for Spring 2023." />
   <meta name="twitter:image" content="/images/logo.png" />
 
 
@@ -60,15 +60,6 @@
 <script src="libs/leaflet-binding/leaflet.js"></script>
 <script src="libs/leaflet-providers/leaflet-providers_1.9.0.js"></script>
 <script src="libs/leaflet-providers-plugin/leaflet-providers-plugin.js"></script>
-<script src="libs/kePrint/kePrint.js"></script>
-<link href="libs/lightable/lightable.css" rel="stylesheet" />
-<link href="libs/dygraphs/dygraph.css" rel="stylesheet" />
-<script src="libs/dygraphs/dygraph-combined.js"></script>
-<script src="libs/dygraphs/shapes.js"></script>
-<script src="libs/moment/moment.js"></script>
-<script src="libs/moment-timezone/moment-timezone-with-data.js"></script>
-<script src="libs/moment-fquarter/moment-fquarter.min.js"></script>
-<script src="libs/dygraphs-binding/dygraphs.js"></script>
 <script src="libs/plotly-binding/plotly.js"></script>
 <script src="libs/typedarray/typedarray.min.js"></script>
 <link href="libs/crosstalk/css/crosstalk.min.css" rel="stylesheet" />
@@ -115,7 +106,7 @@ code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
+code span.bu { color: #008000; } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -128,7 +119,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
+code span.im { color: #008000; font-weight: bold; } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -561,7 +552,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="investigate-the-partners-data-table" class="section level3 unnumbered hasAnchor">
 <h3>Investigate the <code>partners</code> Data Table<a href="mini-project.html#investigate-the-partners-data-table" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Kiva has field partners who generally act as intermediaries between borrowers and Kiva (lenders). They evaluate borrower risk, post loan requests on Kiva, and process payments. The following command loads a table with <a href="data/kiva_partners2.csv">data</a> on Kiva’s field partners.</p>
-<div class="sourceCode" id="cb184"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb184-1"><a href="mini-project.html#cb184-1" aria-hidden="true" tabindex="-1"></a>partners <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://bcheggeseth.github.io/112_fall_2022/data/kiva_partners2.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb198"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb198-1"><a href="mini-project.html#cb198-1" aria-hidden="true" tabindex="-1"></a>partners <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://bcheggeseth.github.io/112_fall_2022/data/kiva_partners2.csv&quot;</span>)</span></code></pre></div>
 <p>Examine the <a href="data/kiva_partners_vars.xlsx">codebook</a> for the <code>partners</code> table.</p>
 <div class="exercise">
 <p><span id="exr:unnamed-chunk-293" class="exercise"><strong>Exercise 11.1  (Regional distribution) </strong></span>Make a summary table with only five columns: region (<code>countries.region</code>), total number of partners, total number of loans posted, total amount raised, and average loan size per loan posted.</p>
@@ -574,8 +565,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="investigate-the-loans-data-table" class="section level3 unnumbered hasAnchor">
 <h3>Investigate the <code>loans</code> Data Table<a href="mini-project.html#investigate-the-loans-data-table" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The <code>loans</code> <a href="data/kiva_loans_small.csv">table</a> below contains information about individual loans to borrowers.</p>
-<div class="sourceCode" id="cb185"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb185-1"><a href="mini-project.html#cb185-1" aria-hidden="true" tabindex="-1"></a><span class="co"># a random sample of 10,000</span></span>
-<span id="cb185-2"><a href="mini-project.html#cb185-2" aria-hidden="true" tabindex="-1"></a>loans <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://bcheggeseth.github.io/112_fall_2022/data/kiva_loans_small.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb199"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb199-1"><a href="mini-project.html#cb199-1" aria-hidden="true" tabindex="-1"></a><span class="co"># a random sample of 10,000</span></span>
+<span id="cb199-2"><a href="mini-project.html#cb199-2" aria-hidden="true" tabindex="-1"></a>loans <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://bcheggeseth.github.io/112_fall_2022/data/kiva_loans_small.csv&quot;</span>)</span></code></pre></div>
 <p>Examine the <a href="data/kiva_loans_vars.xlsx">codebook</a> for the <code>loans</code> table. View the <code>loans</code> table and browse through some of the data (e.g., different sectors, uses, countries)</p>
 <div class="exercise">
 <p><span id="exr:unnamed-chunk-296" class="exercise"><strong>Exercise 11.3  (Preprocessing) </strong></span>Consider the <code>loans</code> data and perform the following preprocessing steps and save the new data as <code>loans2</code>.</p>
@@ -710,7 +701,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');

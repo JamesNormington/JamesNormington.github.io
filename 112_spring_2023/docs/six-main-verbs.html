@@ -5,19 +5,19 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Topic 7 Six Main Verbs | COMP/STAT 112: Introduction to Data Science</title>
-  <meta name="description" content="This is the class website for Introduction to Data Science at Macalester College for Fall 2022." />
-  <meta name="generator" content="bookdown 0.27 and GitBook 2.6.7" />
+  <meta name="description" content="This is the class website for Introduction to Data Science at Macalester College for Spring 2023." />
+  <meta name="generator" content="bookdown 0.31 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Topic 7 Six Main Verbs | COMP/STAT 112: Introduction to Data Science" />
   <meta property="og:type" content="book" />
   <meta property="og:image" content="/images/logo.png" />
-  <meta property="og:description" content="This is the class website for Introduction to Data Science at Macalester College for Fall 2022." />
-  <meta name="github-repo" content="bcheggeseth/112_fall_2022/" />
+  <meta property="og:description" content="This is the class website for Introduction to Data Science at Macalester College for Spring 2023." />
+  <meta name="github-repo" content="JamesNormington/112_spring_2023/" />
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Topic 7 Six Main Verbs | COMP/STAT 112: Introduction to Data Science" />
   
-  <meta name="twitter:description" content="This is the class website for Introduction to Data Science at Macalester College for Fall 2022." />
+  <meta name="twitter:description" content="This is the class website for Introduction to Data Science at Macalester College for Spring 2023." />
   <meta name="twitter:image" content="/images/logo.png" />
 
 
@@ -60,15 +60,6 @@
 <script src="libs/leaflet-binding/leaflet.js"></script>
 <script src="libs/leaflet-providers/leaflet-providers_1.9.0.js"></script>
 <script src="libs/leaflet-providers-plugin/leaflet-providers-plugin.js"></script>
-<script src="libs/kePrint/kePrint.js"></script>
-<link href="libs/lightable/lightable.css" rel="stylesheet" />
-<link href="libs/dygraphs/dygraph.css" rel="stylesheet" />
-<script src="libs/dygraphs/dygraph-combined.js"></script>
-<script src="libs/dygraphs/shapes.js"></script>
-<script src="libs/moment/moment.js"></script>
-<script src="libs/moment-timezone/moment-timezone-with-data.js"></script>
-<script src="libs/moment-fquarter/moment-fquarter.min.js"></script>
-<script src="libs/dygraphs-binding/dygraphs.js"></script>
 <script src="libs/plotly-binding/plotly.js"></script>
 <script src="libs/typedarray/typedarray.min.js"></script>
 <link href="libs/crosstalk/css/crosstalk.min.css" rel="stylesheet" />
@@ -115,7 +106,7 @@ code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
+code span.bu { color: #008000; } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -128,7 +119,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
+code span.im { color: #008000; font-weight: bold; } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -658,17 +649,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 Solution
 </summary>
 <p>The commands for the first two parts are</p>
-<div class="sourceCode" id="cb118"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb118-1"><a href="six-main-verbs.html#cb118-1" aria-hidden="true" tabindex="-1"></a>BirthdaysExtra <span class="ot">&lt;-</span> <span class="fu">mutate</span>(Birthdays,</span>
-<span id="cb118-2"><a href="six-main-verbs.html#cb118-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">year_short =</span> year <span class="sc">-</span> <span class="dv">1900</span>,</span>
-<span id="cb118-3"><a href="six-main-verbs.html#cb118-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">busy_birthday =</span> (births <span class="sc">&gt;</span> <span class="dv">100</span>)</span>
-<span id="cb118-4"><a href="six-main-verbs.html#cb118-4" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb118-5"><a href="six-main-verbs.html#cb118-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb118-6"><a href="six-main-verbs.html#cb118-6" aria-hidden="true" tabindex="-1"></a>BirthdaysExtraTable <span class="ot">&lt;-</span> <span class="fu">select</span>(</span>
-<span id="cb118-7"><a href="six-main-verbs.html#cb118-7" aria-hidden="true" tabindex="-1"></a>  BirthdaysExtra, state,</span>
-<span id="cb118-8"><a href="six-main-verbs.html#cb118-8" aria-hidden="true" tabindex="-1"></a>  year_short, busy_birthday</span>
-<span id="cb118-9"><a href="six-main-verbs.html#cb118-9" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb118-10"><a href="six-main-verbs.html#cb118-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb118-11"><a href="six-main-verbs.html#cb118-11" aria-hidden="true" tabindex="-1"></a><span class="fu">select</span>(Birthdays, <span class="fu">ends_with</span>(<span class="st">&quot;te&quot;</span>)) <span class="sc">%&gt;%</span> <span class="fu">head</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb132"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb132-1"><a href="six-main-verbs.html#cb132-1" aria-hidden="true" tabindex="-1"></a>BirthdaysExtra <span class="ot">&lt;-</span> <span class="fu">mutate</span>(Birthdays,</span>
+<span id="cb132-2"><a href="six-main-verbs.html#cb132-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">year_short =</span> year <span class="sc">-</span> <span class="dv">1900</span>,</span>
+<span id="cb132-3"><a href="six-main-verbs.html#cb132-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">busy_birthday =</span> (births <span class="sc">&gt;</span> <span class="dv">100</span>)</span>
+<span id="cb132-4"><a href="six-main-verbs.html#cb132-4" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb132-5"><a href="six-main-verbs.html#cb132-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb132-6"><a href="six-main-verbs.html#cb132-6" aria-hidden="true" tabindex="-1"></a>BirthdaysExtraTable <span class="ot">&lt;-</span> <span class="fu">select</span>(</span>
+<span id="cb132-7"><a href="six-main-verbs.html#cb132-7" aria-hidden="true" tabindex="-1"></a>  BirthdaysExtra, state,</span>
+<span id="cb132-8"><a href="six-main-verbs.html#cb132-8" aria-hidden="true" tabindex="-1"></a>  year_short, busy_birthday</span>
+<span id="cb132-9"><a href="six-main-verbs.html#cb132-9" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb132-10"><a href="six-main-verbs.html#cb132-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb132-11"><a href="six-main-verbs.html#cb132-11" aria-hidden="true" tabindex="-1"></a><span class="fu">select</span>(Birthdays, <span class="fu">ends_with</span>(<span class="st">&quot;te&quot;</span>)) <span class="sc">%&gt;%</span> <span class="fu">head</span>()</span></code></pre></div>
 <pre><code>##   state       date
 ## 1    AK 1969-01-01
 ## 2    AL 1969-01-01
@@ -696,8 +687,8 @@ The operation in (c) selects only the first two columns <code>state</code> and <
 Solution
 </summary>
 <p>We want to <code>filter</code> and then <code>arrange</code>:</p>
-<div class="sourceCode" id="cb120"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb120-1"><a href="six-main-verbs.html#cb120-1" aria-hidden="true" tabindex="-1"></a>MABirths1979 <span class="ot">&lt;-</span> <span class="fu">filter</span>(Birthdays, state <span class="sc">==</span> <span class="st">&quot;MA&quot;</span>, year <span class="sc">==</span> <span class="dv">1979</span>)</span>
-<span id="cb120-2"><a href="six-main-verbs.html#cb120-2" aria-hidden="true" tabindex="-1"></a>MABirths1979Sorted <span class="ot">&lt;-</span> <span class="fu">arrange</span>(MABirths1979, <span class="fu">desc</span>(births))</span></code></pre></div>
+<div class="sourceCode" id="cb134"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb134-1"><a href="six-main-verbs.html#cb134-1" aria-hidden="true" tabindex="-1"></a>MABirths1979 <span class="ot">&lt;-</span> <span class="fu">filter</span>(Birthdays, state <span class="sc">==</span> <span class="st">&quot;MA&quot;</span>, year <span class="sc">==</span> <span class="dv">1979</span>)</span>
+<span id="cb134-2"><a href="six-main-verbs.html#cb134-2" aria-hidden="true" tabindex="-1"></a>MABirths1979Sorted <span class="ot">&lt;-</span> <span class="fu">arrange</span>(MABirths1979, <span class="fu">desc</span>(births))</span></code></pre></div>
 <table>
 <caption><span id="tab:unnamed-chunk-198">Table 7.2: </span>Birthdays in Massachusetts in 1979, sorted from those dates with the most births to those dates with the fewest births.</caption>
 <thead>
@@ -759,17 +750,17 @@ Solution
 <ul>
 <li><strong><code>summarise()</code></strong> (or equivalently <strong><code>summarize()</code></strong>) takes an entire data frame as input and outputs a single row with one or more summary statistics, such as <code>mean</code>, <code>sum</code>, <code>sd</code>, <code>n_distinct()</code>, or <code>n()</code> (which, like <code>tally()</code>, just counts the number of entries).</li>
 </ul>
-<div class="sourceCode" id="cb122"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb122-1"><a href="six-main-verbs.html#cb122-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summarise</span>(Birthdays,</span>
-<span id="cb122-2"><a href="six-main-verbs.html#cb122-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">total_births =</span> <span class="fu">sum</span>(births),</span>
-<span id="cb122-3"><a href="six-main-verbs.html#cb122-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">average_births =</span> <span class="fu">mean</span>(births),</span>
-<span id="cb122-4"><a href="six-main-verbs.html#cb122-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">nstates =</span> <span class="fu">n_distinct</span>(state), <span class="at">ncases =</span> <span class="fu">n</span>()</span>
-<span id="cb122-5"><a href="six-main-verbs.html#cb122-5" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb136-1"><a href="six-main-verbs.html#cb136-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summarise</span>(Birthdays,</span>
+<span id="cb136-2"><a href="six-main-verbs.html#cb136-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">total_births =</span> <span class="fu">sum</span>(births),</span>
+<span id="cb136-3"><a href="six-main-verbs.html#cb136-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">average_births =</span> <span class="fu">mean</span>(births),</span>
+<span id="cb136-4"><a href="six-main-verbs.html#cb136-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">nstates =</span> <span class="fu">n_distinct</span>(state), <span class="at">ncases =</span> <span class="fu">n</span>()</span>
+<span id="cb136-5"><a href="six-main-verbs.html#cb136-5" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
 <pre><code>##   total_births average_births nstates ncases
 ## 1     70486538       189.0409      51 372864</code></pre>
 <p>So <code>summarise</code> changes both the cases and the variables. Alone, <code>summarise</code> is not all that useful, because we can also access individual variables directly with the dollar sign. For example, to find the total and average births, we can write</p>
-<div class="sourceCode" id="cb124"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb124-1"><a href="six-main-verbs.html#cb124-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(Birthdays<span class="sc">$</span>births)</span></code></pre></div>
+<div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb138-1"><a href="six-main-verbs.html#cb138-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(Birthdays<span class="sc">$</span>births)</span></code></pre></div>
 <pre><code>## [1] 70486538</code></pre>
-<div class="sourceCode" id="cb126"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb126-1"><a href="six-main-verbs.html#cb126-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(Birthdays<span class="sc">$</span>births)</span></code></pre></div>
+<div class="sourceCode" id="cb140"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb140-1"><a href="six-main-verbs.html#cb140-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(Birthdays<span class="sc">$</span>births)</span></code></pre></div>
 <pre><code>## [1] 189.0409</code></pre>
 <p>Rather, we will mostly use it to create <strong>grouped summaries</strong>, which brings us to the last of the six main data verbs.</p>
 <ul>
@@ -787,8 +778,8 @@ Solution
 Solution
 </summary>
 <p>We have to first group by the desired grouping and then perform a summarise.</p>
-<div class="sourceCode" id="cb128"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb128-1"><a href="six-main-verbs.html#cb128-1" aria-hidden="true" tabindex="-1"></a>BirthdaysYear <span class="ot">&lt;-</span> <span class="fu">group_by</span>(Birthdays, year)</span>
-<span id="cb128-2"><a href="six-main-verbs.html#cb128-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summarise</span>(BirthdaysYear, <span class="at">average =</span> <span class="fu">mean</span>(births))</span></code></pre></div>
+<div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb142-1"><a href="six-main-verbs.html#cb142-1" aria-hidden="true" tabindex="-1"></a>BirthdaysYear <span class="ot">&lt;-</span> <span class="fu">group_by</span>(Birthdays, year)</span>
+<span id="cb142-2"><a href="six-main-verbs.html#cb142-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summarise</span>(BirthdaysYear, <span class="at">average =</span> <span class="fu">mean</span>(births))</span></code></pre></div>
 <pre><code>## # A tibble: 20 × 2
 ##     year average
 ##    &lt;int&gt;   &lt;dbl&gt;
@@ -812,8 +803,8 @@ Solution
 ## 18  1986    202.
 ## 19  1987    205.
 ## 20  1988    210.</code></pre>
-<div class="sourceCode" id="cb130"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb130-1"><a href="six-main-verbs.html#cb130-1" aria-hidden="true" tabindex="-1"></a>BirthdaysYearState <span class="ot">&lt;-</span> <span class="fu">group_by</span>(Birthdays, year, state)</span>
-<span id="cb130-2"><a href="six-main-verbs.html#cb130-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summarise</span>(BirthdaysYearState, <span class="at">average =</span> <span class="fu">mean</span>(births))</span></code></pre></div>
+<div class="sourceCode" id="cb144"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb144-1"><a href="six-main-verbs.html#cb144-1" aria-hidden="true" tabindex="-1"></a>BirthdaysYearState <span class="ot">&lt;-</span> <span class="fu">group_by</span>(Birthdays, year, state)</span>
+<span id="cb144-2"><a href="six-main-verbs.html#cb144-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summarise</span>(BirthdaysYearState, <span class="at">average =</span> <span class="fu">mean</span>(births))</span></code></pre></div>
 <pre><code>## # A tibble: 1,020 × 3
 ## # Groups:   year [20]
 ##     year state average
@@ -842,10 +833,10 @@ Solution
 <li><a href="http://r4ds.had.co.nz/pipes.html">Wickham and Grolemund, Pipes</a></li>
 </ul>
 <p>Pipes offer an efficient way to execute multiple operations at once. Here is a more efficient way to redo Exercise 7.2 with <strong>the pipe</strong>:</p>
-<div class="sourceCode" id="cb132"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb132-1"><a href="six-main-verbs.html#cb132-1" aria-hidden="true" tabindex="-1"></a>QuickMABirths1979 <span class="ot">&lt;-</span></span>
-<span id="cb132-2"><a href="six-main-verbs.html#cb132-2" aria-hidden="true" tabindex="-1"></a>  Birthdays <span class="sc">%&gt;%</span></span>
-<span id="cb132-3"><a href="six-main-verbs.html#cb132-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(state <span class="sc">==</span> <span class="st">&quot;MA&quot;</span>, year <span class="sc">==</span> <span class="dv">1979</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb132-4"><a href="six-main-verbs.html#cb132-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(births))</span></code></pre></div>
+<div class="sourceCode" id="cb146"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb146-1"><a href="six-main-verbs.html#cb146-1" aria-hidden="true" tabindex="-1"></a>QuickMABirths1979 <span class="ot">&lt;-</span></span>
+<span id="cb146-2"><a href="six-main-verbs.html#cb146-2" aria-hidden="true" tabindex="-1"></a>  Birthdays <span class="sc">%&gt;%</span></span>
+<span id="cb146-3"><a href="six-main-verbs.html#cb146-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(state <span class="sc">==</span> <span class="st">&quot;MA&quot;</span>, year <span class="sc">==</span> <span class="dv">1979</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb146-4"><a href="six-main-verbs.html#cb146-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(births))</span></code></pre></div>
 <p>With the pipe notation, <code>x %&gt;% f(y)</code> becomes <code>f(x,y)</code>, where in the first line here, <code>x</code> is <code>Birthdays</code>, the function <code>f</code> is <code>filter</code>, and <code>y</code> is <code>state == "MA", year == 1979</code>. The really nice thing about piping is that you can chain together a bunch of different operations without having to save the intermediate results. This is what we have done above by chaining together a <code>filter</code> followed by an <code>arrange</code>.</p>
 </div>
 <div id="manipulating-dates" class="section level3 unnumbered hasAnchor">
@@ -864,12 +855,12 @@ Solution
 <li><code>wday()</code> — gives the weekday (e.g. Monday, Tuesday, …). Use the optional argument <code>label = TRUE</code> to have the weekday spelled out rather than given as a number 1-7.</li>
 </ul>
 <p>Using these <code>lubridate</code> functions, you can easily look at the data in more detail. For example, we can add columns to the date table for month and day of the week:<a href="#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a></p>
-<div class="sourceCode" id="cb133"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb133-1"><a href="six-main-verbs.html#cb133-1" aria-hidden="true" tabindex="-1"></a>Birthdays <span class="ot">&lt;-</span></span>
-<span id="cb133-2"><a href="six-main-verbs.html#cb133-2" aria-hidden="true" tabindex="-1"></a>  Birthdays <span class="sc">%&gt;%</span></span>
-<span id="cb133-3"><a href="six-main-verbs.html#cb133-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb133-4"><a href="six-main-verbs.html#cb133-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">month =</span> <span class="fu">month</span>(date, <span class="at">label =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb133-5"><a href="six-main-verbs.html#cb133-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">weekday =</span> <span class="fu">wday</span>(date, <span class="at">label =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb133-6"><a href="six-main-verbs.html#cb133-6" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div>
+<div class="sourceCode" id="cb147"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb147-1"><a href="six-main-verbs.html#cb147-1" aria-hidden="true" tabindex="-1"></a>Birthdays <span class="ot">&lt;-</span></span>
+<span id="cb147-2"><a href="six-main-verbs.html#cb147-2" aria-hidden="true" tabindex="-1"></a>  Birthdays <span class="sc">%&gt;%</span></span>
+<span id="cb147-3"><a href="six-main-verbs.html#cb147-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb147-4"><a href="six-main-verbs.html#cb147-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">month =</span> <span class="fu">month</span>(date, <span class="at">label =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb147-5"><a href="six-main-verbs.html#cb147-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">weekday =</span> <span class="fu">wday</span>(date, <span class="at">label =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb147-6"><a href="six-main-verbs.html#cb147-6" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div>
 <p>Here is what the data table looks like with our new columns:</p>
 <table>
 <caption><span id="tab:unnamed-chunk-205">Table 7.3: </span>A subset of the birthday data with additional variables.</caption>
@@ -942,19 +933,19 @@ Solution
 Solution
 </summary>
 <p>The plan of attack is to first filter the dates, then group by state, then use a <code>summarise</code> to add up totals for each state, and finally arrange them in descending order to find the top 5.<a href="#fn6" class="footnote-ref" id="fnref6"><sup>6</sup></a></p>
-<div class="sourceCode" id="cb134"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb134-1"><a href="six-main-verbs.html#cb134-1" aria-hidden="true" tabindex="-1"></a>SepTable <span class="ot">&lt;-</span></span>
-<span id="cb134-2"><a href="six-main-verbs.html#cb134-2" aria-hidden="true" tabindex="-1"></a>  Birthdays <span class="sc">%&gt;%</span></span>
-<span id="cb134-3"><a href="six-main-verbs.html#cb134-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(date <span class="sc">&gt;=</span> <span class="fu">ymd</span>(<span class="st">&quot;1979-09-09&quot;</span>), date <span class="sc">&lt;=</span> <span class="fu">ymd</span>(<span class="st">&quot;1979-09-11&quot;</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb134-4"><a href="six-main-verbs.html#cb134-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(state) <span class="sc">%&gt;%</span></span>
-<span id="cb134-5"><a href="six-main-verbs.html#cb134-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">total =</span> <span class="fu">sum</span>(births)) <span class="sc">%&gt;%</span></span>
-<span id="cb134-6"><a href="six-main-verbs.html#cb134-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(total)) <span class="sc">%&gt;%</span></span>
-<span id="cb134-7"><a href="six-main-verbs.html#cb134-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(<span class="at">n =</span> <span class="dv">5</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb135"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb135-1"><a href="six-main-verbs.html#cb135-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(</span>
-<span id="cb135-2"><a href="six-main-verbs.html#cb135-2" aria-hidden="true" tabindex="-1"></a>  SepTable[, ],</span>
-<span id="cb135-3"><a href="six-main-verbs.html#cb135-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">caption =</span> <span class="st">&quot;States with the</span></span>
-<span id="cb135-4"><a href="six-main-verbs.html#cb135-4" aria-hidden="true" tabindex="-1"></a><span class="st">  most births between September 9, 1979</span></span>
-<span id="cb135-5"><a href="six-main-verbs.html#cb135-5" aria-hidden="true" tabindex="-1"></a><span class="st">  and September 11, 1979, inclusive.&quot;</span></span>
-<span id="cb135-6"><a href="six-main-verbs.html#cb135-6" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb148"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb148-1"><a href="six-main-verbs.html#cb148-1" aria-hidden="true" tabindex="-1"></a>SepTable <span class="ot">&lt;-</span></span>
+<span id="cb148-2"><a href="six-main-verbs.html#cb148-2" aria-hidden="true" tabindex="-1"></a>  Birthdays <span class="sc">%&gt;%</span></span>
+<span id="cb148-3"><a href="six-main-verbs.html#cb148-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(date <span class="sc">&gt;=</span> <span class="fu">ymd</span>(<span class="st">&quot;1979-09-09&quot;</span>), date <span class="sc">&lt;=</span> <span class="fu">ymd</span>(<span class="st">&quot;1979-09-11&quot;</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb148-4"><a href="six-main-verbs.html#cb148-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(state) <span class="sc">%&gt;%</span></span>
+<span id="cb148-5"><a href="six-main-verbs.html#cb148-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">total =</span> <span class="fu">sum</span>(births)) <span class="sc">%&gt;%</span></span>
+<span id="cb148-6"><a href="six-main-verbs.html#cb148-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(total)) <span class="sc">%&gt;%</span></span>
+<span id="cb148-7"><a href="six-main-verbs.html#cb148-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(<span class="at">n =</span> <span class="dv">5</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb149"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb149-1"><a href="six-main-verbs.html#cb149-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(</span>
+<span id="cb149-2"><a href="six-main-verbs.html#cb149-2" aria-hidden="true" tabindex="-1"></a>  SepTable[, ],</span>
+<span id="cb149-3"><a href="six-main-verbs.html#cb149-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">caption =</span> <span class="st">&quot;States with the</span></span>
+<span id="cb149-4"><a href="six-main-verbs.html#cb149-4" aria-hidden="true" tabindex="-1"></a><span class="st">  most births between September 9, 1979</span></span>
+<span id="cb149-5"><a href="six-main-verbs.html#cb149-5" aria-hidden="true" tabindex="-1"></a><span class="st">  and September 11, 1979, inclusive.&quot;</span></span>
+<span id="cb149-6"><a href="six-main-verbs.html#cb149-6" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
 <table>
 <caption><span id="tab:unnamed-chunk-208">Table 7.4: </span>States with the
 most births between September 9, 1979
@@ -1106,8 +1097,8 @@ and September 11, 1979, inclusive.</caption>
 <p><span id="exr:two-year" class="exercise"><strong>Exercise 7.15  (Two Year Sample) </strong></span>Pick a two-year span of the <code>Birthdays</code> that falls in the 1980s, say, 1980/1981. Extract out the data just in this interval, calling it <code>MyTwoYears</code>. (Hint: <code>filter()</code>, <code>year()</code>). Plot out the births in this two-year span day by day. Color each date according to its day of the week. Make sure to choose your font size, line widths, and color scheme to make your figure legible. Explain the pattern that you see.</p>
 </div>
 <p>The plot you generate for Exercise <a href="six-main-verbs.html#exr:two-year">7.15</a> should be generally consistent with the weekend effect and seasonal patterns we have already seen; however, a few days each year stand out as exceptions. We are going to examine the hypothesis that these are holidays. You can find a data set listing US federal holidays <a href="data/US-Holidays.csv">here</a>. Read it in as follows:<a href="#fn7" class="footnote-ref" id="fnref7"><sup>7</sup></a></p>
-<div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb136-1"><a href="six-main-verbs.html#cb136-1" aria-hidden="true" tabindex="-1"></a>Holidays <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://bcheggeseth.github.io/112_fall_2022/data/US-Holidays.csv&quot;</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb136-2"><a href="six-main-verbs.html#cb136-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">date =</span> <span class="fu">as.POSIXct</span>(lubridate<span class="sc">::</span><span class="fu">dmy</span>(date)))</span></code></pre></div>
+<div class="sourceCode" id="cb150"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb150-1"><a href="six-main-verbs.html#cb150-1" aria-hidden="true" tabindex="-1"></a>Holidays <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://bcheggeseth.github.io/112_fall_2022/data/US-Holidays.csv&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb150-2"><a href="six-main-verbs.html#cb150-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">date =</span> <span class="fu">as.POSIXct</span>(lubridate<span class="sc">::</span><span class="fu">dmy</span>(date)))</span></code></pre></div>
 <div class="exercise">
 <p><span id="exr:holidays" class="exercise"><strong>Exercise 7.16  (Holidays) </strong></span>Now let’s update the plot from Exercise <a href="six-main-verbs.html#exr:two-year">7.15</a> to include the holidays.</p>
 <ol style="list-style-type: lower-alpha">
@@ -1314,7 +1305,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');

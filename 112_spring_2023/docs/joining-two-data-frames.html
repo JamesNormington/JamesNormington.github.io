@@ -5,19 +5,19 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Topic 9 Joining Two Data Frames | COMP/STAT 112: Introduction to Data Science</title>
-  <meta name="description" content="This is the class website for Introduction to Data Science at Macalester College for Fall 2022." />
-  <meta name="generator" content="bookdown 0.27 and GitBook 2.6.7" />
+  <meta name="description" content="This is the class website for Introduction to Data Science at Macalester College for Spring 2023." />
+  <meta name="generator" content="bookdown 0.31 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Topic 9 Joining Two Data Frames | COMP/STAT 112: Introduction to Data Science" />
   <meta property="og:type" content="book" />
   <meta property="og:image" content="/images/logo.png" />
-  <meta property="og:description" content="This is the class website for Introduction to Data Science at Macalester College for Fall 2022." />
-  <meta name="github-repo" content="bcheggeseth/112_fall_2022/" />
+  <meta property="og:description" content="This is the class website for Introduction to Data Science at Macalester College for Spring 2023." />
+  <meta name="github-repo" content="JamesNormington/112_spring_2023/" />
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Topic 9 Joining Two Data Frames | COMP/STAT 112: Introduction to Data Science" />
   
-  <meta name="twitter:description" content="This is the class website for Introduction to Data Science at Macalester College for Fall 2022." />
+  <meta name="twitter:description" content="This is the class website for Introduction to Data Science at Macalester College for Spring 2023." />
   <meta name="twitter:image" content="/images/logo.png" />
 
 
@@ -60,15 +60,6 @@
 <script src="libs/leaflet-binding/leaflet.js"></script>
 <script src="libs/leaflet-providers/leaflet-providers_1.9.0.js"></script>
 <script src="libs/leaflet-providers-plugin/leaflet-providers-plugin.js"></script>
-<script src="libs/kePrint/kePrint.js"></script>
-<link href="libs/lightable/lightable.css" rel="stylesheet" />
-<link href="libs/dygraphs/dygraph.css" rel="stylesheet" />
-<script src="libs/dygraphs/dygraph-combined.js"></script>
-<script src="libs/dygraphs/shapes.js"></script>
-<script src="libs/moment/moment.js"></script>
-<script src="libs/moment-timezone/moment-timezone-with-data.js"></script>
-<script src="libs/moment-fquarter/moment-fquarter.min.js"></script>
-<script src="libs/dygraphs-binding/dygraphs.js"></script>
 <script src="libs/plotly-binding/plotly.js"></script>
 <script src="libs/typedarray/typedarray.min.js"></script>
 <link href="libs/crosstalk/css/crosstalk.min.css" rel="stylesheet" />
@@ -115,7 +106,7 @@ code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
+code span.bu { color: #008000; } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -128,7 +119,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
+code span.im { color: #008000; font-weight: bold; } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -668,18 +659,18 @@ What variables are the primary keys for <code>Courses</code>?</p>
 Solution
 </summary>
 <p><code>sid</code> (student ID) and <code>sessionID</code> (class ID) are the primary keys for <code>Grades</code> as they unique identify each case.</p>
-<div class="sourceCode" id="cb146"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb146-1"><a href="joining-two-data-frames.html#cb146-1" aria-hidden="true" tabindex="-1"></a><span class="co"># can check to make sure that there are no combinations of sid and session ID that have more than 1 row</span></span>
-<span id="cb146-2"><a href="joining-two-data-frames.html#cb146-2" aria-hidden="true" tabindex="-1"></a>Grades <span class="sc">%&gt;%</span></span>
-<span id="cb146-3"><a href="joining-two-data-frames.html#cb146-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(sid, sessionID) <span class="sc">%&gt;%</span></span>
-<span id="cb146-4"><a href="joining-two-data-frames.html#cb146-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(n <span class="sc">&gt;</span> <span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb160"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb160-1"><a href="joining-two-data-frames.html#cb160-1" aria-hidden="true" tabindex="-1"></a><span class="co"># can check to make sure that there are no combinations of sid and session ID that have more than 1 row</span></span>
+<span id="cb160-2"><a href="joining-two-data-frames.html#cb160-2" aria-hidden="true" tabindex="-1"></a>Grades <span class="sc">%&gt;%</span></span>
+<span id="cb160-3"><a href="joining-two-data-frames.html#cb160-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(sid, sessionID) <span class="sc">%&gt;%</span></span>
+<span id="cb160-4"><a href="joining-two-data-frames.html#cb160-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(n <span class="sc">&gt;</span> <span class="dv">1</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 0 × 3
 ## # … with 3 variables: sid &lt;chr&gt;, sessionID &lt;chr&gt;, n &lt;int&gt;</code></pre>
 <p><code>sessionID</code> (class ID) and <code>dept</code> are the primary keys for <code>Courses</code> as they unique identify each case. You may have thought that <code>sessionID</code> alone was sufficient; however, if a course is cross-listed, then it may have multiple departments listed.</p>
-<div class="sourceCode" id="cb148"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb148-1"><a href="joining-two-data-frames.html#cb148-1" aria-hidden="true" tabindex="-1"></a><span class="co"># check to make sure that there are no combinations </span></span>
-<span id="cb148-2"><a href="joining-two-data-frames.html#cb148-2" aria-hidden="true" tabindex="-1"></a><span class="co"># of session ID and dept that have more than 1 row</span></span>
-<span id="cb148-3"><a href="joining-two-data-frames.html#cb148-3" aria-hidden="true" tabindex="-1"></a>Courses <span class="sc">%&gt;%</span></span>
-<span id="cb148-4"><a href="joining-two-data-frames.html#cb148-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(sessionID, dept) <span class="sc">%&gt;%</span></span>
-<span id="cb148-5"><a href="joining-two-data-frames.html#cb148-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(n <span class="sc">&gt;</span> <span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb162"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb162-1"><a href="joining-two-data-frames.html#cb162-1" aria-hidden="true" tabindex="-1"></a><span class="co"># check to make sure that there are no combinations </span></span>
+<span id="cb162-2"><a href="joining-two-data-frames.html#cb162-2" aria-hidden="true" tabindex="-1"></a><span class="co"># of session ID and dept that have more than 1 row</span></span>
+<span id="cb162-3"><a href="joining-two-data-frames.html#cb162-3" aria-hidden="true" tabindex="-1"></a>Courses <span class="sc">%&gt;%</span></span>
+<span id="cb162-4"><a href="joining-two-data-frames.html#cb162-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(sessionID, dept) <span class="sc">%&gt;%</span></span>
+<span id="cb162-5"><a href="joining-two-data-frames.html#cb162-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(n <span class="sc">&gt;</span> <span class="dv">1</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 0 × 3
 ## # … with 3 variables: sessionID &lt;chr&gt;, dept &lt;chr&gt;, n &lt;int&gt;</code></pre>
 </details>
@@ -692,12 +683,12 @@ What variables are the foreign keys in <code>Courses</code> for <code>Grades</co
 Solution
 </summary>
 <p><code>sessionID</code> (class ID) is part of a foreign key in <code>Grades</code> for <code>Courses</code>. If we <code>group_by</code> and <code>summarize</code> first to deal with cross-listed courses, then <code>sessionID</code> is the foreign key in <code>Grades</code> for <code>Courses</code>.</p>
-<div class="sourceCode" id="cb150"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb150-1"><a href="joining-two-data-frames.html#cb150-1" aria-hidden="true" tabindex="-1"></a><span class="co"># can check to make sure that once we combine enrollment between cross-listed courses, each session ID only has 1 row</span></span>
-<span id="cb150-2"><a href="joining-two-data-frames.html#cb150-2" aria-hidden="true" tabindex="-1"></a>Courses <span class="sc">%&gt;%</span></span>
-<span id="cb150-3"><a href="joining-two-data-frames.html#cb150-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(sessionID, level, sem, iid) <span class="sc">%&gt;%</span></span>
-<span id="cb150-4"><a href="joining-two-data-frames.html#cb150-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">total_enroll =</span> <span class="fu">sum</span>(enroll)) <span class="sc">%&gt;%</span></span>
-<span id="cb150-5"><a href="joining-two-data-frames.html#cb150-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(sessionID) <span class="sc">%&gt;%</span></span>
-<span id="cb150-6"><a href="joining-two-data-frames.html#cb150-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(n <span class="sc">&gt;</span> <span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb164"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb164-1"><a href="joining-two-data-frames.html#cb164-1" aria-hidden="true" tabindex="-1"></a><span class="co"># can check to make sure that once we combine enrollment between cross-listed courses, each session ID only has 1 row</span></span>
+<span id="cb164-2"><a href="joining-two-data-frames.html#cb164-2" aria-hidden="true" tabindex="-1"></a>Courses <span class="sc">%&gt;%</span></span>
+<span id="cb164-3"><a href="joining-two-data-frames.html#cb164-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(sessionID, level, sem, iid) <span class="sc">%&gt;%</span></span>
+<span id="cb164-4"><a href="joining-two-data-frames.html#cb164-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">total_enroll =</span> <span class="fu">sum</span>(enroll)) <span class="sc">%&gt;%</span></span>
+<span id="cb164-5"><a href="joining-two-data-frames.html#cb164-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(sessionID) <span class="sc">%&gt;%</span></span>
+<span id="cb164-6"><a href="joining-two-data-frames.html#cb164-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(n <span class="sc">&gt;</span> <span class="dv">1</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 0 × 4
 ## # Groups:   sessionID, level, sem [0]
 ## # … with 4 variables: sessionID &lt;chr&gt;, level &lt;dbl&gt;, sem &lt;chr&gt;, n &lt;int&gt;</code></pre>
@@ -738,22 +729,22 @@ Solution
 </summary>
 <p><strong>Provost Perspective:</strong></p>
 <p>The Provost counts each section as one class and takes the average of all classes. We have to be a little careful and cannot simply do <code>mean(Courses$enroll)</code>, because some <code>sessionID</code> appear twice on the course list. Why is that?<a href="#fn9" class="footnote-ref" id="fnref9"><sup>9</sup></a> We can still do this from the data we have in the <code>Courses</code> table, but we should aggregate by <code>sessionID</code> first:</p>
-<div class="sourceCode" id="cb152"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb152-1"><a href="joining-two-data-frames.html#cb152-1" aria-hidden="true" tabindex="-1"></a>CourseSizes <span class="ot">&lt;-</span> Courses <span class="sc">%&gt;%</span></span>
-<span id="cb152-2"><a href="joining-two-data-frames.html#cb152-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(sessionID) <span class="sc">%&gt;%</span></span>
-<span id="cb152-3"><a href="joining-two-data-frames.html#cb152-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">total_enroll =</span> <span class="fu">sum</span>(enroll))</span>
-<span id="cb152-4"><a href="joining-two-data-frames.html#cb152-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb152-5"><a href="joining-two-data-frames.html#cb152-5" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(CourseSizes<span class="sc">$</span>total_enroll)</span></code></pre></div>
+<div class="sourceCode" id="cb166"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb166-1"><a href="joining-two-data-frames.html#cb166-1" aria-hidden="true" tabindex="-1"></a>CourseSizes <span class="ot">&lt;-</span> Courses <span class="sc">%&gt;%</span></span>
+<span id="cb166-2"><a href="joining-two-data-frames.html#cb166-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(sessionID) <span class="sc">%&gt;%</span></span>
+<span id="cb166-3"><a href="joining-two-data-frames.html#cb166-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">total_enroll =</span> <span class="fu">sum</span>(enroll))</span>
+<span id="cb166-4"><a href="joining-two-data-frames.html#cb166-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb166-5"><a href="joining-two-data-frames.html#cb166-5" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(CourseSizes<span class="sc">$</span>total_enroll)</span></code></pre></div>
 <pre><code>## [1] 21.45251</code></pre>
 <p><strong>Student Perspective:</strong></p>
 <p>To get the average class size from the student perspective, we can join the enrollment of the section onto each instance of a student section. Here, the left table is <code>Grades</code>, the right table is <code>CourseSizes</code>, we are going to match based on <code>sessionID</code>, and we want to add the variable <code>total_enroll</code> from <code>CoursesSizes</code>.</p>
 <p>We’ll use a <code>left_join</code> since we aren’t interested in any sections from the <code>CourseSizes</code> table that do not show up in the <code>Grades</code> table; their enrollments should be 0, and they are not actually seen by any students. Note, e.g., if there were 100 extra sections of zero enrollments on the <code>Courses</code> table, this would change the average from the Provost’s perspective, but not at all from the students’ perspective.</p>
 <p>If the <code>by =</code> is omitted from a join, then <code>R</code> will perform a <em>natural join</em>, which matches the two tables by all variables they have in common.
 In this case, the only variable in common is the <code>sessionID</code>, so we would get the same results by omitting the second argument. In general, this is not reliable unless we check ahead of time which variables the tables have in common. If two variables to match have different names in the two tables, we can write <code>by = c("name1" = "name2")</code>.</p>
-<div class="sourceCode" id="cb154"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb154-1"><a href="joining-two-data-frames.html#cb154-1" aria-hidden="true" tabindex="-1"></a>EnrollmentsWithClassSize <span class="ot">&lt;-</span> Grades <span class="sc">%&gt;%</span></span>
-<span id="cb154-2"><a href="joining-two-data-frames.html#cb154-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(CourseSizes,</span>
-<span id="cb154-3"><a href="joining-two-data-frames.html#cb154-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">by =</span> <span class="fu">c</span>(<span class="st">&quot;sessionID&quot;</span> <span class="ot">=</span> <span class="st">&quot;sessionID&quot;</span>)</span>
-<span id="cb154-4"><a href="joining-two-data-frames.html#cb154-4" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
-<span id="cb154-5"><a href="joining-two-data-frames.html#cb154-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(sid, sessionID, total_enroll)</span></code></pre></div>
+<div class="sourceCode" id="cb168"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb168-1"><a href="joining-two-data-frames.html#cb168-1" aria-hidden="true" tabindex="-1"></a>EnrollmentsWithClassSize <span class="ot">&lt;-</span> Grades <span class="sc">%&gt;%</span></span>
+<span id="cb168-2"><a href="joining-two-data-frames.html#cb168-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(CourseSizes,</span>
+<span id="cb168-3"><a href="joining-two-data-frames.html#cb168-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">by =</span> <span class="fu">c</span>(<span class="st">&quot;sessionID&quot;</span> <span class="ot">=</span> <span class="st">&quot;sessionID&quot;</span>)</span>
+<span id="cb168-4"><a href="joining-two-data-frames.html#cb168-4" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb168-5"><a href="joining-two-data-frames.html#cb168-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(sid, sessionID, total_enroll)</span></code></pre></div>
 <table>
 <caption><span id="tab:unnamed-chunk-254">Table 9.3: </span>Student enrollments with the section size.</caption>
 <thead>
@@ -786,9 +777,9 @@ In this case, the only variable in common is the <code>sessionID</code>, so we w
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb155"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb155-1"><a href="joining-two-data-frames.html#cb155-1" aria-hidden="true" tabindex="-1"></a>AveClassEachStudent <span class="ot">&lt;-</span> EnrollmentsWithClassSize <span class="sc">%&gt;%</span></span>
-<span id="cb155-2"><a href="joining-two-data-frames.html#cb155-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(sid) <span class="sc">%&gt;%</span></span>
-<span id="cb155-3"><a href="joining-two-data-frames.html#cb155-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">ave_enroll =</span> <span class="fu">mean</span>(total_enroll, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb169"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb169-1"><a href="joining-two-data-frames.html#cb169-1" aria-hidden="true" tabindex="-1"></a>AveClassEachStudent <span class="ot">&lt;-</span> EnrollmentsWithClassSize <span class="sc">%&gt;%</span></span>
+<span id="cb169-2"><a href="joining-two-data-frames.html#cb169-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(sid) <span class="sc">%&gt;%</span></span>
+<span id="cb169-3"><a href="joining-two-data-frames.html#cb169-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">ave_enroll =</span> <span class="fu">mean</span>(total_enroll, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code></pre></div>
 <table>
 <caption><span id="tab:unnamed-chunk-256">Table 9.4: </span>Average class size seen by each individual student.</caption>
 <thead>
@@ -818,7 +809,7 @@ In this case, the only variable in common is the <code>sessionID</code>, so we w
 </table>
 <p>The <code>na.rm = TRUE</code> here says that if the class size is not available for a given class, we do not count that class towards the student’s average class size. What is another way to capture the same objective? We could have used an <code>inner_join</code> instead of a <code>left_join</code> when we joined the tables to eliminate any entries from the left table that did not have a match in the right table.</p>
 <p>Now we can take the average of the <code>AveClassEachStudent</code> table, counting each student once, to find the average class size from the student perspective:</p>
-<div class="sourceCode" id="cb156"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb156-1"><a href="joining-two-data-frames.html#cb156-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(AveClassEachStudent<span class="sc">$</span>ave_enroll)</span></code></pre></div>
+<div class="sourceCode" id="cb170"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb170-1"><a href="joining-two-data-frames.html#cb170-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(AveClassEachStudent<span class="sc">$</span>ave_enroll)</span></code></pre></div>
 <pre><code>## [1] 24.41885</code></pre>
 We see that the average size from the student perspective (24.4) is greater than the average size from the Provost’s perspective (21.5).
 </details>
@@ -838,12 +829,12 @@ We see that the average size from the student perspective (24.4) is greater than
 <summary>
 Solution
 </summary>
-<div class="sourceCode" id="cb158"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb158-1"><a href="joining-two-data-frames.html#cb158-1" aria-hidden="true" tabindex="-1"></a>LargeSections <span class="ot">&lt;-</span> Courses <span class="sc">%&gt;%</span></span>
-<span id="cb158-2"><a href="joining-two-data-frames.html#cb158-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(sessionID) <span class="sc">%&gt;%</span></span>
-<span id="cb158-3"><a href="joining-two-data-frames.html#cb158-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">total_enroll =</span> <span class="fu">sum</span>(enroll)) <span class="sc">%&gt;%</span></span>
-<span id="cb158-4"><a href="joining-two-data-frames.html#cb158-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(total_enroll)) <span class="sc">%&gt;%</span> <span class="fu">head</span>(<span class="dv">4</span>)</span>
-<span id="cb158-5"><a href="joining-two-data-frames.html#cb158-5" aria-hidden="true" tabindex="-1"></a>GradesFromLargeSections <span class="ot">&lt;-</span> Grades <span class="sc">%&gt;%</span></span>
-<span id="cb158-6"><a href="joining-two-data-frames.html#cb158-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">semi_join</span>(LargeSections)</span></code></pre></div>
+<div class="sourceCode" id="cb172"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb172-1"><a href="joining-two-data-frames.html#cb172-1" aria-hidden="true" tabindex="-1"></a>LargeSections <span class="ot">&lt;-</span> Courses <span class="sc">%&gt;%</span></span>
+<span id="cb172-2"><a href="joining-two-data-frames.html#cb172-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(sessionID) <span class="sc">%&gt;%</span></span>
+<span id="cb172-3"><a href="joining-two-data-frames.html#cb172-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">total_enroll =</span> <span class="fu">sum</span>(enroll)) <span class="sc">%&gt;%</span></span>
+<span id="cb172-4"><a href="joining-two-data-frames.html#cb172-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(total_enroll)) <span class="sc">%&gt;%</span> <span class="fu">head</span>(<span class="dv">4</span>)</span>
+<span id="cb172-5"><a href="joining-two-data-frames.html#cb172-5" aria-hidden="true" tabindex="-1"></a>GradesFromLargeSections <span class="ot">&lt;-</span> Grades <span class="sc">%&gt;%</span></span>
+<span id="cb172-6"><a href="joining-two-data-frames.html#cb172-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">semi_join</span>(LargeSections)</span></code></pre></div>
 </details>
 <div class="example">
 <p><span id="exm:unnamed-chunk-260" class="example"><strong>Example 9.5  (semi_join) </strong></span>Use <code>semi_join()</code> to create a table with a subset of the rows of <code>Grades</code> corresponding to all classes taken in department <code>J</code>.</p>
@@ -853,10 +844,10 @@ Solution
 Solution
 </summary>
 <p>There are multiple ways to do this. We could do a left join to the <code>Grades</code> table to add on the <code>dept</code> variable, and then filter by department, then select all variables except the additional <code>dept</code> variable we just added. Here is a more direct way with <code>semi_join</code> that does not involve adding and subtracting the extra variable:</p>
-<div class="sourceCode" id="cb159"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb159-1"><a href="joining-two-data-frames.html#cb159-1" aria-hidden="true" tabindex="-1"></a>JCourses <span class="ot">&lt;-</span> Courses <span class="sc">%&gt;%</span></span>
-<span id="cb159-2"><a href="joining-two-data-frames.html#cb159-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(dept <span class="sc">==</span> <span class="st">&quot;J&quot;</span>)</span>
-<span id="cb159-3"><a href="joining-two-data-frames.html#cb159-3" aria-hidden="true" tabindex="-1"></a>JGrades <span class="ot">&lt;-</span> Grades <span class="sc">%&gt;%</span></span>
-<span id="cb159-4"><a href="joining-two-data-frames.html#cb159-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">semi_join</span>(JCourses)</span></code></pre></div>
+<div class="sourceCode" id="cb173"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb173-1"><a href="joining-two-data-frames.html#cb173-1" aria-hidden="true" tabindex="-1"></a>JCourses <span class="ot">&lt;-</span> Courses <span class="sc">%&gt;%</span></span>
+<span id="cb173-2"><a href="joining-two-data-frames.html#cb173-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(dept <span class="sc">==</span> <span class="st">&quot;J&quot;</span>)</span>
+<span id="cb173-3"><a href="joining-two-data-frames.html#cb173-3" aria-hidden="true" tabindex="-1"></a>JGrades <span class="ot">&lt;-</span> Grades <span class="sc">%&gt;%</span></span>
+<span id="cb173-4"><a href="joining-two-data-frames.html#cb173-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">semi_join</span>(JCourses)</span></code></pre></div>
 <p>Let’s double check this worked. Here are the first few entries of our new table:</p>
 <table>
 <caption><span id="tab:jtab">Table 9.5: </span>Student enrollments in Department J.</caption>
@@ -892,15 +883,15 @@ Solution
 </table>
 <p>The first entry is for <code>session1791</code>. Which department is that course in?
 What department should it be?</p>
-<div class="sourceCode" id="cb160"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb160-1"><a href="joining-two-data-frames.html#cb160-1" aria-hidden="true" tabindex="-1"></a>(Courses <span class="sc">%&gt;%</span> <span class="fu">filter</span>(sessionID <span class="sc">==</span> <span class="st">&quot;session1791&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb174"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb174-1"><a href="joining-two-data-frames.html#cb174-1" aria-hidden="true" tabindex="-1"></a>(Courses <span class="sc">%&gt;%</span> <span class="fu">filter</span>(sessionID <span class="sc">==</span> <span class="st">&quot;session1791&quot;</span>))</span></code></pre></div>
 <pre><code>## # A tibble: 1 × 6
 ##   sessionID   dept  level sem    enroll iid    
 ##   &lt;chr&gt;       &lt;chr&gt; &lt;dbl&gt; &lt;chr&gt;   &lt;dbl&gt; &lt;chr&gt;  
 ## 1 session1791 J       100 FA1993     22 inst223</code></pre>
 <p>Great, it worked! But that only checked the first one. What if we want to double check all of the courses included in Table <a href="joining-two-data-frames.html#tab:jtab">9.5</a>? We can add on the department and do a group by to count the number from each department in our table.</p>
-<div class="sourceCode" id="cb162"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb162-1"><a href="joining-two-data-frames.html#cb162-1" aria-hidden="true" tabindex="-1"></a>JGrades <span class="sc">%&gt;%</span></span>
-<span id="cb162-2"><a href="joining-two-data-frames.html#cb162-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(Courses) <span class="sc">%&gt;%</span></span>
-<span id="cb162-3"><a href="joining-two-data-frames.html#cb162-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(dept) </span></code></pre></div>
+<div class="sourceCode" id="cb176"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb176-1"><a href="joining-two-data-frames.html#cb176-1" aria-hidden="true" tabindex="-1"></a>JGrades <span class="sc">%&gt;%</span></span>
+<span id="cb176-2"><a href="joining-two-data-frames.html#cb176-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(Courses) <span class="sc">%&gt;%</span></span>
+<span id="cb176-3"><a href="joining-two-data-frames.html#cb176-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(dept) </span></code></pre></div>
 <pre><code>## # A tibble: 1 × 2
 ##   dept      n
 ##   &lt;chr&gt; &lt;int&gt;
@@ -921,7 +912,7 @@ What department should it be?</p>
 <li>What’s the grade-point average for each instructor?</li>
 <li>We cannot actually compute the correct grade-point average for each department from the information we have. The reason why is due to cross-listed courses. Students for those courses could be enrolled under either department, and we do not know which department to assign the grade to. There are a number of possible workarounds to get an estimate. One would be to assign all grades in a section to the department of the instructor, which we’d have to infer from the data. Instead, start by creating a table with all cross-listed courses. Then use an <code>anti_join</code> to eliminate all cross-listed courses. Finally, use an <code>inner_join</code> to compute the grade-point average for each department.</li>
 </ol>
-<div class="sourceCode" id="cb164"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb164-1"><a href="joining-two-data-frames.html#cb164-1" aria-hidden="true" tabindex="-1"></a>(GPAConversion <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">grade =</span> <span class="fu">c</span>(<span class="st">&quot;A+&quot;</span>, <span class="st">&quot;A&quot;</span>, <span class="st">&quot;A-&quot;</span>, <span class="st">&quot;B+&quot;</span>, <span class="st">&quot;B&quot;</span>, <span class="st">&quot;B-&quot;</span>, <span class="st">&quot;C+&quot;</span>, <span class="st">&quot;C&quot;</span>, <span class="st">&quot;C-&quot;</span>, <span class="st">&quot;D+&quot;</span>, <span class="st">&quot;D&quot;</span>, <span class="st">&quot;D-&quot;</span>, <span class="st">&quot;NC&quot;</span>), <span class="at">gp =</span> <span class="fu">c</span>(<span class="fl">4.3</span>, <span class="dv">4</span>, <span class="fl">3.7</span>, <span class="fl">3.3</span>, <span class="dv">3</span>, <span class="fl">2.7</span>, <span class="fl">2.3</span>, <span class="dv">2</span>, <span class="fl">1.7</span>, <span class="fl">1.3</span>, <span class="dv">1</span>, <span class="fl">0.7</span>, <span class="dv">0</span>)))</span></code></pre></div>
+<div class="sourceCode" id="cb178"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb178-1"><a href="joining-two-data-frames.html#cb178-1" aria-hidden="true" tabindex="-1"></a>(GPAConversion <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">grade =</span> <span class="fu">c</span>(<span class="st">&quot;A+&quot;</span>, <span class="st">&quot;A&quot;</span>, <span class="st">&quot;A-&quot;</span>, <span class="st">&quot;B+&quot;</span>, <span class="st">&quot;B&quot;</span>, <span class="st">&quot;B-&quot;</span>, <span class="st">&quot;C+&quot;</span>, <span class="st">&quot;C&quot;</span>, <span class="st">&quot;C-&quot;</span>, <span class="st">&quot;D+&quot;</span>, <span class="st">&quot;D&quot;</span>, <span class="st">&quot;D-&quot;</span>, <span class="st">&quot;NC&quot;</span>), <span class="at">gp =</span> <span class="fu">c</span>(<span class="fl">4.3</span>, <span class="dv">4</span>, <span class="fl">3.7</span>, <span class="fl">3.3</span>, <span class="dv">3</span>, <span class="fl">2.7</span>, <span class="fl">2.3</span>, <span class="dv">2</span>, <span class="fl">1.7</span>, <span class="fl">1.3</span>, <span class="dv">1</span>, <span class="fl">0.7</span>, <span class="dv">0</span>)))</span></code></pre></div>
 <pre><code>## # A tibble: 13 × 2
 ##    grade    gp
 ##    &lt;chr&gt; &lt;dbl&gt;
@@ -961,10 +952,10 @@ Figure 9.2: One of the vans used to redistribute bicycles to different stations.
 <li><code>Stations</code> gives the locations of the bike rental stations <a href="data/DC-Stations.csv">here</a></li>
 </ul>
 <p>Here is the code to read in the data:<a href="#fn10" class="footnote-ref" id="fnref10"><sup>10</sup></a></p>
-<div class="sourceCode" id="cb166"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb166-1"><a href="joining-two-data-frames.html#cb166-1" aria-hidden="true" tabindex="-1"></a>data_site <span class="ot">&lt;-</span></span>
-<span id="cb166-2"><a href="joining-two-data-frames.html#cb166-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;https://bcheggeseth.github.io/112_fall_2022/data/2014-Q4-Trips-History-Data-Small.rds&quot;</span></span>
-<span id="cb166-3"><a href="joining-two-data-frames.html#cb166-3" aria-hidden="true" tabindex="-1"></a>Trips <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="fu">gzcon</span>(<span class="fu">url</span>(data_site)))</span>
-<span id="cb166-4"><a href="joining-two-data-frames.html#cb166-4" aria-hidden="true" tabindex="-1"></a>Stations <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://bcheggeseth.github.io/112_fall_2022/data/DC-Stations.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb180"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb180-1"><a href="joining-two-data-frames.html#cb180-1" aria-hidden="true" tabindex="-1"></a>data_site <span class="ot">&lt;-</span></span>
+<span id="cb180-2"><a href="joining-two-data-frames.html#cb180-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;https://bcheggeseth.github.io/112_fall_2022/data/2014-Q4-Trips-History-Data-Small.rds&quot;</span></span>
+<span id="cb180-3"><a href="joining-two-data-frames.html#cb180-3" aria-hidden="true" tabindex="-1"></a>Trips <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="fu">gzcon</span>(<span class="fu">url</span>(data_site)))</span>
+<span id="cb180-4"><a href="joining-two-data-frames.html#cb180-4" aria-hidden="true" tabindex="-1"></a>Stations <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://bcheggeseth.github.io/112_fall_2022/data/DC-Stations.csv&quot;</span>)</span></code></pre></div>
 <p>The <code>Trips</code> data table is a random subset of 10,000 trips from the full quarterly data. Start with this small data table to develop your analysis commands. When you have this working well, you can access the full data set of more than 600,000 events by removing <code>-Small</code> from the name of the <code>data_site</code>. The full data is available <a href="data/2014-Q4-Trips-History-Data.rds">here</a>.</p>
 <div id="warm-up-temporal-patterns" class="section level3 unnumbered hasAnchor">
 <h3>Warm-up: Temporal patterns<a href="joining-two-data-frames.html#warm-up-temporal-patterns" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -1157,7 +1148,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');

@@ -5,19 +5,19 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>SQL | COMP/STAT 112: Introduction to Data Science</title>
-  <meta name="description" content="This is the class website for Introduction to Data Science at Macalester College for Fall 2022." />
-  <meta name="generator" content="bookdown 0.27 and GitBook 2.6.7" />
+  <meta name="description" content="This is the class website for Introduction to Data Science at Macalester College for Spring 2023." />
+  <meta name="generator" content="bookdown 0.31 and GitBook 2.6.7" />
 
   <meta property="og:title" content="SQL | COMP/STAT 112: Introduction to Data Science" />
   <meta property="og:type" content="book" />
   <meta property="og:image" content="/images/logo.png" />
-  <meta property="og:description" content="This is the class website for Introduction to Data Science at Macalester College for Fall 2022." />
-  <meta name="github-repo" content="bcheggeseth/112_fall_2022/" />
+  <meta property="og:description" content="This is the class website for Introduction to Data Science at Macalester College for Spring 2023." />
+  <meta name="github-repo" content="JamesNormington/112_spring_2023/" />
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="SQL | COMP/STAT 112: Introduction to Data Science" />
   
-  <meta name="twitter:description" content="This is the class website for Introduction to Data Science at Macalester College for Fall 2022." />
+  <meta name="twitter:description" content="This is the class website for Introduction to Data Science at Macalester College for Spring 2023." />
   <meta name="twitter:image" content="/images/logo.png" />
 
 
@@ -60,15 +60,6 @@
 <script src="libs/leaflet-binding/leaflet.js"></script>
 <script src="libs/leaflet-providers/leaflet-providers_1.9.0.js"></script>
 <script src="libs/leaflet-providers-plugin/leaflet-providers-plugin.js"></script>
-<script src="libs/kePrint/kePrint.js"></script>
-<link href="libs/lightable/lightable.css" rel="stylesheet" />
-<link href="libs/dygraphs/dygraph.css" rel="stylesheet" />
-<script src="libs/dygraphs/dygraph-combined.js"></script>
-<script src="libs/dygraphs/shapes.js"></script>
-<script src="libs/moment/moment.js"></script>
-<script src="libs/moment-timezone/moment-timezone-with-data.js"></script>
-<script src="libs/moment-fquarter/moment-fquarter.min.js"></script>
-<script src="libs/dygraphs-binding/dygraphs.js"></script>
 <script src="libs/plotly-binding/plotly.js"></script>
 <script src="libs/typedarray/typedarray.min.js"></script>
 <link href="libs/crosstalk/css/crosstalk.min.css" rel="stylesheet" />
@@ -115,7 +106,7 @@ code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
+code span.bu { color: #008000; } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -128,7 +119,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
+code span.im { color: #008000; font-weight: bold; } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -584,8 +575,8 @@ Figure 14.5: Stack Exchange Explorer for <a href="https://data.stackexchange.com
 <h3>Basic Select Queries<a href="sql.html#basic-select-queries" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Let’s experiment with our own queries. Click on “Compose Query” in the upper right, and notice the tables are shown in the right. As a reminder, a table is similar to a data frame. Each table lists the columns stored within the table and the data types for the columns. Look through the tables for Posts, Users, and Comments. Do the columns generally make sense, and correspond to the StackOverflow website? There’s a <a href="https://meta.stackexchange.com/a/2678">description of the tables and columns</a> (called a schema) available on StackExchange’s Meta Q&amp;A Site.</p>
 <p>Now enter your first query in the text box and click the “Run Query” button:</p>
-<div class="sourceCode" id="cb347"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb347-1"><a href="sql.html#cb347-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> TOP(<span class="dv">100</span>) <span class="kw">Id</span>, Title, Score, <span class="kw">Body</span>, Tags</span>
-<span id="cb347-2"><a href="sql.html#cb347-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> Posts</span></code></pre></div>
+<div class="sourceCode" id="cb365"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb365-1"><a href="sql.html#cb365-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> TOP(<span class="dv">100</span>) <span class="kw">Id</span>, Title, Score, <span class="kw">Body</span>, Tags</span>
+<span id="cb365-2"><a href="sql.html#cb365-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> Posts</span></code></pre></div>
 <p>In this query we already see several important features of SQL:</p>
 <ul>
 <li><code>SELECT</code> tells SQL that a query is coming.</li>
@@ -594,10 +585,10 @@ Figure 14.5: Stack Exchange Explorer for <a href="https://data.stackexchange.com
 <li><code>FROM Posts</code> determines the source dataset.</li>
 </ul>
 <p>From glancing at the results, it appears that this table contains both questions and answers. Let’s try to focus on answers. Looking again at the <a href="https://meta.stackexchange.com/a/2678">Schema Description</a>, notice that there is a <code>PostTypeId</code> column in <code>Posts</code>, and a value of <code>1</code> corresponds to questions. Let’s update our query to only include questions:</p>
-<div class="sourceCode" id="cb348"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb348-1"><a href="sql.html#cb348-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> TOP(<span class="dv">100</span>)</span>
-<span id="cb348-2"><a href="sql.html#cb348-2" aria-hidden="true" tabindex="-1"></a><span class="kw">Id</span>, Title, Score, <span class="kw">Body</span>, Tags</span>
-<span id="cb348-3"><a href="sql.html#cb348-3" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> Posts</span>
-<span id="cb348-4"><a href="sql.html#cb348-4" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span> PostTypeId <span class="op">=</span> <span class="dv">1</span></span></code></pre></div>
+<div class="sourceCode" id="cb366"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb366-1"><a href="sql.html#cb366-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> TOP(<span class="dv">100</span>)</span>
+<span id="cb366-2"><a href="sql.html#cb366-2" aria-hidden="true" tabindex="-1"></a><span class="kw">Id</span>, Title, Score, <span class="kw">Body</span>, Tags</span>
+<span id="cb366-3"><a href="sql.html#cb366-3" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> Posts</span>
+<span id="cb366-4"><a href="sql.html#cb366-4" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span> PostTypeId <span class="op">=</span> <span class="dv">1</span></span></code></pre></div>
 <p>The SQL command <code>WHERE</code> is like the <code>filter</code> command we have been using in <code>dplyr</code>.<a href="#fn27" class="footnote-ref" id="fnref27"><sup>27</sup></a></p>
 <div class="exercise">
 <p><span id="exr:unnamed-chunk-387" class="exercise"><strong>Exercise 14.18  </strong></span>Find the title and score of Posts that have a score of at least 110. <em>Hint: TOP is not necessary here because you want all result rows.</em></p>
@@ -607,18 +598,18 @@ Figure 14.5: Stack Exchange Explorer for <a href="https://data.stackexchange.com
 </div>
 <p>Note that you can look up the actual webpage for any question using its Id. For example, if the Id is 19591, the webpage <a href="https://en.wikipedia.org/wiki/URL">URL</a> would be <a href="https://travel.stackexchange.com/questions/19591/" class="uri">https://travel.stackexchange.com/questions/19591/</a>. Look up a few of the questions by their Id.</p>
 <p>It’s unclear how the 100 questions we saw were selected from among the over 43,000 total questions.<a href="#fn28" class="footnote-ref" id="fnref28"><sup>28</sup></a> Let’s try to arrange the Posts by score. The following query surfaces the top scoring question: <a href="https://travel.stackexchange.com/questions/3080/ok-were-all-adults-here-so-really-how-on-earth-should-i-use-a-squat-toilet">OK we’re all adults here, so really, how on earth should I use a squat toilet?</a></p>
-<div class="sourceCode" id="cb349"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb349-1"><a href="sql.html#cb349-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> TOP(<span class="dv">100</span>)</span>
-<span id="cb349-2"><a href="sql.html#cb349-2" aria-hidden="true" tabindex="-1"></a><span class="kw">Id</span>, Title, Score, <span class="kw">Body</span>, Tags</span>
-<span id="cb349-3"><a href="sql.html#cb349-3" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> Posts</span>
-<span id="cb349-4"><a href="sql.html#cb349-4" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span> PostTypeId <span class="op">=</span> <span class="dv">1</span></span>
-<span id="cb349-5"><a href="sql.html#cb349-5" aria-hidden="true" tabindex="-1"></a><span class="kw">ORDER</span> <span class="kw">BY</span> Score <span class="kw">DESC</span></span></code></pre></div>
+<div class="sourceCode" id="cb367"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb367-1"><a href="sql.html#cb367-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> TOP(<span class="dv">100</span>)</span>
+<span id="cb367-2"><a href="sql.html#cb367-2" aria-hidden="true" tabindex="-1"></a><span class="kw">Id</span>, Title, Score, <span class="kw">Body</span>, Tags</span>
+<span id="cb367-3"><a href="sql.html#cb367-3" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> Posts</span>
+<span id="cb367-4"><a href="sql.html#cb367-4" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span> PostTypeId <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb367-5"><a href="sql.html#cb367-5" aria-hidden="true" tabindex="-1"></a><span class="kw">ORDER</span> <span class="kw">BY</span> Score <span class="kw">DESC</span></span></code></pre></div>
 <p>The <code>ORDER BY ??? DESC</code> syntax is similar to R’s <code>arrange()</code>. You can leave off the <code>DESC</code> if you want the results ordered smallest to largest.</p>
 <p>We could also find the <a href="https://travel.stackexchange.com/questions/tagged/italy">highest rated questions tagged “italy”</a> (the top question is <a href="https://travel.stackexchange.com/questions/tagged/italy">Does Venice Smell?</a>):</p>
-<div class="sourceCode" id="cb350"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb350-1"><a href="sql.html#cb350-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> TOP(<span class="dv">100</span>)</span>
-<span id="cb350-2"><a href="sql.html#cb350-2" aria-hidden="true" tabindex="-1"></a><span class="kw">Id</span>, Title, Score, <span class="kw">Body</span>, Tags</span>
-<span id="cb350-3"><a href="sql.html#cb350-3" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> Posts</span>
-<span id="cb350-4"><a href="sql.html#cb350-4" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span> PostTypeId <span class="op">=</span> <span class="dv">1</span> <span class="kw">AND</span> Tags <span class="kw">LIKE</span> <span class="st">&#39;%italy%&#39;</span></span>
-<span id="cb350-5"><a href="sql.html#cb350-5" aria-hidden="true" tabindex="-1"></a><span class="kw">ORDER</span> <span class="kw">BY</span> Score <span class="kw">DESC</span></span></code></pre></div>
+<div class="sourceCode" id="cb368"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb368-1"><a href="sql.html#cb368-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> TOP(<span class="dv">100</span>)</span>
+<span id="cb368-2"><a href="sql.html#cb368-2" aria-hidden="true" tabindex="-1"></a><span class="kw">Id</span>, Title, Score, <span class="kw">Body</span>, Tags</span>
+<span id="cb368-3"><a href="sql.html#cb368-3" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> Posts</span>
+<span id="cb368-4"><a href="sql.html#cb368-4" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span> PostTypeId <span class="op">=</span> <span class="dv">1</span> <span class="kw">AND</span> Tags <span class="kw">LIKE</span> <span class="st">&#39;%italy%&#39;</span></span>
+<span id="cb368-5"><a href="sql.html#cb368-5" aria-hidden="true" tabindex="-1"></a><span class="kw">ORDER</span> <span class="kw">BY</span> Score <span class="kw">DESC</span></span></code></pre></div>
 <div class="exercise">
 <p><span id="exr:unnamed-chunk-391" class="exercise"><strong>Exercise 14.20  </strong></span>Pick two tags that interest you and you think will occur together and find the top voted posts that contain both.</p>
 </div>
@@ -626,11 +617,11 @@ Figure 14.5: Stack Exchange Explorer for <a href="https://data.stackexchange.com
 <div id="sql-summarization" class="section level3 unnumbered hasAnchor">
 <h3>SQL Summarization<a href="sql.html#sql-summarization" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>So far, we have covered the equivalent of R’s selecting, filtering, and arranging. Let’s take a look at grouping and summarizing now, which has similar structures in both <code>R</code> and SQL. Imagine we want to see how many posts of each type there are. This query shows us that there are 44K questions and 71K answers.</p>
-<div class="sourceCode" id="cb351"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb351-1"><a href="sql.html#cb351-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> </span>
-<span id="cb351-2"><a href="sql.html#cb351-2" aria-hidden="true" tabindex="-1"></a>PostTypeId, <span class="fu">COUNT</span>(<span class="kw">Id</span>) numPosts</span>
-<span id="cb351-3"><a href="sql.html#cb351-3" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> posts</span>
-<span id="cb351-4"><a href="sql.html#cb351-4" aria-hidden="true" tabindex="-1"></a><span class="kw">GROUP</span> <span class="kw">BY</span> PostTypeId </span>
-<span id="cb351-5"><a href="sql.html#cb351-5" aria-hidden="true" tabindex="-1"></a><span class="kw">ORDER</span> <span class="kw">BY</span> PostTypeId</span></code></pre></div>
+<div class="sourceCode" id="cb369"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb369-1"><a href="sql.html#cb369-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> </span>
+<span id="cb369-2"><a href="sql.html#cb369-2" aria-hidden="true" tabindex="-1"></a>PostTypeId, <span class="fu">COUNT</span>(<span class="kw">Id</span>) numPosts</span>
+<span id="cb369-3"><a href="sql.html#cb369-3" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> posts</span>
+<span id="cb369-4"><a href="sql.html#cb369-4" aria-hidden="true" tabindex="-1"></a><span class="kw">GROUP</span> <span class="kw">BY</span> PostTypeId </span>
+<span id="cb369-5"><a href="sql.html#cb369-5" aria-hidden="true" tabindex="-1"></a><span class="kw">ORDER</span> <span class="kw">BY</span> PostTypeId</span></code></pre></div>
 <p>Note two characteristics of SQL summarization here:</p>
 <ul>
 <li>The <code>GROUP BY</code>clause indicates the table column for grouping, much like R’s <code>group_by</code>.</li>
@@ -648,13 +639,13 @@ Figure 14.5: Stack Exchange Explorer for <a href="https://data.stackexchange.com
 <h3>SQL Joins<a href="sql.html#sql-joins" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Finally, as with <code>R</code>, we often want to join data from two or more tables. The types of joins in SQL are the same as we saw with R (inner, outer, left, right). Most commonly we want to perform an INNER join, which is the default if you just say <code>JOIN</code>.</p>
 <p>Let’s say we wanted to enhance the earlier query to find the highest scoring answers with some information about each user.</p>
-<div class="sourceCode" id="cb352"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb352-1"><a href="sql.html#cb352-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> TOP(<span class="dv">100</span>)</span>
-<span id="cb352-2"><a href="sql.html#cb352-2" aria-hidden="true" tabindex="-1"></a>Title, Score, DisplayName, Reputation</span>
-<span id="cb352-3"><a href="sql.html#cb352-3" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> posts p</span>
-<span id="cb352-4"><a href="sql.html#cb352-4" aria-hidden="true" tabindex="-1"></a><span class="kw">JOIN</span> users u</span>
-<span id="cb352-5"><a href="sql.html#cb352-5" aria-hidden="true" tabindex="-1"></a><span class="kw">ON</span> p.OwnerUserId <span class="op">=</span> u.<span class="kw">Id</span></span>
-<span id="cb352-6"><a href="sql.html#cb352-6" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span> PostTypeId <span class="op">=</span><span class="dv">1</span></span>
-<span id="cb352-7"><a href="sql.html#cb352-7" aria-hidden="true" tabindex="-1"></a><span class="kw">ORDER</span> <span class="kw">BY</span> Score <span class="kw">Desc</span></span></code></pre></div>
+<div class="sourceCode" id="cb370"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb370-1"><a href="sql.html#cb370-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> TOP(<span class="dv">100</span>)</span>
+<span id="cb370-2"><a href="sql.html#cb370-2" aria-hidden="true" tabindex="-1"></a>Title, Score, DisplayName, Reputation</span>
+<span id="cb370-3"><a href="sql.html#cb370-3" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> posts p</span>
+<span id="cb370-4"><a href="sql.html#cb370-4" aria-hidden="true" tabindex="-1"></a><span class="kw">JOIN</span> users u</span>
+<span id="cb370-5"><a href="sql.html#cb370-5" aria-hidden="true" tabindex="-1"></a><span class="kw">ON</span> p.OwnerUserId <span class="op">=</span> u.<span class="kw">Id</span></span>
+<span id="cb370-6"><a href="sql.html#cb370-6" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span> PostTypeId <span class="op">=</span><span class="dv">1</span></span>
+<span id="cb370-7"><a href="sql.html#cb370-7" aria-hidden="true" tabindex="-1"></a><span class="kw">ORDER</span> <span class="kw">BY</span> Score <span class="kw">Desc</span></span></code></pre></div>
 <p>We see a few notable items here:</p>
 <ul>
 <li>The <code>JOIN</code> keyword must go in between the two tables we want to join.</li>
@@ -782,7 +773,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');

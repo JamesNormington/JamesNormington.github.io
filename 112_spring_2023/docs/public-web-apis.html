@@ -5,19 +5,19 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Public Web APIs | COMP/STAT 112: Introduction to Data Science</title>
-  <meta name="description" content="This is the class website for Introduction to Data Science at Macalester College for Fall 2022." />
-  <meta name="generator" content="bookdown 0.27 and GitBook 2.6.7" />
+  <meta name="description" content="This is the class website for Introduction to Data Science at Macalester College for Spring 2023." />
+  <meta name="generator" content="bookdown 0.31 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Public Web APIs | COMP/STAT 112: Introduction to Data Science" />
   <meta property="og:type" content="book" />
   <meta property="og:image" content="/images/logo.png" />
-  <meta property="og:description" content="This is the class website for Introduction to Data Science at Macalester College for Fall 2022." />
-  <meta name="github-repo" content="bcheggeseth/112_fall_2022/" />
+  <meta property="og:description" content="This is the class website for Introduction to Data Science at Macalester College for Spring 2023." />
+  <meta name="github-repo" content="JamesNormington/112_spring_2023/" />
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Public Web APIs | COMP/STAT 112: Introduction to Data Science" />
   
-  <meta name="twitter:description" content="This is the class website for Introduction to Data Science at Macalester College for Fall 2022." />
+  <meta name="twitter:description" content="This is the class website for Introduction to Data Science at Macalester College for Spring 2023." />
   <meta name="twitter:image" content="/images/logo.png" />
 
 
@@ -60,15 +60,6 @@
 <script src="libs/leaflet-binding/leaflet.js"></script>
 <script src="libs/leaflet-providers/leaflet-providers_1.9.0.js"></script>
 <script src="libs/leaflet-providers-plugin/leaflet-providers-plugin.js"></script>
-<script src="libs/kePrint/kePrint.js"></script>
-<link href="libs/lightable/lightable.css" rel="stylesheet" />
-<link href="libs/dygraphs/dygraph.css" rel="stylesheet" />
-<script src="libs/dygraphs/dygraph-combined.js"></script>
-<script src="libs/dygraphs/shapes.js"></script>
-<script src="libs/moment/moment.js"></script>
-<script src="libs/moment-timezone/moment-timezone-with-data.js"></script>
-<script src="libs/moment-fquarter/moment-fquarter.min.js"></script>
-<script src="libs/dygraphs-binding/dygraphs.js"></script>
 <script src="libs/plotly-binding/plotly.js"></script>
 <script src="libs/typedarray/typedarray.min.js"></script>
 <link href="libs/crosstalk/css/crosstalk.min.css" rel="stylesheet" />
@@ -115,7 +106,7 @@ code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
+code span.bu { color: #008000; } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -128,7 +119,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
+code span.im { color: #008000; font-weight: bold; } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -584,32 +575,32 @@ devtools::install_github(&quot;mkearney/nytimes&quot;)</code></pre>
 <div class="exercise">
 <p><span id="exr:unnamed-chunk-362" class="exercise"><strong>Exercise 14.13  </strong></span>What do you think the nytimes function below does? How does it communicate with the NY Times? Where is the data about articles stored?</p>
 </div>
-<div class="sourceCode" id="cb279"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb279-1"><a href="public-web-apis.html#cb279-1" aria-hidden="true" tabindex="-1"></a>res <span class="ot">&lt;-</span> <span class="fu">nyt_search</span>(<span class="at">q =</span> <span class="st">&quot;gamergate&quot;</span>, <span class="at">n =</span> <span class="dv">20</span>, <span class="at">end_date =</span> <span class="st">&quot;20150101&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb293"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb293-1"><a href="public-web-apis.html#cb293-1" aria-hidden="true" tabindex="-1"></a>res <span class="ot">&lt;-</span> <span class="fu">nyt_search</span>(<span class="at">q =</span> <span class="st">&quot;gamergate&quot;</span>, <span class="at">n =</span> <span class="dv">20</span>, <span class="at">end_date =</span> <span class="st">&quot;20150101&quot;</span>)</span></code></pre></div>
 <p>To get started with the NY Times API, you must <a href="https://developer.nytimes.com/accounts/create">register and get an <strong>authentication key</strong></a>. Signup only takes a few seconds, and it lets the New York Times make sure nobody abuses their API for commercial purposes. It also <strong>rate limits</strong> their API and ensures programs don’t make too many requests per day. For the NY Times API, this limit is 1000 calls per day. Be aware that most APIs do have rate limits — especially for their free tiers.</p>
 <p>Once you have signed up, verified your email, log back in to <a href="https://developer.nytimes.com" class="uri">https://developer.nytimes.com</a>. Under your email address, click on Apps and Create a new App (call it First API) and enable Article Search API, then press Save. This creates an <strong>authentication key</strong>, which is a 32 digit string with numbers and the letters a-e.</p>
 <p>Store this in a variable as follows (this is just an example ID, not an actual one):</p>
-<div class="sourceCode" id="cb280"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb280-1"><a href="public-web-apis.html#cb280-1" aria-hidden="true" tabindex="-1"></a>times_key <span class="ot">&lt;-</span> <span class="st">&quot;c935b213b2dc1218050eec976283dbbd&quot;</span></span>
-<span id="cb280-2"><a href="public-web-apis.html#cb280-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb280-3"><a href="public-web-apis.html#cb280-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Tell nytimes what our API key is</span></span>
-<span id="cb280-4"><a href="public-web-apis.html#cb280-4" aria-hidden="true" tabindex="-1"></a><span class="fu">Sys.setenv</span>(<span class="at">NYTIMES_KEY =</span> times_key)</span></code></pre></div>
+<div class="sourceCode" id="cb294"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb294-1"><a href="public-web-apis.html#cb294-1" aria-hidden="true" tabindex="-1"></a>times_key <span class="ot">&lt;-</span> <span class="st">&quot;c935b213b2dc1218050eec976283dbbd&quot;</span></span>
+<span id="cb294-2"><a href="public-web-apis.html#cb294-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb294-3"><a href="public-web-apis.html#cb294-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Tell nytimes what our API key is</span></span>
+<span id="cb294-4"><a href="public-web-apis.html#cb294-4" aria-hidden="true" tabindex="-1"></a><span class="fu">Sys.setenv</span>(<span class="at">NYTIMES_KEY =</span> times_key)</span></code></pre></div>
 <p>Now, let’s use the key to issue our first API call. We’ll adapt the code we see in the vignette to do what we need.</p>
-<div class="sourceCode" id="cb281"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb281-1"><a href="public-web-apis.html#cb281-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(nytimes)</span>
-<span id="cb281-2"><a href="public-web-apis.html#cb281-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb281-3"><a href="public-web-apis.html#cb281-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Issue our first API call</span></span>
-<span id="cb281-4"><a href="public-web-apis.html#cb281-4" aria-hidden="true" tabindex="-1"></a>res <span class="ot">&lt;-</span> <span class="fu">nyt_search</span>(<span class="at">q =</span> <span class="st">&quot;gamergate&quot;</span>, <span class="at">n =</span> <span class="dv">20</span>, <span class="at">end_date =</span> <span class="st">&quot;20150101&quot;</span>)</span></code></pre></div>
-<pre><code>## Error: couldn&#39;t find NYTIMES_KEY environment variable</code></pre>
-<div class="sourceCode" id="cb283"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb283-1"><a href="public-web-apis.html#cb283-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert response object to data frame</span></span>
-<span id="cb283-2"><a href="public-web-apis.html#cb283-2" aria-hidden="true" tabindex="-1"></a>res <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(res)</span></code></pre></div>
+<div class="sourceCode" id="cb295"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb295-1"><a href="public-web-apis.html#cb295-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(nytimes)</span></code></pre></div>
+<pre><code>## Error in library(nytimes): there is no package called &#39;nytimes&#39;</code></pre>
+<div class="sourceCode" id="cb297"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb297-1"><a href="public-web-apis.html#cb297-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Issue our first API call</span></span>
+<span id="cb297-2"><a href="public-web-apis.html#cb297-2" aria-hidden="true" tabindex="-1"></a>res <span class="ot">&lt;-</span> <span class="fu">nyt_search</span>(<span class="at">q =</span> <span class="st">&quot;gamergate&quot;</span>, <span class="at">n =</span> <span class="dv">20</span>, <span class="at">end_date =</span> <span class="st">&quot;20150101&quot;</span>)</span></code></pre></div>
+<pre><code>## Error in nyt_search(q = &quot;gamergate&quot;, n = 20, end_date = &quot;20150101&quot;): could not find function &quot;nyt_search&quot;</code></pre>
+<div class="sourceCode" id="cb299"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb299-1"><a href="public-web-apis.html#cb299-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert response object to data frame</span></span>
+<span id="cb299-2"><a href="public-web-apis.html#cb299-2" aria-hidden="true" tabindex="-1"></a>res <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(res)</span></code></pre></div>
 <pre><code>## Error in as.data.frame(res): object &#39;res&#39; not found</code></pre>
 <p>Something magical just happened. Your computer sent a message to the New York Times and asked for information about 20 articles about <a href="https://en.wikipedia.org/wiki/Gamergate_controversy">Gamergate</a> starting at January 1, 2015 and going backwards in time. Thousands of public Web APIs allow your computer to tap into almost any piece of public digital information on the web.</p>
 <p>Let’s take a peek at the structure of the results. You can also look at the data in the “Environment” tab in one of the windows of RStudio:</p>
-<div class="sourceCode" id="cb285"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb285-1"><a href="public-web-apis.html#cb285-1" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(res)</span></code></pre></div>
+<div class="sourceCode" id="cb301"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb301-1"><a href="public-web-apis.html#cb301-1" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(res)</span></code></pre></div>
 <pre><code>## Error in is.data.frame(x): object &#39;res&#39; not found</code></pre>
-<div class="sourceCode" id="cb287"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb287-1"><a href="public-web-apis.html#cb287-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(res<span class="sc">$</span>web_url)</span></code></pre></div>
+<div class="sourceCode" id="cb303"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb303-1"><a href="public-web-apis.html#cb303-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(res<span class="sc">$</span>web_url)</span></code></pre></div>
 <pre><code>## Error in h(simpleError(msg, call)): error in evaluating the argument &#39;x&#39; in selecting a method for function &#39;head&#39;: object &#39;res&#39; not found</code></pre>
-<div class="sourceCode" id="cb289"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb289-1"><a href="public-web-apis.html#cb289-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(res<span class="sc">$</span>headline)</span></code></pre></div>
+<div class="sourceCode" id="cb305"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb305-1"><a href="public-web-apis.html#cb305-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(res<span class="sc">$</span>headline)</span></code></pre></div>
 <pre><code>## Error in h(simpleError(msg, call)): error in evaluating the argument &#39;x&#39; in selecting a method for function &#39;head&#39;: object &#39;res&#39; not found</code></pre>
-<div class="sourceCode" id="cb291"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb291-1"><a href="public-web-apis.html#cb291-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(res<span class="sc">$</span>pub_date)</span></code></pre></div>
+<div class="sourceCode" id="cb307"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb307-1"><a href="public-web-apis.html#cb307-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(res<span class="sc">$</span>pub_date)</span></code></pre></div>
 <pre><code>## Error in h(simpleError(msg, call)): error in evaluating the argument &#39;x&#39; in selecting a method for function &#39;head&#39;: object &#39;res&#39; not found</code></pre>
 </div>
 <div id="accessing-web-apis" class="section level2 unnumbered hasAnchor">
@@ -631,12 +622,12 @@ devtools::install_github(&quot;mkearney/nytimes&quot;)</code></pre>
 </ul>
 <p>Typically, each of these URL components will be specified in the API documentation. Sometimes, the scheme, hostname, and path (<code>http://api.nytimes.com/svc/search/v2/articlesearch.json</code>) will be referred to as the <a href="https://en.wikipedia.org/wiki/Web_API#Endpoints">endpoint</a> for the API call.</p>
 <p>We will use the <code>urltools</code> module to build up a full URL from its parts. We start by creating a string with the endpoint and then add the parameters one by one using <code>param_set</code> and <code>url_encode</code>:</p>
-<div class="sourceCode" id="cb294"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb294-1"><a href="public-web-apis.html#cb294-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(urltools)</span>
-<span id="cb294-2"><a href="public-web-apis.html#cb294-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb294-3"><a href="public-web-apis.html#cb294-3" aria-hidden="true" tabindex="-1"></a>url <span class="ot">&lt;-</span> <span class="st">&quot;http://api.nytimes.com/svc/search/v2/articlesearch.json&quot;</span></span>
-<span id="cb294-4"><a href="public-web-apis.html#cb294-4" aria-hidden="true" tabindex="-1"></a>url <span class="ot">&lt;-</span> <span class="fu">param_set</span>(url, <span class="st">&quot;q&quot;</span>, <span class="fu">url_encode</span>(<span class="st">&quot;marlon james&quot;</span>))</span>
-<span id="cb294-5"><a href="public-web-apis.html#cb294-5" aria-hidden="true" tabindex="-1"></a>url <span class="ot">&lt;-</span> <span class="fu">param_set</span>(url, <span class="st">&quot;api-key&quot;</span>, <span class="fu">url_encode</span>(times_key))</span>
-<span id="cb294-6"><a href="public-web-apis.html#cb294-6" aria-hidden="true" tabindex="-1"></a>url</span></code></pre></div>
+<div class="sourceCode" id="cb310"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb310-1"><a href="public-web-apis.html#cb310-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(urltools)</span>
+<span id="cb310-2"><a href="public-web-apis.html#cb310-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb310-3"><a href="public-web-apis.html#cb310-3" aria-hidden="true" tabindex="-1"></a>url <span class="ot">&lt;-</span> <span class="st">&quot;http://api.nytimes.com/svc/search/v2/articlesearch.json&quot;</span></span>
+<span id="cb310-4"><a href="public-web-apis.html#cb310-4" aria-hidden="true" tabindex="-1"></a>url <span class="ot">&lt;-</span> <span class="fu">param_set</span>(url, <span class="st">&quot;q&quot;</span>, <span class="fu">url_encode</span>(<span class="st">&quot;marlon james&quot;</span>))</span>
+<span id="cb310-5"><a href="public-web-apis.html#cb310-5" aria-hidden="true" tabindex="-1"></a>url <span class="ot">&lt;-</span> <span class="fu">param_set</span>(url, <span class="st">&quot;api-key&quot;</span>, <span class="fu">url_encode</span>(times_key))</span>
+<span id="cb310-6"><a href="public-web-apis.html#cb310-6" aria-hidden="true" tabindex="-1"></a>url</span></code></pre></div>
 <p>Copy and paste the resulting URL into your browser to see what the NY Times response looks like!</p>
 <div class="exercise">
 <p><span id="exr:unnamed-chunk-368" class="exercise"><strong>Exercise 14.14  </strong></span>You may be wondering why we need to use <code>param_set</code> and <code>url_encode</code> instead of writing the full url by hand. This exercise will illustrate why we need to be careful.</p>
@@ -681,52 +672,26 @@ To understand the structure of JSON, take the NY Times web response in your brow
 <li>Some data is enclosed in curly braces <code>{</code> and <code>}</code>. These data containers are called <em>Objects</em>. An object can be thought of as a single observation in a table. The columns or variables for the observation appear as <strong>keys</strong> on the left (<code>hits</code>, <code>offset</code>, etc.). The <strong>values</strong> appear after the specific key separated by a colon (<code>2350</code>, and <code>0</code>, respectively).
 Thus, we can think of the <code>meta</code> object above as:</li>
 </ul>
-<table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
-<thead>
-<tr>
-<th style="text-align:right;">
-hits
-</th>
-<th style="text-align:right;">
-offset
-</th>
-<th style="text-align:right;">
-time
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:right;">
-128
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-93
-</td>
-</tr>
-</tbody>
-</table>
+<pre><code>## Error in library(kableExtra): there is no package called &#39;kableExtra&#39;</code></pre>
+<pre><code>## Error in kable_styling(., full_width = F): could not find function &quot;kable_styling&quot;</code></pre>
 <p>Let’s repeat the NY Times search for gamergate, but this time we will peform the Web API call by hand instead of using the <code>nytimes</code> wrapper package. We will use the <code>jsonlite</code> package to retrieve the response from the webserver and turn the string response into an <code>R</code> object. The <code>fromJson</code> function sends our request out over and across the web to the NY Times webserver, retrieves it, and turns it from a JSON-formatted string into R data.</p>
-<div class="sourceCode" id="cb297"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb297-1"><a href="public-web-apis.html#cb297-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(jsonlite)</span>
-<span id="cb297-2"><a href="public-web-apis.html#cb297-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb297-3"><a href="public-web-apis.html#cb297-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Rebuild the URL</span></span>
-<span id="cb297-4"><a href="public-web-apis.html#cb297-4" aria-hidden="true" tabindex="-1"></a>url <span class="ot">&lt;-</span> <span class="st">&quot;http://api.nytimes.com/svc/search/v2/articlesearch.json&quot;</span></span>
-<span id="cb297-5"><a href="public-web-apis.html#cb297-5" aria-hidden="true" tabindex="-1"></a>url <span class="ot">&lt;-</span> <span class="fu">param_set</span>(url, <span class="st">&quot;q&quot;</span>, <span class="fu">url_encode</span>(<span class="st">&quot;gamergate&quot;</span>))</span>
-<span id="cb297-6"><a href="public-web-apis.html#cb297-6" aria-hidden="true" tabindex="-1"></a>url <span class="ot">&lt;-</span> <span class="fu">param_set</span>(url, <span class="st">&quot;api-key&quot;</span>, <span class="fu">url_encode</span>(times_key))</span></code></pre></div>
+<div class="sourceCode" id="cb315"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb315-1"><a href="public-web-apis.html#cb315-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(jsonlite)</span>
+<span id="cb315-2"><a href="public-web-apis.html#cb315-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb315-3"><a href="public-web-apis.html#cb315-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Rebuild the URL</span></span>
+<span id="cb315-4"><a href="public-web-apis.html#cb315-4" aria-hidden="true" tabindex="-1"></a>url <span class="ot">&lt;-</span> <span class="st">&quot;http://api.nytimes.com/svc/search/v2/articlesearch.json&quot;</span></span>
+<span id="cb315-5"><a href="public-web-apis.html#cb315-5" aria-hidden="true" tabindex="-1"></a>url <span class="ot">&lt;-</span> <span class="fu">param_set</span>(url, <span class="st">&quot;q&quot;</span>, <span class="fu">url_encode</span>(<span class="st">&quot;gamergate&quot;</span>))</span>
+<span id="cb315-6"><a href="public-web-apis.html#cb315-6" aria-hidden="true" tabindex="-1"></a>url <span class="ot">&lt;-</span> <span class="fu">param_set</span>(url, <span class="st">&quot;api-key&quot;</span>, <span class="fu">url_encode</span>(times_key))</span></code></pre></div>
 <pre><code>## Error in url_encode(times_key): object &#39;times_key&#39; not found</code></pre>
-<div class="sourceCode" id="cb299"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb299-1"><a href="public-web-apis.html#cb299-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Send the request to the webserver over the Internet and</span></span>
-<span id="cb299-2"><a href="public-web-apis.html#cb299-2" aria-hidden="true" tabindex="-1"></a><span class="co"># retrieve the JSON response. Turn the JSON response into an</span></span>
-<span id="cb299-3"><a href="public-web-apis.html#cb299-3" aria-hidden="true" tabindex="-1"></a><span class="co"># R Object.</span></span>
-<span id="cb299-4"><a href="public-web-apis.html#cb299-4" aria-hidden="true" tabindex="-1"></a>response_js <span class="ot">&lt;-</span> <span class="fu">fromJSON</span>(url)</span></code></pre></div>
+<div class="sourceCode" id="cb317"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb317-1"><a href="public-web-apis.html#cb317-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Send the request to the webserver over the Internet and</span></span>
+<span id="cb317-2"><a href="public-web-apis.html#cb317-2" aria-hidden="true" tabindex="-1"></a><span class="co"># retrieve the JSON response. Turn the JSON response into an</span></span>
+<span id="cb317-3"><a href="public-web-apis.html#cb317-3" aria-hidden="true" tabindex="-1"></a><span class="co"># R Object.</span></span>
+<span id="cb317-4"><a href="public-web-apis.html#cb317-4" aria-hidden="true" tabindex="-1"></a>response_js <span class="ot">&lt;-</span> <span class="fu">fromJSON</span>(url)</span></code></pre></div>
 <pre><code>## Error in file(con, &quot;r&quot;): cannot open the connection to &#39;http://api.nytimes.com/svc/search/v2/articlesearch.json?q=gamergate&#39;</code></pre>
 <p>The <code>jsonlite</code> makes the keys and values of an object available as attributes. For example, we can fetch the status:</p>
-<div class="sourceCode" id="cb301"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb301-1"><a href="public-web-apis.html#cb301-1" aria-hidden="true" tabindex="-1"></a>response_js<span class="sc">$</span>status</span></code></pre></div>
+<div class="sourceCode" id="cb319"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb319-1"><a href="public-web-apis.html#cb319-1" aria-hidden="true" tabindex="-1"></a>response_js<span class="sc">$</span>status</span></code></pre></div>
 <pre><code>## Error in eval(expr, envir, enclos): object &#39;response_js&#39; not found</code></pre>
 <p>While some keys in the object are associated with simple values, such as <code>"status"</code>, others are associated with more complex data. For example, the key <code>"response"</code> is associated with an object that has two keys: <code>"docs"</code>, and <code>"meta"</code>. <code>"meta"</code> is another object: <code>{  "hits":128, "offset":0, "time":19 }</code>. We can retrieve these <em>nested</em> attributes by sequentially accessing the object keys from the outside in. For example, the inner <code>"hits"</code> attribute would be accessed as follows:</p>
-<div class="sourceCode" id="cb303"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb303-1"><a href="public-web-apis.html#cb303-1" aria-hidden="true" tabindex="-1"></a>response_js<span class="sc">$</span>response<span class="sc">$</span>meta<span class="sc">$</span>hits</span></code></pre></div>
+<div class="sourceCode" id="cb321"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb321-1"><a href="public-web-apis.html#cb321-1" aria-hidden="true" tabindex="-1"></a>response_js<span class="sc">$</span>response<span class="sc">$</span>meta<span class="sc">$</span>hits</span></code></pre></div>
 <pre><code>## Error in eval(expr, envir, enclos): object &#39;response_js&#39; not found</code></pre>
 <div class="exercise">
 <p><span id="exr:unnamed-chunk-373" class="exercise"><strong>Exercise 14.15  </strong></span>Retrieve the data associated with</p>
@@ -764,13 +729,13 @@ time
   &quot;uri&quot;:&quot;nyt://article/a3e5bf4a-6216-5dba-9983-73bc45a98e69&quot;  
 },</code></pre>
 <p><code>jsonlite</code> makes lists of objects available as a data frame, where the columns are the keys in the object (<code>web_url</code>, <code>snippet</code>, etc.)</p>
-<div class="sourceCode" id="cb306"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb306-1"><a href="public-web-apis.html#cb306-1" aria-hidden="true" tabindex="-1"></a>docs_df <span class="ot">&lt;-</span> response_js<span class="sc">$</span>response<span class="sc">$</span>docs</span></code></pre></div>
+<div class="sourceCode" id="cb324"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb324-1"><a href="public-web-apis.html#cb324-1" aria-hidden="true" tabindex="-1"></a>docs_df <span class="ot">&lt;-</span> response_js<span class="sc">$</span>response<span class="sc">$</span>docs</span></code></pre></div>
 <pre><code>## Error in eval(expr, envir, enclos): object &#39;response_js&#39; not found</code></pre>
-<div class="sourceCode" id="cb308"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb308-1"><a href="public-web-apis.html#cb308-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(docs_df)</span></code></pre></div>
+<div class="sourceCode" id="cb326"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb326-1"><a href="public-web-apis.html#cb326-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(docs_df)</span></code></pre></div>
 <pre><code>## Error in eval(expr, envir, enclos): object &#39;docs_df&#39; not found</code></pre>
-<div class="sourceCode" id="cb310"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb310-1"><a href="public-web-apis.html#cb310-1" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(docs_df)</span></code></pre></div>
+<div class="sourceCode" id="cb328"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb328-1"><a href="public-web-apis.html#cb328-1" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(docs_df)</span></code></pre></div>
 <pre><code>## Error in is.data.frame(x): object &#39;docs_df&#39; not found</code></pre>
-<div class="sourceCode" id="cb312"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb312-1"><a href="public-web-apis.html#cb312-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(docs_df)</span></code></pre></div>
+<div class="sourceCode" id="cb330"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb330-1"><a href="public-web-apis.html#cb330-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(docs_df)</span></code></pre></div>
 <pre><code>## Error in eval(expr, envir, enclos): object &#39;docs_df&#39; not found</code></pre>
 <div class="exercise">
 <p><span id="exr:unnamed-chunk-375" class="exercise"><strong>Exercise 14.16  (Your own article search) </strong></span>Consider the following:</p>
@@ -784,62 +749,62 @@ time
 <div id="a-note-on-nested-data-frames" class="section level3 unnumbered hasAnchor">
 <h3>A Note on Nested Data Frames<a href="public-web-apis.html#a-note-on-nested-data-frames" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Here is some code to generate queries on NY Times articles about the Red Sox. It fetches the first thirty entries in batches of 10.</p>
-<div class="sourceCode" id="cb314"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb314-1"><a href="public-web-apis.html#cb314-1" aria-hidden="true" tabindex="-1"></a>url <span class="ot">&lt;-</span> <span class="st">&quot;http://api.nytimes.com/svc/search/v2/articlesearch.json&quot;</span></span>
-<span id="cb314-2"><a href="public-web-apis.html#cb314-2" aria-hidden="true" tabindex="-1"></a>url <span class="ot">&lt;-</span> <span class="fu">param_set</span>(url, <span class="st">&quot;q&quot;</span>, <span class="fu">url_encode</span>(<span class="st">&quot;Red Sox&quot;</span>))</span>
-<span id="cb314-3"><a href="public-web-apis.html#cb314-3" aria-hidden="true" tabindex="-1"></a>url <span class="ot">&lt;-</span> <span class="fu">param_set</span>(url, <span class="st">&quot;api-key&quot;</span>, <span class="fu">url_encode</span>(times_key))</span></code></pre></div>
+<div class="sourceCode" id="cb332"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb332-1"><a href="public-web-apis.html#cb332-1" aria-hidden="true" tabindex="-1"></a>url <span class="ot">&lt;-</span> <span class="st">&quot;http://api.nytimes.com/svc/search/v2/articlesearch.json&quot;</span></span>
+<span id="cb332-2"><a href="public-web-apis.html#cb332-2" aria-hidden="true" tabindex="-1"></a>url <span class="ot">&lt;-</span> <span class="fu">param_set</span>(url, <span class="st">&quot;q&quot;</span>, <span class="fu">url_encode</span>(<span class="st">&quot;Red Sox&quot;</span>))</span>
+<span id="cb332-3"><a href="public-web-apis.html#cb332-3" aria-hidden="true" tabindex="-1"></a>url <span class="ot">&lt;-</span> <span class="fu">param_set</span>(url, <span class="st">&quot;api-key&quot;</span>, <span class="fu">url_encode</span>(times_key))</span></code></pre></div>
 <pre><code>## Error in url_encode(times_key): object &#39;times_key&#39; not found</code></pre>
-<div class="sourceCode" id="cb316"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb316-1"><a href="public-web-apis.html#cb316-1" aria-hidden="true" tabindex="-1"></a>url <span class="ot">&lt;-</span> <span class="fu">param_set</span>(url, <span class="st">&quot;page&quot;</span>, <span class="dv">0</span>)</span>
-<span id="cb316-2"><a href="public-web-apis.html#cb316-2" aria-hidden="true" tabindex="-1"></a>res1 <span class="ot">&lt;-</span> <span class="fu">fromJSON</span>(url)</span></code></pre></div>
+<div class="sourceCode" id="cb334"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb334-1"><a href="public-web-apis.html#cb334-1" aria-hidden="true" tabindex="-1"></a>url <span class="ot">&lt;-</span> <span class="fu">param_set</span>(url, <span class="st">&quot;page&quot;</span>, <span class="dv">0</span>)</span>
+<span id="cb334-2"><a href="public-web-apis.html#cb334-2" aria-hidden="true" tabindex="-1"></a>res1 <span class="ot">&lt;-</span> <span class="fu">fromJSON</span>(url)</span></code></pre></div>
 <pre><code>## Error in file(con, &quot;r&quot;): cannot open the connection to &#39;http://api.nytimes.com/svc/search/v2/articlesearch.json?q=Red%20Sox&amp;page=0&#39;</code></pre>
-<div class="sourceCode" id="cb318"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb318-1"><a href="public-web-apis.html#cb318-1" aria-hidden="true" tabindex="-1"></a><span class="co"># This pauses for 1 second.</span></span>
-<span id="cb318-2"><a href="public-web-apis.html#cb318-2" aria-hidden="true" tabindex="-1"></a><span class="co"># It is required when knitting to prevent R from issuing too many requests to</span></span>
-<span id="cb318-3"><a href="public-web-apis.html#cb318-3" aria-hidden="true" tabindex="-1"></a><span class="co"># The NY Times API at a time. If you don&#39;t have it you will get an error that</span></span>
-<span id="cb318-4"><a href="public-web-apis.html#cb318-4" aria-hidden="true" tabindex="-1"></a><span class="co"># says &quot;Too Many Requests (429)&quot;</span></span>
-<span id="cb318-5"><a href="public-web-apis.html#cb318-5" aria-hidden="true" tabindex="-1"></a><span class="fu">Sys.sleep</span>(<span class="dv">1</span>)</span>
-<span id="cb318-6"><a href="public-web-apis.html#cb318-6" aria-hidden="true" tabindex="-1"></a>url <span class="ot">&lt;-</span> <span class="fu">param_set</span>(url, <span class="st">&quot;page&quot;</span>, <span class="dv">1</span>)</span>
-<span id="cb318-7"><a href="public-web-apis.html#cb318-7" aria-hidden="true" tabindex="-1"></a>res2 <span class="ot">&lt;-</span> <span class="fu">fromJSON</span>(url)</span></code></pre></div>
+<div class="sourceCode" id="cb336"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb336-1"><a href="public-web-apis.html#cb336-1" aria-hidden="true" tabindex="-1"></a><span class="co"># This pauses for 1 second.</span></span>
+<span id="cb336-2"><a href="public-web-apis.html#cb336-2" aria-hidden="true" tabindex="-1"></a><span class="co"># It is required when knitting to prevent R from issuing too many requests to</span></span>
+<span id="cb336-3"><a href="public-web-apis.html#cb336-3" aria-hidden="true" tabindex="-1"></a><span class="co"># The NY Times API at a time. If you don&#39;t have it you will get an error that</span></span>
+<span id="cb336-4"><a href="public-web-apis.html#cb336-4" aria-hidden="true" tabindex="-1"></a><span class="co"># says &quot;Too Many Requests (429)&quot;</span></span>
+<span id="cb336-5"><a href="public-web-apis.html#cb336-5" aria-hidden="true" tabindex="-1"></a><span class="fu">Sys.sleep</span>(<span class="dv">1</span>)</span>
+<span id="cb336-6"><a href="public-web-apis.html#cb336-6" aria-hidden="true" tabindex="-1"></a>url <span class="ot">&lt;-</span> <span class="fu">param_set</span>(url, <span class="st">&quot;page&quot;</span>, <span class="dv">1</span>)</span>
+<span id="cb336-7"><a href="public-web-apis.html#cb336-7" aria-hidden="true" tabindex="-1"></a>res2 <span class="ot">&lt;-</span> <span class="fu">fromJSON</span>(url)</span></code></pre></div>
 <pre><code>## Error in file(con, &quot;r&quot;): cannot open the connection to &#39;http://api.nytimes.com/svc/search/v2/articlesearch.json?q=Red%20Sox&amp;page=1&#39;</code></pre>
-<div class="sourceCode" id="cb320"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb320-1"><a href="public-web-apis.html#cb320-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Sys.sleep</span>(<span class="dv">1</span>)</span>
-<span id="cb320-2"><a href="public-web-apis.html#cb320-2" aria-hidden="true" tabindex="-1"></a>url <span class="ot">&lt;-</span> <span class="fu">param_set</span>(url, <span class="st">&quot;page&quot;</span>, <span class="dv">2</span>)</span>
-<span id="cb320-3"><a href="public-web-apis.html#cb320-3" aria-hidden="true" tabindex="-1"></a>res3 <span class="ot">&lt;-</span> <span class="fu">fromJSON</span>(url)</span></code></pre></div>
+<div class="sourceCode" id="cb338"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb338-1"><a href="public-web-apis.html#cb338-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Sys.sleep</span>(<span class="dv">1</span>)</span>
+<span id="cb338-2"><a href="public-web-apis.html#cb338-2" aria-hidden="true" tabindex="-1"></a>url <span class="ot">&lt;-</span> <span class="fu">param_set</span>(url, <span class="st">&quot;page&quot;</span>, <span class="dv">2</span>)</span>
+<span id="cb338-3"><a href="public-web-apis.html#cb338-3" aria-hidden="true" tabindex="-1"></a>res3 <span class="ot">&lt;-</span> <span class="fu">fromJSON</span>(url)</span></code></pre></div>
 <pre><code>## Error in file(con, &quot;r&quot;): cannot open the connection to &#39;http://api.nytimes.com/svc/search/v2/articlesearch.json?q=Red%20Sox&amp;page=2&#39;</code></pre>
-<div class="sourceCode" id="cb322"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb322-1"><a href="public-web-apis.html#cb322-1" aria-hidden="true" tabindex="-1"></a>docs1 <span class="ot">&lt;-</span> res1<span class="sc">$</span>response<span class="sc">$</span>docs</span></code></pre></div>
+<div class="sourceCode" id="cb340"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb340-1"><a href="public-web-apis.html#cb340-1" aria-hidden="true" tabindex="-1"></a>docs1 <span class="ot">&lt;-</span> res1<span class="sc">$</span>response<span class="sc">$</span>docs</span></code></pre></div>
 <pre><code>## Error in eval(expr, envir, enclos): object &#39;res1&#39; not found</code></pre>
-<div class="sourceCode" id="cb324"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb324-1"><a href="public-web-apis.html#cb324-1" aria-hidden="true" tabindex="-1"></a>docs2 <span class="ot">&lt;-</span> res2<span class="sc">$</span>response<span class="sc">$</span>docs</span></code></pre></div>
+<div class="sourceCode" id="cb342"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb342-1"><a href="public-web-apis.html#cb342-1" aria-hidden="true" tabindex="-1"></a>docs2 <span class="ot">&lt;-</span> res2<span class="sc">$</span>response<span class="sc">$</span>docs</span></code></pre></div>
 <pre><code>## Error in eval(expr, envir, enclos): object &#39;res2&#39; not found</code></pre>
-<div class="sourceCode" id="cb326"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb326-1"><a href="public-web-apis.html#cb326-1" aria-hidden="true" tabindex="-1"></a>docs3 <span class="ot">&lt;-</span> res3<span class="sc">$</span>response<span class="sc">$</span>docs</span></code></pre></div>
+<div class="sourceCode" id="cb344"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb344-1"><a href="public-web-apis.html#cb344-1" aria-hidden="true" tabindex="-1"></a>docs3 <span class="ot">&lt;-</span> res3<span class="sc">$</span>response<span class="sc">$</span>docs</span></code></pre></div>
 <pre><code>## Error in eval(expr, envir, enclos): object &#39;res3&#39; not found</code></pre>
 <p>Each of these docs variables is a table with ten entries (articles) and the same 18 variables:</p>
-<div class="sourceCode" id="cb328"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb328-1"><a href="public-web-apis.html#cb328-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(docs1)</span></code></pre></div>
+<div class="sourceCode" id="cb346"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb346-1"><a href="public-web-apis.html#cb346-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(docs1)</span></code></pre></div>
 <pre><code>## Error in eval(expr, envir, enclos): object &#39;docs1&#39; not found</code></pre>
 <p>Now we want to stack the tables on top of each other to get a single table with 30 rows and 18 variables. If you try the following command:</p>
 <pre><code>bind_rows(docs1,docs2,docs3)</code></pre>
 <p>then you will get an error saying “Error in bind_rows_(x, .id) : Argument 4 can’t be a list containing data frames.”</p>
 <p>What is happening???</p>
 <p>Let’s check out the first column of the <code>docs1</code> table:</p>
-<div class="sourceCode" id="cb331"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb331-1"><a href="public-web-apis.html#cb331-1" aria-hidden="true" tabindex="-1"></a>docs1<span class="sc">$</span>web_url</span></code></pre></div>
+<div class="sourceCode" id="cb349"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb349-1"><a href="public-web-apis.html#cb349-1" aria-hidden="true" tabindex="-1"></a>docs1<span class="sc">$</span>web_url</span></code></pre></div>
 <pre><code>## Error in eval(expr, envir, enclos): object &#39;docs1&#39; not found</code></pre>
 <p>It lists the web addresses of the first ten sites returned in the search. It is a vector of ten character strings, which is just fine for one column of data in our table.</p>
 <p>Now let’s check out the <code>headline</code> variable:</p>
-<div class="sourceCode" id="cb333"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb333-1"><a href="public-web-apis.html#cb333-1" aria-hidden="true" tabindex="-1"></a>docs1<span class="sc">$</span>headline</span></code></pre></div>
+<div class="sourceCode" id="cb351"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb351-1"><a href="public-web-apis.html#cb351-1" aria-hidden="true" tabindex="-1"></a>docs1<span class="sc">$</span>headline</span></code></pre></div>
 <pre><code>## Error in eval(expr, envir, enclos): object &#39;docs1&#39; not found</code></pre>
 <p>The <code>headline</code> variable is actually a data frame that contains three variables: <code>main</code>, <code>kicker</code>, and <code>print_headline</code>. That is, we have <strong>nested data frames</strong>. This is a common problem when scraping data from JSON files, and it is why we are not able to directly bind the rows of our three tables on top of each other.</p>
 <p>We can check out the type of variable in each column with the <code>class</code> function:</p>
-<div class="sourceCode" id="cb335"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb335-1"><a href="public-web-apis.html#cb335-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(docs1, class)</span></code></pre></div>
+<div class="sourceCode" id="cb353"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb353-1"><a href="public-web-apis.html#cb353-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(docs1, class)</span></code></pre></div>
 <pre><code>## Error in lapply(X = X, FUN = FUN, ...): object &#39;docs1&#39; not found</code></pre>
 <p>We see that <code>blog</code>, <code>headline</code>, and <code>byline</code> are the three problem columns that each contain their own data frames.</p>
 <p>The solution is to <strong>flatten</strong> these variables, which generates a new column in the outer table for each of the columns in the inner tables.</p>
-<div class="sourceCode" id="cb337"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb337-1"><a href="public-web-apis.html#cb337-1" aria-hidden="true" tabindex="-1"></a>docs1_flat <span class="ot">&lt;-</span> jsonlite<span class="sc">::</span><span class="fu">flatten</span>(docs1)</span></code></pre></div>
+<div class="sourceCode" id="cb355"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb355-1"><a href="public-web-apis.html#cb355-1" aria-hidden="true" tabindex="-1"></a>docs1_flat <span class="ot">&lt;-</span> jsonlite<span class="sc">::</span><span class="fu">flatten</span>(docs1)</span></code></pre></div>
 <pre><code>## Error in is.data.frame(x): object &#39;docs1&#39; not found</code></pre>
-<div class="sourceCode" id="cb339"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb339-1"><a href="public-web-apis.html#cb339-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(docs1_flat)</span></code></pre></div>
+<div class="sourceCode" id="cb357"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb357-1"><a href="public-web-apis.html#cb357-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(docs1_flat)</span></code></pre></div>
 <pre><code>## Error in eval(expr, envir, enclos): object &#39;docs1_flat&#39; not found</code></pre>
-<div class="sourceCode" id="cb341"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb341-1"><a href="public-web-apis.html#cb341-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(docs1_flat, class)</span></code></pre></div>
+<div class="sourceCode" id="cb359"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb359-1"><a href="public-web-apis.html#cb359-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(docs1_flat, class)</span></code></pre></div>
 <pre><code>## Error in lapply(X = X, FUN = FUN, ...): object &#39;docs1_flat&#39; not found</code></pre>
 <p>The <code>headline</code> variable is now replaced with seven separate columns for <code>headline.main</code>, <code>headline.kicker</code>, <code>headline.content_kicker</code>, <code>headline.print_headline</code>, <code>headline.name</code>, <code>headline.seo</code>, and <code>headline.sub</code>. The <code>byline</code> variable is replaced with three separae columns. The <code>blog</code> variable contained an empty data frame, so it has been removed. The overall result is a new flat table with 25 columns, and no more nested data frames.</p>
 <p>Once the data is flattened, we can bind rows:</p>
-<div class="sourceCode" id="cb343"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb343-1"><a href="public-web-apis.html#cb343-1" aria-hidden="true" tabindex="-1"></a>all_docs <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(jsonlite<span class="sc">::</span><span class="fu">flatten</span>(docs1), jsonlite<span class="sc">::</span><span class="fu">flatten</span>(docs2), jsonlite<span class="sc">::</span><span class="fu">flatten</span>(docs3))</span></code></pre></div>
+<div class="sourceCode" id="cb361"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb361-1"><a href="public-web-apis.html#cb361-1" aria-hidden="true" tabindex="-1"></a>all_docs <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(jsonlite<span class="sc">::</span><span class="fu">flatten</span>(docs1), jsonlite<span class="sc">::</span><span class="fu">flatten</span>(docs2), jsonlite<span class="sc">::</span><span class="fu">flatten</span>(docs3))</span></code></pre></div>
 <pre><code>## Error in is.data.frame(x): object &#39;docs1&#39; not found</code></pre>
-<div class="sourceCode" id="cb345"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb345-1"><a href="public-web-apis.html#cb345-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(all_docs)</span></code></pre></div>
+<div class="sourceCode" id="cb363"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb363-1"><a href="public-web-apis.html#cb363-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(all_docs)</span></code></pre></div>
 <pre><code>## Error in eval(expr, envir, enclos): object &#39;all_docs&#39; not found</code></pre>
 </div>
 </div>
@@ -933,7 +898,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');

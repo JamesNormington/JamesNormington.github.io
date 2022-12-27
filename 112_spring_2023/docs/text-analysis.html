@@ -5,19 +5,19 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Text Analysis | COMP/STAT 112: Introduction to Data Science</title>
-  <meta name="description" content="This is the class website for Introduction to Data Science at Macalester College for Fall 2022." />
-  <meta name="generator" content="bookdown 0.27 and GitBook 2.6.7" />
+  <meta name="description" content="This is the class website for Introduction to Data Science at Macalester College for Spring 2023." />
+  <meta name="generator" content="bookdown 0.31 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Text Analysis | COMP/STAT 112: Introduction to Data Science" />
   <meta property="og:type" content="book" />
   <meta property="og:image" content="/images/logo.png" />
-  <meta property="og:description" content="This is the class website for Introduction to Data Science at Macalester College for Fall 2022." />
-  <meta name="github-repo" content="bcheggeseth/112_fall_2022/" />
+  <meta property="og:description" content="This is the class website for Introduction to Data Science at Macalester College for Spring 2023." />
+  <meta name="github-repo" content="JamesNormington/112_spring_2023/" />
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Text Analysis | COMP/STAT 112: Introduction to Data Science" />
   
-  <meta name="twitter:description" content="This is the class website for Introduction to Data Science at Macalester College for Fall 2022." />
+  <meta name="twitter:description" content="This is the class website for Introduction to Data Science at Macalester College for Spring 2023." />
   <meta name="twitter:image" content="/images/logo.png" />
 
 
@@ -60,15 +60,6 @@
 <script src="libs/leaflet-binding/leaflet.js"></script>
 <script src="libs/leaflet-providers/leaflet-providers_1.9.0.js"></script>
 <script src="libs/leaflet-providers-plugin/leaflet-providers-plugin.js"></script>
-<script src="libs/kePrint/kePrint.js"></script>
-<link href="libs/lightable/lightable.css" rel="stylesheet" />
-<link href="libs/dygraphs/dygraph.css" rel="stylesheet" />
-<script src="libs/dygraphs/dygraph-combined.js"></script>
-<script src="libs/dygraphs/shapes.js"></script>
-<script src="libs/moment/moment.js"></script>
-<script src="libs/moment-timezone/moment-timezone-with-data.js"></script>
-<script src="libs/moment-fquarter/moment-fquarter.min.js"></script>
-<script src="libs/dygraphs-binding/dygraphs.js"></script>
 <script src="libs/plotly-binding/plotly.js"></script>
 <script src="libs/typedarray/typedarray.min.js"></script>
 <link href="libs/crosstalk/css/crosstalk.min.css" rel="stylesheet" />
@@ -115,7 +106,7 @@ code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
+code span.bu { color: #008000; } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -128,7 +119,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
+code span.im { color: #008000; font-weight: bold; } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -566,13 +557,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><strong>String Literals</strong></p>
 <p>It may be natural to start by declaring an <code>R</code> variable that holds a string. Let’s consider the <a href="https://en.wikipedia.org/wiki/United_States_Declaration_of_Independence">U.S. Declaration of Independence</a>.
 Here’s an <code>R</code> variable that contains one of the most memorable sentences in the Declaration of Independence:</p>
-<div class="sourceCode" id="cb353"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb353-1"><a href="text-analysis.html#cb353-1" aria-hidden="true" tabindex="-1"></a>us_dec_sentence <span class="ot">&lt;-</span> <span class="st">&quot;We hold these truths to be self-evident, that all men are created equal, that they are endowed by their Creator with certain unalienable Rights, that among these are Life, Liberty and the pursuit of Happiness.&quot;</span></span>
-<span id="cb353-2"><a href="text-analysis.html#cb353-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb353-3"><a href="text-analysis.html#cb353-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Show the number of characters in the sentence.</span></span>
-<span id="cb353-4"><a href="text-analysis.html#cb353-4" aria-hidden="true" tabindex="-1"></a><span class="fu">nchar</span>(us_dec_sentence)</span></code></pre></div>
+<div class="sourceCode" id="cb371"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb371-1"><a href="text-analysis.html#cb371-1" aria-hidden="true" tabindex="-1"></a>us_dec_sentence <span class="ot">&lt;-</span> <span class="st">&quot;We hold these truths to be self-evident, that all men are created equal, that they are endowed by their Creator with certain unalienable Rights, that among these are Life, Liberty and the pursuit of Happiness.&quot;</span></span>
+<span id="cb371-2"><a href="text-analysis.html#cb371-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb371-3"><a href="text-analysis.html#cb371-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Show the number of characters in the sentence.</span></span>
+<span id="cb371-4"><a href="text-analysis.html#cb371-4" aria-hidden="true" tabindex="-1"></a><span class="fu">nchar</span>(us_dec_sentence)</span></code></pre></div>
 <pre><code>## [1] 209</code></pre>
-<div class="sourceCode" id="cb355"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb355-1"><a href="text-analysis.html#cb355-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Show the sentence itself.</span></span>
-<span id="cb355-2"><a href="text-analysis.html#cb355-2" aria-hidden="true" tabindex="-1"></a>us_dec_sentence</span></code></pre></div>
+<div class="sourceCode" id="cb373"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb373-1"><a href="text-analysis.html#cb373-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Show the sentence itself.</span></span>
+<span id="cb373-2"><a href="text-analysis.html#cb373-2" aria-hidden="true" tabindex="-1"></a>us_dec_sentence</span></code></pre></div>
 <pre><code>## [1] &quot;We hold these truths to be self-evident, that all men are created equal, that they are endowed by their Creator with certain unalienable Rights, that among these are Life, Liberty and the pursuit of Happiness.&quot;</code></pre>
 <p>Unfortunately, creating literal string variables like this can become unwieldy for larger texts, or collections of multiple texts.</p>
 <p>Using this technique, your <code>R</code> program would be narrowly written to analyze <a href="https://en.wikipedia.org/wiki/Hard_coding"><em>hard-coded</em></a> string variables, and defining those string variables may take up the vast majority of our program’s source code, making it difficult to read.</p>
@@ -584,11 +575,11 @@ Go to <a href="http://google.com" class="uri">http://google.com</a> and type <co
 <p>In the results you should see many <code>.txt</code> files containing the U.S. Declaration of Independence.</p>
 <p>For example, <a href="https://infamous.net/documents/declaration-of-independence.txt" class="uri">https://infamous.net/documents/declaration-of-independence.txt</a>. We can read this <code>.txt</code> file into <code>R</code> as a string using the <code>readr</code> package.<a href="#fn29" class="footnote-ref" id="fnref29"><sup>29</sup></a></p>
 <p>Because the text is so large, we use the <code>strtrim</code> function to only show the first 500 characters of the text.</p>
-<div class="sourceCode" id="cb357"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb357-1"><a href="text-analysis.html#cb357-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
-<span id="cb357-2"><a href="text-analysis.html#cb357-2" aria-hidden="true" tabindex="-1"></a>us_dec <span class="ot">&lt;-</span> <span class="fu">read_file</span>(<span class="st">&quot;https://infamous.net/documents/declaration-of-independence.txt&quot;</span>)</span>
-<span id="cb357-3"><a href="text-analysis.html#cb357-3" aria-hidden="true" tabindex="-1"></a><span class="fu">nchar</span>(us_dec)</span></code></pre></div>
+<div class="sourceCode" id="cb375"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb375-1"><a href="text-analysis.html#cb375-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb375-2"><a href="text-analysis.html#cb375-2" aria-hidden="true" tabindex="-1"></a>us_dec <span class="ot">&lt;-</span> <span class="fu">read_file</span>(<span class="st">&quot;https://infamous.net/documents/declaration-of-independence.txt&quot;</span>)</span>
+<span id="cb375-3"><a href="text-analysis.html#cb375-3" aria-hidden="true" tabindex="-1"></a><span class="fu">nchar</span>(us_dec)</span></code></pre></div>
 <pre><code>## [1] 9841</code></pre>
-<div class="sourceCode" id="cb359"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb359-1"><a href="text-analysis.html#cb359-1" aria-hidden="true" tabindex="-1"></a><span class="fu">strtrim</span>(us_dec, <span class="dv">500</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb377"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb377-1"><a href="text-analysis.html#cb377-1" aria-hidden="true" tabindex="-1"></a><span class="fu">strtrim</span>(us_dec, <span class="dv">500</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;\n\nTHE DECLARATION OF INDEPENDENCE:\n\n\nIn Congress, July 4, 1776,\nTHE UNANIMOUS DECLARATION OF THE THIRTEEN UNITED STATES OF AMERICA\n\nWhen in the Course of human events, it becomes necessary for one \npeople to dissolve the political bands which have connected them \nwith another, and to assume among the Powers of the earth, the \nseparate and equal station to which the Laws of Nature and of \nNature&#39;s God entitle them, a decent respect to the opinions of \nmankind requires that they should declare the causes which&quot;</code></pre>
 <p>Notice all those <code>\n</code> sequences that appear in the string.</p>
 <p>These are <em>newline</em> characters that denote the end of a line.</p>
@@ -598,58 +589,52 @@ Go to <a href="http://google.com" class="uri">http://google.com</a> and type <co
 <h4>Using Web APIs<a href="text-analysis.html#using-web-apis" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>When we want to analyze textual data created on websites or mobile apps such as Facebook and Twitter, we can use web APIs to gather the text. Here is one example from the largest single collection of written knowledge in human history: Wikipedia!</p>
 <p>The function below retrieves the text content of a Wikipedia article with a particular title. It uses Wikipedia’s <em>Public API</em> to do so, which enables any computer program to interact with Wikipedia. Wikipedia’s API is convenient for us because it is vast, open, and free. Don’t worry if you don’t follow the details of the code below.</p>
-<div class="sourceCode" id="cb361"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb361-1"><a href="text-analysis.html#cb361-1" aria-hidden="true" tabindex="-1"></a>GetArticleText <span class="ot">&lt;-</span> <span class="cf">function</span>(langCode, titles) {</span>
-<span id="cb361-2"><a href="text-analysis.html#cb361-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Returns the text of the specified article in the specified language</span></span>
-<span id="cb361-3"><a href="text-analysis.html#cb361-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb361-4"><a href="text-analysis.html#cb361-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># An accumulator variable that will hold the text of each article</span></span>
-<span id="cb361-5"><a href="text-analysis.html#cb361-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb361-6"><a href="text-analysis.html#cb361-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Create</span></span>
-<span id="cb361-7"><a href="text-analysis.html#cb361-7" aria-hidden="true" tabindex="-1"></a>  texts <span class="ot">&lt;-</span> <span class="fu">sapply</span>(titles, <span class="cf">function</span>(t) {</span>
-<span id="cb361-8"><a href="text-analysis.html#cb361-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(t)</span>
-<span id="cb361-9"><a href="text-analysis.html#cb361-9" aria-hidden="true" tabindex="-1"></a>    article_info <span class="ot">&lt;-</span> <span class="fu">getForm</span>(</span>
-<span id="cb361-10"><a href="text-analysis.html#cb361-10" aria-hidden="true" tabindex="-1"></a>      <span class="fu">paste</span>(<span class="st">&quot;https://&quot;</span>, langCode, <span class="st">&quot;.wikipedia.org/w/api.php&quot;</span>, <span class="at">sep =</span> <span class="st">&quot;&quot;</span>),</span>
-<span id="cb361-11"><a href="text-analysis.html#cb361-11" aria-hidden="true" tabindex="-1"></a>      <span class="at">action  =</span> <span class="st">&quot;query&quot;</span>,</span>
-<span id="cb361-12"><a href="text-analysis.html#cb361-12" aria-hidden="true" tabindex="-1"></a>      <span class="at">prop =</span> <span class="st">&quot;extracts&quot;</span>,</span>
-<span id="cb361-13"><a href="text-analysis.html#cb361-13" aria-hidden="true" tabindex="-1"></a>      <span class="at">format  =</span> <span class="st">&quot;json&quot;</span>,</span>
-<span id="cb361-14"><a href="text-analysis.html#cb361-14" aria-hidden="true" tabindex="-1"></a>      <span class="at">explaintext =</span> <span class="st">&quot;&quot;</span>,</span>
-<span id="cb361-15"><a href="text-analysis.html#cb361-15" aria-hidden="true" tabindex="-1"></a>      <span class="at">titles  =</span> t</span>
-<span id="cb361-16"><a href="text-analysis.html#cb361-16" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb361-17"><a href="text-analysis.html#cb361-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb361-18"><a href="text-analysis.html#cb361-18" aria-hidden="true" tabindex="-1"></a>    js <span class="ot">&lt;-</span> <span class="fu">fromJSON</span>(article_info)</span>
-<span id="cb361-19"><a href="text-analysis.html#cb361-19" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(js<span class="sc">$</span>query<span class="sc">$</span>pages[[<span class="dv">1</span>]]<span class="sc">$</span>extract)</span>
-<span id="cb361-20"><a href="text-analysis.html#cb361-20" aria-hidden="true" tabindex="-1"></a>  })</span>
-<span id="cb361-21"><a href="text-analysis.html#cb361-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(texts)</span>
-<span id="cb361-22"><a href="text-analysis.html#cb361-22" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb361-23"><a href="text-analysis.html#cb361-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb361-24"><a href="text-analysis.html#cb361-24" aria-hidden="true" tabindex="-1"></a><span class="co"># Get the text for https://en.wikipedia.org/wiki/Macalester_College,</span></span>
-<span id="cb361-25"><a href="text-analysis.html#cb361-25" aria-hidden="true" tabindex="-1"></a><span class="co"># https://en.wikipedia.org/wiki/Carleton_College, and https://en.wikipedia.org/wiki/University_of_Minnesota in English (&quot;en&quot;).</span></span>
-<span id="cb361-26"><a href="text-analysis.html#cb361-26" aria-hidden="true" tabindex="-1"></a><span class="co"># We could also get the text for the Spanish article (&quot;es&quot;), or German article (&quot;de&quot;)</span></span>
-<span id="cb361-27"><a href="text-analysis.html#cb361-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb361-28"><a href="text-analysis.html#cb361-28" aria-hidden="true" tabindex="-1"></a>school_wiki_titles <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Macalester College&quot;</span>, <span class="st">&quot;Carleton College&quot;</span>, <span class="st">&quot;University of Minnesota&quot;</span>)</span>
-<span id="cb361-29"><a href="text-analysis.html#cb361-29" aria-hidden="true" tabindex="-1"></a>school_wiki_text <span class="ot">&lt;-</span> <span class="fu">GetArticleText</span>(<span class="st">&quot;en&quot;</span>, school_wiki_titles)</span></code></pre></div>
-<pre><code>## [1] &quot;Macalester College&quot;
-## [1] &quot;Carleton College&quot;
-## [1] &quot;University of Minnesota&quot;</code></pre>
-<div class="sourceCode" id="cb363"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb363-1"><a href="text-analysis.html#cb363-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Print out the first 500 characters of the text</span></span>
-<span id="cb363-2"><a href="text-analysis.html#cb363-2" aria-hidden="true" tabindex="-1"></a><span class="fu">strtrim</span>(school_wiki_text, <span class="dv">500</span>)</span></code></pre></div>
-<pre><code>##                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             Macalester College 
-## &quot;Macalester College () is a private liberal arts college in Saint Paul, Minnesota. Founded in 1874, Macalester is exclusively an undergraduate four-year institution and enrolled 2,174 students in the fall of 2018 from 50 U.S. states, four U.S territories, the District of Columbia and 97 countries. The college has Scottish roots and emphasizes internationalism and multiculturalism.\n\n\n== History ==\nMacalester College was founded by Rev. Dr. Edward Duffield Neill in 1874 with help from the Presbyterian &quot; 
-##                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               Carleton College 
-##         &quot;Carleton College ( KARL-tin) is a private liberal arts college in Northfield, Minnesota. Founded in 1866, it had 2,105 undergraduate students and 269 faculty members in fall 2016. The 200-acre main campus is between Northfield and the 800-acre Cowling Arboretum, which became part of the campus in the 1920s.Admissions is highly selective with an acceptance rate of 16.5% in 2022, and Carleton is annually ranked near the top in most rankings of liberal arts schools. Carleton is particularly renowne&quot; 
-##                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        University of Minnesota 
-##         &quot;The University of Minnesota, formally the University of Minnesota, Twin Cities, (UMN, the U of M, or Minnesota) is a public land-grant research university in the Twin Cities of Minneapolis and Saint Paul, Minnesota, United States. The Twin Cities campus comprises locations in Minneapolis and Falcon Heights, a suburb of St. Paul, approximately 3 miles (4.8 km) apart. The Twin Cities campus is the oldest and largest in the University of Minnesota system and has the ninth-largest main campus studen&quot;</code></pre>
+<div class="sourceCode" id="cb379"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb379-1"><a href="text-analysis.html#cb379-1" aria-hidden="true" tabindex="-1"></a>GetArticleText <span class="ot">&lt;-</span> <span class="cf">function</span>(langCode, titles) {</span>
+<span id="cb379-2"><a href="text-analysis.html#cb379-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Returns the text of the specified article in the specified language</span></span>
+<span id="cb379-3"><a href="text-analysis.html#cb379-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb379-4"><a href="text-analysis.html#cb379-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># An accumulator variable that will hold the text of each article</span></span>
+<span id="cb379-5"><a href="text-analysis.html#cb379-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb379-6"><a href="text-analysis.html#cb379-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Create</span></span>
+<span id="cb379-7"><a href="text-analysis.html#cb379-7" aria-hidden="true" tabindex="-1"></a>  texts <span class="ot">&lt;-</span> <span class="fu">sapply</span>(titles, <span class="cf">function</span>(t) {</span>
+<span id="cb379-8"><a href="text-analysis.html#cb379-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(t)</span>
+<span id="cb379-9"><a href="text-analysis.html#cb379-9" aria-hidden="true" tabindex="-1"></a>    article_info <span class="ot">&lt;-</span> <span class="fu">getForm</span>(</span>
+<span id="cb379-10"><a href="text-analysis.html#cb379-10" aria-hidden="true" tabindex="-1"></a>      <span class="fu">paste</span>(<span class="st">&quot;https://&quot;</span>, langCode, <span class="st">&quot;.wikipedia.org/w/api.php&quot;</span>, <span class="at">sep =</span> <span class="st">&quot;&quot;</span>),</span>
+<span id="cb379-11"><a href="text-analysis.html#cb379-11" aria-hidden="true" tabindex="-1"></a>      <span class="at">action  =</span> <span class="st">&quot;query&quot;</span>,</span>
+<span id="cb379-12"><a href="text-analysis.html#cb379-12" aria-hidden="true" tabindex="-1"></a>      <span class="at">prop =</span> <span class="st">&quot;extracts&quot;</span>,</span>
+<span id="cb379-13"><a href="text-analysis.html#cb379-13" aria-hidden="true" tabindex="-1"></a>      <span class="at">format  =</span> <span class="st">&quot;json&quot;</span>,</span>
+<span id="cb379-14"><a href="text-analysis.html#cb379-14" aria-hidden="true" tabindex="-1"></a>      <span class="at">explaintext =</span> <span class="st">&quot;&quot;</span>,</span>
+<span id="cb379-15"><a href="text-analysis.html#cb379-15" aria-hidden="true" tabindex="-1"></a>      <span class="at">titles  =</span> t</span>
+<span id="cb379-16"><a href="text-analysis.html#cb379-16" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb379-17"><a href="text-analysis.html#cb379-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb379-18"><a href="text-analysis.html#cb379-18" aria-hidden="true" tabindex="-1"></a>    js <span class="ot">&lt;-</span> <span class="fu">fromJSON</span>(article_info)</span>
+<span id="cb379-19"><a href="text-analysis.html#cb379-19" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(js<span class="sc">$</span>query<span class="sc">$</span>pages[[<span class="dv">1</span>]]<span class="sc">$</span>extract)</span>
+<span id="cb379-20"><a href="text-analysis.html#cb379-20" aria-hidden="true" tabindex="-1"></a>  })</span>
+<span id="cb379-21"><a href="text-analysis.html#cb379-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(texts)</span>
+<span id="cb379-22"><a href="text-analysis.html#cb379-22" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb379-23"><a href="text-analysis.html#cb379-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb379-24"><a href="text-analysis.html#cb379-24" aria-hidden="true" tabindex="-1"></a><span class="co"># Get the text for https://en.wikipedia.org/wiki/Macalester_College,</span></span>
+<span id="cb379-25"><a href="text-analysis.html#cb379-25" aria-hidden="true" tabindex="-1"></a><span class="co"># https://en.wikipedia.org/wiki/Carleton_College, and https://en.wikipedia.org/wiki/University_of_Minnesota in English (&quot;en&quot;).</span></span>
+<span id="cb379-26"><a href="text-analysis.html#cb379-26" aria-hidden="true" tabindex="-1"></a><span class="co"># We could also get the text for the Spanish article (&quot;es&quot;), or German article (&quot;de&quot;)</span></span>
+<span id="cb379-27"><a href="text-analysis.html#cb379-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb379-28"><a href="text-analysis.html#cb379-28" aria-hidden="true" tabindex="-1"></a>school_wiki_titles <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Macalester College&quot;</span>, <span class="st">&quot;Carleton College&quot;</span>, <span class="st">&quot;University of Minnesota&quot;</span>)</span>
+<span id="cb379-29"><a href="text-analysis.html#cb379-29" aria-hidden="true" tabindex="-1"></a>school_wiki_text <span class="ot">&lt;-</span> <span class="fu">GetArticleText</span>(<span class="st">&quot;en&quot;</span>, school_wiki_titles)</span></code></pre></div>
+<pre><code>## [1] &quot;Macalester College&quot;</code></pre>
+<pre><code>## Error in function (type, msg, asError = TRUE) : schannel: CertGetCertificateChain trust error CERT_TRUST_IS_NOT_TIME_VALID</code></pre>
+<div class="sourceCode" id="cb382"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb382-1"><a href="text-analysis.html#cb382-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Print out the first 500 characters of the text</span></span>
+<span id="cb382-2"><a href="text-analysis.html#cb382-2" aria-hidden="true" tabindex="-1"></a><span class="fu">strtrim</span>(school_wiki_text, <span class="dv">500</span>)</span></code></pre></div>
+<pre><code>## Error in strtrim(school_wiki_text, 500): object &#39;school_wiki_text&#39; not found</code></pre>
 <p>We’ll analyze these documents further below.</p>
 </div>
 </div>
 <div id="analyzing-single-documents" class="section level3 unnumbered hasAnchor">
 <h3>Analyzing Single Documents<a href="text-analysis.html#analyzing-single-documents" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>If we tried to make a data frame directly out of the text, it would look odd. It contains the text as a single row in a column named “text.” This doesn’t seem any more useful than the original string itself.</p>
-<div class="sourceCode" id="cb365"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb365-1"><a href="text-analysis.html#cb365-1" aria-hidden="true" tabindex="-1"></a>us_dec_df <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">title =</span> <span class="st">&quot;Declaration of Independence&quot;</span>, <span class="at">text =</span> us_dec)</span>
-<span id="cb365-2"><a href="text-analysis.html#cb365-2" aria-hidden="true" tabindex="-1"></a>us_dec_df</span></code></pre></div>
+<div class="sourceCode" id="cb384"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb384-1"><a href="text-analysis.html#cb384-1" aria-hidden="true" tabindex="-1"></a>us_dec_df <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">title =</span> <span class="st">&quot;Declaration of Independence&quot;</span>, <span class="at">text =</span> us_dec)</span>
+<span id="cb384-2"><a href="text-analysis.html#cb384-2" aria-hidden="true" tabindex="-1"></a>us_dec_df</span></code></pre></div>
 <pre><code>## # A tibble: 1 × 2
-##   title                       text                                                           
-##   &lt;chr&gt;                       &lt;chr&gt;                                                          
-## 1 Declaration of Independence &quot;\n\nTHE DECLARATION OF INDEPENDENCE:\n\n\nIn Congress, July 4…</code></pre>
+##   title                       text                                              
+##   &lt;chr&gt;                       &lt;chr&gt;                                             
+## 1 Declaration of Independence &quot;\n\nTHE DECLARATION OF INDEPENDENCE:\n\n\nIn Con…</code></pre>
 <div id="unnesting-tokens" class="section level4 unnumbered hasAnchor">
 <h4>Unnesting Tokens<a href="text-analysis.html#unnesting-tokens" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>We need to restructure the text into components that can be easily analyzed.</p>
@@ -662,10 +647,10 @@ Go to <a href="http://google.com" class="uri">http://google.com</a> and type <co
 <p>Later on, we will also give an example of how to perform textual analyses comparing two or more documents.</p>
 <p>We will be using the tidy text format, which has one row for each unit of analysis. Our work will focus on word-level analysis within each document, so each row will contain a document and word.</p>
 <p>TidyText’s <code>unnest_tokens</code> function takes a data frame containing one row per document and breaks it into a data frame containing one row per token.</p>
-<div class="sourceCode" id="cb367"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb367-1"><a href="text-analysis.html#cb367-1" aria-hidden="true" tabindex="-1"></a>tidy_us_dec <span class="ot">&lt;-</span> us_dec_df <span class="sc">%&gt;%</span></span>
-<span id="cb367-2"><a href="text-analysis.html#cb367-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unnest_tokens</span>(word, text)</span>
-<span id="cb367-3"><a href="text-analysis.html#cb367-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb367-4"><a href="text-analysis.html#cb367-4" aria-hidden="true" tabindex="-1"></a>tidy_us_dec</span></code></pre></div>
+<div class="sourceCode" id="cb386"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb386-1"><a href="text-analysis.html#cb386-1" aria-hidden="true" tabindex="-1"></a>tidy_us_dec <span class="ot">&lt;-</span> us_dec_df <span class="sc">%&gt;%</span></span>
+<span id="cb386-2"><a href="text-analysis.html#cb386-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unnest_tokens</span>(word, text)</span>
+<span id="cb386-3"><a href="text-analysis.html#cb386-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb386-4"><a href="text-analysis.html#cb386-4" aria-hidden="true" tabindex="-1"></a>tidy_us_dec</span></code></pre></div>
 <pre><code>## # A tibble: 1,539 × 2
 ##    title                       word        
 ##    &lt;chr&gt;                       &lt;chr&gt;       
@@ -683,13 +668,13 @@ Go to <a href="http://google.com" class="uri">http://google.com</a> and type <co
 <p>Note that because we only have one document, the initial data frame (<code>us_dec_df</code>) is just one row and the tidy text data frame (<code>tidy_us_dec</code>) has the same <code>title</code> for each row.</p>
 <p>Later on we will analyze more than one document and these columns can change.</p>
 <p>We can now analyze this tidy text data frame. For example, we can determine the total number of words.</p>
-<div class="sourceCode" id="cb369"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb369-1"><a href="text-analysis.html#cb369-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(tidy_us_dec)</span></code></pre></div>
+<div class="sourceCode" id="cb388"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb388-1"><a href="text-analysis.html#cb388-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(tidy_us_dec)</span></code></pre></div>
 <pre><code>## [1] 1539</code></pre>
 <p>We can also find the most frequently used words by using dplyr’s <code>count</code> function, which creates a frequency table for (in our case) words:</p>
-<div class="sourceCode" id="cb371"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb371-1"><a href="text-analysis.html#cb371-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create and display frequency count table</span></span>
-<span id="cb371-2"><a href="text-analysis.html#cb371-2" aria-hidden="true" tabindex="-1"></a>all_us_dec_counts <span class="ot">&lt;-</span> tidy_us_dec <span class="sc">%&gt;%</span></span>
-<span id="cb371-3"><a href="text-analysis.html#cb371-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(word, <span class="at">sort =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb371-4"><a href="text-analysis.html#cb371-4" aria-hidden="true" tabindex="-1"></a>all_us_dec_counts</span></code></pre></div>
+<div class="sourceCode" id="cb390"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb390-1"><a href="text-analysis.html#cb390-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create and display frequency count table</span></span>
+<span id="cb390-2"><a href="text-analysis.html#cb390-2" aria-hidden="true" tabindex="-1"></a>all_us_dec_counts <span class="ot">&lt;-</span> tidy_us_dec <span class="sc">%&gt;%</span></span>
+<span id="cb390-3"><a href="text-analysis.html#cb390-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(word, <span class="at">sort =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb390-4"><a href="text-analysis.html#cb390-4" aria-hidden="true" tabindex="-1"></a>all_us_dec_counts</span></code></pre></div>
 <pre><code>## # A tibble: 674 × 2
 ##    word      n
 ##    &lt;chr&gt; &lt;int&gt;
@@ -705,7 +690,7 @@ Go to <a href="http://google.com" class="uri">http://google.com</a> and type <co
 ## 10 he       19
 ## # … with 664 more rows</code></pre>
 <p>We can count the rows in this data frame to determine how many different unique words appear in the document.</p>
-<div class="sourceCode" id="cb373"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb373-1"><a href="text-analysis.html#cb373-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(all_us_dec_counts)</span></code></pre></div>
+<div class="sourceCode" id="cb392"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb392-1"><a href="text-analysis.html#cb392-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(all_us_dec_counts)</span></code></pre></div>
 <pre><code>## [1] 674</code></pre>
 </div>
 <div id="stop-words" class="section level4 unnumbered hasAnchor">
@@ -714,9 +699,9 @@ Go to <a href="http://google.com" class="uri">http://google.com</a> and type <co
 These common words are called <strong>stop words</strong>, and they are typically removed from textual analysis.</p>
 <p>TidyText provides a built in set of 1,149 different stop words.
 We can load the dataset and use <code>anti_join</code> to remove rows associated with words in the dataset.</p>
-<div class="sourceCode" id="cb375"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb375-1"><a href="text-analysis.html#cb375-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load stop words dataset and display it</span></span>
-<span id="cb375-2"><a href="text-analysis.html#cb375-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(stop_words)</span>
-<span id="cb375-3"><a href="text-analysis.html#cb375-3" aria-hidden="true" tabindex="-1"></a>stop_words</span></code></pre></div>
+<div class="sourceCode" id="cb394"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb394-1"><a href="text-analysis.html#cb394-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load stop words dataset and display it</span></span>
+<span id="cb394-2"><a href="text-analysis.html#cb394-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(stop_words)</span>
+<span id="cb394-3"><a href="text-analysis.html#cb394-3" aria-hidden="true" tabindex="-1"></a>stop_words</span></code></pre></div>
 <pre><code>## # A tibble: 1,149 × 2
 ##    word        lexicon
 ##    &lt;chr&gt;       &lt;chr&gt;  
@@ -731,11 +716,11 @@ We can load the dataset and use <code>anti_join</code> to remove rows associated
 ##  9 actually    SMART  
 ## 10 after       SMART  
 ## # … with 1,139 more rows</code></pre>
-<div class="sourceCode" id="cb377"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb377-1"><a href="text-analysis.html#cb377-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create and display frequency count table after removing stop words from the dataset</span></span>
-<span id="cb377-2"><a href="text-analysis.html#cb377-2" aria-hidden="true" tabindex="-1"></a>us_dec_counts <span class="ot">&lt;-</span> tidy_us_dec <span class="sc">%&gt;%</span></span>
-<span id="cb377-3"><a href="text-analysis.html#cb377-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">anti_join</span>(stop_words) <span class="sc">%&gt;%</span></span>
-<span id="cb377-4"><a href="text-analysis.html#cb377-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(word, <span class="at">sort =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb377-5"><a href="text-analysis.html#cb377-5" aria-hidden="true" tabindex="-1"></a>us_dec_counts</span></code></pre></div>
+<div class="sourceCode" id="cb396"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb396-1"><a href="text-analysis.html#cb396-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create and display frequency count table after removing stop words from the dataset</span></span>
+<span id="cb396-2"><a href="text-analysis.html#cb396-2" aria-hidden="true" tabindex="-1"></a>us_dec_counts <span class="ot">&lt;-</span> tidy_us_dec <span class="sc">%&gt;%</span></span>
+<span id="cb396-3"><a href="text-analysis.html#cb396-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">anti_join</span>(stop_words) <span class="sc">%&gt;%</span></span>
+<span id="cb396-4"><a href="text-analysis.html#cb396-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(word, <span class="at">sort =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb396-5"><a href="text-analysis.html#cb396-5" aria-hidden="true" tabindex="-1"></a>us_dec_counts</span></code></pre></div>
 <pre><code>## # A tibble: 525 × 2
 ##    word           n
 ##    &lt;chr&gt;      &lt;int&gt;
@@ -752,120 +737,70 @@ We can load the dataset and use <code>anti_join</code> to remove rows associated
 ## # … with 515 more rows</code></pre>
 <p><strong>Word Clouds</strong></p>
 <p>A <a href="https://georeferenced.wordpress.com/2013/01/15/rwordcloud/">word cloud</a> is a visualization of the most frequent words in the dataset:</p>
-<div class="sourceCode" id="cb379"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb379-1"><a href="text-analysis.html#cb379-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(wordcloud)</span>
-<span id="cb379-2"><a href="text-analysis.html#cb379-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb379-3"><a href="text-analysis.html#cb379-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Show a word cloud with some customized options</span></span>
-<span id="cb379-4"><a href="text-analysis.html#cb379-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb379-5"><a href="text-analysis.html#cb379-5" aria-hidden="true" tabindex="-1"></a><span class="fu">wordcloud</span>(us_dec_counts<span class="sc">$</span>word, <span class="co"># column of words</span></span>
-<span id="cb379-6"><a href="text-analysis.html#cb379-6" aria-hidden="true" tabindex="-1"></a>  us_dec_counts<span class="sc">$</span>n, <span class="co"># column of frequencies</span></span>
-<span id="cb379-7"><a href="text-analysis.html#cb379-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">scale =</span> <span class="fu">c</span>(<span class="dv">5</span>, <span class="fl">0.2</span>), <span class="co"># range of font sizes of words</span></span>
-<span id="cb379-8"><a href="text-analysis.html#cb379-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">min.freq =</span> <span class="dv">2</span>, <span class="co"># minimum word frequency to show</span></span>
-<span id="cb379-9"><a href="text-analysis.html#cb379-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">max.words =</span> <span class="dv">200</span>, <span class="co"># show the 200 most frequent words</span></span>
-<span id="cb379-10"><a href="text-analysis.html#cb379-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">random.order =</span> <span class="cn">FALSE</span>, <span class="co"># position the most popular words first</span></span>
-<span id="cb379-11"><a href="text-analysis.html#cb379-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">colors =</span> <span class="fu">brewer.pal</span>(<span class="dv">8</span>, <span class="st">&quot;Dark2&quot;</span>) <span class="co"># color palette</span></span>
-<span id="cb379-12"><a href="text-analysis.html#cb379-12" aria-hidden="true" tabindex="-1"></a>) </span></code></pre></div>
+<div class="sourceCode" id="cb398"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb398-1"><a href="text-analysis.html#cb398-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(wordcloud)</span>
+<span id="cb398-2"><a href="text-analysis.html#cb398-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb398-3"><a href="text-analysis.html#cb398-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Show a word cloud with some customized options</span></span>
+<span id="cb398-4"><a href="text-analysis.html#cb398-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb398-5"><a href="text-analysis.html#cb398-5" aria-hidden="true" tabindex="-1"></a><span class="fu">wordcloud</span>(us_dec_counts<span class="sc">$</span>word, <span class="co"># column of words</span></span>
+<span id="cb398-6"><a href="text-analysis.html#cb398-6" aria-hidden="true" tabindex="-1"></a>  us_dec_counts<span class="sc">$</span>n, <span class="co"># column of frequencies</span></span>
+<span id="cb398-7"><a href="text-analysis.html#cb398-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">scale =</span> <span class="fu">c</span>(<span class="dv">5</span>, <span class="fl">0.2</span>), <span class="co"># range of font sizes of words</span></span>
+<span id="cb398-8"><a href="text-analysis.html#cb398-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">min.freq =</span> <span class="dv">2</span>, <span class="co"># minimum word frequency to show</span></span>
+<span id="cb398-9"><a href="text-analysis.html#cb398-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">max.words =</span> <span class="dv">200</span>, <span class="co"># show the 200 most frequent words</span></span>
+<span id="cb398-10"><a href="text-analysis.html#cb398-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">random.order =</span> <span class="cn">FALSE</span>, <span class="co"># position the most popular words first</span></span>
+<span id="cb398-11"><a href="text-analysis.html#cb398-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">colors =</span> <span class="fu">brewer.pal</span>(<span class="dv">8</span>, <span class="st">&quot;Dark2&quot;</span>) <span class="co"># color palette</span></span>
+<span id="cb398-12"><a href="text-analysis.html#cb398-12" aria-hidden="true" tabindex="-1"></a>) </span></code></pre></div>
 <p><img src="stat112_manual_files/figure-html/unnamed-chunk-414-1.png" width="576" /></p>
 </div>
 </div>
 <div id="comparing-the-text-in-two-or-more-documents" class="section level3 unnumbered hasAnchor">
 <h3>Comparing the text in two (or more) documents<a href="text-analysis.html#comparing-the-text-in-two-or-more-documents" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Let’s now create a TidyText data frame with the three Wikipedia documents we collected above via the API. Remember that the TidyText data frame has one row for each word.</p>
-<div class="sourceCode" id="cb380"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb380-1"><a href="text-analysis.html#cb380-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create the three-row original data frame</span></span>
-<span id="cb380-2"><a href="text-analysis.html#cb380-2" aria-hidden="true" tabindex="-1"></a>text_df <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">article =</span> school_wiki_titles, <span class="at">text =</span> school_wiki_text)</span>
-<span id="cb380-3"><a href="text-analysis.html#cb380-3" aria-hidden="true" tabindex="-1"></a>text_df</span></code></pre></div>
-<pre><code>## # A tibble: 3 × 2
-##   article                 text                                                               
-##   &lt;chr&gt;                   &lt;chr&gt;                                                              
-## 1 Macalester College      &quot;Macalester College () is a private liberal arts college in Saint …
-## 2 Carleton College        &quot;Carleton College ( KARL-tin) is a private liberal arts college in…
-## 3 University of Minnesota &quot;The University of Minnesota, formally the University of Minnesota…</code></pre>
-<div class="sourceCode" id="cb382"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb382-1"><a href="text-analysis.html#cb382-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Unnest the data frame so each row corresponds to a single word in a single document.</span></span>
-<span id="cb382-2"><a href="text-analysis.html#cb382-2" aria-hidden="true" tabindex="-1"></a>tidy_df <span class="ot">&lt;-</span> text_df <span class="sc">%&gt;%</span></span>
-<span id="cb382-3"><a href="text-analysis.html#cb382-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unnest_tokens</span>(word, text)</span>
-<span id="cb382-4"><a href="text-analysis.html#cb382-4" aria-hidden="true" tabindex="-1"></a>tidy_df</span></code></pre></div>
-<pre><code>## # A tibble: 15,516 × 2
-##    article            word      
-##    &lt;chr&gt;              &lt;chr&gt;     
-##  1 Macalester College macalester
-##  2 Macalester College college   
-##  3 Macalester College is        
-##  4 Macalester College a         
-##  5 Macalester College private   
-##  6 Macalester College liberal   
-##  7 Macalester College arts      
-##  8 Macalester College college   
-##  9 Macalester College in        
-## 10 Macalester College saint     
-## # … with 15,506 more rows</code></pre>
+<div class="sourceCode" id="cb399"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb399-1"><a href="text-analysis.html#cb399-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create the three-row original data frame</span></span>
+<span id="cb399-2"><a href="text-analysis.html#cb399-2" aria-hidden="true" tabindex="-1"></a>text_df <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">article =</span> school_wiki_titles, <span class="at">text =</span> school_wiki_text)</span></code></pre></div>
+<pre><code>## Error in eval_tidy(xs[[j]], mask): object &#39;school_wiki_text&#39; not found</code></pre>
+<div class="sourceCode" id="cb401"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb401-1"><a href="text-analysis.html#cb401-1" aria-hidden="true" tabindex="-1"></a>text_df</span></code></pre></div>
+<pre><code>## Error in eval(expr, envir, enclos): object &#39;text_df&#39; not found</code></pre>
+<div class="sourceCode" id="cb403"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb403-1"><a href="text-analysis.html#cb403-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Unnest the data frame so each row corresponds to a single word in a single document.</span></span>
+<span id="cb403-2"><a href="text-analysis.html#cb403-2" aria-hidden="true" tabindex="-1"></a>tidy_df <span class="ot">&lt;-</span> text_df <span class="sc">%&gt;%</span></span>
+<span id="cb403-3"><a href="text-analysis.html#cb403-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unnest_tokens</span>(word, text)</span></code></pre></div>
+<pre><code>## Error in is_grouped_df(tbl): object &#39;text_df&#39; not found</code></pre>
+<div class="sourceCode" id="cb405"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb405-1"><a href="text-analysis.html#cb405-1" aria-hidden="true" tabindex="-1"></a>tidy_df</span></code></pre></div>
+<pre><code>## Error in eval(expr, envir, enclos): object &#39;tidy_df&#39; not found</code></pre>
 <div id="side-by-side-word-clouds" class="section level4 unnumbered hasAnchor">
 <h4>Side-by-Side Word Clouds<a href="text-analysis.html#side-by-side-word-clouds" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb384"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb384-1"><a href="text-analysis.html#cb384-1" aria-hidden="true" tabindex="-1"></a>macalester_counts <span class="ot">&lt;-</span> tidy_df <span class="sc">%&gt;%</span></span>
-<span id="cb384-2"><a href="text-analysis.html#cb384-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(article <span class="sc">==</span> <span class="st">&quot;Macalester College&quot;</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb384-3"><a href="text-analysis.html#cb384-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">anti_join</span>(stop_words) <span class="sc">%&gt;%</span></span>
-<span id="cb384-4"><a href="text-analysis.html#cb384-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(word, <span class="at">sort =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb384-5"><a href="text-analysis.html#cb384-5" aria-hidden="true" tabindex="-1"></a>macalester_counts</span></code></pre></div>
-<pre><code>## # A tibble: 1,200 × 2
-##    word           n
-##    &lt;chr&gt;      &lt;int&gt;
-##  1 macalester    82
-##  2 students      33
-##  3 college       28
-##  4 campus        24
-##  5 student       21
-##  6 minnesota     19
-##  7 house         16
-##  8 hall          14
-##  9 mac           14
-## 10 arts          13
-## # … with 1,190 more rows</code></pre>
-<div class="sourceCode" id="cb386"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb386-1"><a href="text-analysis.html#cb386-1" aria-hidden="true" tabindex="-1"></a>umn_counts <span class="ot">&lt;-</span> tidy_df <span class="sc">%&gt;%</span></span>
-<span id="cb386-2"><a href="text-analysis.html#cb386-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(article <span class="sc">==</span> <span class="st">&quot;University of Minnesota&quot;</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb386-3"><a href="text-analysis.html#cb386-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">anti_join</span>(stop_words) <span class="sc">%&gt;%</span></span>
-<span id="cb386-4"><a href="text-analysis.html#cb386-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(word, <span class="at">sort =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb386-5"><a href="text-analysis.html#cb386-5" aria-hidden="true" tabindex="-1"></a>umn_counts</span></code></pre></div>
-<pre><code>## # A tibble: 1,911 × 2
-##    word           n
-##    &lt;chr&gt;      &lt;int&gt;
-##  1 university    98
-##  2 minnesota     79
-##  3 campus        68
-##  4 hall          36
-##  5 school        35
-##  6 students      35
-##  7 student       33
-##  8 college       23
-##  9 bank          21
-## 10 center        21
-## # … with 1,901 more rows</code></pre>
-<div class="sourceCode" id="cb388"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb388-1"><a href="text-analysis.html#cb388-1" aria-hidden="true" tabindex="-1"></a>carleton_counts <span class="ot">&lt;-</span> tidy_df <span class="sc">%&gt;%</span></span>
-<span id="cb388-2"><a href="text-analysis.html#cb388-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(article <span class="sc">==</span> <span class="st">&quot;Carleton College&quot;</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb388-3"><a href="text-analysis.html#cb388-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">anti_join</span>(stop_words) <span class="sc">%&gt;%</span></span>
-<span id="cb388-4"><a href="text-analysis.html#cb388-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(word, <span class="at">sort =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb388-5"><a href="text-analysis.html#cb388-5" aria-hidden="true" tabindex="-1"></a>carleton_counts</span></code></pre></div>
-<pre><code>## # A tibble: 1,406 × 2
-##    word         n
-##    &lt;chr&gt;    &lt;int&gt;
-##  1 carleton    68
-##  2 college     42
-##  3 students    39
-##  4 hall        26
-##  5 campus      20
-##  6 national    17
-##  7 student     17
-##  8 arts        14
-##  9 built       13
-## 10 liberal     13
-## # … with 1,396 more rows</code></pre>
-<div class="sourceCode" id="cb390"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb390-1"><a href="text-analysis.html#cb390-1" aria-hidden="true" tabindex="-1"></a><span class="fu">wordcloud</span>(macalester_counts<span class="sc">$</span>word, macalester_counts<span class="sc">$</span>n,</span>
-<span id="cb390-2"><a href="text-analysis.html#cb390-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">max.words =</span> <span class="dv">200</span>, <span class="at">random.order =</span> <span class="cn">FALSE</span>, <span class="at">colors =</span> <span class="fu">brewer.pal</span>(<span class="dv">8</span>, <span class="st">&quot;Dark2&quot;</span>)</span>
-<span id="cb390-3"><a href="text-analysis.html#cb390-3" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb390-4"><a href="text-analysis.html#cb390-4" aria-hidden="true" tabindex="-1"></a><span class="fu">wordcloud</span>(umn_counts<span class="sc">$</span>word, umn_counts<span class="sc">$</span>n,</span>
-<span id="cb390-5"><a href="text-analysis.html#cb390-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">max.words =</span> <span class="dv">200</span>, <span class="at">random.order =</span> <span class="cn">FALSE</span>, <span class="at">colors =</span> <span class="fu">brewer.pal</span>(<span class="dv">8</span>, <span class="st">&quot;Dark2&quot;</span>)</span>
-<span id="cb390-6"><a href="text-analysis.html#cb390-6" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb390-7"><a href="text-analysis.html#cb390-7" aria-hidden="true" tabindex="-1"></a><span class="fu">wordcloud</span>(carleton_counts<span class="sc">$</span>word, carleton_counts<span class="sc">$</span>n,</span>
-<span id="cb390-8"><a href="text-analysis.html#cb390-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">max.words =</span> <span class="dv">200</span>, <span class="at">random.order =</span> <span class="cn">FALSE</span>, <span class="at">colors =</span> <span class="fu">brewer.pal</span>(<span class="dv">8</span>, <span class="st">&quot;Dark2&quot;</span>)</span>
-<span id="cb390-9"><a href="text-analysis.html#cb390-9" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
-<p><img src="stat112_manual_files/figure-html/unnamed-chunk-418-1.png" width="384" /><img src="stat112_manual_files/figure-html/unnamed-chunk-418-2.png" width="384" /><img src="stat112_manual_files/figure-html/unnamed-chunk-418-3.png" width="384" /></p>
+<div class="sourceCode" id="cb407"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb407-1"><a href="text-analysis.html#cb407-1" aria-hidden="true" tabindex="-1"></a>macalester_counts <span class="ot">&lt;-</span> tidy_df <span class="sc">%&gt;%</span></span>
+<span id="cb407-2"><a href="text-analysis.html#cb407-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(article <span class="sc">==</span> <span class="st">&quot;Macalester College&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb407-3"><a href="text-analysis.html#cb407-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">anti_join</span>(stop_words) <span class="sc">%&gt;%</span></span>
+<span id="cb407-4"><a href="text-analysis.html#cb407-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(word, <span class="at">sort =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<pre><code>## Error in filter(., article == &quot;Macalester College&quot;): object &#39;tidy_df&#39; not found</code></pre>
+<div class="sourceCode" id="cb409"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb409-1"><a href="text-analysis.html#cb409-1" aria-hidden="true" tabindex="-1"></a>macalester_counts</span></code></pre></div>
+<pre><code>## Error in eval(expr, envir, enclos): object &#39;macalester_counts&#39; not found</code></pre>
+<div class="sourceCode" id="cb411"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb411-1"><a href="text-analysis.html#cb411-1" aria-hidden="true" tabindex="-1"></a>umn_counts <span class="ot">&lt;-</span> tidy_df <span class="sc">%&gt;%</span></span>
+<span id="cb411-2"><a href="text-analysis.html#cb411-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(article <span class="sc">==</span> <span class="st">&quot;University of Minnesota&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb411-3"><a href="text-analysis.html#cb411-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">anti_join</span>(stop_words) <span class="sc">%&gt;%</span></span>
+<span id="cb411-4"><a href="text-analysis.html#cb411-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(word, <span class="at">sort =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<pre><code>## Error in filter(., article == &quot;University of Minnesota&quot;): object &#39;tidy_df&#39; not found</code></pre>
+<div class="sourceCode" id="cb413"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb413-1"><a href="text-analysis.html#cb413-1" aria-hidden="true" tabindex="-1"></a>umn_counts</span></code></pre></div>
+<pre><code>## Error in eval(expr, envir, enclos): object &#39;umn_counts&#39; not found</code></pre>
+<div class="sourceCode" id="cb415"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb415-1"><a href="text-analysis.html#cb415-1" aria-hidden="true" tabindex="-1"></a>carleton_counts <span class="ot">&lt;-</span> tidy_df <span class="sc">%&gt;%</span></span>
+<span id="cb415-2"><a href="text-analysis.html#cb415-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(article <span class="sc">==</span> <span class="st">&quot;Carleton College&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb415-3"><a href="text-analysis.html#cb415-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">anti_join</span>(stop_words) <span class="sc">%&gt;%</span></span>
+<span id="cb415-4"><a href="text-analysis.html#cb415-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(word, <span class="at">sort =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<pre><code>## Error in filter(., article == &quot;Carleton College&quot;): object &#39;tidy_df&#39; not found</code></pre>
+<div class="sourceCode" id="cb417"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb417-1"><a href="text-analysis.html#cb417-1" aria-hidden="true" tabindex="-1"></a>carleton_counts</span></code></pre></div>
+<pre><code>## Error in eval(expr, envir, enclos): object &#39;carleton_counts&#39; not found</code></pre>
+<div class="sourceCode" id="cb419"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb419-1"><a href="text-analysis.html#cb419-1" aria-hidden="true" tabindex="-1"></a><span class="fu">wordcloud</span>(macalester_counts<span class="sc">$</span>word, macalester_counts<span class="sc">$</span>n,</span>
+<span id="cb419-2"><a href="text-analysis.html#cb419-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">max.words =</span> <span class="dv">200</span>, <span class="at">random.order =</span> <span class="cn">FALSE</span>, <span class="at">colors =</span> <span class="fu">brewer.pal</span>(<span class="dv">8</span>, <span class="st">&quot;Dark2&quot;</span>)</span>
+<span id="cb419-3"><a href="text-analysis.html#cb419-3" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<pre><code>## Error in wordcloud(macalester_counts$word, macalester_counts$n, max.words = 200, : object &#39;macalester_counts&#39; not found</code></pre>
+<div class="sourceCode" id="cb421"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb421-1"><a href="text-analysis.html#cb421-1" aria-hidden="true" tabindex="-1"></a><span class="fu">wordcloud</span>(umn_counts<span class="sc">$</span>word, umn_counts<span class="sc">$</span>n,</span>
+<span id="cb421-2"><a href="text-analysis.html#cb421-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">max.words =</span> <span class="dv">200</span>, <span class="at">random.order =</span> <span class="cn">FALSE</span>, <span class="at">colors =</span> <span class="fu">brewer.pal</span>(<span class="dv">8</span>, <span class="st">&quot;Dark2&quot;</span>)</span>
+<span id="cb421-3"><a href="text-analysis.html#cb421-3" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<pre><code>## Error in wordcloud(umn_counts$word, umn_counts$n, max.words = 200, random.order = FALSE, : object &#39;umn_counts&#39; not found</code></pre>
+<div class="sourceCode" id="cb423"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb423-1"><a href="text-analysis.html#cb423-1" aria-hidden="true" tabindex="-1"></a><span class="fu">wordcloud</span>(carleton_counts<span class="sc">$</span>word, carleton_counts<span class="sc">$</span>n,</span>
+<span id="cb423-2"><a href="text-analysis.html#cb423-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">max.words =</span> <span class="dv">200</span>, <span class="at">random.order =</span> <span class="cn">FALSE</span>, <span class="at">colors =</span> <span class="fu">brewer.pal</span>(<span class="dv">8</span>, <span class="st">&quot;Dark2&quot;</span>)</span>
+<span id="cb423-3"><a href="text-analysis.html#cb423-3" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<pre><code>## Error in wordcloud(carleton_counts$word, carleton_counts$n, max.words = 200, : object &#39;carleton_counts&#39; not found</code></pre>
 <p><strong>Brainstorm</strong></p>
 <p>How do we compare multiple documents quantitatively?</p>
 <div class="exercise">
@@ -883,971 +818,61 @@ where <span class="math inline">\(N\)</span> is the number of documents, and the
 <li>The <em>td-idf score</em> is then the product of the term frequency and the inverse document frequency.</li>
 </ul>
 <p>We’ll use the <code>bind_tf_idf</code> command from the <code>tidytext</code> library. Its default measure for term frequency is the raw count of a given word divided by the total number of words in the document. Let’s start by computing the thirty-five document-word pairs with the highest tf-idf scores:</p>
-<div class="sourceCode" id="cb391"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb391-1"><a href="text-analysis.html#cb391-1" aria-hidden="true" tabindex="-1"></a>tfidf_analysis <span class="ot">&lt;-</span> tidy_df <span class="sc">%&gt;%</span></span>
-<span id="cb391-2"><a href="text-analysis.html#cb391-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(article, word) <span class="sc">%&gt;%</span></span>
-<span id="cb391-3"><a href="text-analysis.html#cb391-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">bind_tf_idf</span>(word, article, n) <span class="sc">%&gt;%</span></span>
-<span id="cb391-4"><a href="text-analysis.html#cb391-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(tf_idf))</span></code></pre></div>
-<table>
-<caption>
-<span id="tab:unnamed-chunk-421">Table 14.2: </span>The thirty-five document-word pairs with the highest tf-idf scores.
-</caption>
-<thead>
-<tr>
-<th style="text-align:left;">
-article
-</th>
-<th style="text-align:left;">
-word
-</th>
-<th style="text-align:right;">
-n
-</th>
-<th style="text-align:right;">
-tf
-</th>
-<th style="text-align:right;">
-idf
-</th>
-<th style="text-align:right;">
-tf_idf
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left;">
-Macalester College
-</td>
-<td style="text-align:left;">
-macalester
-</td>
-<td style="text-align:right;">
-82
-</td>
-<td style="text-align:right;">
-0.0226582
-</td>
-<td style="text-align:right;">
-1.0986123
-</td>
-<td style="text-align:right;">
-0.0248926
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Carleton College
-</td>
-<td style="text-align:left;">
-carleton
-</td>
-<td style="text-align:right;">
-68
-</td>
-<td style="text-align:right;">
-0.0147698
-</td>
-<td style="text-align:right;">
-1.0986123
-</td>
-<td style="text-align:right;">
-0.0162262
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Macalester College
-</td>
-<td style="text-align:left;">
-mac
-</td>
-<td style="text-align:right;">
-14
-</td>
-<td style="text-align:right;">
-0.0038685
-</td>
-<td style="text-align:right;">
-1.0986123
-</td>
-<td style="text-align:right;">
-0.0042500
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-University of Minnesota
-</td>
-<td style="text-align:left;">
-gophers
-</td>
-<td style="text-align:right;">
-21
-</td>
-<td style="text-align:right;">
-0.0028795
-</td>
-<td style="text-align:right;">
-1.0986123
-</td>
-<td style="text-align:right;">
-0.0031634
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Carleton College
-</td>
-<td style="text-align:left;">
-bust
-</td>
-<td style="text-align:right;">
-12
-</td>
-<td style="text-align:right;">
-0.0026064
-</td>
-<td style="text-align:right;">
-1.0986123
-</td>
-<td style="text-align:right;">
-0.0028635
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-University of Minnesota
-</td>
-<td style="text-align:left;">
-golden
-</td>
-<td style="text-align:right;">
-17
-</td>
-<td style="text-align:right;">
-0.0023310
-</td>
-<td style="text-align:right;">
-1.0986123
-</td>
-<td style="text-align:right;">
-0.0025609
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Carleton College
-</td>
-<td style="text-align:left;">
-cowling
-</td>
-<td style="text-align:right;">
-10
-</td>
-<td style="text-align:right;">
-0.0021720
-</td>
-<td style="text-align:right;">
-1.0986123
-</td>
-<td style="text-align:right;">
-0.0023862
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Carleton College
-</td>
-<td style="text-align:left;">
-arboretum
-</td>
-<td style="text-align:right;">
-9
-</td>
-<td style="text-align:right;">
-0.0019548
-</td>
-<td style="text-align:right;">
-1.0986123
-</td>
-<td style="text-align:right;">
-0.0021476
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Carleton College
-</td>
-<td style="text-align:left;">
-schiller
-</td>
-<td style="text-align:right;">
-9
-</td>
-<td style="text-align:right;">
-0.0019548
-</td>
-<td style="text-align:right;">
-1.0986123
-</td>
-<td style="text-align:right;">
-0.0021476
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Macalester College
-</td>
-<td style="text-align:left;">
-engagement
-</td>
-<td style="text-align:right;">
-7
-</td>
-<td style="text-align:right;">
-0.0019342
-</td>
-<td style="text-align:right;">
-1.0986123
-</td>
-<td style="text-align:right;">
-0.0021250
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Carleton College
-</td>
-<td style="text-align:left;">
-carleton’s
-</td>
-<td style="text-align:right;">
-8
-</td>
-<td style="text-align:right;">
-0.0017376
-</td>
-<td style="text-align:right;">
-1.0986123
-</td>
-<td style="text-align:right;">
-0.0019090
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Carleton College
-</td>
-<td style="text-align:left;">
-goodsell
-</td>
-<td style="text-align:right;">
-8
-</td>
-<td style="text-align:right;">
-0.0017376
-</td>
-<td style="text-align:right;">
-1.0986123
-</td>
-<td style="text-align:right;">
-0.0019090
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Carleton College
-</td>
-<td style="text-align:left;">
-northfield
-</td>
-<td style="text-align:right;">
-8
-</td>
-<td style="text-align:right;">
-0.0017376
-</td>
-<td style="text-align:right;">
-1.0986123
-</td>
-<td style="text-align:right;">
-0.0019090
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Macalester College
-</td>
-<td style="text-align:left;">
-civic
-</td>
-<td style="text-align:right;">
-6
-</td>
-<td style="text-align:right;">
-0.0016579
-</td>
-<td style="text-align:right;">
-1.0986123
-</td>
-<td style="text-align:right;">
-0.0018214
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Macalester College
-</td>
-<td style="text-align:left;">
-fossil
-</td>
-<td style="text-align:right;">
-6
-</td>
-<td style="text-align:right;">
-0.0016579
-</td>
-<td style="text-align:right;">
-1.0986123
-</td>
-<td style="text-align:right;">
-0.0018214
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Macalester College
-</td>
-<td style="text-align:left;">
-scots
-</td>
-<td style="text-align:right;">
-6
-</td>
-<td style="text-align:right;">
-0.0016579
-</td>
-<td style="text-align:right;">
-1.0986123
-</td>
-<td style="text-align:right;">
-0.0018214
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Macalester College
-</td>
-<td style="text-align:left;">
-house
-</td>
-<td style="text-align:right;">
-16
-</td>
-<td style="text-align:right;">
-0.0044211
-</td>
-<td style="text-align:right;">
-0.4054651
-</td>
-<td style="text-align:right;">
-0.0017926
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Carleton College
-</td>
-<td style="text-align:left;">
-frisbee
-</td>
-<td style="text-align:right;">
-7
-</td>
-<td style="text-align:right;">
-0.0015204
-</td>
-<td style="text-align:right;">
-1.0986123
-</td>
-<td style="text-align:right;">
-0.0016703
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Carleton College
-</td>
-<td style="text-align:left;">
-ultimate
-</td>
-<td style="text-align:right;">
-7
-</td>
-<td style="text-align:right;">
-0.0015204
-</td>
-<td style="text-align:right;">
-1.0986123
-</td>
-<td style="text-align:right;">
-0.0016703
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-University of Minnesota
-</td>
-<td style="text-align:left;">
-mall
-</td>
-<td style="text-align:right;">
-11
-</td>
-<td style="text-align:right;">
-0.0015083
-</td>
-<td style="text-align:right;">
-1.0986123
-</td>
-<td style="text-align:right;">
-0.0016570
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Macalester College
-</td>
-<td style="text-align:left;">
-commitment
-</td>
-<td style="text-align:right;">
-5
-</td>
-<td style="text-align:right;">
-0.0013816
-</td>
-<td style="text-align:right;">
-1.0986123
-</td>
-<td style="text-align:right;">
-0.0015178
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Macalester College
-</td>
-<td style="text-align:left;">
-friendly
-</td>
-<td style="text-align:right;">
-5
-</td>
-<td style="text-align:right;">
-0.0013816
-</td>
-<td style="text-align:right;">
-1.0986123
-</td>
-<td style="text-align:right;">
-0.0015178
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Macalester College
-</td>
-<td style="text-align:left;">
-macalester’s
-</td>
-<td style="text-align:right;">
-5
-</td>
-<td style="text-align:right;">
-0.0013816
-</td>
-<td style="text-align:right;">
-1.0986123
-</td>
-<td style="text-align:right;">
-0.0015178
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Macalester College
-</td>
-<td style="text-align:left;">
-summit
-</td>
-<td style="text-align:right;">
-5
-</td>
-<td style="text-align:right;">
-0.0013816
-</td>
-<td style="text-align:right;">
-1.0986123
-</td>
-<td style="text-align:right;">
-0.0015178
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Macalester College
-</td>
-<td style="text-align:left;">
-wallace
-</td>
-<td style="text-align:right;">
-5
-</td>
-<td style="text-align:right;">
-0.0013816
-</td>
-<td style="text-align:right;">
-1.0986123
-</td>
-<td style="text-align:right;">
-0.0015178
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-University of Minnesota
-</td>
-<td style="text-align:left;">
-gopher
-</td>
-<td style="text-align:right;">
-10
-</td>
-<td style="text-align:right;">
-0.0013712
-</td>
-<td style="text-align:right;">
-1.0986123
-</td>
-<td style="text-align:right;">
-0.0015064
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Macalester College
-</td>
-<td style="text-align:left;">
-sustainability
-</td>
-<td style="text-align:right;">
-13
-</td>
-<td style="text-align:right;">
-0.0035922
-</td>
-<td style="text-align:right;">
-0.4054651
-</td>
-<td style="text-align:right;">
-0.0014565
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Carleton College
-</td>
-<td style="text-align:left;">
-acre
-</td>
-<td style="text-align:right;">
-6
-</td>
-<td style="text-align:right;">
-0.0013032
-</td>
-<td style="text-align:right;">
-1.0986123
-</td>
-<td style="text-align:right;">
-0.0014317
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Carleton College
-</td>
-<td style="text-align:left;">
-watson
-</td>
-<td style="text-align:right;">
-6
-</td>
-<td style="text-align:right;">
-0.0013032
-</td>
-<td style="text-align:right;">
-1.0986123
-</td>
-<td style="text-align:right;">
-0.0014317
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-University of Minnesota
-</td>
-<td style="text-align:left;">
-big
-</td>
-<td style="text-align:right;">
-9
-</td>
-<td style="text-align:right;">
-0.0012341
-</td>
-<td style="text-align:right;">
-1.0986123
-</td>
-<td style="text-align:right;">
-0.0013558
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-University of Minnesota
-</td>
-<td style="text-align:left;">
-area
-</td>
-<td style="text-align:right;">
-23
-</td>
-<td style="text-align:right;">
-0.0031537
-</td>
-<td style="text-align:right;">
-0.4054651
-</td>
-<td style="text-align:right;">
-0.0012787
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Macalester College
-</td>
-<td style="text-align:left;">
-environmental
-</td>
-<td style="text-align:right;">
-4
-</td>
-<td style="text-align:right;">
-0.0011053
-</td>
-<td style="text-align:right;">
-1.0986123
-</td>
-<td style="text-align:right;">
-0.0012143
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Macalester College
-</td>
-<td style="text-align:left;">
-lgbtq
-</td>
-<td style="text-align:right;">
-4
-</td>
-<td style="text-align:right;">
-0.0011053
-</td>
-<td style="text-align:right;">
-1.0986123
-</td>
-<td style="text-align:right;">
-0.0012143
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Macalester College
-</td>
-<td style="text-align:left;">
-presbyterian
-</td>
-<td style="text-align:right;">
-4
-</td>
-<td style="text-align:right;">
-0.0011053
-</td>
-<td style="text-align:right;">
-1.0986123
-</td>
-<td style="text-align:right;">
-0.0012143
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Macalester College
-</td>
-<td style="text-align:left;">
-sophomores
-</td>
-<td style="text-align:right;">
-4
-</td>
-<td style="text-align:right;">
-0.0011053
-</td>
-<td style="text-align:right;">
-1.0986123
-</td>
-<td style="text-align:right;">
-0.0012143
-</td>
-</tr>
-</tbody>
-</table>
+<div class="sourceCode" id="cb425"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb425-1"><a href="text-analysis.html#cb425-1" aria-hidden="true" tabindex="-1"></a>tfidf_analysis <span class="ot">&lt;-</span> tidy_df <span class="sc">%&gt;%</span></span>
+<span id="cb425-2"><a href="text-analysis.html#cb425-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(article, word) <span class="sc">%&gt;%</span></span>
+<span id="cb425-3"><a href="text-analysis.html#cb425-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">bind_tf_idf</span>(word, article, n) <span class="sc">%&gt;%</span></span>
+<span id="cb425-4"><a href="text-analysis.html#cb425-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(tf_idf))</span></code></pre></div>
+<pre><code>## Error in count(., article, word): object &#39;tidy_df&#39; not found</code></pre>
+<pre><code>## Error in knitr::kable(tfidf_analysis[1:35, ], caption = &quot;The thirty-five document-word pairs with the highest tf-idf scores.&quot;): object &#39;tfidf_analysis&#39; not found</code></pre>
 <p>Here is a graphic with the same data:</p>
-<div class="sourceCode" id="cb392"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb392-1"><a href="text-analysis.html#cb392-1" aria-hidden="true" tabindex="-1"></a>tfidf_analysis <span class="sc">%&gt;%</span></span>
-<span id="cb392-2"><a href="text-analysis.html#cb392-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">word =</span> <span class="fu">factor</span>(word, <span class="at">levels =</span> <span class="fu">rev</span>(<span class="fu">unique</span>(word)))) <span class="sc">%&gt;%</span></span>
-<span id="cb392-3"><a href="text-analysis.html#cb392-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">top_n</span>(<span class="dv">35</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb392-4"><a href="text-analysis.html#cb392-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(word, tf_idf, <span class="at">fill =</span> article)) <span class="sc">+</span></span>
-<span id="cb392-5"><a href="text-analysis.html#cb392-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>() <span class="sc">+</span></span>
-<span id="cb392-6"><a href="text-analysis.html#cb392-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="cn">NULL</span>, <span class="at">y =</span> <span class="st">&quot;tf-idf&quot;</span>) <span class="sc">+</span></span>
-<span id="cb392-7"><a href="text-analysis.html#cb392-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>()</span></code></pre></div>
-<p><img src="stat112_manual_files/figure-html/unnamed-chunk-422-1.png" width="672" /></p>
+<div class="sourceCode" id="cb428"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb428-1"><a href="text-analysis.html#cb428-1" aria-hidden="true" tabindex="-1"></a>tfidf_analysis <span class="sc">%&gt;%</span></span>
+<span id="cb428-2"><a href="text-analysis.html#cb428-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">word =</span> <span class="fu">factor</span>(word, <span class="at">levels =</span> <span class="fu">rev</span>(<span class="fu">unique</span>(word)))) <span class="sc">%&gt;%</span></span>
+<span id="cb428-3"><a href="text-analysis.html#cb428-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">top_n</span>(<span class="dv">35</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb428-4"><a href="text-analysis.html#cb428-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(word, tf_idf, <span class="at">fill =</span> article)) <span class="sc">+</span></span>
+<span id="cb428-5"><a href="text-analysis.html#cb428-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>() <span class="sc">+</span></span>
+<span id="cb428-6"><a href="text-analysis.html#cb428-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="cn">NULL</span>, <span class="at">y =</span> <span class="st">&quot;tf-idf&quot;</span>) <span class="sc">+</span></span>
+<span id="cb428-7"><a href="text-analysis.html#cb428-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>()</span></code></pre></div>
+<pre><code>## Error in mutate(., word = factor(word, levels = rev(unique(word)))): object &#39;tfidf_analysis&#39; not found</code></pre>
 <p>Next, let’s say we want to determine which school is the most relevant to the query “internationalism, multiculturalism, and service to society.”</p>
-<div class="sourceCode" id="cb393"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb393-1"><a href="text-analysis.html#cb393-1" aria-hidden="true" tabindex="-1"></a>target_words <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;internationalism&quot;</span>, <span class="st">&quot;multiculturalism&quot;</span>, <span class="st">&quot;service&quot;</span>, <span class="st">&quot;society&quot;</span>)</span>
-<span id="cb393-2"><a href="text-analysis.html#cb393-2" aria-hidden="true" tabindex="-1"></a>mission <span class="ot">&lt;-</span> tfidf_analysis <span class="sc">%&gt;%</span></span>
-<span id="cb393-3"><a href="text-analysis.html#cb393-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(word <span class="sc">%in%</span> target_words)</span></code></pre></div>
-<table>
-<thead>
-<tr>
-<th style="text-align:left;">
-article
-</th>
-<th style="text-align:left;">
-word
-</th>
-<th style="text-align:right;">
-n
-</th>
-<th style="text-align:right;">
-tf
-</th>
-<th style="text-align:right;">
-idf
-</th>
-<th style="text-align:right;">
-tf_idf
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left;">
-Macalester College
-</td>
-<td style="text-align:left;">
-society
-</td>
-<td style="text-align:right;">
-3
-</td>
-<td style="text-align:right;">
-0.0008290
-</td>
-<td style="text-align:right;">
-0.4054651
-</td>
-<td style="text-align:right;">
-0.0003361
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Macalester College
-</td>
-<td style="text-align:left;">
-internationalism
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-0.0002763
-</td>
-<td style="text-align:right;">
-1.0986123
-</td>
-<td style="text-align:right;">
-0.0003036
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Macalester College
-</td>
-<td style="text-align:left;">
-multiculturalism
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-0.0002763
-</td>
-<td style="text-align:right;">
-1.0986123
-</td>
-<td style="text-align:right;">
-0.0003036
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Carleton College
-</td>
-<td style="text-align:left;">
-society
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-0.0002172
-</td>
-<td style="text-align:right;">
-0.4054651
-</td>
-<td style="text-align:right;">
-0.0000881
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Carleton College
-</td>
-<td style="text-align:left;">
-service
-</td>
-<td style="text-align:right;">
-4
-</td>
-<td style="text-align:right;">
-0.0008688
-</td>
-<td style="text-align:right;">
-0.0000000
-</td>
-<td style="text-align:right;">
-0.0000000
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Macalester College
-</td>
-<td style="text-align:left;">
-service
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-0.0002763
-</td>
-<td style="text-align:right;">
-0.0000000
-</td>
-<td style="text-align:right;">
-0.0000000
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-University of Minnesota
-</td>
-<td style="text-align:left;">
-service
-</td>
-<td style="text-align:right;">
-9
-</td>
-<td style="text-align:right;">
-0.0012341
-</td>
-<td style="text-align:right;">
-0.0000000
-</td>
-<td style="text-align:right;">
-0.0000000
-</td>
-</tr>
-</tbody>
-</table>
+<div class="sourceCode" id="cb430"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb430-1"><a href="text-analysis.html#cb430-1" aria-hidden="true" tabindex="-1"></a>target_words <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;internationalism&quot;</span>, <span class="st">&quot;multiculturalism&quot;</span>, <span class="st">&quot;service&quot;</span>, <span class="st">&quot;society&quot;</span>)</span>
+<span id="cb430-2"><a href="text-analysis.html#cb430-2" aria-hidden="true" tabindex="-1"></a>mission <span class="ot">&lt;-</span> tfidf_analysis <span class="sc">%&gt;%</span></span>
+<span id="cb430-3"><a href="text-analysis.html#cb430-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(word <span class="sc">%in%</span> target_words)</span></code></pre></div>
+<pre><code>## Error in filter(., word %in% target_words): object &#39;tfidf_analysis&#39; not found</code></pre>
+<pre><code>## Error in knitr::kable(mission): object &#39;mission&#39; not found</code></pre>
 </div>
 <div id="log-odds-ratio" class="section level4 unnumbered hasAnchor">
 <h4>Log Odds Ratio<a href="text-analysis.html#log-odds-ratio" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Another metric for comparing the frequency of different words in two documents is the log odds ratio:</p>
 <p><span class="math display">\[\log\left(\frac{\left(\frac{n+1}{total+1}\right)_{\hbox{doc1}}}{\left(\frac{n+1}{total+1}\right)_{\hbox{doc2}}} \right),\]</span>
 where <span class="math inline">\(n\)</span> is the number of times the word appears and <span class="math inline">\(total\)</span> is the total number of words in the document.</p>
-<div class="sourceCode" id="cb394"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb394-1"><a href="text-analysis.html#cb394-1" aria-hidden="true" tabindex="-1"></a>total.mac <span class="ot">&lt;-</span> <span class="fu">nrow</span>(<span class="fu">filter</span>(tidy_df, article <span class="sc">==</span> <span class="st">&quot;Macalester College&quot;</span>))</span>
-<span id="cb394-2"><a href="text-analysis.html#cb394-2" aria-hidden="true" tabindex="-1"></a>total.carleton <span class="ot">&lt;-</span> <span class="fu">nrow</span>(<span class="fu">filter</span>(tidy_df, article <span class="sc">==</span> <span class="st">&quot;Carleton College&quot;</span>))</span>
-<span id="cb394-3"><a href="text-analysis.html#cb394-3" aria-hidden="true" tabindex="-1"></a>logratios <span class="ot">&lt;-</span> macalester_counts <span class="sc">%&gt;%</span></span>
-<span id="cb394-4"><a href="text-analysis.html#cb394-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">full_join</span>(carleton_counts, <span class="at">by =</span> <span class="st">&quot;word&quot;</span>, <span class="at">suffix =</span> <span class="fu">c</span>(<span class="st">&quot;.mac&quot;</span>, <span class="st">&quot;.carleton&quot;</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb394-5"><a href="text-analysis.html#cb394-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">replace_na</span>(<span class="fu">list</span>(<span class="at">n.mac =</span> <span class="dv">0</span>, <span class="at">n.carleton =</span> <span class="dv">0</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb394-6"><a href="text-analysis.html#cb394-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">n.total =</span> n.mac <span class="sc">+</span> n.carleton) <span class="sc">%&gt;%</span></span>
-<span id="cb394-7"><a href="text-analysis.html#cb394-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(n.total <span class="sc">&gt;=</span> <span class="dv">5</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb394-8"><a href="text-analysis.html#cb394-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">logodds.mac =</span> <span class="fu">log</span>(((n.mac <span class="sc">+</span> <span class="dv">1</span>) <span class="sc">/</span> (total.mac <span class="sc">+</span> <span class="dv">1</span>)) <span class="sc">/</span> ((n.carleton <span class="sc">+</span> <span class="dv">1</span>) <span class="sc">/</span> (total.carleton <span class="sc">+</span> <span class="dv">1</span>))))</span></code></pre></div>
+<div class="sourceCode" id="cb433"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb433-1"><a href="text-analysis.html#cb433-1" aria-hidden="true" tabindex="-1"></a>total.mac <span class="ot">&lt;-</span> <span class="fu">nrow</span>(<span class="fu">filter</span>(tidy_df, article <span class="sc">==</span> <span class="st">&quot;Macalester College&quot;</span>))</span></code></pre></div>
+<pre><code>## Error in filter(tidy_df, article == &quot;Macalester College&quot;): object &#39;tidy_df&#39; not found</code></pre>
+<div class="sourceCode" id="cb435"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb435-1"><a href="text-analysis.html#cb435-1" aria-hidden="true" tabindex="-1"></a>total.carleton <span class="ot">&lt;-</span> <span class="fu">nrow</span>(<span class="fu">filter</span>(tidy_df, article <span class="sc">==</span> <span class="st">&quot;Carleton College&quot;</span>))</span></code></pre></div>
+<pre><code>## Error in filter(tidy_df, article == &quot;Carleton College&quot;): object &#39;tidy_df&#39; not found</code></pre>
+<div class="sourceCode" id="cb437"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb437-1"><a href="text-analysis.html#cb437-1" aria-hidden="true" tabindex="-1"></a>logratios <span class="ot">&lt;-</span> macalester_counts <span class="sc">%&gt;%</span></span>
+<span id="cb437-2"><a href="text-analysis.html#cb437-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">full_join</span>(carleton_counts, <span class="at">by =</span> <span class="st">&quot;word&quot;</span>, <span class="at">suffix =</span> <span class="fu">c</span>(<span class="st">&quot;.mac&quot;</span>, <span class="st">&quot;.carleton&quot;</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb437-3"><a href="text-analysis.html#cb437-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">replace_na</span>(<span class="fu">list</span>(<span class="at">n.mac =</span> <span class="dv">0</span>, <span class="at">n.carleton =</span> <span class="dv">0</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb437-4"><a href="text-analysis.html#cb437-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">n.total =</span> n.mac <span class="sc">+</span> n.carleton) <span class="sc">%&gt;%</span></span>
+<span id="cb437-5"><a href="text-analysis.html#cb437-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(n.total <span class="sc">&gt;=</span> <span class="dv">5</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb437-6"><a href="text-analysis.html#cb437-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">logodds.mac =</span> <span class="fu">log</span>(((n.mac <span class="sc">+</span> <span class="dv">1</span>) <span class="sc">/</span> (total.mac <span class="sc">+</span> <span class="dv">1</span>)) <span class="sc">/</span> ((n.carleton <span class="sc">+</span> <span class="dv">1</span>) <span class="sc">/</span> (total.carleton <span class="sc">+</span> <span class="dv">1</span>))))</span></code></pre></div>
+<pre><code>## Error in full_join(., carleton_counts, by = &quot;word&quot;, suffix = c(&quot;.mac&quot;, : object &#39;macalester_counts&#39; not found</code></pre>
 <p>Which words appear at roughly equal frequencies?</p>
-<div class="sourceCode" id="cb395"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb395-1"><a href="text-analysis.html#cb395-1" aria-hidden="true" tabindex="-1"></a>logratios <span class="sc">%&gt;%</span></span>
-<span id="cb395-2"><a href="text-analysis.html#cb395-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">abs</span>(logodds.mac)) <span class="sc">%&gt;%</span></span>
-<span id="cb395-3"><a href="text-analysis.html#cb395-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(<span class="at">n =</span> <span class="dv">20</span>)</span></code></pre></div>
-<pre><code>## # A tibble: 20 × 5
-##    word            n.mac n.carleton n.total logodds.mac
-##    &lt;chr&gt;           &lt;int&gt;      &lt;int&gt;   &lt;int&gt;       &lt;dbl&gt;
-##  1 programs            6          8      14     -0.0106
-##  2 colleges            7          9      16      0.0175
-##  3 championship        3          4       7      0.0175
-##  4 president           5          7      12     -0.0470
-##  5 won                 5          7      12     -0.0470
-##  6 1964                2          3       5     -0.0470
-##  7 2019                2          3       5     -0.0470
-##  8 department          2          3       5     -0.0470
-##  9 intercollegiate     2          3       5     -0.0470
-## 10 life                2          3       5     -0.0470
-## 11 local               2          3       5     -0.0470
-## 12 main                2          3       5     -0.0470
-## 13 official            2          3       5     -0.0470
-## 14 paul                2          3       5     -0.0470
-## 15 popular             2          3       5     -0.0470
-## 16 summer              2          3       5     -0.0470
-## 17 times               2          3       5     -0.0470
-## 18 universities        2          3       5     -0.0470
-## 19 2011                4          5       9      0.0583
-## 20 fall                4          5       9      0.0583</code></pre>
+<div class="sourceCode" id="cb439"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb439-1"><a href="text-analysis.html#cb439-1" aria-hidden="true" tabindex="-1"></a>logratios <span class="sc">%&gt;%</span></span>
+<span id="cb439-2"><a href="text-analysis.html#cb439-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">abs</span>(logodds.mac)) <span class="sc">%&gt;%</span></span>
+<span id="cb439-3"><a href="text-analysis.html#cb439-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(<span class="at">n =</span> <span class="dv">20</span>)</span></code></pre></div>
+<pre><code>## Error in h(simpleError(msg, call)): error in evaluating the argument &#39;x&#39; in selecting a method for function &#39;head&#39;: object &#39;logratios&#39; not found</code></pre>
 <p>What are the most distinctive words?</p>
-<div class="sourceCode" id="cb397"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb397-1"><a href="text-analysis.html#cb397-1" aria-hidden="true" tabindex="-1"></a>logratios <span class="sc">%&gt;%</span></span>
-<span id="cb397-2"><a href="text-analysis.html#cb397-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(logodds.mac <span class="sc">&lt;</span> <span class="dv">0</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb397-3"><a href="text-analysis.html#cb397-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">top_n</span>(<span class="dv">15</span>, <span class="fu">abs</span>(logodds.mac)) <span class="sc">%&gt;%</span></span>
-<span id="cb397-4"><a href="text-analysis.html#cb397-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb397-5"><a href="text-analysis.html#cb397-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">word =</span> <span class="fu">reorder</span>(word, logodds.mac)) <span class="sc">%&gt;%</span></span>
-<span id="cb397-6"><a href="text-analysis.html#cb397-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(word, logodds.mac, <span class="at">fill =</span> logodds.mac <span class="sc">&lt;</span> <span class="dv">0</span>)) <span class="sc">+</span></span>
-<span id="cb397-7"><a href="text-analysis.html#cb397-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>() <span class="sc">+</span></span>
-<span id="cb397-8"><a href="text-analysis.html#cb397-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
-<span id="cb397-9"><a href="text-analysis.html#cb397-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;log odds ratio (Mac/Carleton)&quot;</span>) <span class="sc">+</span></span>
-<span id="cb397-10"><a href="text-analysis.html#cb397-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_discrete</span>(<span class="at">name =</span> <span class="st">&quot;&quot;</span>, <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;Macalester&quot;</span>, <span class="st">&quot;Carleton&quot;</span>))</span></code></pre></div>
-<p><img src="stat112_manual_files/figure-html/unnamed-chunk-427-1.png" width="960" /></p>
+<div class="sourceCode" id="cb441"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb441-1"><a href="text-analysis.html#cb441-1" aria-hidden="true" tabindex="-1"></a>logratios <span class="sc">%&gt;%</span></span>
+<span id="cb441-2"><a href="text-analysis.html#cb441-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(logodds.mac <span class="sc">&lt;</span> <span class="dv">0</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb441-3"><a href="text-analysis.html#cb441-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">top_n</span>(<span class="dv">15</span>, <span class="fu">abs</span>(logodds.mac)) <span class="sc">%&gt;%</span></span>
+<span id="cb441-4"><a href="text-analysis.html#cb441-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb441-5"><a href="text-analysis.html#cb441-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">word =</span> <span class="fu">reorder</span>(word, logodds.mac)) <span class="sc">%&gt;%</span></span>
+<span id="cb441-6"><a href="text-analysis.html#cb441-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(word, logodds.mac, <span class="at">fill =</span> logodds.mac <span class="sc">&lt;</span> <span class="dv">0</span>)) <span class="sc">+</span></span>
+<span id="cb441-7"><a href="text-analysis.html#cb441-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>() <span class="sc">+</span></span>
+<span id="cb441-8"><a href="text-analysis.html#cb441-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
+<span id="cb441-9"><a href="text-analysis.html#cb441-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;log odds ratio (Mac/Carleton)&quot;</span>) <span class="sc">+</span></span>
+<span id="cb441-10"><a href="text-analysis.html#cb441-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_discrete</span>(<span class="at">name =</span> <span class="st">&quot;&quot;</span>, <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;Macalester&quot;</span>, <span class="st">&quot;Carleton&quot;</span>))</span></code></pre></div>
+<pre><code>## Error in group_by(., logodds.mac &lt; 0): object &#39;logratios&#39; not found</code></pre>
 </div>
 </div>
 <div id="sentiment-analysis" class="section level3 unnumbered hasAnchor">
@@ -1855,211 +880,59 @@ where <span class="math inline">\(n\)</span> is the number of times the word app
 <p>We often want to understand whether text conveys certain characteristics. For example, is Macalester’s mission statement more happy, sad, or angry than that of the University of Minnesota?</p>
 <p>A common way of doing this is by using a word dictionary that contains a list of words with the characteristics we are seeking (e.g., a list of words that are happy, sad, or angry). We can then measure how often words with each characteristic appear in the text. These word dictionaries are also called <em>lexicons</em>, and dictionaries related to emotive feelings are often called <em>sentiment lexicons</em>.</p>
 <p>Tidy Text’s <code>sentiments</code> dataset contains built-in sentiment lexicons. We can look at the structure of some of these:</p>
-<div class="sourceCode" id="cb398"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb398-1"><a href="text-analysis.html#cb398-1" aria-hidden="true" tabindex="-1"></a>afinn <span class="ot">&lt;-</span> <span class="fu">get_sentiments</span>(<span class="st">&quot;afinn&quot;</span>)</span>
-<span id="cb398-2"><a href="text-analysis.html#cb398-2" aria-hidden="true" tabindex="-1"></a>nrc <span class="ot">&lt;-</span> <span class="fu">get_sentiments</span>(<span class="st">&quot;nrc&quot;</span>)</span>
-<span id="cb398-3"><a href="text-analysis.html#cb398-3" aria-hidden="true" tabindex="-1"></a>bing <span class="ot">&lt;-</span> <span class="fu">get_sentiments</span>(<span class="st">&quot;bing&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb443"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb443-1"><a href="text-analysis.html#cb443-1" aria-hidden="true" tabindex="-1"></a>afinn <span class="ot">&lt;-</span> <span class="fu">get_sentiments</span>(<span class="st">&quot;afinn&quot;</span>)</span></code></pre></div>
+<pre><code>## Error: The textdata package is required to download the AFINN lexicon.
+## Install the textdata package to access this dataset.</code></pre>
+<div class="sourceCode" id="cb445"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb445-1"><a href="text-analysis.html#cb445-1" aria-hidden="true" tabindex="-1"></a>nrc <span class="ot">&lt;-</span> <span class="fu">get_sentiments</span>(<span class="st">&quot;nrc&quot;</span>)</span></code></pre></div>
+<pre><code>## Error: The textdata package is required to download the NRC word-emotion association lexicon.
+## Install the textdata package to access this dataset.</code></pre>
+<div class="sourceCode" id="cb447"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb447-1"><a href="text-analysis.html#cb447-1" aria-hidden="true" tabindex="-1"></a>bing <span class="ot">&lt;-</span> <span class="fu">get_sentiments</span>(<span class="st">&quot;bing&quot;</span>)</span></code></pre></div>
+<pre><code>## Error in knitr::kable(afinn[1:6, ], align = &quot;ll&quot;): object &#39;afinn&#39; not found</code></pre>
+<pre><code>## Error in knitr::kable(nrc[1:6, ], align = &quot;ll&quot;): object &#39;nrc&#39; not found</code></pre>
 <table>
 <thead>
-<tr>
-<th style="text-align:left;">
-word
-</th>
-<th style="text-align:left;">
-value
-</th>
+<tr class="header">
+<th align="left">word</th>
+<th align="left">sentiment</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td style="text-align:left;">
-abandon
-</td>
-<td style="text-align:left;">
--2
-</td>
+<tr class="odd">
+<td align="left">2-faces</td>
+<td align="left">negative</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-abandoned
-</td>
-<td style="text-align:left;">
--2
-</td>
+<tr class="even">
+<td align="left">abnormal</td>
+<td align="left">negative</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-abandons
-</td>
-<td style="text-align:left;">
--2
-</td>
+<tr class="odd">
+<td align="left">abolish</td>
+<td align="left">negative</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-abducted
-</td>
-<td style="text-align:left;">
--2
-</td>
+<tr class="even">
+<td align="left">abominable</td>
+<td align="left">negative</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-abduction
-</td>
-<td style="text-align:left;">
--2
-</td>
+<tr class="odd">
+<td align="left">abominably</td>
+<td align="left">negative</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-abductions
-</td>
-<td style="text-align:left;">
--2
-</td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr>
-<th style="text-align:left;">
-word
-</th>
-<th style="text-align:left;">
-sentiment
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left;">
-abacus
-</td>
-<td style="text-align:left;">
-trust
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-abandon
-</td>
-<td style="text-align:left;">
-fear
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-abandon
-</td>
-<td style="text-align:left;">
-negative
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-abandon
-</td>
-<td style="text-align:left;">
-sadness
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-abandoned
-</td>
-<td style="text-align:left;">
-anger
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-abandoned
-</td>
-<td style="text-align:left;">
-fear
-</td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr>
-<th style="text-align:left;">
-word
-</th>
-<th style="text-align:left;">
-sentiment
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left;">
-2-faces
-</td>
-<td style="text-align:left;">
-negative
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-abnormal
-</td>
-<td style="text-align:left;">
-negative
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-abolish
-</td>
-<td style="text-align:left;">
-negative
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-abominable
-</td>
-<td style="text-align:left;">
-negative
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-abominably
-</td>
-<td style="text-align:left;">
-negative
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-abominate
-</td>
-<td style="text-align:left;">
-negative
-</td>
+<tr class="even">
+<td align="left">abominate</td>
+<td align="left">negative</td>
 </tr>
 </tbody>
 </table>
 <p>Let’s take a look at the sentiments described within each lexicon:</p>
-<div class="sourceCode" id="cb399"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb399-1"><a href="text-analysis.html#cb399-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Show the number of words and unique sentiments in each lexicon</span></span>
-<span id="cb399-2"><a href="text-analysis.html#cb399-2" aria-hidden="true" tabindex="-1"></a>afinn <span class="sc">%&gt;%</span></span>
-<span id="cb399-3"><a href="text-analysis.html#cb399-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">num_words =</span> <span class="fu">n</span>(), <span class="at">values =</span> <span class="fu">paste</span>(<span class="fu">sort</span>(<span class="fu">unique</span>(value)), <span class="at">collapse =</span> <span class="st">&quot;, &quot;</span>))</span></code></pre></div>
-<pre><code>## # A tibble: 1 × 2
-##   num_words values                              
-##       &lt;int&gt; &lt;chr&gt;                               
-## 1      2477 -5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5</code></pre>
-<div class="sourceCode" id="cb401"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb401-1"><a href="text-analysis.html#cb401-1" aria-hidden="true" tabindex="-1"></a>nrc <span class="sc">%&gt;%</span></span>
-<span id="cb401-2"><a href="text-analysis.html#cb401-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">num_words =</span> <span class="fu">n</span>(), <span class="at">sentiments =</span> <span class="fu">paste</span>(<span class="fu">sort</span>(<span class="fu">unique</span>(sentiment)), <span class="at">collapse =</span> <span class="st">&quot;, &quot;</span>))</span></code></pre></div>
-<pre><code>## # A tibble: 1 × 2
-##   num_words sentiments                                                                       
-##       &lt;int&gt; &lt;chr&gt;                                                                            
-## 1     13872 anger, anticipation, disgust, fear, joy, negative, positive, sadness, surprise, …</code></pre>
-<div class="sourceCode" id="cb403"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb403-1"><a href="text-analysis.html#cb403-1" aria-hidden="true" tabindex="-1"></a>bing <span class="sc">%&gt;%</span></span>
-<span id="cb403-2"><a href="text-analysis.html#cb403-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">num_words =</span> <span class="fu">n</span>(), <span class="at">sentiments =</span> <span class="fu">paste</span>(<span class="fu">sort</span>(<span class="fu">unique</span>(sentiment)), <span class="at">collapse =</span> <span class="st">&quot;, &quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb450"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb450-1"><a href="text-analysis.html#cb450-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Show the number of words and unique sentiments in each lexicon</span></span>
+<span id="cb450-2"><a href="text-analysis.html#cb450-2" aria-hidden="true" tabindex="-1"></a>afinn <span class="sc">%&gt;%</span></span>
+<span id="cb450-3"><a href="text-analysis.html#cb450-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">num_words =</span> <span class="fu">n</span>(), <span class="at">values =</span> <span class="fu">paste</span>(<span class="fu">sort</span>(<span class="fu">unique</span>(value)), <span class="at">collapse =</span> <span class="st">&quot;, &quot;</span>))</span></code></pre></div>
+<pre><code>## Error in summarize(., num_words = n(), values = paste(sort(unique(value)), : object &#39;afinn&#39; not found</code></pre>
+<div class="sourceCode" id="cb452"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb452-1"><a href="text-analysis.html#cb452-1" aria-hidden="true" tabindex="-1"></a>nrc <span class="sc">%&gt;%</span></span>
+<span id="cb452-2"><a href="text-analysis.html#cb452-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">num_words =</span> <span class="fu">n</span>(), <span class="at">sentiments =</span> <span class="fu">paste</span>(<span class="fu">sort</span>(<span class="fu">unique</span>(sentiment)), <span class="at">collapse =</span> <span class="st">&quot;, &quot;</span>))</span></code></pre></div>
+<pre><code>## Error in summarize(., num_words = n(), sentiments = paste(sort(unique(sentiment)), : object &#39;nrc&#39; not found</code></pre>
+<div class="sourceCode" id="cb454"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb454-1"><a href="text-analysis.html#cb454-1" aria-hidden="true" tabindex="-1"></a>bing <span class="sc">%&gt;%</span></span>
+<span id="cb454-2"><a href="text-analysis.html#cb454-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">num_words =</span> <span class="fu">n</span>(), <span class="at">sentiments =</span> <span class="fu">paste</span>(<span class="fu">sort</span>(<span class="fu">unique</span>(sentiment)), <span class="at">collapse =</span> <span class="st">&quot;, &quot;</span>))</span></code></pre></div>
 <pre><code>## # A tibble: 1 × 2
 ##   num_words sentiments        
 ##       &lt;int&gt; &lt;chr&gt;             
@@ -2075,19 +948,19 @@ negative
 <p>All three of these lexicons are based on unigrams, i.e., single words. These lexicons contain many English words and the words are assigned scores for positive/negative sentiment, and also possibly emotions like joy, anger, sadness, and so forth. The <code>nrc</code> lexicon categorizes words in a binary fashion (“yes”/“no”) into categories of positive, negative, anger, anticipation, disgust, fear, joy, sadness, surprise, and trust. The <code>bing</code> lexicon categorizes words in a binary fashion into positive and negative categories. The <code>AFINN</code> lexicon assigns words with a score that runs between -5 and 5, with negative scores indicating negative sentiment and positive scores indicating positive sentiment. All of this information is tabulated in the <code>sentiments</code> dataset, and tidytext provides a function <code>get_sentiments()</code> to get specific sentiment lexicons without the columns that are not used in that lexicon.</p>
 </blockquote>
 <p>To apply these dictionaries, we need to create a Tidy Text data frame with words for each row and join it to the dictionary scores. Let’s give this a try using the <a href="https://www.macalester.edu/about/mission/">Macalester Statement of Purpose and Belief</a>. We start by creating the Tidy Text data frame:</p>
-<div class="sourceCode" id="cb405"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb405-1"><a href="text-analysis.html#cb405-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Declare a string containing the Macalester Statement of Purpose &amp; Belief</span></span>
-<span id="cb405-2"><a href="text-analysis.html#cb405-2" aria-hidden="true" tabindex="-1"></a>statement <span class="ot">&lt;-</span> <span class="st">&quot;At Macalester College we believe that education is a fundamentally transforming experience. As a community of learners, the possibilities for this personal, social, and intellectual transformation extend to us all. We affirm the importance of the intellectual growth of the students, staff and faculty through individual and collaborative endeavor. We believe that this can best be achieved through an environment that values the diverse cultures of our world and recognizes our responsibility to provide a supportive and respectful environment for students, staff and faculty of all cultures and backgrounds.</span></span>
-<span id="cb405-3"><a href="text-analysis.html#cb405-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb405-4"><a href="text-analysis.html#cb405-4" aria-hidden="true" tabindex="-1"></a><span class="st">We expect students to develop a broad understanding of the liberal arts while they are at Macalester. Students should follow a primary course of study in order to acquire an understanding of disciplinary theory and methodology; they should be able to apply their understanding of theories to address problems in the larger community. Students should develop the ability to use information and communication resources effectively, be adept at critical, analytical and logical thinking, and express themselves well in both oral and written forms. Finally, students should be prepared to take responsibility for their personal, social and intellectual choices.</span></span>
-<span id="cb405-5"><a href="text-analysis.html#cb405-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb405-6"><a href="text-analysis.html#cb405-6" aria-hidden="true" tabindex="-1"></a><span class="st">We believe that the benefit of the educational experience at Macalester is the development of individuals who make informed judgments and interpretations of the broader world around them and choose actions or beliefs for which they are willing to be held accountable. We expect them to develop the ability to seek and use knowledge and experience in contexts that challenge and inform their suppositions about the world. We are committed to helping students grow intellectually and personally within an environment that models and promotes academic excellence and ethical behavior. The education a student begins at Macalester provides the basis for continuous transformation through learning and service.&quot;</span></span>
-<span id="cb405-7"><a href="text-analysis.html#cb405-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb405-8"><a href="text-analysis.html#cb405-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Expand this into a tidy data frame, with one row per word</span></span>
-<span id="cb405-9"><a href="text-analysis.html#cb405-9" aria-hidden="true" tabindex="-1"></a>tidy_df <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">college =</span> <span class="fu">c</span>(<span class="st">&quot;Macalester College&quot;</span>), <span class="at">text =</span> statement) <span class="sc">%&gt;%</span></span>
-<span id="cb405-10"><a href="text-analysis.html#cb405-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unnest_tokens</span>(word, text)</span>
-<span id="cb405-11"><a href="text-analysis.html#cb405-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb405-12"><a href="text-analysis.html#cb405-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Display the data frame and the most popular words</span></span>
-<span id="cb405-13"><a href="text-analysis.html#cb405-13" aria-hidden="true" tabindex="-1"></a>tidy_df</span></code></pre></div>
+<div class="sourceCode" id="cb456"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb456-1"><a href="text-analysis.html#cb456-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Declare a string containing the Macalester Statement of Purpose &amp; Belief</span></span>
+<span id="cb456-2"><a href="text-analysis.html#cb456-2" aria-hidden="true" tabindex="-1"></a>statement <span class="ot">&lt;-</span> <span class="st">&quot;At Macalester College we believe that education is a fundamentally transforming experience. As a community of learners, the possibilities for this personal, social, and intellectual transformation extend to us all. We affirm the importance of the intellectual growth of the students, staff and faculty through individual and collaborative endeavor. We believe that this can best be achieved through an environment that values the diverse cultures of our world and recognizes our responsibility to provide a supportive and respectful environment for students, staff and faculty of all cultures and backgrounds.</span></span>
+<span id="cb456-3"><a href="text-analysis.html#cb456-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb456-4"><a href="text-analysis.html#cb456-4" aria-hidden="true" tabindex="-1"></a><span class="st">We expect students to develop a broad understanding of the liberal arts while they are at Macalester. Students should follow a primary course of study in order to acquire an understanding of disciplinary theory and methodology; they should be able to apply their understanding of theories to address problems in the larger community. Students should develop the ability to use information and communication resources effectively, be adept at critical, analytical and logical thinking, and express themselves well in both oral and written forms. Finally, students should be prepared to take responsibility for their personal, social and intellectual choices.</span></span>
+<span id="cb456-5"><a href="text-analysis.html#cb456-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb456-6"><a href="text-analysis.html#cb456-6" aria-hidden="true" tabindex="-1"></a><span class="st">We believe that the benefit of the educational experience at Macalester is the development of individuals who make informed judgments and interpretations of the broader world around them and choose actions or beliefs for which they are willing to be held accountable. We expect them to develop the ability to seek and use knowledge and experience in contexts that challenge and inform their suppositions about the world. We are committed to helping students grow intellectually and personally within an environment that models and promotes academic excellence and ethical behavior. The education a student begins at Macalester provides the basis for continuous transformation through learning and service.&quot;</span></span>
+<span id="cb456-7"><a href="text-analysis.html#cb456-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb456-8"><a href="text-analysis.html#cb456-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Expand this into a tidy data frame, with one row per word</span></span>
+<span id="cb456-9"><a href="text-analysis.html#cb456-9" aria-hidden="true" tabindex="-1"></a>tidy_df <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">college =</span> <span class="fu">c</span>(<span class="st">&quot;Macalester College&quot;</span>), <span class="at">text =</span> statement) <span class="sc">%&gt;%</span></span>
+<span id="cb456-10"><a href="text-analysis.html#cb456-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unnest_tokens</span>(word, text)</span>
+<span id="cb456-11"><a href="text-analysis.html#cb456-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb456-12"><a href="text-analysis.html#cb456-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Display the data frame and the most popular words</span></span>
+<span id="cb456-13"><a href="text-analysis.html#cb456-13" aria-hidden="true" tabindex="-1"></a>tidy_df</span></code></pre></div>
 <pre><code>## # A tibble: 293 × 2
 ##    college            word         
 ##    &lt;chr&gt;              &lt;chr&gt;        
@@ -2102,9 +975,9 @@ negative
 ##  9 Macalester College a            
 ## 10 Macalester College fundamentally
 ## # … with 283 more rows</code></pre>
-<div class="sourceCode" id="cb407"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb407-1"><a href="text-analysis.html#cb407-1" aria-hidden="true" tabindex="-1"></a>tidy_df <span class="sc">%&gt;%</span></span>
-<span id="cb407-2"><a href="text-analysis.html#cb407-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">anti_join</span>(stop_words) <span class="sc">%&gt;%</span></span>
-<span id="cb407-3"><a href="text-analysis.html#cb407-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(word)</span></code></pre></div>
+<div class="sourceCode" id="cb458"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb458-1"><a href="text-analysis.html#cb458-1" aria-hidden="true" tabindex="-1"></a>tidy_df <span class="sc">%&gt;%</span></span>
+<span id="cb458-2"><a href="text-analysis.html#cb458-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">anti_join</span>(stop_words) <span class="sc">%&gt;%</span></span>
+<span id="cb458-3"><a href="text-analysis.html#cb458-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(word)</span></code></pre></div>
 <pre><code>## # A tibble: 105 × 2
 ##    word            n
 ##    &lt;chr&gt;       &lt;int&gt;
@@ -2120,37 +993,16 @@ negative
 ## 10 analytical      1
 ## # … with 95 more rows</code></pre>
 <p>Next, we join this data frame with the lexicon. Let’s use nrc. Since we don’t care about words not in the lexicon, we will use an inner join.</p>
-<div class="sourceCode" id="cb409"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb409-1"><a href="text-analysis.html#cb409-1" aria-hidden="true" tabindex="-1"></a>tidy_df <span class="sc">%&gt;%</span></span>
-<span id="cb409-2"><a href="text-analysis.html#cb409-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">inner_join</span>(nrc) <span class="sc">%&gt;%</span></span>
-<span id="cb409-3"><a href="text-analysis.html#cb409-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(sentiment)</span></code></pre></div>
-<pre><code>## # A tibble: 9 × 2
-##   sentiment        n
-##   &lt;chr&gt;        &lt;int&gt;
-## 1 anger            1
-## 2 anticipation    12
-## 3 disgust          3
-## 4 fear             1
-## 5 joy              4
-## 6 negative         3
-## 7 positive        45
-## 8 surprise         4
-## 9 trust           25</code></pre>
+<div class="sourceCode" id="cb460"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb460-1"><a href="text-analysis.html#cb460-1" aria-hidden="true" tabindex="-1"></a>tidy_df <span class="sc">%&gt;%</span></span>
+<span id="cb460-2"><a href="text-analysis.html#cb460-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">inner_join</span>(nrc) <span class="sc">%&gt;%</span></span>
+<span id="cb460-3"><a href="text-analysis.html#cb460-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(sentiment)</span></code></pre></div>
+<pre><code>## Error in is.data.frame(y): object &#39;nrc&#39; not found</code></pre>
 <p>There are some odd sentiments for a mission statement (anger, disgust, fear, and negative). Let’s take a look at what words are contributing to them.</p>
-<div class="sourceCode" id="cb411"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb411-1"><a href="text-analysis.html#cb411-1" aria-hidden="true" tabindex="-1"></a>tidy_df <span class="sc">%&gt;%</span></span>
-<span id="cb411-2"><a href="text-analysis.html#cb411-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">inner_join</span>(nrc) <span class="sc">%&gt;%</span></span>
-<span id="cb411-3"><a href="text-analysis.html#cb411-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(sentiment <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;anger&quot;</span>, <span class="st">&quot;disgust&quot;</span>, <span class="st">&quot;fear&quot;</span>, <span class="st">&quot;negative&quot;</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb411-4"><a href="text-analysis.html#cb411-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(word, sentiment)</span></code></pre></div>
-<pre><code>## # A tibble: 8 × 2
-##   word       sentiment
-##   &lt;chr&gt;      &lt;chr&gt;    
-## 1 diverse    negative 
-## 2 liberal    negative 
-## 3 larger     disgust  
-## 4 finally    disgust  
-## 5 challenge  anger    
-## 6 challenge  fear     
-## 7 challenge  negative 
-## 8 excellence disgust</code></pre>
+<div class="sourceCode" id="cb462"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb462-1"><a href="text-analysis.html#cb462-1" aria-hidden="true" tabindex="-1"></a>tidy_df <span class="sc">%&gt;%</span></span>
+<span id="cb462-2"><a href="text-analysis.html#cb462-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">inner_join</span>(nrc) <span class="sc">%&gt;%</span></span>
+<span id="cb462-3"><a href="text-analysis.html#cb462-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(sentiment <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;anger&quot;</span>, <span class="st">&quot;disgust&quot;</span>, <span class="st">&quot;fear&quot;</span>, <span class="st">&quot;negative&quot;</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb462-4"><a href="text-analysis.html#cb462-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(word, sentiment)</span></code></pre></div>
+<pre><code>## Error in is.data.frame(y): object &#39;nrc&#39; not found</code></pre>
 <p>As you can see, word dictionaries are not perfect tools. When using them, make sure you look at the individual words contributing to the overall patterns to ensure they make sense.</p>
 </div>
 <div id="other-interesting-questions" class="section level3 unnumbered hasAnchor">
@@ -2242,7 +1094,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');

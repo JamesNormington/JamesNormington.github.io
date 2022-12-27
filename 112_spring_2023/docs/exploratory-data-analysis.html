@@ -5,19 +5,19 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Topic 12 Exploratory Data Analysis | COMP/STAT 112: Introduction to Data Science</title>
-  <meta name="description" content="This is the class website for Introduction to Data Science at Macalester College for Fall 2022." />
-  <meta name="generator" content="bookdown 0.27 and GitBook 2.6.7" />
+  <meta name="description" content="This is the class website for Introduction to Data Science at Macalester College for Spring 2023." />
+  <meta name="generator" content="bookdown 0.31 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Topic 12 Exploratory Data Analysis | COMP/STAT 112: Introduction to Data Science" />
   <meta property="og:type" content="book" />
   <meta property="og:image" content="/images/logo.png" />
-  <meta property="og:description" content="This is the class website for Introduction to Data Science at Macalester College for Fall 2022." />
-  <meta name="github-repo" content="bcheggeseth/112_fall_2022/" />
+  <meta property="og:description" content="This is the class website for Introduction to Data Science at Macalester College for Spring 2023." />
+  <meta name="github-repo" content="JamesNormington/112_spring_2023/" />
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Topic 12 Exploratory Data Analysis | COMP/STAT 112: Introduction to Data Science" />
   
-  <meta name="twitter:description" content="This is the class website for Introduction to Data Science at Macalester College for Fall 2022." />
+  <meta name="twitter:description" content="This is the class website for Introduction to Data Science at Macalester College for Spring 2023." />
   <meta name="twitter:image" content="/images/logo.png" />
 
 
@@ -60,15 +60,6 @@
 <script src="libs/leaflet-binding/leaflet.js"></script>
 <script src="libs/leaflet-providers/leaflet-providers_1.9.0.js"></script>
 <script src="libs/leaflet-providers-plugin/leaflet-providers-plugin.js"></script>
-<script src="libs/kePrint/kePrint.js"></script>
-<link href="libs/lightable/lightable.css" rel="stylesheet" />
-<link href="libs/dygraphs/dygraph.css" rel="stylesheet" />
-<script src="libs/dygraphs/dygraph-combined.js"></script>
-<script src="libs/dygraphs/shapes.js"></script>
-<script src="libs/moment/moment.js"></script>
-<script src="libs/moment-timezone/moment-timezone-with-data.js"></script>
-<script src="libs/moment-fquarter/moment-fquarter.min.js"></script>
-<script src="libs/dygraphs-binding/dygraphs.js"></script>
 <script src="libs/plotly-binding/plotly.js"></script>
 <script src="libs/typedarray/typedarray.min.js"></script>
 <link href="libs/crosstalk/css/crosstalk.min.css" rel="stylesheet" />
@@ -115,7 +106,7 @@ code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
+code span.bu { color: #008000; } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -128,7 +119,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
+code span.im { color: #008000; font-weight: bold; } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -605,9 +596,9 @@ Figure 12.1: The process of EDA, as described by Grolemund and Wickham.
 <li><code>tail()</code> to view the bottom of the data table</li>
 </ul>
 <p>Here is an example:</p>
-<div class="sourceCode" id="cb186"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb186-1"><a href="exploratory-data-analysis.html#cb186-1" aria-hidden="true" tabindex="-1"></a>crime <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;http://datasets.flowingdata.com/crimeRatesByState2005.csv&quot;</span>)</span>
-<span id="cb186-2"><a href="exploratory-data-analysis.html#cb186-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(crime)</span></code></pre></div>
-<pre><code>## spec_tbl_df [52 × 9] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
+<div class="sourceCode" id="cb200"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb200-1"><a href="exploratory-data-analysis.html#cb200-1" aria-hidden="true" tabindex="-1"></a>crime <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;http://datasets.flowingdata.com/crimeRatesByState2005.csv&quot;</span>)</span>
+<span id="cb200-2"><a href="exploratory-data-analysis.html#cb200-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(crime)</span></code></pre></div>
+<pre><code>## spc_tbl_ [52 × 9] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
 ##  $ state              : chr [1:52] &quot;United States&quot; &quot;Alabama&quot; &quot;Alaska&quot; &quot;Arizona&quot; ...
 ##  $ murder             : num [1:52] 5.6 8.2 4.8 7.5 6.7 6.9 3.7 2.9 4.4 35.4 ...
 ##  $ forcible_rape      : num [1:52] 31.7 34.3 81.1 33.8 42.9 26 43.4 20 44.7 30.2 ...
@@ -630,30 +621,30 @@ Figure 12.1: The process of EDA, as described by Grolemund and Wickham.
 ##   ..   population = col_double()
 ##   .. )
 ##  - attr(*, &quot;problems&quot;)=&lt;externalptr&gt;</code></pre>
-<div class="sourceCode" id="cb188"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb188-1"><a href="exploratory-data-analysis.html#cb188-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(crime)</span></code></pre></div>
+<div class="sourceCode" id="cb202"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb202-1"><a href="exploratory-data-analysis.html#cb202-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(crime)</span></code></pre></div>
 <pre><code>## # A tibble: 6 × 9
-##   state         murder forcible_rape robbery aggravated_ass…¹ burgl…² larce…³ motor…⁴ popul…⁵
-##   &lt;chr&gt;          &lt;dbl&gt;         &lt;dbl&gt;   &lt;dbl&gt;            &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;
-## 1 United States    5.6          31.7   141.              291.    727.   2286.    417.  2.96e8
-## 2 Alabama          8.2          34.3   141.              248.    954.   2650     288.  4.55e6
-## 3 Alaska           4.8          81.1    80.9             465.    622.   2599.    391   6.69e5
-## 4 Arizona          7.5          33.8   144.              327.    948.   2965.    924.  5.97e6
-## 5 Arkansas         6.7          42.9    91.1             387.   1085.   2711.    262.  2.78e6
-## 6 California       6.9          26     176.              317.    693.   1916.    713.  3.58e7
-## # … with abbreviated variable names ¹​aggravated_assault, ²​burglary, ³​larceny_theft,
-## #   ⁴​motor_vehicle_theft, ⁵​population</code></pre>
-<div class="sourceCode" id="cb190"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb190-1"><a href="exploratory-data-analysis.html#cb190-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span>(crime)</span></code></pre></div>
+##   state         murder forcibl…¹ robbery aggra…² burgl…³ larce…⁴ motor…⁵ popul…⁶
+##   &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;
+## 1 United States    5.6      31.7   141.     291.    727.   2286.    417.  2.96e8
+## 2 Alabama          8.2      34.3   141.     248.    954.   2650     288.  4.55e6
+## 3 Alaska           4.8      81.1    80.9    465.    622.   2599.    391   6.69e5
+## 4 Arizona          7.5      33.8   144.     327.    948.   2965.    924.  5.97e6
+## 5 Arkansas         6.7      42.9    91.1    387.   1085.   2711.    262.  2.78e6
+## 6 California       6.9      26     176.     317.    693.   1916.    713.  3.58e7
+## # … with abbreviated variable names ¹​forcible_rape, ²​aggravated_assault,
+## #   ³​burglary, ⁴​larceny_theft, ⁵​motor_vehicle_theft, ⁶​population</code></pre>
+<div class="sourceCode" id="cb204"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb204-1"><a href="exploratory-data-analysis.html#cb204-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span>(crime)</span></code></pre></div>
 <pre><code>## # A tibble: 6 × 9
-##   state         murder forcible_rape robbery aggravated_ass…¹ burgl…² larce…³ motor…⁴ popul…⁵
-##   &lt;chr&gt;          &lt;dbl&gt;         &lt;dbl&gt;   &lt;dbl&gt;            &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;
-## 1 Vermont          1.3          23.3    11.7             83.5    492.   1686.    103.  618814
-## 2 Virginia         6.1          22.7    99.2            155.     392.   2035     211. 7563887
-## 3 Washington       3.3          44.7    92.1            206.     960.   3150.    784. 6261282
-## 4 West Virginia    4.4          17.7    44.6            206.     621.   1794     210  1803920
-## 5 Wisconsin        3.5          20.6    82.2            135.     441.   1993.    227. 5541443
-## 6 Wyoming          2.7          24      15.3            188.     476.   2534.    145.  506242
-## # … with abbreviated variable names ¹​aggravated_assault, ²​burglary, ³​larceny_theft,
-## #   ⁴​motor_vehicle_theft, ⁵​population</code></pre>
+##   state         murder forcibl…¹ robbery aggra…² burgl…³ larce…⁴ motor…⁵ popul…⁶
+##   &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;
+## 1 Vermont          1.3      23.3    11.7    83.5    492.   1686.    103.  618814
+## 2 Virginia         6.1      22.7    99.2   155.     392.   2035     211. 7563887
+## 3 Washington       3.3      44.7    92.1   206.     960.   3150.    784. 6261282
+## 4 West Virginia    4.4      17.7    44.6   206.     621.   1794     210  1803920
+## 5 Wisconsin        3.5      20.6    82.2   135.     441.   1993.    227. 5541443
+## 6 Wyoming          2.7      24      15.3   188.     476.   2534.    145.  506242
+## # … with abbreviated variable names ¹​forcible_rape, ²​aggravated_assault,
+## #   ³​burglary, ⁴​larceny_theft, ⁵​motor_vehicle_theft, ⁶​population</code></pre>
 <p>Finally, ask yourself about the relationships between tables:</p>
 <ul>
 <li>What variables are keys and link the tables (i.e., which variables can you use in <code>join</code> commands)?</li>
@@ -672,25 +663,25 @@ Figure 12.1: The process of EDA, as described by Grolemund and Wickham.
 </ul>
 <p>Once you have done some univariate visualization, you might examine the <strong>covariation</strong> between different variables. One convenient way to do this is with a <code>pairs</code> plot.</p>
 <p>Here are three different versions of such plots based on 2005 crime data (rates per 100,000 population) from Chapter 6 of <em>Visualize This</em>, by Nathan Yau. The main point of such plots is not necessarily to draw any conclusions, but help generate more specific research questions and hypotheses.</p>
-<div class="sourceCode" id="cb192"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb192-1"><a href="exploratory-data-analysis.html#cb192-1" aria-hidden="true" tabindex="-1"></a>crime2 <span class="ot">&lt;-</span> crime <span class="sc">%&gt;%</span></span>
-<span id="cb192-2"><a href="exploratory-data-analysis.html#cb192-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(state <span class="sc">!=</span> <span class="st">&quot;District of Columbia&quot;</span>, state <span class="sc">!=</span> <span class="st">&quot;United States&quot;</span>)</span>
-<span id="cb192-3"><a href="exploratory-data-analysis.html#cb192-3" aria-hidden="true" tabindex="-1"></a><span class="fu">pairs</span>(crime2[, <span class="dv">2</span><span class="sc">:</span><span class="dv">9</span>], <span class="at">panel =</span> panel.smooth)</span></code></pre></div>
+<div class="sourceCode" id="cb206"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb206-1"><a href="exploratory-data-analysis.html#cb206-1" aria-hidden="true" tabindex="-1"></a>crime2 <span class="ot">&lt;-</span> crime <span class="sc">%&gt;%</span></span>
+<span id="cb206-2"><a href="exploratory-data-analysis.html#cb206-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(state <span class="sc">!=</span> <span class="st">&quot;District of Columbia&quot;</span>, state <span class="sc">!=</span> <span class="st">&quot;United States&quot;</span>)</span>
+<span id="cb206-3"><a href="exploratory-data-analysis.html#cb206-3" aria-hidden="true" tabindex="-1"></a><span class="fu">pairs</span>(crime2[, <span class="dv">2</span><span class="sc">:</span><span class="dv">9</span>], <span class="at">panel =</span> panel.smooth)</span></code></pre></div>
 <p><img src="stat112_manual_files/figure-html/unnamed-chunk-305-1.png" width="960" /></p>
-<div class="sourceCode" id="cb193"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb193-1"><a href="exploratory-data-analysis.html#cb193-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggpairs</span>(crime2[, <span class="dv">2</span><span class="sc">:</span><span class="dv">9</span>], <span class="fu">aes</span>(<span class="at">alpha =</span> <span class="fl">0.4</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb207"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb207-1"><a href="exploratory-data-analysis.html#cb207-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggpairs</span>(crime2[, <span class="dv">2</span><span class="sc">:</span><span class="dv">9</span>], <span class="fu">aes</span>(<span class="at">alpha =</span> <span class="fl">0.4</span>))</span></code></pre></div>
 <p><img src="stat112_manual_files/figure-html/unnamed-chunk-306-1.png" width="960" /></p>
-<div class="sourceCode" id="cb194"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb194-1"><a href="exploratory-data-analysis.html#cb194-1" aria-hidden="true" tabindex="-1"></a>lowerFn <span class="ot">&lt;-</span> <span class="cf">function</span>(data, mapping, <span class="at">method =</span> <span class="st">&quot;lm&quot;</span>, ...) {</span>
-<span id="cb194-2"><a href="exploratory-data-analysis.html#cb194-2" aria-hidden="true" tabindex="-1"></a>  p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> data, <span class="at">mapping =</span> mapping) <span class="sc">+</span></span>
-<span id="cb194-3"><a href="exploratory-data-analysis.html#cb194-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>(<span class="at">colour =</span> <span class="st">&quot;blue&quot;</span>) <span class="sc">+</span></span>
-<span id="cb194-4"><a href="exploratory-data-analysis.html#cb194-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_smooth</span>(<span class="at">method =</span> method, <span class="at">color =</span> <span class="st">&quot;red&quot;</span>, ...)</span>
-<span id="cb194-5"><a href="exploratory-data-analysis.html#cb194-5" aria-hidden="true" tabindex="-1"></a>  p</span>
-<span id="cb194-6"><a href="exploratory-data-analysis.html#cb194-6" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb194-7"><a href="exploratory-data-analysis.html#cb194-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb194-8"><a href="exploratory-data-analysis.html#cb194-8" aria-hidden="true" tabindex="-1"></a><span class="fu">ggpairs</span>(</span>
-<span id="cb194-9"><a href="exploratory-data-analysis.html#cb194-9" aria-hidden="true" tabindex="-1"></a>  crime2[, <span class="dv">2</span><span class="sc">:</span><span class="dv">9</span>],</span>
-<span id="cb194-10"><a href="exploratory-data-analysis.html#cb194-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">lower =</span> <span class="fu">list</span>(<span class="at">continuous =</span> <span class="fu">wrap</span>(lowerFn, <span class="at">method =</span> <span class="st">&quot;lm&quot;</span>)),</span>
-<span id="cb194-11"><a href="exploratory-data-analysis.html#cb194-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">diag =</span> <span class="fu">list</span>(<span class="at">continuous =</span> <span class="fu">wrap</span>(<span class="st">&quot;barDiag&quot;</span>, <span class="at">colour =</span> <span class="st">&quot;blue&quot;</span>)),</span>
-<span id="cb194-12"><a href="exploratory-data-analysis.html#cb194-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">upper =</span> <span class="fu">list</span>(<span class="at">continuous =</span> <span class="fu">wrap</span>(<span class="st">&quot;cor&quot;</span>, <span class="at">size =</span> <span class="dv">5</span>))</span>
-<span id="cb194-13"><a href="exploratory-data-analysis.html#cb194-13" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb208"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb208-1"><a href="exploratory-data-analysis.html#cb208-1" aria-hidden="true" tabindex="-1"></a>lowerFn <span class="ot">&lt;-</span> <span class="cf">function</span>(data, mapping, <span class="at">method =</span> <span class="st">&quot;lm&quot;</span>, ...) {</span>
+<span id="cb208-2"><a href="exploratory-data-analysis.html#cb208-2" aria-hidden="true" tabindex="-1"></a>  p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> data, <span class="at">mapping =</span> mapping) <span class="sc">+</span></span>
+<span id="cb208-3"><a href="exploratory-data-analysis.html#cb208-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>(<span class="at">colour =</span> <span class="st">&quot;blue&quot;</span>) <span class="sc">+</span></span>
+<span id="cb208-4"><a href="exploratory-data-analysis.html#cb208-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_smooth</span>(<span class="at">method =</span> method, <span class="at">color =</span> <span class="st">&quot;red&quot;</span>, ...)</span>
+<span id="cb208-5"><a href="exploratory-data-analysis.html#cb208-5" aria-hidden="true" tabindex="-1"></a>  p</span>
+<span id="cb208-6"><a href="exploratory-data-analysis.html#cb208-6" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb208-7"><a href="exploratory-data-analysis.html#cb208-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb208-8"><a href="exploratory-data-analysis.html#cb208-8" aria-hidden="true" tabindex="-1"></a><span class="fu">ggpairs</span>(</span>
+<span id="cb208-9"><a href="exploratory-data-analysis.html#cb208-9" aria-hidden="true" tabindex="-1"></a>  crime2[, <span class="dv">2</span><span class="sc">:</span><span class="dv">9</span>],</span>
+<span id="cb208-10"><a href="exploratory-data-analysis.html#cb208-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">lower =</span> <span class="fu">list</span>(<span class="at">continuous =</span> <span class="fu">wrap</span>(lowerFn, <span class="at">method =</span> <span class="st">&quot;lm&quot;</span>)),</span>
+<span id="cb208-11"><a href="exploratory-data-analysis.html#cb208-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">diag =</span> <span class="fu">list</span>(<span class="at">continuous =</span> <span class="fu">wrap</span>(<span class="st">&quot;barDiag&quot;</span>, <span class="at">colour =</span> <span class="st">&quot;blue&quot;</span>)),</span>
+<span id="cb208-12"><a href="exploratory-data-analysis.html#cb208-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">upper =</span> <span class="fu">list</span>(<span class="at">continuous =</span> <span class="fu">wrap</span>(<span class="st">&quot;cor&quot;</span>, <span class="at">size =</span> <span class="dv">5</span>))</span>
+<span id="cb208-13"><a href="exploratory-data-analysis.html#cb208-13" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
 <p><img src="stat112_manual_files/figure-html/unnamed-chunk-307-1.png" width="960" /></p>
 </div>
 <div id="formulate-a-research-question" class="section level2 unnumbered hasAnchor">
@@ -711,9 +702,9 @@ Figure 12.1: The process of EDA, as described by Grolemund and Wickham.
 <h2>Practice: Flight Data<a href="exploratory-data-analysis.html#practice-flight-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Let’s practice these steps using data about <a href="https://www.kaggle.com/usdot/flight-delays">flight delays from Kaggle</a>. You have access to the data for <a href="data/airlines.csv">airlines</a>, <a href="data/airports.csv">airports</a>, and <a href="data/flights_jan_jul_sample2.csv">flights</a>.</p>
 <p>There are three tables of data:</p>
-<div class="sourceCode" id="cb195"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb195-1"><a href="exploratory-data-analysis.html#cb195-1" aria-hidden="true" tabindex="-1"></a>airlines <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://bcheggeseth.github.io/112_fall_2022/data/airlines.csv&quot;</span>)</span>
-<span id="cb195-2"><a href="exploratory-data-analysis.html#cb195-2" aria-hidden="true" tabindex="-1"></a>airports <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://bcheggeseth.github.io/112_fall_2022/data/airports.csv&quot;</span>)</span>
-<span id="cb195-3"><a href="exploratory-data-analysis.html#cb195-3" aria-hidden="true" tabindex="-1"></a>flights <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://bcheggeseth.github.io/112_fall_2022/data/flights_jan_jul_sample2.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb209"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb209-1"><a href="exploratory-data-analysis.html#cb209-1" aria-hidden="true" tabindex="-1"></a>airlines <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://bcheggeseth.github.io/112_fall_2022/data/airlines.csv&quot;</span>)</span>
+<span id="cb209-2"><a href="exploratory-data-analysis.html#cb209-2" aria-hidden="true" tabindex="-1"></a>airports <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://bcheggeseth.github.io/112_fall_2022/data/airports.csv&quot;</span>)</span>
+<span id="cb209-3"><a href="exploratory-data-analysis.html#cb209-3" aria-hidden="true" tabindex="-1"></a>flights <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://bcheggeseth.github.io/112_fall_2022/data/flights_jan_jul_sample2.csv&quot;</span>)</span></code></pre></div>
 <p>Note that the full set of flight data has more than 5.8 million flights. To start, I have given you a subset that includes all flights in the first 15 days of January 2015 and in the first 15 days of July 2015. If at the end you wish to try your analysis on the whole data set, you can download the original .csv file from the Kaggle page and substitute a link to it in the code chunk above.</p>
 <p>There is a ton of data here, and it can be easy to be overwhelmed. We are going to focus our exploration a bit by considering the following broad research question: <strong>which flights are most likely to be delayed?</strong></p>
 <div class="exercise">
@@ -821,7 +812,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');

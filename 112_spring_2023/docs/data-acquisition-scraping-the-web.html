@@ -5,19 +5,19 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Data Acquisition: Scraping the Web | COMP/STAT 112: Introduction to Data Science</title>
-  <meta name="description" content="This is the class website for Introduction to Data Science at Macalester College for Fall 2022." />
-  <meta name="generator" content="bookdown 0.27 and GitBook 2.6.7" />
+  <meta name="description" content="This is the class website for Introduction to Data Science at Macalester College for Spring 2023." />
+  <meta name="generator" content="bookdown 0.31 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Data Acquisition: Scraping the Web | COMP/STAT 112: Introduction to Data Science" />
   <meta property="og:type" content="book" />
   <meta property="og:image" content="/images/logo.png" />
-  <meta property="og:description" content="This is the class website for Introduction to Data Science at Macalester College for Fall 2022." />
-  <meta name="github-repo" content="bcheggeseth/112_fall_2022/" />
+  <meta property="og:description" content="This is the class website for Introduction to Data Science at Macalester College for Spring 2023." />
+  <meta name="github-repo" content="JamesNormington/112_spring_2023/" />
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Data Acquisition: Scraping the Web | COMP/STAT 112: Introduction to Data Science" />
   
-  <meta name="twitter:description" content="This is the class website for Introduction to Data Science at Macalester College for Fall 2022." />
+  <meta name="twitter:description" content="This is the class website for Introduction to Data Science at Macalester College for Spring 2023." />
   <meta name="twitter:image" content="/images/logo.png" />
 
 
@@ -60,15 +60,6 @@
 <script src="libs/leaflet-binding/leaflet.js"></script>
 <script src="libs/leaflet-providers/leaflet-providers_1.9.0.js"></script>
 <script src="libs/leaflet-providers-plugin/leaflet-providers-plugin.js"></script>
-<script src="libs/kePrint/kePrint.js"></script>
-<link href="libs/lightable/lightable.css" rel="stylesheet" />
-<link href="libs/dygraphs/dygraph.css" rel="stylesheet" />
-<script src="libs/dygraphs/dygraph-combined.js"></script>
-<script src="libs/dygraphs/shapes.js"></script>
-<script src="libs/moment/moment.js"></script>
-<script src="libs/moment-timezone/moment-timezone-with-data.js"></script>
-<script src="libs/moment-fquarter/moment-fquarter.min.js"></script>
-<script src="libs/dygraphs-binding/dygraphs.js"></script>
 <script src="libs/plotly-binding/plotly.js"></script>
 <script src="libs/typedarray/typedarray.min.js"></script>
 <link href="libs/crosstalk/css/crosstalk.min.css" rel="stylesheet" />
@@ -115,7 +106,7 @@ code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
+code span.bu { color: #008000; } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -128,7 +119,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
+code span.im { color: #008000; font-weight: bold; } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -612,22 +603,22 @@ Figure 14.3: Results for the Selector Gadget after selecting the day field.
 <div id="retrieving-data-using-rvest-and-css-selector" class="section level3 unnumbered hasAnchor">
 <h3>Retrieving Data Using <code>rvest</code> and CSS Selector<a href="data-acquisition-scraping-the-web.html#retrieving-data-using-rvest-and-css-selector" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Now that we have identified CSS selectors for the information we need, let’s fetch the data in <code>R</code>. We will be using the <code>rvest</code> package, which retrieves information from a webpage and turns it into R data tables:</p>
-<div class="sourceCode" id="cb263"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb263-1"><a href="data-acquisition-scraping-the-web.html#cb263-1" aria-hidden="true" tabindex="-1"></a>fall2021 <span class="ot">&lt;-</span> <span class="fu">read_html</span>(<span class="st">&quot;https://www.macalester.edu/registrar/schedules/2021fall/class-schedule&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb277"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb277-1"><a href="data-acquisition-scraping-the-web.html#cb277-1" aria-hidden="true" tabindex="-1"></a>fall2021 <span class="ot">&lt;-</span> <span class="fu">read_html</span>(<span class="st">&quot;https://www.macalester.edu/registrar/schedules/2021fall/class-schedule&quot;</span>)</span></code></pre></div>
 <p>Once the webpage is loaded, we can retrieve data using the CSS selectors we specified earlier. The following code retrieves the course numbers and names as a vector:</p>
-<div class="sourceCode" id="cb264"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb264-1"><a href="data-acquisition-scraping-the-web.html#cb264-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Retrieve and inspect course numbers</span></span>
-<span id="cb264-2"><a href="data-acquisition-scraping-the-web.html#cb264-2" aria-hidden="true" tabindex="-1"></a>course_nums <span class="ot">&lt;-</span></span>
-<span id="cb264-3"><a href="data-acquisition-scraping-the-web.html#cb264-3" aria-hidden="true" tabindex="-1"></a>  fall2021 <span class="sc">%&gt;%</span></span>
-<span id="cb264-4"><a href="data-acquisition-scraping-the-web.html#cb264-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">html_nodes</span>(<span class="st">&quot;.class-schedule-course-number&quot;</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb264-5"><a href="data-acquisition-scraping-the-web.html#cb264-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">html_text</span>()</span>
-<span id="cb264-6"><a href="data-acquisition-scraping-the-web.html#cb264-6" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(course_nums)</span></code></pre></div>
-<pre><code>## [1] &quot;AMST 194-01 10068&quot; &quot;AMST 194-02 10069&quot; &quot;AMST 209-01 10781&quot; &quot;AMST 219-01 10782&quot;
-## [5] &quot;AMST 225-01 10420&quot; &quot;AMST 240-01 10271&quot;</code></pre>
-<div class="sourceCode" id="cb266"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb266-1"><a href="data-acquisition-scraping-the-web.html#cb266-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Retrieve and inspect course names</span></span>
-<span id="cb266-2"><a href="data-acquisition-scraping-the-web.html#cb266-2" aria-hidden="true" tabindex="-1"></a>course_names <span class="ot">&lt;-</span></span>
-<span id="cb266-3"><a href="data-acquisition-scraping-the-web.html#cb266-3" aria-hidden="true" tabindex="-1"></a>  fall2021 <span class="sc">%&gt;%</span></span>
-<span id="cb266-4"><a href="data-acquisition-scraping-the-web.html#cb266-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">html_nodes</span>(<span class="st">&quot;.class-schedule-course-title&quot;</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb266-5"><a href="data-acquisition-scraping-the-web.html#cb266-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">html_text</span>()</span>
-<span id="cb266-6"><a href="data-acquisition-scraping-the-web.html#cb266-6" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(course_names)</span></code></pre></div>
+<div class="sourceCode" id="cb278"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb278-1"><a href="data-acquisition-scraping-the-web.html#cb278-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Retrieve and inspect course numbers</span></span>
+<span id="cb278-2"><a href="data-acquisition-scraping-the-web.html#cb278-2" aria-hidden="true" tabindex="-1"></a>course_nums <span class="ot">&lt;-</span></span>
+<span id="cb278-3"><a href="data-acquisition-scraping-the-web.html#cb278-3" aria-hidden="true" tabindex="-1"></a>  fall2021 <span class="sc">%&gt;%</span></span>
+<span id="cb278-4"><a href="data-acquisition-scraping-the-web.html#cb278-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">html_nodes</span>(<span class="st">&quot;.class-schedule-course-number&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb278-5"><a href="data-acquisition-scraping-the-web.html#cb278-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">html_text</span>()</span>
+<span id="cb278-6"><a href="data-acquisition-scraping-the-web.html#cb278-6" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(course_nums)</span></code></pre></div>
+<pre><code>## [1] &quot;AMST 194-01 10068&quot; &quot;AMST 194-02 10069&quot; &quot;AMST 209-01 10781&quot;
+## [4] &quot;AMST 219-01 10782&quot; &quot;AMST 225-01 10420&quot; &quot;AMST 240-01 10271&quot;</code></pre>
+<div class="sourceCode" id="cb280"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb280-1"><a href="data-acquisition-scraping-the-web.html#cb280-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Retrieve and inspect course names</span></span>
+<span id="cb280-2"><a href="data-acquisition-scraping-the-web.html#cb280-2" aria-hidden="true" tabindex="-1"></a>course_names <span class="ot">&lt;-</span></span>
+<span id="cb280-3"><a href="data-acquisition-scraping-the-web.html#cb280-3" aria-hidden="true" tabindex="-1"></a>  fall2021 <span class="sc">%&gt;%</span></span>
+<span id="cb280-4"><a href="data-acquisition-scraping-the-web.html#cb280-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">html_nodes</span>(<span class="st">&quot;.class-schedule-course-title&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb280-5"><a href="data-acquisition-scraping-the-web.html#cb280-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">html_text</span>()</span>
+<span id="cb280-6"><a href="data-acquisition-scraping-the-web.html#cb280-6" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(course_names)</span></code></pre></div>
 <pre><code>## [1] &quot;The Obama Presidency&quot;                                                              
 ## [2] &quot;Introduction to Asian American Studies&quot;                                            
 ## [3] &quot;Civil Rights Movement&quot;                                                             
@@ -636,29 +627,30 @@ Figure 14.3: Results for the Selector Gadget after selecting the day field.
 ## [6] &quot;Race, Culture, and Ethnicity in Education&quot;</code></pre>
 <p>At the end of each course number entry is a 5 digit number, which is CRN number used internally for the registrar’s office. Let’s put that in its own variable.</p>
 <p>To clean up the course number data, we can chop off the last 6 characters of each entry using the command <code>sub_str</code> from the <code>stringr</code> package:<a href="#fn19" class="footnote-ref" id="fnref19"><sup>19</sup></a></p>
-<div class="sourceCode" id="cb268"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb268-1"><a href="data-acquisition-scraping-the-web.html#cb268-1" aria-hidden="true" tabindex="-1"></a>course_nums_clean <span class="ot">&lt;-</span> stringr<span class="sc">::</span><span class="fu">str_sub</span>(course_nums, <span class="at">end =</span> <span class="fu">nchar</span>(course_nums) <span class="sc">-</span> <span class="dv">6</span>)</span>
-<span id="cb268-2"><a href="data-acquisition-scraping-the-web.html#cb268-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(course_nums_clean)</span></code></pre></div>
-<pre><code>## [1] &quot;AMST 194-01&quot; &quot;AMST 194-02&quot; &quot;AMST 209-01&quot; &quot;AMST 219-01&quot; &quot;AMST 225-01&quot; &quot;AMST 240-01&quot;</code></pre>
-<div class="sourceCode" id="cb270"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb270-1"><a href="data-acquisition-scraping-the-web.html#cb270-1" aria-hidden="true" tabindex="-1"></a>crn <span class="ot">&lt;-</span> stringr<span class="sc">::</span><span class="fu">str_sub</span>(course_nums, <span class="at">start =</span> <span class="fu">nchar</span>(course_nums) <span class="sc">-</span> <span class="dv">4</span>)</span>
-<span id="cb270-2"><a href="data-acquisition-scraping-the-web.html#cb270-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(crn)</span></code></pre></div>
+<div class="sourceCode" id="cb282"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb282-1"><a href="data-acquisition-scraping-the-web.html#cb282-1" aria-hidden="true" tabindex="-1"></a>course_nums_clean <span class="ot">&lt;-</span> stringr<span class="sc">::</span><span class="fu">str_sub</span>(course_nums, <span class="at">end =</span> <span class="fu">nchar</span>(course_nums) <span class="sc">-</span> <span class="dv">6</span>)</span>
+<span id="cb282-2"><a href="data-acquisition-scraping-the-web.html#cb282-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(course_nums_clean)</span></code></pre></div>
+<pre><code>## [1] &quot;AMST 194-01&quot; &quot;AMST 194-02&quot; &quot;AMST 209-01&quot; &quot;AMST 219-01&quot; &quot;AMST 225-01&quot;
+## [6] &quot;AMST 240-01&quot;</code></pre>
+<div class="sourceCode" id="cb284"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb284-1"><a href="data-acquisition-scraping-the-web.html#cb284-1" aria-hidden="true" tabindex="-1"></a>crn <span class="ot">&lt;-</span> stringr<span class="sc">::</span><span class="fu">str_sub</span>(course_nums, <span class="at">start =</span> <span class="fu">nchar</span>(course_nums) <span class="sc">-</span> <span class="dv">4</span>)</span>
+<span id="cb284-2"><a href="data-acquisition-scraping-the-web.html#cb284-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(crn)</span></code></pre></div>
 <pre><code>## [1] &quot;10068&quot; &quot;10069&quot; &quot;10781&quot; &quot;10782&quot; &quot;10420&quot; &quot;10271&quot;</code></pre>
-<div class="sourceCode" id="cb272"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb272-1"><a href="data-acquisition-scraping-the-web.html#cb272-1" aria-hidden="true" tabindex="-1"></a>course_df <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">number =</span> course_nums_clean,<span class="at">crn =</span> crn, <span class="at">name =</span> course_names)</span>
-<span id="cb272-2"><a href="data-acquisition-scraping-the-web.html#cb272-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(course_df)</span></code></pre></div>
+<div class="sourceCode" id="cb286"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb286-1"><a href="data-acquisition-scraping-the-web.html#cb286-1" aria-hidden="true" tabindex="-1"></a>course_df <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">number =</span> course_nums_clean,<span class="at">crn =</span> crn, <span class="at">name =</span> course_names)</span>
+<span id="cb286-2"><a href="data-acquisition-scraping-the-web.html#cb286-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(course_df)</span></code></pre></div>
 <pre><code>## # A tibble: 6 × 3
-##   number      crn   name                                                                     
-##   &lt;chr&gt;       &lt;chr&gt; &lt;chr&gt;                                                                    
-## 1 AMST 194-01 10068 The Obama Presidency                                                     
-## 2 AMST 194-02 10069 Introduction to Asian American Studies                                   
-## 3 AMST 209-01 10781 Civil Rights Movement                                                    
-## 4 AMST 219-01 10782 In Motion: African Americans in the US (African Americans in Digital Tec…
-## 5 AMST 225-01 10420 Native History to 1871                                                   
+##   number      crn   name                                                        
+##   &lt;chr&gt;       &lt;chr&gt; &lt;chr&gt;                                                       
+## 1 AMST 194-01 10068 The Obama Presidency                                        
+## 2 AMST 194-02 10069 Introduction to Asian American Studies                      
+## 3 AMST 209-01 10781 Civil Rights Movement                                       
+## 4 AMST 219-01 10782 In Motion: African Americans in the US (African Americans i…
+## 5 AMST 225-01 10420 Native History to 1871                                      
 ## 6 AMST 240-01 10271 Race, Culture, and Ethnicity in Education</code></pre>
 <p>What happens when we try to grab the instructors in the same manner?</p>
-<div class="sourceCode" id="cb274"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb274-1"><a href="data-acquisition-scraping-the-web.html#cb274-1" aria-hidden="true" tabindex="-1"></a>course_instructors <span class="ot">&lt;-</span></span>
-<span id="cb274-2"><a href="data-acquisition-scraping-the-web.html#cb274-2" aria-hidden="true" tabindex="-1"></a>  fall2021 <span class="sc">%&gt;%</span></span>
-<span id="cb274-3"><a href="data-acquisition-scraping-the-web.html#cb274-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">html_nodes</span>(<span class="st">&quot;.class-schedule-label:nth-child(6)&quot;</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb274-4"><a href="data-acquisition-scraping-the-web.html#cb274-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">html_text</span>()</span>
-<span id="cb274-5"><a href="data-acquisition-scraping-the-web.html#cb274-5" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(course_instructors)</span></code></pre></div>
+<div class="sourceCode" id="cb288"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb288-1"><a href="data-acquisition-scraping-the-web.html#cb288-1" aria-hidden="true" tabindex="-1"></a>course_instructors <span class="ot">&lt;-</span></span>
+<span id="cb288-2"><a href="data-acquisition-scraping-the-web.html#cb288-2" aria-hidden="true" tabindex="-1"></a>  fall2021 <span class="sc">%&gt;%</span></span>
+<span id="cb288-3"><a href="data-acquisition-scraping-the-web.html#cb288-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">html_nodes</span>(<span class="st">&quot;.class-schedule-label:nth-child(6)&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb288-4"><a href="data-acquisition-scraping-the-web.html#cb288-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">html_text</span>()</span>
+<span id="cb288-5"><a href="data-acquisition-scraping-the-web.html#cb288-5" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(course_instructors)</span></code></pre></div>
 <pre><code>## [1] &quot;\n                    Instructor: Duchess Harris\n                &quot;   
 ## [2] &quot;\n                    Instructor: Jake Nagasawa\n                &quot;    
 ## [3] &quot;\n                    Instructor: Walter Greason\n                &quot;   
@@ -673,10 +665,10 @@ Figure 14.4: View of the schedule when the browser window is narrower.
 </p>
 </div>
 <p>To clean up the data, we can chop off the white space with <code>trimws</code> and then first 12 characters of each entry using the command <code>sub_str</code> from the <code>stringr</code> package:<a href="#fn20" class="footnote-ref" id="fnref20"><sup>20</sup></a></p>
-<div class="sourceCode" id="cb276"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb276-1"><a href="data-acquisition-scraping-the-web.html#cb276-1" aria-hidden="true" tabindex="-1"></a>course_instructors_short <span class="ot">&lt;-</span> stringr<span class="sc">::</span><span class="fu">str_sub</span>(<span class="fu">trimws</span>(course_instructors), <span class="at">start =</span> <span class="dv">13</span>)</span>
-<span id="cb276-2"><a href="data-acquisition-scraping-the-web.html#cb276-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(course_instructors_short)</span></code></pre></div>
-<pre><code>## [1] &quot;Duchess Harris&quot;    &quot;Jake Nagasawa&quot;     &quot;Walter Greason&quot;    &quot;Walter Greason&quot;   
-## [5] &quot;Katrina Phillips&quot;  &quot;Jonathan Hamilton&quot;</code></pre>
+<div class="sourceCode" id="cb290"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb290-1"><a href="data-acquisition-scraping-the-web.html#cb290-1" aria-hidden="true" tabindex="-1"></a>course_instructors_short <span class="ot">&lt;-</span> stringr<span class="sc">::</span><span class="fu">str_sub</span>(<span class="fu">trimws</span>(course_instructors), <span class="at">start =</span> <span class="dv">13</span>)</span>
+<span id="cb290-2"><a href="data-acquisition-scraping-the-web.html#cb290-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(course_instructors_short)</span></code></pre></div>
+<pre><code>## [1] &quot;Duchess Harris&quot;    &quot;Jake Nagasawa&quot;     &quot;Walter Greason&quot;   
+## [4] &quot;Walter Greason&quot;    &quot;Katrina Phillips&quot;  &quot;Jonathan Hamilton&quot;</code></pre>
 <div class="exercise">
 <p><span id="exr:unnamed-chunk-358" class="exercise"><strong>Exercise 14.9  </strong></span>Create a data table that contains all the information about courses you found selectors for earlier (7 columns). Do not include any extraneous information like “Instructor:”.</p>
 </div>
@@ -787,7 +779,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');
