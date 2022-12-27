@@ -1,6 +1,6 @@
 book_filename: "stat112_manual"
-output_dir: docs
 delete_merged_file: true
+output_dir: "docs"
 rmd_files: ["index.Rmd","schedule.Rmd",  "learning_objectives.Rmd", "01-RStudio_Intro.Rmd","02-Intro_Data_Viz.Rmd","03-Effective_Viz.Rmd","04-Bivariate_Viz.Rmd","05-Multivariate_Viz.Rmd","06-Spatial_Viz.Rmd","07-Six_Main_Verbs.Rmd","08-Reshaping_Data.Rmd","09-Join.Rmd","10-Factors.Rmd","11-Mini_Project.Rmd","12-EDA.Rmd","13-Data_Import.Rmd","14-Regex.Rmd","15-Data_Scraping.Rmd","16-API.Rmd","17-SQL.Rmd","18-Text_Analysis.Rmd","19-Adv_Viz.Rmd","20-Shiny.Rmd","21-Prez_Tools.Rmd"]
 language:
   ui:
