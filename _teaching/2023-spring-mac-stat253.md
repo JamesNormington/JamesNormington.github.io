@@ -7,5 +7,5 @@ date: 2023-01-01
 location: "Macalester College"
 ---
 
-[Syllabus, as of Jan 21, 2023...](http://jamesnormington.github.io/files/STAT 253 Spring 2023 Syllabus.pdf)
+[Syllabus, as of Jan 23, 2023...](http://jamesnormington.github.io/files/STAT 253 Spring 2023 Syllabus.pdf)
 [...Course Website...](http://jamesnormington.github.io/253_spring_2023)
