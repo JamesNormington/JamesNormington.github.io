@@ -7,5 +7,5 @@ date: 2023-01-01
 location: "Macalester College"
 ---
 
-[Syllabus, as of Jan 15, 2023...](http://jamesnormington.github.io/files/COMP_STAT 112 Spring 2023 Syllabus.pdf)
+[Syllabus, as of Feb 2, 2023...](http://jamesnormington.github.io/files/COMP_STAT 112 Spring 2023 Syllabus.pdf)
 [...Course Website...](http://jamesnormington.github.io/112_spring_2023)
